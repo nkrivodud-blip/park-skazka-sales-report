@@ -38,7 +38,7 @@ const money = (value: number) =>
   new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 0 }).format(value);
 
 function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string }) {
-  const [shown, setShown] = useState(0);
+  const [shown, setShown] = useState(value);
   useEffect(() => {
     const start = performance.now();
     const duration = 900;
