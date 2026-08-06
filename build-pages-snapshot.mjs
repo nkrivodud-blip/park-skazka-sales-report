@@ -1,56 +1,62 @@
 import fs from "node:fs/promises";
 
-const response = await fetch("http://localhost:3000/");
-if (!response.ok) throw new Error(`Preview returned ${response.status}`);
+const workerUrl = new URL("./dist/server/index.js", import.meta.url);
+workerUrl.searchParams.set("pages", `${Date.now()}`);
+const { default: worker } = await import(workerUrl.href);
+
+const response = await worker.fetch(
+  new Request("http://localhost/", { headers: { accept: "text/html" } }),
+  { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+  { waitUntil() {}, passThroughOnException() {} },
+);
+
+if (!response.ok) throw new Error(`Static render returned ${response.status}`);
 
 const source = await response.text();
-const main = source.match(/<main[\s\S]*?<\/main>/)?.[0];
-if (!main) throw new Error("Rendered page content was not found");
+let main = source.match(/<main[\s\S]*?<\/main>/)?.[0];
+if (!main) throw new Error("Rendered report content was not found");
+
+const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const setCounter = (label, value) => {
+  const pattern = new RegExp(`(<span>${escapeRegExp(label)}<\\/span><strong>)[\\s\\S]*?(<\\/strong>)`);
+  if (!pattern.test(main)) throw new Error(`Counter label not found: ${label}`);
+  main = main.replace(pattern, `$1${value}$2`);
+};
+
+setCounter("Прогноз к цели 65 млн ₽", "22,2%");
+setCounter("Raw после сверки смет", "24,21 млн ₽");
+setCounter("Взвешенный прогноз", "14,42 млн ₽");
+setCounter("Лидов без дублей", "2 062");
+setCounter("Разрыв до цели", "50,58 млн ₽");
 
 const rawCss = await fs.readFile("app/globals.css", "utf8");
-const css = rawCss
-  .replace('@import "tailwindcss";', "")
-  .replace(/url\("\//g, 'url("./');
+const css = rawCss.replace(/url\((["']?)\//g, "url($1./");
 
 const html = `<!doctype html>
 <html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#11181c">
-  <title>Парк Сказка — отчёт по продажам</title>
-  <meta name="description" content="Интерактивный отчёт по лидам и сделкам B2B/B2C за апрель–июль 2026 года.">
-  <meta property="og:title" content="Парк Сказка — отчёт по продажам">
-  <meta property="og:description" content="33,67 млн ₽ выручки: аналитика лидов и сделок B2B/B2C.">
-  <meta property="og:image" content="./og.png">
+  <meta name="theme-color" content="#f5f7f8">
+  <title>Продажи · Август 2026 · Парк Сказка</title>
+  <meta name="description" content="Управленческий отчёт по лидам, сделкам B2C и B2B, планам менеджеров и загрузке площадок за август 2026 года.">
+  <meta property="og:title" content="Продажи Парка Сказка · Август 2026">
+  <meta property="og:description" content="Pipeline, оплаченный контур, выполнение планов и загрузка площадок.">
+  <link rel="icon" href="./favicon.svg">
   <style>${css}</style>
 </head>
 <body>
 ${main}
-<script>
-const data = {
-  all: { deals: 865, wins: 230, revenue: "33 666 864 ₽", conversion: "26.6%" },
-  b2c: { deals: 794, wins: 223, revenue: "27 084 491 ₽", conversion: "28.1%" },
-  b2b: { deals: 71, wins: 7, revenue: "6 582 373 ₽", conversion: "9.9%" }
-};
-document.querySelectorAll(".segmented button").forEach((button, index) => {
-  button.addEventListener("click", () => {
-    document.querySelectorAll(".segmented button").forEach((item) => item.classList.remove("active"));
-    button.classList.add("active");
-    const key = ["all", "b2c", "b2b"][index];
-    const value = data[key];
-    document.querySelector(".segment-value strong").textContent = value.revenue;
-    const stats = document.querySelectorAll(".segment-stats b");
-    stats[0].textContent = value.deals;
-    stats[1].textContent = value.wins;
-    stats[2].textContent = value.conversion;
-  });
-});
-</script>
 </body>
 </html>`;
 
 await fs.mkdir(".pages", { recursive: true });
 await fs.writeFile(".pages/index.html", html, "utf8");
-await fs.copyFile("public/og.png", ".pages/og.png");
 await fs.writeFile(".pages/.nojekyll", "", "utf8");
+await fs.copyFile("public/favicon.svg", ".pages/favicon.svg");
+
+try {
+  await fs.copyFile("public/og.png", ".pages/og.png");
+} catch (error) {
+  if (error?.code !== "ENOENT") throw error;
+}

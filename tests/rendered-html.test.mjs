@@ -1,11 +1,5 @@
 import assert from "node:assert/strict";
-import { access, readFile, readdir } from "node:fs/promises";
 import test from "node:test";
-
-const developmentPreviewMeta =
-  /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
-const templateRoot = new URL("../", import.meta.url);
-const previewRoot = new URL("../app/_sites-preview/", import.meta.url);
 
 async function render() {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -13,79 +7,47 @@ async function render() {
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("http://localhost/", {
-      headers: { accept: "text/html" },
-    }),
-    {
-      ASSETS: {
-        fetch: async () => new Response("Not found", { status: 404 }),
-      },
-    },
-    {
-      waitUntil() {},
-      passThroughOnException() {},
-    },
+    new Request("http://localhost/", { headers: { accept: "text/html" } }),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+    { waitUntil() {}, passThroughOnException() {} },
   );
 }
 
-test("server-renders the starter loading skeleton", async () => {
+test("server-renders the August sales report", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, developmentPreviewMeta);
-  assert.match(html, /<title>Your site is taking shape<\/title>/i);
-  assert.match(html, /Building your site/);
-  assert.match(html, /Your site is taking shape/);
-  assert.match(
-    html,
-    /Your first version will appear here automatically when it’s ready\./,
-  );
-  assert.doesNotMatch(html, /Codex/);
-  assert.match(html, /react-loading-skeleton/);
-  assert.match(html, /role="status"/);
-});
-
-test("keeps the loading skeleton scoped and disposable", async () => {
-  const [preview, css, page, layout, packageJson, files] = await Promise.all([
-    readFile(new URL("SkeletonPreview.tsx", previewRoot), "utf8"),
-    readFile(new URL("preview.css", previewRoot), "utf8"),
-    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../package.json", import.meta.url), "utf8"),
-    readdir(previewRoot),
-  ]);
-
-  assert.deepEqual(files.sort(), ["SkeletonPreview.tsx", "preview.css"]);
-  assert.match(preview, /from "react-loading-skeleton"/);
-  assert.match(preview, /baseColor="#eceae7"/);
-  assert.match(preview, /highlightColor="#f9f8f6"/);
-  assert.match(preview, /duration=\{2\.8\}/);
-  assert.match(preview, /sites-skeleton-search-placeholder/);
-  assert.match(packageJson, /"react-loading-skeleton": "3\.5\.0"/);
-
-  const shellIndex = preview.indexOf('className="sites-skeleton-shell"');
-  const statusIndex = preview.indexOf('className="sites-skeleton-status"');
-  assert.ok(shellIndex >= 0 && statusIndex > shellIndex);
-  assert.match(css, /position:\s*fixed/);
-  assert.match(css, /inset:\s*0/);
-  assert.match(css, /opacity:\s*0\.52/);
-  assert.match(css, /prefers-reduced-motion:\s*reduce/);
-  assert.doesNotMatch(css, /#020617|canvas|pets|progress/i);
-  assert.doesNotMatch(
-    preview,
-    /loading-spinner|status-mark|status-progress|canvas|cookie|random/i,
-  );
-
-  assert.match(page, /export const metadata:\s*Metadata/);
-  assert.match(page, /"codex-preview": "development"/);
-  assert.match(page, /<SkeletonPreview \/>/);
-  assert.match(layout, /title:\s*"Starter Project"/);
-  assert.doesNotMatch(layout, /codex-preview|_sites-preview|themeColor|\bViewport\b/);
-  assert.doesNotMatch(css, /(^|\s)(html|body)\s*\{/m);
-
-  await assert.rejects(
-    access(new URL("public/_sites-preview", templateRoot)),
-  );
+  assert.match(html, /<title>Продажи · Август 2026 · Парк Сказка<\/title>/i);
+  assert.match(html, /Денежный приток в pipeline по неделям/);
+  assert.match(html, /Приток оплаченных сделок/);
+  assert.match(html, /69,84 млн ₽/);
+  assert.match(html, /15,92 млн ₽/);
+  assert.match(html, /91,8%/);
+  assert.match(html, /Договор и предоплата/);
+  assert.match(html, /среднее \+11,75 млн ₽\/нед\./);
+  assert.match(html, /Последняя полная неделя/);
+  assert.match(html, /−29,5% к предыдущей/);
+  assert.match(html, /Это валовый приток новых сделок/);
+  assert.match(html, /1 271/);
+  assert.match(html, /Айва — 8 слотов в день, шатёр FOOD — 6/);
+  assert.match(html, /39 из 410/);
+  assert.match(html, /Эффективность менеджеров|Команда продаж/);
+  assert.match(html, /11,43 млн ₽/);
+  assert.match(html, /выполнение плана 16,8%/i);
+  assert.match(html, /выполнение плана 14,1%/i);
+  assert.match(html, /выполнение плана 23,2%/i);
+  assert.match(html, /Планы и выполнение по менеджерам/);
+  assert.match(html, /Осталось добрать 56,59 млн ₽/);
+  assert.match(html, /Осталось добрать 41,24 млн ₽/);
+  assert.match(html, /Осталось добрать 15,35 млн ₽/);
+  assert.match(html, /План не назначен/);
+  assert.match(html, /В план B2B:/);
+  assert.match(html, /Очищенные лиды по неделям/);
+  assert.match(html, /Приток новых сделок по неделям/);
+  assert.match(html, /Динамика оплаченного контура по неделям/);
+  assert.match(html, /Пиковые даты по загрузке площадок/);
+  assert.equal((html.match(/<article\b/g) ?? []).length, (html.match(/<article\b[^>]*data-hint=/g) ?? []).length);
+  assert.doesNotMatch(html, /codex-preview|Building your site|Your site is taking shape/i);
 });

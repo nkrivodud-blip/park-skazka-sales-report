@@ -1,201 +1,311 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 
-const weeks = [
-  { date: "20 апр", leads: 119, success: 18, revenue: 3037115, conversion: 26.9 },
-  { date: "27 апр", leads: 91, success: 14, revenue: 1380210, conversion: 25.9 },
-  { date: "4 мая", leads: 98, success: 20, revenue: 2925776, conversion: 35.1 },
-  { date: "11 мая", leads: 109, success: 25, revenue: 3785810, conversion: 37.9 },
-  { date: "18 мая", leads: 128, success: 18, revenue: 2550160, conversion: 28.6 },
-  { date: "25 мая", leads: 108, success: 15, revenue: 2489210, conversion: 23.4 },
-  { date: "1 июн", leads: 111, success: 15, revenue: 1898780, conversion: 23.8 },
-  { date: "8 июн", leads: 107, success: 19, revenue: 2685620, conversion: 29.2 },
-  { date: "15 июн", leads: 109, success: 15, revenue: 2142560, conversion: 23.1 },
-  { date: "22 июн", leads: 126, success: 21, revenue: 5516903, conversion: 34.4 },
-  { date: "29 июн", leads: 132, success: 18, revenue: 1960300, conversion: 29.5 },
-  { date: "6 июл", leads: 148, success: 17, revenue: 1446440, conversion: 22.7 },
-  { date: "13 июл", leads: 163, success: 10, revenue: 1348130, conversion: 18.9 },
-  { date: "20 июл", leads: 122, success: 5, revenue: 499850, conversion: 9.8 },
-];
-
-const managers = [
-  { name: "Кристина Могачева", leads: 348, quality: 72.7, wins: 66 },
-  { name: "Людмила Запорожец", leads: 268, quality: 59.3, wins: 46 },
-  { name: "Дмитрий Григорьев", leads: 250, quality: 60, wins: 35 },
-  { name: "Наталья Криводуд", leads: 570, quality: 27.7, wins: 34 },
-];
-
-const reasons = [
-  { label: "Не дозвонились, более 3 касаний", value: 126 },
-  { label: "Выбрали другой формат", value: 90 },
-  { label: "Погода", value: 66 },
-  { label: "Другое", value: 33 },
-  { label: "Дорого", value: 29 },
-];
-
-const money = (value: number) =>
-  new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 0 }).format(value);
-
-function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string }) {
-  const [shown, setShown] = useState(value);
+function Counter({ value, suffix = "", decimals = 0 }: { value: number; suffix?: string; decimals?: number }) {
+  const [display, setDisplay] = useState(0);
   useEffect(() => {
-    const start = performance.now();
-    const duration = 900;
     let frame = 0;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      frame = requestAnimationFrame(() => setDisplay(value));
+      return () => cancelAnimationFrame(frame);
+    }
+    const started = performance.now();
     const tick = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
-      setShown(Math.round(value * (1 - Math.pow(1 - progress, 3))));
-      if (progress < 1) frame = requestAnimationFrame(tick);
+      const p = Math.min((now - started) / 850, 1);
+      setDisplay(value * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) frame = requestAnimationFrame(tick);
     };
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
   }, [value]);
-  return <>{money(shown)}{suffix}</>;
+  return <>{display.toLocaleString("ru-RU", { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}{suffix}</>;
 }
 
-export default function Home() {
-  const [segment, setSegment] = useState<"all" | "b2c" | "b2b">("all");
-  const segmentData = useMemo(() => ({
-    all: { deals: 865, wins: 230, revenue: 33666864, conversion: 26.6 },
-    b2c: { deals: 794, wins: 223, revenue: 27084491, conversion: 28.1 },
-    b2b: { deals: 71, wins: 7, revenue: 6582373, conversion: 9.9 },
-  }[segment]), [segment]);
-  const maxRevenue = Math.max(...weeks.map((item) => item.revenue));
+const weekly = [
+  ["27.04–03.05", 36, true], ["04–10.05", 119], ["11–17.05", 120], ["18–24.05", 162],
+  ["25–31.05", 149], ["01–07.06", 125], ["08–14.06", 120], ["15–21.06", 122],
+  ["22–28.06", 141], ["29.06–05.07", 171], ["06–12.07", 164], ["13–19.07", 204],
+  ["20–26.07", 156], ["27.07–02.08", 161], ["03–09.08", 112, true],
+] as const;
 
+const pipelineGrowth = [
+  ["27.04–03.05", 1.69, 1.69, 0, true], ["04–10.05", 12.18, 4.68, 7.50],
+  ["11–17.05", 13.81, 6.35, 7.47], ["18–24.05", 18.57, 9.92, 8.65],
+  ["25–31.05", 12.25, 6.87, 5.38], ["01–07.06", 10.74, 9.12, 1.61],
+  ["08–14.06", 11.50, 6.15, 5.35], ["15–21.06", 7.71, 5.04, 2.68],
+  ["22–28.06", 18.07, 7.55, 10.51], ["29.06–05.07", 9.27, 6.54, 2.73],
+  ["06–12.07", 12.25, 5.79, 6.47], ["13–19.07", 11.71, 5.16, 6.55],
+  ["20–26.07", 8.84, 5.71, 3.13], ["27.07–02.08", 6.23, 4.47, 1.76],
+  ["03–09.08", 4.17, 1.37, 2.80, true],
+] as const;
+
+const prepaidGrowth = [
+  ["27.04–03.05", 0.554, 6, 0.554, 0], ["04.05–10.05", 0.538, 8, 0.538, 0],
+  ["11.05–17.05", 4.349, 27, 4.349, 0], ["18.05–24.05", 5.844, 38, 5.844, 0],
+  ["25.05–31.05", 4.552, 25, 3.154, 1.397], ["01.06–07.06", 5.477, 36, 5.477, 0],
+  ["08.06–14.06", 6.216, 38, 6.216, 0], ["15.06–21.06", 7.052, 38, 6.190, 0.863],
+  ["22.06–28.06", 4.060, 33, 3.550, 0.510], ["29.06–05.07", 3.817, 24, 3.239, 0.578],
+  ["06.07–12.07", 3.006, 26, 3.006, 0], ["13.07–19.07", 3.411, 38, 3.011, 0.400],
+  ["20.07–26.07", 7.100, 33, 3.822, 3.277], ["27.07–02.08", 11.518, 57, 6.081, 5.436],
+  ["03.08–09.08", 2.167, 23, 2.167, 0, true],
+] as const;
+
+const sources = [
+  ["Веб-сайт", 974, 47.2], ["Звонок", 788, 38.2], ["MAX Wappi · отдел продаж", 106, 5.1],
+  ["WAZZUP · WhatsApp", 53, 2.6], ["WAPPI · Telegram", 40, 1.9],
+] as const;
+
+const packages = [
+  ["Весёлый старт", 36, 1_404_000], ["Сказочный калейдоскоп", 28, 2_573_000],
+  ["Звёздный праздник", 2, 390_000], ["Доп. участник пакета", 1, 15_000],
+] as const;
+
+const addons = [
+  ["Торты и сладкий сбор", 38, 302_650], ["Билеты и безлимитные абонементы", 23, 1_223_405],
+  ["Фотограф", 13, 192_000], ["Сопровождение на аттракционах", 13, 518_000], ["Пиньята", 8, 44_000],
+  ["Шоу-программы", 7, 398_500], ["Квесты", 7, 210_000], ["Шариковая дискотека", 6, 108_000],
+  ["Шары и оформление", 4, 65_700], ["Тимбилдинг", 3, 780_000],
+] as const;
+
+const managers = [
+  { name: "Кристина Могачева", direction: "B2B", worked: 327, dealConv: 53.1, paidConv: 18.4, deals: 20, sales: 5_749_121, avg: 287_456, plan: 10_000_000, planSales: 4_649_561 },
+  { name: "Яна Кузнецова", direction: "B2B", worked: 0, dealConv: 0, paidConv: 0, deals: 0, sales: 0, avg: 0, plan: 10_000_000, planSales: 0 },
+  { name: "Людмила Запорожец", direction: "B2C", worked: 293, dealConv: 53.4, paidConv: 17.3, deals: 20, sales: 3_463_730, avg: 173_187, plan: 12_006_578, planSales: 3_463_730 },
+  { name: "Дмитрий Григорьев", direction: "B2C", worked: 299, dealConv: 51.5, paidConv: 14.0, deals: 11, sales: 990_260, avg: 90_024, plan: 12_006_578, planSales: 990_260 },
+  { name: "Варвара Чугреева", direction: "B2C", worked: 73, dealConv: 17.8, paidConv: 5.5, deals: 4, sales: 462_000, avg: 115_500, plan: 12_006_578, planSales: 462_000 },
+  { name: "Лилия Рамазанова", direction: "B2C", worked: 50, dealConv: 14.3, paidConv: 6.1, deals: 1, sales: 58_000, avg: 58_000, plan: 12_006_578, planSales: 58_000 },
+  { name: "Татьяна Баландина", direction: "B2C", worked: 243, dealConv: 53.6, paidConv: 21.3, deals: 8, sales: 710_620, avg: 88_828, plan: null, planSales: 710_620 },
+  { name: "Наталья Криводуд", direction: "РОП", worked: 581, dealConv: 24.9, paidConv: 7.6, deals: 0, sales: 0, avg: 0, plan: null, planSales: 0 },
+] as const;
+
+const money = (value: number) => new Intl.NumberFormat("ru-RU", { style: "currency", currency: "RUB", maximumFractionDigits: 0 }).format(value);
+const compactMoney = (value: number) => value === 0
+  ? "0 ₽"
+  : value >= 1_000_000
+    ? `${(value / 1_000_000).toLocaleString("ru-RU", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} млн ₽`
+    : `${Math.round(value / 1_000).toLocaleString("ru-RU")} тыс. ₽`;
+
+export default function Home() {
   return (
     <main>
-      <div className="ambient ambient-one" />
-      <div className="ambient ambient-two" />
-      <header className="topbar reveal">
-        <a className="brand" href="#top" aria-label="Парк Сказка — отчёт по продажам">
-          <span className="brand-mark">С</span>
-          <span>Парк Сказка <small>sales intelligence</small></span>
-        </a>
-        <div className="period"><span className="live-dot" /> 21 апреля — 26 июля 2026</div>
+      <header className="topbar">
+        <a className="brand" href="#top"><span className="brand-mark">ПС</span><span>Продажи · август</span></a>
+        <nav aria-label="Разделы отчёта">
+          <a href="#leads">Лиды</a><a href="#managers">Менеджеры</a><a href="#pipeline">Pipeline</a><a href="#capacity">Площадки</a><a href="#packages">Пакеты</a>
+        </nav>
       </header>
 
-      <section className="hero" id="top">
-        <div className="hero-copy reveal delay-1">
-          <p className="eyebrow">Продажи / B2B + B2C</p>
-          <h1>Траектория<br /><span>продаж</span></h1>
-          <p className="hero-note">Когортный отчёт по полному циклу: от первого лида до оплаты. Дубли исключены.</p>
+      <section className="hero reveal" id="top">
+        <div className="hero-copy">
+          <p className="eyebrow">Управленческий отчёт · данные на 6 августа 2026</p>
+          <h1>Pipeline обновлён. До 65 млн ₽ всё ещё нужен отдельный план роста.</h1>
+          <p className="lead">
+            После удаления дублей в Bitrix — 148 активных сделок на 23,81 млн ₽. Сметы добавляют
+            ещё 0,40 млн ₽ чистой корректировки. Взвешенный управленческий прогноз — 14,42 млн ₽.
+          </p>
+          <div className="hero-actions"><a className="button primary" href="#pipeline">Смотреть сверку</a><a className="button ghost" href="#leads">Разобрать лиды</a></div>
         </div>
-        <div className="orbit-card reveal delay-2">
-          <div className="orbit">
-            <div className="orbit-ring ring-one" />
-            <div className="orbit-ring ring-two" />
-            <div className="orbit-core">
-              <strong><AnimatedNumber value={33666864} suffix=" ₽" /></strong>
-              <span>выручка периода</span>
-            </div>
-            <span className="orbit-label label-a">1 671 лид</span>
-            <span className="orbit-label label-b">230 продаж</span>
-            <span className="orbit-label label-c">26,6% успех</span>
-          </div>
+        <div className="hero-score">
+          <span>Прогноз к цели 65 млн ₽</span>
+          <strong><Counter value={22.2} suffix="%" decimals={1} /></strong>
+          <div className="score-track" aria-hidden="true"><i style={{ width: "22.2%" }} /></div>
+          <small>14,42 млн ₽ из 65 млн ₽</small>
         </div>
       </section>
 
-      <section className="kpi-grid reveal delay-3" aria-label="Ключевые показатели">
-        <article className="soft-card kpi"><span>Лиды</span><strong><AnimatedNumber value={1671} /></strong><small>100% входящего потока</small></article>
-        <article className="soft-card kpi"><span>Качественные</span><strong><AnimatedNumber value={865} /></strong><small className="positive">51,8% от лидов</small></article>
-        <article className="soft-card kpi"><span>Успешные сделки</span><strong><AnimatedNumber value={230} /></strong><small>26,6% от сделок</small></article>
-        <article className="soft-card kpi"><span>Средний чек</span><strong><AnimatedNumber value={146377} suffix=" ₽" /></strong><small>по успешным сделкам</small></article>
+      <section className="kpi-grid reveal" aria-label="Ключевые показатели">
+        <article className="kpi" data-hint="Сумма активных августовских сделок после удаления дублей и корректировки по подтверждённым сметам." tabIndex={0}><span>Raw после сверки смет</span><strong><Counter value={24.21} suffix=" млн ₽" decimals={2} /></strong><small>37,3% цели</small></article>
+        <article className="kpi accent" data-hint="Ожидаемая сумма с учётом вероятности закрытия каждой активной сделки и корректировок по сметам." tabIndex={0}><span>Взвешенный прогноз</span><strong><Counter value={14.42} suffix=" млн ₽" decimals={2} /></strong><small>после корректировки смет</small></article>
+        <article className="kpi" data-hint="Все лиды за период после исключения записей, где причиной отмены указан дубль." tabIndex={0}><span>Лидов без дублей</span><strong><Counter value={2062} /></strong><small>618 дублей исключены</small></article>
+        <article className="kpi danger" data-hint="Разница между планом 65 млн ₽ и текущим взвешенным прогнозом после сверки." tabIndex={0}><span>Разрыв до цели</span><strong><Counter value={50.58} suffix=" млн ₽" decimals={2} /></strong><small>цель РОП — 65 млн ₽</small></article>
       </section>
 
-      <section className="section">
+      <section className="section" id="leads">
         <div className="section-heading reveal">
-          <div><p className="eyebrow">Динамика</p><h2>Пульс по неделям</h2></div>
-          <p>Пик выручки — неделя 22 июня. Последние когорты ещё дозревают, поэтому их конверсия ниже.</p>
+          <p className="eyebrow">Лиды · 1 мая — 6 августа</p>
+          <h2>21,0 лида в день. Наблюдаемая конверсия в сделку — 41,6%.</h2>
+          <p>Из 2 680 строк исключены 618 лидов с причиной отмены «Дубль». Конверсия рассчитана по телефону: ближайшая последующая сделка в течение семи дней, зрелая когорта до 30 июля.</p>
         </div>
-        <div className="soft-card chart-card reveal">
-          <div className="chart-legend"><span><i className="cyan" /> Выручка</span><span><i className="amber" /> Конверсия сделки</span></div>
-          <div className="chart">
-            {weeks.map((week, index) => (
-              <div className="bar-column" key={week.date}>
-                <div className="bar-value">{(week.revenue / 1_000_000).toFixed(1)}м</div>
-                <div className="bar-track">
-                  <div className="bar" style={{ height: `${Math.max(9, week.revenue / maxRevenue * 100)}%`, animationDelay: `${index * 45}ms` }} />
-                  <span className="conversion-dot" style={{ bottom: `${week.conversion / 42 * 100}%` }} title={`${week.conversion}%`} />
+        <div className="capacity-summary reveal">
+          <article data-hint="Очищенные лиды, разделённые на число календарных дней периода с 1 мая по 6 августа." tabIndex={0}><span>Среднее в день</span><strong>21,0</strong><small>календарных дней</small></article>
+          <article data-hint="Среднедневной поток, пересчитанный на семь календарных дней." tabIndex={0}><span>Среднее в неделю</span><strong>147,3</strong><small>week-equivalent</small></article>
+          <article className="accent" data-hint="Доля лидов зрелой когорты с телефоном, для которых найдена последующая сделка в течение семи дней." tabIndex={0}><span>Конверсия в сделку</span><strong>41,6%</strong><small>640 из 1 538</small></article>
+          <article data-hint="Доля лидов зрелой когорты с телефоном, связанная со сделкой в согласованном оплаченном контуре." tabIndex={0}><span>Конверсия в оплату</span><strong>13,7%</strong><small>211 из 1 538</small></article>
+        </div>
+        <div className="chart-heading reveal"><h3>Очищенные лиды по неделям</h3><p>Количество новых лидов после удаления дублей · звёздочкой отмечены неполные недели</p></div>
+        <div className="week-chart reveal" aria-label="Очищенные лиды по неделям">
+          {weekly.map(([label, value, partial]) => <div className="week-col" key={label}><div className="week-value">{value}</div><div className="week-track"><i style={{ "--height": `${value / 204 * 100}%` } as CSSProperties} /></div><small>{label}{partial ? "*" : ""}</small></div>)}
+        </div>
+        <div className="table-card reveal">
+          <div className="table-title"><div><h3>Топ-5 источников</h3><p>Сайт и звонок дают 85,5% очищенного потока.</p></div><span>1 961 лид</span></div>
+          <div className="data-table source-table">
+            <div className="data-head"><span>Источник</span><span>Лиды</span><span>Доля</span></div>
+            {sources.map(([name, count, share]) => <div className="data-row" key={name}><strong>{name}</strong><span>{count}</span><strong>{share}%</strong></div>)}
+          </div>
+        </div>
+        <aside className="note reveal"><strong>Ограничение конверсии</strong><p>В выгрузках нет прямого Lead ID → Deal ID. Показатели 41,6% и 13,7% — наблюдаемая атрибуция по телефону, а не системная CRM-конверсия.</p></aside>
+      </section>
+
+      <section className="section" id="managers">
+        <div className="section-heading reveal">
+          <p className="eyebrow">Команда продаж</p>
+          <h2>Продажи оплаченного контура на август — 11,43 млн ₽.</h2>
+          <p>Конверсия относится к владельцу лида. Сумма продаж, средний чек и количество сделок относятся к владельцу сделки, если дата мероприятия приходится на август и текущая стадия входит в оплаченный контур.</p>
+        </div>
+        <div className="capacity-summary reveal">
+          <article className="accent" data-hint="Полная сумма сделок с датой мероприятия в августе на оплаченных стадиях. Выполнение рассчитано к утверждённому плану августа 68,03 млн ₽ из файла распределения плана." tabIndex={0}><span>Продажи августа</span><strong>11,43 млн ₽</strong><small>64 сделки · выполнение плана 16,8%</small><div className="plan-track" aria-label="Выполнение общего плана 16,8%"><i style={{ "--plan": "16.8%" } as CSSProperties} /></div><em className="plan-gap">Осталось добрать 56,59 млн ₽</em></article>
+          <article data-hint="Оплаченные августовские сделки воронки «Дни рождения». План B2C на август — 48,03 млн ₽." tabIndex={0}><span>B2C</span><strong>6,78 млн ₽</strong><small>60 сделок · выполнение плана 14,1%</small><div className="plan-track" aria-label="Выполнение плана B2C 14,1%"><i style={{ "--plan": "14.1%" } as CSSProperties} /></div><em className="plan-gap">Осталось добрать 41,24 млн ₽</em></article>
+          <article data-hint="Оплаченные августовские сделки воронки «Корпоративные мероприятия». План B2B на август — 20,00 млн ₽." tabIndex={0}><span>B2B</span><strong>4,65 млн ₽</strong><small>4 сделки · выполнение плана 23,2%</small><div className="plan-track" aria-label="Выполнение плана B2B 23,2%"><i style={{ "--plan": "23.2%" } as CSSProperties} /></div><em className="plan-gap">Осталось добрать 15,35 млн ₽</em></article>
+          <article data-hint="Продажи августа, разделённые на 64 сделки оплаченного контура." tabIndex={0}><span>Средний чек</span><strong>178,7 тыс. ₽</strong><small>по оплаченному контуру</small></article>
+        </div>
+        <div className="table-card reveal">
+          <div className="table-title">
+            <div><h3>Планы и выполнение по менеджерам</h3><p>Планы — из файла «Распределение плана.xlsx»; продажи — оплаченный контур августа.</p></div>
+            <span>План команды 68,03 млн ₽</span>
+          </div>
+          <div className="data-table manager-table">
+            <div className="data-head"><span>Менеджер</span><span>Направление</span><span>Отработано</span><span>Конверсия сделка / оплата</span><span>Продажи</span><span>План августа</span><span>Выполнение</span><span>Осталось добрать</span></div>
+            {managers.map((manager) => {
+              const execution = manager.plan ? manager.planSales / manager.plan * 100 : null;
+              const gap = manager.plan ? Math.max(manager.plan - manager.planSales, 0) : null;
+              return (
+                <div className="data-row" key={manager.name}>
+                  <strong>{manager.name}</strong>
+                  <span><b className="direction-tag">{manager.direction}</b></span>
+                  <span className="metric-value">{manager.worked}</span>
+                  <span className="metric-value">{manager.dealConv.toLocaleString("ru-RU")}% / {manager.paidConv.toLocaleString("ru-RU")}%</span>
+                  <span><strong>{compactMoney(manager.sales)}</strong><small>{manager.deals} сделок · чек {compactMoney(manager.avg)}</small>{manager.planSales !== manager.sales && <small>В план B2B: {compactMoney(manager.planSales)}</small>}</span>
+                  <span className="metric-value">{manager.plan ? compactMoney(manager.plan) : "—"}</span>
+                  <span className="completion">{execution !== null ? <><strong>{execution.toLocaleString("ru-RU", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%</strong><span className="manager-progress" aria-label={`Выполнение плана ${execution.toFixed(1)}%`}><i style={{ "--plan": `${Math.min(execution, 100)}%` } as CSSProperties} /></span></> : <strong>—</strong>}</span>
+                  <span className={`gap-amount${gap === null ? " no-plan" : ""}`}>{gap !== null ? compactMoney(gap) : "План не назначен"}</span>
                 </div>
-                <span>{week.date}</span>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="pipeline">
+        <div className="section-heading reveal">
+          <p className="eyebrow">Bitrix × брифы × ParkOps</p>
+          <h2>Три системы пока считают август по-разному.</h2>
+          <p>Bitrix после дублей: 148 активных сделок и 23,81 млн ₽ raw. ParkOps показывает 177 записей, около 25 млн ₽ raw и около 16 млн ₽ weighted. ParkOps остаётся снимком на 4 августа, суммы pipeline на экране округлены.</p>
+        </div>
+        <div className="quality-grid reveal">
+          <article className="quality-card" data-hint="Чистый эффект расхождений по активным сделкам: положительные и отрицательные корректировки взаимозачтены." tabIndex={0}><strong>+399 тыс. ₽</strong><span>чистая корректировка по активным сметам</span><p>22 телефонных расхождения; полный список — в Excel.</p></article>
+          <article className="quality-card critical" data-hint="Разница между количеством записей в ParkOps и активными августовскими сделками Bitrix после удаления дублей." tabIndex={0}><strong>+29 записей</strong><span>ParkOps против очищенного Bitrix</span><p>Нужно унифицировать фильтры стадий, даты закрытия и правила включения WON.</p></article>
+          <article className="quality-card critical" data-hint="Сделки, у которых плановая дата закрытия уже прошла, но карточка остаётся в активном pipeline ParkOps." tabIndex={0}><strong>71 сделка</strong><span>с просроченной датой закрытия в ParkOps</span><p>Около 18 млн ₽ raw «прилипли» к периоду и могут завышать прогноз.</p></article>
+        </div>
+        <div className="growth-block reveal">
+          <div className="table-title">
+            <div><h3>Денежный приток в pipeline по неделям</h3><p>Текущая сумма сделок без дублей, сгруппированная по неделе создания.</p></div>
+            <span>среднее +11,75 млн ₽/нед.</span>
+          </div>
+          <div className="capacity-summary growth-summary">
+            <article className="accent" data-hint="Средняя текущая сумма сделок, созданных за одну полную неделю. Это валовый приток, а не изменение остатка pipeline." tabIndex={0}><span>Средний валовый приток</span><strong>+11,75 млн ₽</strong><small>13 полных недель</small></article>
+            <article data-hint="Средний недельный приток суммы новых сделок воронки «Дни рождения»." tabIndex={0}><span>B2C в среднем</span><strong>+6,40 млн ₽</strong><small>54,4% притока</small></article>
+            <article data-hint="Средний недельный приток суммы новых сделок воронки «Корпоративные мероприятия»." tabIndex={0}><span>B2B в среднем</span><strong>+5,35 млн ₽</strong><small>45,6% притока</small></article>
+            <article data-hint="Сумма сделок, созданных с 27 июля по 2 августа, и её изменение относительно предыдущей полной недели." tabIndex={0}><span>Последняя полная неделя</span><strong>+6,23 млн ₽</strong><small>−29,5% к предыдущей</small></article>
+          </div>
+          <div className="chart-heading compact"><h3>Приток новых сделок по неделям</h3><p>Полная текущая сумма созданных сделок · B2C и B2B · млн ₽</p></div>
+          <div className="growth-chart" aria-label="Приток суммы сделок в pipeline по неделям">
+            {pipelineGrowth.map(([label, total, b2c, b2b, partial]) => (
+              <div className="growth-col" key={label}>
+                <div className="growth-value">+{total.toLocaleString("ru-RU", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</div>
+                <div className="growth-track">
+                  <i className="b2b" style={{ "--height": `${b2b / 18.57 * 100}%` } as CSSProperties} />
+                  <i className="b2c" style={{ "--height": `${b2c / 18.57 * 100}%` } as CSSProperties} />
+                </div>
+                <small>{label}{partial ? "*" : ""}</small>
               </div>
             ))}
           </div>
+          <div className="growth-legend"><span><i className="b2c" />B2C</span><span><i className="b2b" />B2B</span><small>* неполная неделя · суммы в млн ₽</small></div>
         </div>
-      </section>
-
-      <section className="section split">
-        <div>
-          <div className="section-heading compact reveal">
-            <div><p className="eyebrow">Сегменты</p><h2>B2C / B2B</h2></div>
+        <div className="growth-block reveal" id="prepaid">
+          <div className="table-title">
+            <div><h3>Приток оплаченных сделок</h3><p>Расширенный оплаченный контур B2C/B2B, по неделе изменения текущей стадии.</p></div>
+            <span>451 сделка · 69,84 млн ₽</span>
           </div>
-          <div className="soft-card segment-card reveal">
-            <div className="segmented" role="group" aria-label="Выбор сегмента">
-              {(["all", "b2c", "b2b"] as const).map((key) => (
-                <button key={key} className={segment === key ? "active" : ""} onClick={() => setSegment(key)}>
-                  {key === "all" ? "Все" : key.toUpperCase()}
-                </button>
-              ))}
-            </div>
-            <div className="segment-value"><strong>{money(segmentData.revenue)} ₽</strong><span>выручка</span></div>
-            <div className="segment-stats">
-              <div><b>{segmentData.deals}</b><span>сделок</span></div>
-              <div><b>{segmentData.wins}</b><span>успешных</span></div>
-              <div><b>{segmentData.conversion}%</b><span>конверсия</span></div>
-            </div>
+          <div className="capacity-summary growth-summary">
+            <article className="accent" data-hint="Количество текущих сделок на согласованных оплаченных и последующих стадиях обеих воронок." tabIndex={0}><span>Сделок в оплаченном контуре</span><strong>451</strong><small>437 B2C · 14 B2B</small></article>
+            <article data-hint="Полная стоимость всех 451 сделок оплаченного контура, а не только внесённые авансы." tabIndex={0}><span>Полный объём сделок</span><strong>69,84 млн ₽</strong><small>B2C 57,38 · B2B 12,46</small></article>
+            <article data-hint="Сумма значений, внесённых менеджерами в поле предоплаты Bitrix. Это не банковский реестр поступлений." tabIndex={0}><span>Указанная предоплата</span><strong>15,92 млн ₽</strong><small>по заполненным полям Bitrix</small></article>
+            <article data-hint="Доля сделок оплаченного контура, в карточках которых заполнено поле суммы предоплаты." tabIndex={0}><span>Заполненность суммы предоплаты</span><strong>91,8%</strong><small>414 из 451 карточки</small></article>
           </div>
-        </div>
-        <div>
-          <div className="section-heading compact reveal">
-            <div><p className="eyebrow">Команда</p><h2>Фокус менеджеров</h2></div>
-          </div>
-          <div className="soft-card manager-list reveal">
-            {managers.map((manager, index) => (
-              <div className="manager" key={manager.name}>
-                <span className="rank">0{index + 1}</span>
-                <div className="manager-main"><b>{manager.name}</b><span>{manager.leads} лидов · {manager.wins} продаж</span></div>
-                <div className="quality"><b>{manager.quality}%</b><span>качество</span></div>
+          <div className="chart-heading compact"><h3>Динамика оплаченного контура по неделям</h3><p>Неделя изменения текущей стадии · сумма сделок и количество карточек</p></div>
+          <div className="growth-chart" aria-label="Динамика расширенного оплаченного контура по неделям">
+            {prepaidGrowth.map(([label, amount, deals, b2c, b2b, partial]) => (
+              <div className="growth-col" key={label}>
+                <div className="growth-value">{amount ? `${amount.toLocaleString("ru-RU", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} · ${deals}` : "0"}</div>
+                <div className="growth-track">
+                  <i className="b2b" style={{ "--height": `${b2b / 11.518 * 100}%` } as CSSProperties} />
+                  <i className="b2c" style={{ "--height": `${b2c / 11.518 * 100}%` } as CSSProperties} />
+                </div>
+                <small>{label}{partial ? "*" : ""}</small>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="section split bottom-grid">
-        <div className="soft-card funnel reveal">
-          <p className="eyebrow">Воронка</p>
-          <h2>От интереса к оплате</h2>
-          <div className="funnel-steps">
-            <div style={{ width: "100%" }}><span>Лиды</span><b>1 671</b></div>
-            <div style={{ width: "76%" }}><span>Качественные</span><b>865</b></div>
-            <div style={{ width: "55%" }}><span>Сделки</span><b>865</b></div>
-            <div style={{ width: "34%" }}><span>Успех</span><b>230</b></div>
+          <div className="growth-legend"><span><i className="b2c" />B2C</span><span><i className="b2b" />B2B</span><small>над столбцом: полный объём, млн ₽ · количество сделок</small></div>
+          <div className="reactivation paid-stage-grid">
+            <article data-hint="В B2C оплаченный контур начинается со стадии внесённой предоплаты и включает все последующие операционные стадии." tabIndex={0}><span>B2C · включённые стадии</span><strong>437 сделок · 57,38 млн ₽</strong><p>Внесена предоплата · 4 дня до банкета · 1 день до банкета · банкет начался · сделка успешна.</p></article>
+            <article data-hint="В B2B оплаченный контур начинается со стадии договора и предоплаты и включает подготовку, дополнительный счёт и успешное завершение." tabIndex={0}><span>B2B · включённые стадии</span><strong>14 сделок · 12,46 млн ₽</strong><p>Договор и предоплата · подготовка к мероприятию · доп счёт · сделка успешна.</p></article>
           </div>
         </div>
-        <div className="soft-card reasons reveal">
-          <p className="eyebrow">Потери</p>
-          <h2>Почему сделки не состоялись</h2>
-          <div className="reason-list">
-            {reasons.map((reason) => (
-              <div className="reason" key={reason.label}>
-                <div><span>{reason.label}</span><b>{reason.value}</b></div>
-                <div className="reason-track"><i style={{ width: `${reason.value / reasons[0].value * 100}%` }} /></div>
-              </div>
-            ))}
+        <aside className="note reveal"><strong>Ограничение показателя</strong><p>Для последующих стадий дата изменения текущей стадии не равна дате внесения предоплаты. Поэтому график показывает движение расширенного оплаченного контура, а не банковский cash-in. Поле «Дата оплаты» заполнено только в 2 из 451 карточки; для точного денежного притока нужна история стадий или реестр платежей.</p></aside>
+        <div className="table-card reveal">
+          <div className="data-table comparison-table">
+            <div className="data-head"><span>Метрика</span><span>Bitrix</span><span>ParkOps</span><span>Разница</span></div>
+            <div className="data-row"><strong>Сделки / записи</strong><span>148</span><span>177</span><strong>+29</strong></div>
+            <div className="data-row"><strong>Raw pipeline</strong><span>23,81 млн ₽</span><span>≈25 млн ₽</span><strong>≈+1,19 млн ₽</strong></div>
+            <div className="data-row"><strong>Weighted</strong><span>14,18 млн ₽</span><span>≈16 млн ₽</span><strong>≈+1,82 млн ₽</strong></div>
+            <div className="data-row"><strong>Календарь</strong><span>148 активных</span><span>153 события</span><strong>+5</strong></div>
           </div>
         </div>
+        <aside className="note reveal"><strong>Как читать прирост</strong><p>Это валовый приток новых сделок, а не чистое изменение остатка pipeline. В выгрузке нет недельной истории изменения сумм и стадий, поэтому закрытые, проигранные и скорректированные сделки задним числом не образуют полноценный net-flow.</p></aside>
+        <aside className="note reveal"><strong>Свежесть ParkOps</strong><p>Bitrix и сметы обновлены на 6 августа. Сверка ParkOps остаётся снимком от 4 августа, поэтому её расхождения нельзя считать синхронным сравнением до следующего чтения ParkOps.</p></aside>
       </section>
 
-      <section className="insight reveal">
-        <div><p className="eyebrow">Вывод</p><h2>Главный резерв — контакт.</h2></div>
-        <p><b>126 сделок</b> потеряны после трёх безуспешных касаний. Улучшение дозвона и сценариев возврата даст больший эффект, чем наращивание входящего потока.</p>
+      <section className="section" id="capacity">
+        <div className="section-heading reveal">
+          <p className="eyebrow">Утилизация по 89 уникальным сметам</p>
+          <h2>Дефицита площадок нет. Выходные загружены в 2 раза сильнее будней.</h2>
+          <p>Нижняя граница месяца — 80 занятых слот-единиц из 1 271, или 6,29%. Выходные: 9,51%; будни: 4,76%. Учтены уточнения РОП: Айва — 8 слотов в день, шатёр FOOD — 6.</p>
+        </div>
+        <div className="capacity-summary reveal">
+          <article data-hint="Теоретическая месячная ёмкость: сумма доступных слотов всех площадок за 31 день августа." tabIndex={0}><span>Всего слот-единиц</span><strong>1 271</strong><small>41 в день × 31 день</small></article>
+          <article data-hint="Минимально подтверждённое число занятых слот-единиц по 89 уникальным сметам. Неопределённые локации не завышают показатель." tabIndex={0}><span>Занято по сметам</span><strong>80</strong><small>нижняя граница</small></article>
+          <article className="accent" data-hint="Занятые слот-единицы по субботам и воскресеньям, разделённые на доступную ёмкость выходных." tabIndex={0}><span>Выходные</span><strong>9,5%</strong><small>39 из 410</small></article>
+          <article data-hint="Занятые слот-единицы с понедельника по пятницу, разделённые на доступную ёмкость будних дней." tabIndex={0}><span>Будни</span><strong>4,8%</strong><small>41 из 861</small></article>
+        </div>
+        <div className="chart-heading reveal"><h3>Пиковые даты по загрузке площадок</h3><p>Доля занятых слот-единиц от общей дневной ёмкости 41 слот</p></div>
+        <div className="peak-grid reveal">
+          {[['22 августа',19.5],['1 августа',17.1],['3 августа',17.1],['4 августа',9.8],['15 августа',9.8]].map(([d,v]) => <article key={String(d)} data-hint={`${d}: занято ${v}% доступной дневной ёмкости площадок по данным смет.`} tabIndex={0}><strong>{d}</strong><div className="util-track"><i style={{ "--bar": `${v}%` } as CSSProperties} /></div><span>{v}%</span></article>)}
+        </div>
+        <aside className="note reveal"><strong>Правило кластера Лофт</strong><p>Бриф «Лофт с беседками» блокирует Лофт и все пять беседок на оба дневных слота: 11 слот-единиц за день. С учётом этого кластер занимает 18 из 341 слот-единицы в августе, или 5,3%.</p></aside>
       </section>
 
-      <footer>
-        <span>Парк Сказка · Отдел продаж</span>
-        <span>Источник: CRM-выгрузка · обновлено 26.07.2026</span>
-      </footer>
+      <section className="section" id="packages">
+        <div className="section-heading reveal">
+          <p className="eyebrow">Пакеты и допродажи</p>
+          <h2>Допродажи увеличивают базовую цену пакета в среднем на 42,0%.</h2>
+          <p>Пакетные строки найдены в 66 сметах. В 47 из них есть допродажи на 1,84 млн ₽: 27,9 тыс. ₽ на каждое пакетное событие или 39,1 тыс. ₽ среди событий с фактической допродажей.</p>
+        </div>
+        <div className="capacity-summary reveal">
+          <article data-hint="Количество уникальных смет, в которых обнаружена строка основного пакетного предложения." tabIndex={0}><span>Пакетных событий</span><strong>66</strong><small>74,2% смет</small></article>
+          <article data-hint="Сумма строк основных пакетов во всех обновлённых сметах, без учёта дополнительных услуг." tabIndex={0}><span>Пакетная выручка</span><strong>4,38 млн ₽</strong><small>по пакетным строкам</small></article>
+          <article className="accent" data-hint="Стоимость дополнительных продаж в пакетных сметах относительно стоимости самих пакетов." tabIndex={0}><span>Средний uplift</span><strong>42,0%</strong><small>к цене пакета</small></article>
+          <article data-hint="Средняя итоговая сумма сметы среди событий с пакетным предложением; медиана показывает типичный центр без влияния крупных заказов." tabIndex={0}><span>Средняя полная смета</span><strong>119,4 тыс. ₽</strong><small>медиана 105,7 тыс. ₽</small></article>
+        </div>
+        <div className="dual-tables reveal">
+          <div className="table-card"><div className="table-title"><div><h3>Пакетные семейства</h3></div></div><div className="data-table source-table"><div className="data-head"><span>Пакет</span><span>Событий</span><span>Сумма</span></div>{packages.map(([n,e,a])=><div className="data-row" key={n}><strong>{n}</strong><span>{e}</span><span>{money(a)}</span></div>)}</div></div>
+          <div className="table-card"><div className="table-title"><div><h3>Что чаще всего допродают</h3><p>Рейтинг по количеству уникальных событий; сумма указана справочно.</p></div></div><div className="data-table source-table"><div className="data-head"><span>Услуга</span><span>Событий</span><span>Сумма</span></div>{addons.map(([n,e,a])=><div className="data-row" key={n}><strong>{n}</strong><span>{e}</span><span>{money(a)}</span></div>)}</div></div>
+        </div>
+        <aside className="note reveal"><strong>Контроль формул</strong><p>Ранее найденные ошибки subtotal в двух сметах исправлены. Активных замечаний по этим формулам в отчёте больше нет.</p></aside>
+      </section>
+
+      <footer><div><strong>Парк «Сказка» · отчёт продаж</strong><span>Bitrix + сметы · 06.08.2026 · ParkOps 04.08.2026</span></div><span>Публичная версия без исходных выгрузок</span></footer>
     </main>
   );
 }
