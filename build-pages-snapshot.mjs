@@ -23,14 +23,14 @@ const setCounter = (label, value) => {
   main = main.replace(pattern, `$1${value}$2`);
 };
 
-setCounter("Прогноз к цели 65 млн ₽", "22,2%");
-setCounter("Raw после сверки смет", "24,21 млн ₽");
-setCounter("Взвешенный прогноз", "14,42 млн ₽");
-setCounter("Лидов без дублей", "2 062");
-setCounter("Разрыв до цели", "50,58 млн ₽");
+setCounter("Прогноз к цели 65 млн ₽", "22,5%");
+setCounter("Проведено", "5,27 млн ₽");
+setCounter("Взвешенный pipeline", "14,59 млн ₽");
+setCounter("Предоплачено", "43");
+setCounter("Лиды августа", "229");
 
 const rawCss = await fs.readFile("app/globals.css", "utf8");
-const css = rawCss.replace(/url\((["']?)\//g, "url($1./");
+const css = rawCss.replace(/url\((['"]?)\//g, "url($1./");
 
 const html = `<!doctype html>
 <html lang="ru">

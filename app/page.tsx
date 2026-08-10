@@ -24,9 +24,9 @@ function Counter({ value, suffix = "", decimals = 0 }: { value: number; suffix?:
 
 const weekly = [
   ["27.04–03.05", 36, true], ["04–10.05", 119], ["11–17.05", 120], ["18–24.05", 162],
-  ["25–31.05", 149], ["01–07.06", 125], ["08–14.06", 120], ["15–21.06", 122],
-  ["22–28.06", 141], ["29.06–05.07", 171], ["06–12.07", 164], ["13–19.07", 204],
-  ["20–26.07", 156], ["27.07–02.08", 161], ["03–09.08", 112, true],
+  ["25–31.05", 148], ["01–07.06", 125], ["08–14.06", 119], ["15–21.06", 118],
+  ["22–28.06", 127], ["29.06–05.07", 155], ["06–12.07", 146], ["13–19.07", 179],
+  ["20–26.07", 148], ["27.07–02.08", 152], ["03–09.08", 190, true],
 ] as const;
 
 const pipelineGrowth = [
@@ -52,8 +52,8 @@ const prepaidGrowth = [
 ] as const;
 
 const sources = [
-  ["Веб-сайт", 974, 47.2], ["Звонок", 788, 38.2], ["MAX Wappi · отдел продаж", 106, 5.1],
-  ["WAZZUP · WhatsApp", 53, 2.6], ["WAPPI · Telegram", 40, 1.9],
+  ["Веб-сайт", 986, 48.3], ["Звонок", 735, 36.0], ["MAX Wappi · отдел продаж", 123, 6.0],
+  ["WAZZUP · WhatsApp", 53, 2.6], ["WAPPI · Telegram", 41, 2.0],
 ] as const;
 
 const packages = [
@@ -69,14 +69,27 @@ const addons = [
 ] as const;
 
 const managers = [
-  { name: "Кристина Могачева", direction: "B2B", worked: 327, dealConv: 53.1, paidConv: 18.4, deals: 20, sales: 5_749_121, avg: 287_456, plan: 10_000_000, planSales: 4_649_561 },
-  { name: "Яна Кузнецова", direction: "B2B", worked: 0, dealConv: 0, paidConv: 0, deals: 0, sales: 0, avg: 0, plan: 10_000_000, planSales: 0 },
-  { name: "Людмила Запорожец", direction: "B2C", worked: 293, dealConv: 53.4, paidConv: 17.3, deals: 20, sales: 3_463_730, avg: 173_187, plan: 12_006_578, planSales: 3_463_730 },
-  { name: "Дмитрий Григорьев", direction: "B2C", worked: 299, dealConv: 51.5, paidConv: 14.0, deals: 11, sales: 990_260, avg: 90_024, plan: 12_006_578, planSales: 990_260 },
-  { name: "Варвара Чугреева", direction: "B2C", worked: 73, dealConv: 17.8, paidConv: 5.5, deals: 4, sales: 462_000, avg: 115_500, plan: 12_006_578, planSales: 462_000 },
-  { name: "Лилия Рамазанова", direction: "B2C", worked: 50, dealConv: 14.3, paidConv: 6.1, deals: 1, sales: 58_000, avg: 58_000, plan: 12_006_578, planSales: 58_000 },
-  { name: "Татьяна Баландина", direction: "B2C", worked: 243, dealConv: 53.6, paidConv: 21.3, deals: 8, sales: 710_620, avg: 88_828, plan: null, planSales: 710_620 },
-  { name: "Наталья Криводуд", direction: "РОП", worked: 581, dealConv: 24.9, paidConv: 7.6, deals: 0, sales: 0, avg: 0, plan: null, planSales: 0 },
+  { name: "Кристина Могачева", direction: "B2B", worked: 377, leadsAugust: 50, dealConv: 22.0, paidConv: 32.0, deals: 11, sales: 1_835_230, avg: 166_839, plan: 10_000_000, planSales: 1_074_760, pipelineCount: 42, pipelineRaw: 11_765_431, pipelineWeighted: 6_974_387.9 },
+  { name: "Яна Кузнецова", direction: "B2B", worked: 0, leadsAugust: 0, dealConv: 0, paidConv: 0, deals: 0, sales: 0, avg: 0, plan: 10_000_000, planSales: 0, pipelineCount: 3, pipelineRaw: 1_280_000, pipelineWeighted: 1_080_000 },
+  { name: "Людмила Запорожец", direction: "B2C", worked: 320, leadsAugust: 27, dealConv: 44.4, paidConv: 51.9, deals: 12, sales: 1_842_180, avg: 153_515, plan: 12_006_578, planSales: 1_842_180, pipelineCount: 43, pipelineRaw: 5_343_660, pipelineWeighted: 3_952_254 },
+  { name: "Дмитрий Григорьев", direction: "B2C", worked: 316, leadsAugust: 16, dealConv: 50.0, paidConv: 6.3, deals: 8, sales: 824_500, avg: 103_063, plan: 12_006_578, planSales: 824_500, pipelineCount: 2, pipelineRaw: 345_000, pipelineWeighted: 240_500 },
+  { name: "Варвара Чугреева", direction: "B2C", worked: 94, leadsAugust: 26, dealConv: 11.5, paidConv: 26.9, deals: 3, sales: 167_960, avg: 55_987, plan: 12_006_578, planSales: 167_960, pipelineCount: 26, pipelineRaw: 2_340_580, pipelineWeighted: 1_529_522 },
+  { name: "Лилия Рамазанова", direction: "B2C", worked: 89, leadsAugust: 40, dealConv: 0, paidConv: 10.0, deals: 0, sales: 0, avg: 0, plan: 12_006_578, planSales: 0, pipelineCount: 11, pipelineRaw: 1_040_030, pipelineWeighted: 817_527 },
+  { name: "Татьяна Баландина", direction: "B2C", worked: 242, leadsAugust: 0, dealConv: 0, paidConv: 0, deals: 7, sales: 599_840, avg: 85_691, plan: null, planSales: 599_840, pipelineCount: 0, pipelineRaw: 0, pipelineWeighted: 0 },
+  { name: "Наталья Криводуд", direction: "РОП", worked: 603, leadsAugust: 70, dealConv: 0, paidConv: 0, deals: 0, sales: 0, avg: 0, plan: null, planSales: 0, pipelineCount: 0, pipelineRaw: 0, pipelineWeighted: 0 },
+] as const;
+
+const pipelineStages = [
+  ["Внесена предоплата", 37, 5_191_623, "90%"], ["Подготовка к мероприятию", 2, 3_425_491, "90%"],
+  ["В работе", 50, 1_930_500, "по прогнозу"], ["Направлено КП", 5, 2_290_000, "по прогнозу"],
+  ["Сделано предложение", 29, 1_086_725, "по прогнозу"], ["Договор и предоплата", 1, 450_000, "90%"],
+  ["4 дня до банкета", 3, 219_852, "90%"],
+] as const;
+
+const forecastBuckets = [
+  ["Верю, что закроется", 8, 1_242_000, 1_117_800, "90%"],
+  ["Верю, но с рисками", 60, 6_928_850, 3_464_425, "50%"],
+  ["Не верю", 15, 3_625_000, 725_000, "20%"],
 ] as const;
 
 const money = (value: number) => new Intl.NumberFormat("ru-RU", { style: "currency", currency: "RUB", maximumFractionDigits: 0 }).format(value);
@@ -98,74 +111,74 @@ export default function Home() {
 
       <section className="hero reveal" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">Управленческий отчёт · данные на 6 августа 2026</p>
-          <h1>Pipeline обновлён. До 65 млн ₽ всё ещё нужен отдельный план роста.</h1>
+          <p className="eyebrow">Отдел продаж · август 2026 · данные на 10 августа</p>
+          <h1>Факт, предоплаты и pipeline собраны в одну картину.</h1>
           <p className="lead">
-            После удаления дублей в Bitrix — 148 активных сделок на 23,81 млн ₽. Сметы добавляют
-            ещё 0,40 млн ₽ чистой корректировки. Взвешенный управленческий прогноз — 14,42 млн ₽.
+            В августе проведено 41 мероприятие на 5,27 млн ₽. Ещё 43 мероприятия имеют предоплату,
+            а взвешенный pipeline составляет 14,59 млн ₽ при учёте прогнозов закрытия.
           </p>
           <div className="hero-actions"><a className="button primary" href="#pipeline">Смотреть сверку</a><a className="button ghost" href="#leads">Разобрать лиды</a></div>
         </div>
         <div className="hero-score">
           <span>Прогноз к цели 65 млн ₽</span>
-          <strong><Counter value={22.2} suffix="%" decimals={1} /></strong>
-          <div className="score-track" aria-hidden="true"><i style={{ width: "22.2%" }} /></div>
-          <small>14,42 млн ₽ из 65 млн ₽</small>
+          <strong><Counter value={22.5} suffix="%" decimals={1} /></strong>
+          <div className="score-track" aria-hidden="true"><i style={{ width: "22.5%" }} /></div>
+          <small>14,59 млн ₽ из 65 млн ₽</small>
         </div>
       </section>
 
       <section className="kpi-grid reveal" aria-label="Ключевые показатели">
-        <article className="kpi" data-hint="Сумма активных августовских сделок после удаления дублей и корректировки по подтверждённым сметам." tabIndex={0}><span>Raw после сверки смет</span><strong><Counter value={24.21} suffix=" млн ₽" decimals={2} /></strong><small>37,3% цели</small></article>
-        <article className="kpi accent" data-hint="Ожидаемая сумма с учётом вероятности закрытия каждой активной сделки и корректировок по сметам." tabIndex={0}><span>Взвешенный прогноз</span><strong><Counter value={14.42} suffix=" млн ₽" decimals={2} /></strong><small>после корректировки смет</small></article>
-        <article className="kpi" data-hint="Все лиды за период после исключения записей, где причиной отмены указан дубль." tabIndex={0}><span>Лидов без дублей</span><strong><Counter value={2062} /></strong><small>618 дублей исключены</small></article>
-        <article className="kpi danger" data-hint="Разница между планом 65 млн ₽ и текущим взвешенным прогнозом после сверки." tabIndex={0}><span>Разрыв до цели</span><strong><Counter value={50.58} suffix=" млн ₽" decimals={2} /></strong><small>цель РОП — 65 млн ₽</small></article>
+        <article className="kpi" data-hint="Сумма успешно проведённых августовских мероприятий после удаления дублей." tabIndex={0}><span>Проведено</span><strong><Counter value={5.27} suffix=" млн ₽" decimals={2} /></strong><small>41 сделка · фактическая выручка</small></article>
+        <article className="kpi accent" data-hint="Взвешенная сумма предоплаченных и прогнозных сделок августа: предоплаченные — 90%, прогнозные — по полю «Прогноз закрытия»." tabIndex={0}><span>Взвешенный pipeline</span><strong><Counter value={14.59} suffix=" млн ₽" decimals={2} /></strong><small>127 сделок в контуре</small></article>
+        <article className="kpi" data-hint="Мероприятия на стадиях с внесённой предоплатой или начавшейся операционной подготовкой." tabIndex={0}><span>Предоплачено</span><strong><Counter value={43} /></strong><small>10,32 млн ₽ raw · 9,29 млн ₽ weighted</small></article>
+        <article className="kpi danger" data-hint="Лиды, созданные с 1 по 9 августа после удаления дублей. От них рассчитана августовская конверсия в предоплату и успешную сделку." tabIndex={0}><span>Лиды августа</span><strong><Counter value={229} /></strong><small>18,8% в предоплату · 17,9% в успех</small></article>
       </section>
 
       <section className="section" id="leads">
         <div className="section-heading reveal">
-          <p className="eyebrow">Лиды · 1 мая — 6 августа</p>
-          <h2>21,0 лида в день. Наблюдаемая конверсия в сделку — 41,6%.</h2>
-          <p>Из 2 680 строк исключены 618 лидов с причиной отмены «Дубль». Конверсия рассчитана по телефону: ближайшая последующая сделка в течение семи дней, зрелая когорта до 30 июля.</p>
+          <p className="eyebrow">Лиды · 1 мая — 9 августа</p>
+          <h2>20,2 лида в день. В августе 18,8% лидов дошли до предоплаты.</h2>
+          <p>В новой выгрузке 2 041 лид, дублей с причиной «Дубль» не найдено. Августовская конверсия считается по созданным в августе лидам и сделкам с датой мероприятия в августе.</p>
         </div>
         <div className="capacity-summary reveal">
-          <article data-hint="Очищенные лиды, разделённые на число календарных дней периода с 1 мая по 6 августа." tabIndex={0}><span>Среднее в день</span><strong>21,0</strong><small>календарных дней</small></article>
-          <article data-hint="Среднедневной поток, пересчитанный на семь календарных дней." tabIndex={0}><span>Среднее в неделю</span><strong>147,3</strong><small>week-equivalent</small></article>
-          <article className="accent" data-hint="Доля лидов зрелой когорты с телефоном, для которых найдена последующая сделка в течение семи дней." tabIndex={0}><span>Конверсия в сделку</span><strong>41,6%</strong><small>640 из 1 538</small></article>
-          <article data-hint="Доля лидов зрелой когорты с телефоном, связанная со сделкой в согласованном оплаченном контуре." tabIndex={0}><span>Конверсия в оплату</span><strong>13,7%</strong><small>211 из 1 538</small></article>
+          <article data-hint="2 041 очищенный лид, разделённый на 101 календарный день с 1 мая по 9 августа." tabIndex={0}><span>Среднее в день</span><strong>20,2</strong><small>101 календарный день</small></article>
+          <article data-hint="Среднедневной поток лидов, пересчитанный на семь календарных дней." tabIndex={0}><span>Среднее в неделю</span><strong>141,5</strong><small>week-equivalent</small></article>
+          <article className="accent" data-hint="43 сделки на стадиях внесённой предоплаты и операционной подготовки, разделённые на 229 лидов, созданных в августе." tabIndex={0}><span>Конверсия в предоплату</span><strong>18,8%</strong><small>43 из 229 лидов августа</small></article>
+          <article data-hint="41 успешно проведённое августовское мероприятие, разделённое на 229 лидов, созданных в августе." tabIndex={0}><span>Конверсия в успех</span><strong>17,9%</strong><small>41 из 229 лидов августа</small></article>
         </div>
         <div className="chart-heading reveal"><h3>Очищенные лиды по неделям</h3><p>Количество новых лидов после удаления дублей · звёздочкой отмечены неполные недели</p></div>
         <div className="week-chart reveal" aria-label="Очищенные лиды по неделям">
           {weekly.map(([label, value, partial]) => <div className="week-col" key={label}><div className="week-value">{value}</div><div className="week-track"><i style={{ "--height": `${value / 204 * 100}%` } as CSSProperties} /></div><small>{label}{partial ? "*" : ""}</small></div>)}
         </div>
         <div className="table-card reveal">
-          <div className="table-title"><div><h3>Топ-5 источников</h3><p>Сайт и звонок дают 85,5% очищенного потока.</p></div><span>1 961 лид</span></div>
+          <div className="table-title"><div><h3>Топ-5 источников</h3><p>Источники в этой выгрузке относятся ко всему периоду с мая по 9 августа.</p></div><span>2 041 лид</span></div>
           <div className="data-table source-table">
             <div className="data-head"><span>Источник</span><span>Лиды</span><span>Доля</span></div>
             {sources.map(([name, count, share]) => <div className="data-row" key={name}><strong>{name}</strong><span>{count}</span><strong>{share}%</strong></div>)}
           </div>
         </div>
-        <aside className="note reveal"><strong>Ограничение конверсии</strong><p>В выгрузках нет прямого Lead ID → Deal ID. Показатели 41,6% и 13,7% — наблюдаемая атрибуция по телефону, а не системная CRM-конверсия.</p></aside>
+        <aside className="note reveal"><strong>Ограничение конверсии</strong><p>В выгрузках нет прямого Lead ID → Deal ID. Поэтому 18,8% и 17,9% — управленческая конверсия по числу августовских сделок из соответствующих стадий, а не сквозная CRM-атрибуция по телефону.</p></aside>
       </section>
 
       <section className="section" id="managers">
         <div className="section-heading reveal">
-          <p className="eyebrow">Команда продаж</p>
-          <h2>Продажи оплаченного контура на август — 11,43 млн ₽.</h2>
-          <p>Конверсия относится к владельцу лида. Сумма продаж, средний чек и количество сделок относятся к владельцу сделки, если дата мероприятия приходится на август и текущая стадия входит в оплаченный контур.</p>
+          <p className="eyebrow">Отдел продаж · факт</p>
+          <h2>Проведено 41 мероприятие на 5,27 млн ₽.</h2>
+          <p>Факт считается только по стадии «Сделка успешна» и дате мероприятия в августе. План — из файла распределения: 68,03 млн ₽ всего, 48,03 млн ₽ B2C и 20,00 млн ₽ B2B.</p>
         </div>
         <div className="capacity-summary reveal">
-          <article className="accent" data-hint="Полная сумма сделок с датой мероприятия в августе на оплаченных стадиях. Выполнение рассчитано к утверждённому плану августа 68,03 млн ₽ из файла распределения плана." tabIndex={0}><span>Продажи августа</span><strong>11,43 млн ₽</strong><small>64 сделки · выполнение плана 16,8%</small><div className="plan-track" aria-label="Выполнение общего плана 16,8%"><i style={{ "--plan": "16.8%" } as CSSProperties} /></div><em className="plan-gap">Осталось добрать 56,59 млн ₽</em></article>
-          <article data-hint="Оплаченные августовские сделки воронки «Дни рождения». План B2C на август — 48,03 млн ₽." tabIndex={0}><span>B2C</span><strong>6,78 млн ₽</strong><small>60 сделок · выполнение плана 14,1%</small><div className="plan-track" aria-label="Выполнение плана B2C 14,1%"><i style={{ "--plan": "14.1%" } as CSSProperties} /></div><em className="plan-gap">Осталось добрать 41,24 млн ₽</em></article>
-          <article data-hint="Оплаченные августовские сделки воронки «Корпоративные мероприятия». План B2B на август — 20,00 млн ₽." tabIndex={0}><span>B2B</span><strong>4,65 млн ₽</strong><small>4 сделки · выполнение плана 23,2%</small><div className="plan-track" aria-label="Выполнение плана B2B 23,2%"><i style={{ "--plan": "23.2%" } as CSSProperties} /></div><em className="plan-gap">Осталось добрать 15,35 млн ₽</em></article>
-          <article data-hint="Продажи августа, разделённые на 64 сделки оплаченного контура." tabIndex={0}><span>Средний чек</span><strong>178,7 тыс. ₽</strong><small>по оплаченному контуру</small></article>
+          <article className="accent" data-hint="Сумма успешно проведённых августовских мероприятий. План команды — 68,03 млн ₽." tabIndex={0}><span>Проведено</span><strong>5,27 млн ₽</strong><small>41 сделка · выполнение 7,7%</small><div className="plan-track" aria-label="Выполнение общего плана 7,7%"><i style={{ "--plan": "7.7%" } as CSSProperties} /></div><em className="plan-gap">Осталось добрать 62,76 млн ₽</em></article>
+          <article data-hint="Фактические успешные сделки B2C с датой мероприятия в августе. План B2C — 48,03 млн ₽." tabIndex={0}><span>B2C</span><strong>4,19 млн ₽</strong><small>39 сделок · выполнение 8,7%</small><div className="plan-track" aria-label="Выполнение плана B2C 8,7%"><i style={{ "--plan": "8.7%" } as CSSProperties} /></div><em className="plan-gap">Осталось добрать 43,83 млн ₽</em></article>
+          <article data-hint="Фактические успешные сделки B2B с датой мероприятия в августе. План B2B — 20,00 млн ₽." tabIndex={0}><span>B2B</span><strong>1,07 млн ₽</strong><small>2 сделки · выполнение 5,4%</small><div className="plan-track" aria-label="Выполнение плана B2B 5,4%"><i style={{ "--plan": "5.4%" } as CSSProperties} /></div><em className="plan-gap">Осталось добрать 18,93 млн ₽</em></article>
+          <article data-hint="Фактическая сумма проведённых мероприятий, разделённая на 41 успешную сделку." tabIndex={0}><span>Средний чек</span><strong>128,5 тыс. ₽</strong><small>только стадия «Сделка успешна»</small></article>
         </div>
         <div className="table-card reveal">
           <div className="table-title">
-            <div><h3>Планы и выполнение по менеджерам</h3><p>Планы — из файла «Распределение плана.xlsx»; продажи — оплаченный контур августа.</p></div>
+            <div><h3>Планы и выполнение по менеджерам</h3><p>Планы — из файла «Распределение плана.xlsx»; продажи — только успешные сделки августа. Конверсия — от лидов, созданных в августе.</p></div>
             <span>План команды 68,03 млн ₽</span>
           </div>
           <div className="data-table manager-table">
-            <div className="data-head"><span>Менеджер</span><span>Направление</span><span>Отработано</span><span>Конверсия сделка / оплата</span><span>Продажи</span><span>План августа</span><span>Выполнение</span><span>Осталось добрать</span></div>
+            <div className="data-head"><span>Менеджер</span><span>Направление</span><span>Лиды периода</span><span>Успех / предоплата августа</span><span>Проведено</span><span>План августа</span><span>Выполнение</span><span>Осталось добрать</span></div>
             {managers.map((manager) => {
               const execution = manager.plan ? manager.planSales / manager.plan * 100 : null;
               const gap = manager.plan ? Math.max(manager.plan - manager.planSales, 0) : null;
@@ -173,7 +186,7 @@ export default function Home() {
                 <div className="data-row" key={manager.name}>
                   <strong>{manager.name}</strong>
                   <span><b className="direction-tag">{manager.direction}</b></span>
-                  <span className="metric-value">{manager.worked}</span>
+                  <span className="metric-value">{manager.worked}<small>август: {manager.leadsAugust}</small></span>
                   <span className="metric-value">{manager.dealConv.toLocaleString("ru-RU")}% / {manager.paidConv.toLocaleString("ru-RU")}%</span>
                   <span><strong>{compactMoney(manager.sales)}</strong><small>{manager.deals} сделок · чек {compactMoney(manager.avg)}</small>{manager.planSales !== manager.sales && <small>В план B2B: {compactMoney(manager.planSales)}</small>}</span>
                   <span className="metric-value">{manager.plan ? compactMoney(manager.plan) : "—"}</span>
@@ -187,6 +200,35 @@ export default function Home() {
       </section>
 
       <section className="section" id="pipeline">
+        <div className="section-heading reveal">
+          <p className="eyebrow">Pipeline на август</p>
+          <h2>14,59 млн ₽ взвешенного pipeline на 127 сделках.</h2>
+          <p>В контур включены предоплаченные мероприятия с вероятностью 90% и сделки «В работе» / «Сделано предложение» / «Направлено КП» с вероятностью из поля «Прогноз закрытия».</p>
+        </div>
+        <div className="capacity-summary reveal">
+          <article className="accent" data-hint="Сумма всех сделок pipeline до применения вероятностей: предоплата, операционная подготовка и прогнозные стадии." tabIndex={0}><span>Raw pipeline</span><strong>22,11 млн ₽</strong><small>127 сделок · B2C 11,73 · B2B 10,39</small></article>
+          <article data-hint="Взвешенный pipeline: предоплаченные стадии умножены на 90%, прогнозные стадии — на значение поля «Прогноз закрытия»." tabIndex={0}><span>Взвешенный pipeline</span><strong>14,59 млн ₽</strong><small>B2C 8,34 · B2B 6,26</small></article>
+          <article data-hint="Предоплаченные и операционные стадии: 43 сделки на 10,32 млн ₽ raw, все с вероятностью 90%." tabIndex={0}><span>Предоплачено</span><strong>43 сделки</strong><small>10,32 млн ₽ raw · 9,29 млн ₽ weighted</small></article>
+          <article data-hint="Сделки в работе, с предложением или направленным КП: 84 сделки на 11,39 млн ₽ raw, взвешены по прогнозу закрытия." tabIndex={0}><span>Прогнозные стадии</span><strong>84 сделки</strong><small>11,39 млн ₽ raw · 5,31 млн ₽ weighted</small></article>
+        </div>
+        <div className="dual-tables reveal">
+          <div className="table-card">
+            <div className="table-title"><div><h3>Стадии pipeline</h3><p>Сумма в таблице уже взвешена по вероятности закрытия.</p></div><span>14,59 млн ₽</span></div>
+            <div className="data-table source-table"><div className="data-head"><span>Стадия</span><span>Сделок</span><span>Weighted</span></div>{pipelineStages.map(([stage, count, weighted, probability]) => <div className="data-row" key={stage}><strong>{stage}<small>{probability}</small></strong><span>{count}</span><strong>{compactMoney(weighted)}</strong></div>)}</div>
+          </div>
+          <div className="table-card">
+            <div className="table-title"><div><h3>Прогноз закрытия</h3><p>Только стадии «В работе», «Сделано предложение» и «Направлено КП».</p></div><span>5,31 млн ₽ weighted</span></div>
+            <div className="data-table comparison-table"><div className="data-head"><span>Оценка</span><span>Сделок</span><span>Raw</span><span>Weighted</span></div>{forecastBuckets.map(([label, count, raw, weighted, probability]) => <div className="data-row" key={label}><strong>{label}<small>{probability}</small></strong><span>{count}</span><span>{compactMoney(raw)}</span><strong>{compactMoney(weighted)}</strong></div>)}</div>
+          </div>
+        </div>
+        <div className="table-card reveal">
+          <div className="table-title"><div><h3>Pipeline по менеджерам</h3><p>Raw и weighted суммы по текущему владельцу сделки.</p></div><span>127 сделок</span></div>
+          <div className="data-table source-table"><div className="data-head"><span>Менеджер</span><span>Сделок</span><span>Weighted</span></div>{managers.filter((manager) => manager.pipelineCount > 0).map((manager) => <div className="data-row" key={`pipeline-${manager.name}`}><strong>{manager.name}<small>{manager.direction}</small></strong><span>{manager.pipelineCount}</span><strong>{compactMoney(manager.pipelineWeighted)}<small>raw {compactMoney(manager.pipelineRaw)}</small></strong></div>)}</div>
+        </div>
+        <aside className="note reveal"><strong>Правило расчёта</strong><p>Сделка успешна не входит в pipeline — она отражена в факте. Предоплаченные мероприятия остаются в pipeline до проведения и считаются с вероятностью 90%; прогнозные сделки используют только заполненное поле «Прогноз закрытия».</p></aside>
+      </section>
+
+      <section className="section legacy-pipeline" id="legacy-pipeline">
         <div className="section-heading reveal">
           <p className="eyebrow">Bitrix × брифы × ParkOps</p>
           <h2>Три системы пока считают август по-разному.</h2>
@@ -305,7 +347,7 @@ export default function Home() {
         <aside className="note reveal"><strong>Контроль формул</strong><p>Ранее найденные ошибки subtotal в двух сметах исправлены. Активных замечаний по этим формулам в отчёте больше нет.</p></aside>
       </section>
 
-      <footer><div><strong>Парк «Сказка» · отчёт продаж</strong><span>Bitrix + сметы · 06.08.2026 · ParkOps 04.08.2026</span></div><span>Публичная версия без исходных выгрузок</span></footer>
+      <footer><div><strong>Парк «Сказка» · отчёт продаж</strong><span>Bitrix + сметы · 10.08.2026 · ParkOps 04.08.2026</span></div><span>Публичная версия без исходных выгрузок</span></footer>
     </main>
   );
 }
