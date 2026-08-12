@@ -179,6 +179,7 @@ h2 { margin-bottom: 20px; color: var(--ink); font-size: clamp(40px, 5vw, 68px); 
 .data-head { background: var(--ink); color: white; font-size: 10px; font-weight: 800; text-transform: uppercase; }
 .data-row { border-top: 1px solid var(--line); font-size: 12px; }
 .data-row strong { font-size: 13px; }
+.data-row > strong > small { display: inline-block; margin-left: 8px; color: var(--muted); font-size: 10px; font-weight: 700; white-space: nowrap; }
 .positive { color: var(--teal); }
 .stage { color: var(--muted); }
 .source-table .data-head, .source-table .data-row { grid-template-columns: 1fr 110px 130px; }
