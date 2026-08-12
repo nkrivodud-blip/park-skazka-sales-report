@@ -69,14 +69,14 @@ const addons = [
 ] as const;
 
 const managers = [
-  { name: "Кристина Могачева", direction: "B2B", worked: 377, leadsAugust: 50, dealConv: 22.0, paidConv: 32.0, deals: 11, sales: 1_835_230, avg: 166_839, plan: 10_000_000, planSales: 1_074_760, pipelineCount: 42, pipelineRaw: 11_765_431, pipelineWeighted: 6_974_387.9 },
-  { name: "Яна Кузнецова", direction: "B2B", worked: 0, leadsAugust: 0, dealConv: 0, paidConv: 0, deals: 0, sales: 0, avg: 0, plan: 10_000_000, planSales: 0, pipelineCount: 3, pipelineRaw: 1_280_000, pipelineWeighted: 1_080_000 },
-  { name: "Людмила Запорожец", direction: "B2C", worked: 320, leadsAugust: 27, dealConv: 44.4, paidConv: 51.9, deals: 12, sales: 1_842_180, avg: 153_515, plan: 12_006_578, planSales: 1_842_180, pipelineCount: 43, pipelineRaw: 5_343_660, pipelineWeighted: 3_952_254 },
-  { name: "Дмитрий Григорьев", direction: "B2C", worked: 316, leadsAugust: 16, dealConv: 50.0, paidConv: 6.3, deals: 8, sales: 824_500, avg: 103_063, plan: 12_006_578, planSales: 824_500, pipelineCount: 2, pipelineRaw: 345_000, pipelineWeighted: 240_500 },
-  { name: "Варвара Чугреева", direction: "B2C", worked: 94, leadsAugust: 26, dealConv: 11.5, paidConv: 26.9, deals: 3, sales: 167_960, avg: 55_987, plan: 12_006_578, planSales: 167_960, pipelineCount: 26, pipelineRaw: 2_340_580, pipelineWeighted: 1_529_522 },
-  { name: "Лилия Рамазанова", direction: "B2C", worked: 89, leadsAugust: 40, dealConv: 0, paidConv: 10.0, deals: 0, sales: 0, avg: 0, plan: 12_006_578, planSales: 0, pipelineCount: 11, pipelineRaw: 1_040_030, pipelineWeighted: 817_527 },
-  { name: "Татьяна Баландина", direction: "B2C", worked: 242, leadsAugust: 0, dealConv: 0, paidConv: 0, deals: 7, sales: 599_840, avg: 85_691, plan: null, planSales: 599_840, pipelineCount: 0, pipelineRaw: 0, pipelineWeighted: 0 },
-  { name: "Наталья Криводуд", direction: "РОП", worked: 603, leadsAugust: 70, dealConv: 0, paidConv: 0, deals: 0, sales: 0, avg: 0, plan: null, planSales: 0, pipelineCount: 0, pipelineRaw: 0, pipelineWeighted: 0 },
+  { name: "Кристина Могачева", direction: "B2B", worked: 377, leadsAugust: 50, dealConv: 22.0, paidConv: 32.0, deals: 2, sales: 1_074_760, avg: 537_380, plan: 10_000_000, planSales: 1_074_760, pipelineCount: 6, pipelineRaw: 9_106_101, pipelineWeighted: 5_175_490.9, leadMetrics: true },
+  { name: "Кристина Могачева", direction: "B2C", worked: 0, leadsAugust: 0, dealConv: 0, paidConv: 0, deals: 9, sales: 760_470, avg: 84_497, plan: null, planSales: 760_470, pipelineCount: 36, pipelineRaw: 2_659_330, pipelineWeighted: 1_798_897, leadMetrics: false },
+  { name: "Яна Кузнецова", direction: "B2B", worked: 0, leadsAugust: 0, dealConv: 0, paidConv: 0, deals: 0, sales: 0, avg: 0, plan: 10_000_000, planSales: 0, pipelineCount: 3, pipelineRaw: 1_280_000, pipelineWeighted: 1_080_000, leadMetrics: true },
+  { name: "Людмила Запорожец", direction: "B2C", worked: 320, leadsAugust: 27, dealConv: 44.4, paidConv: 51.9, deals: 12, sales: 1_842_180, avg: 153_515, plan: 12_006_578, planSales: 1_842_180, pipelineCount: 43, pipelineRaw: 5_343_660, pipelineWeighted: 3_952_254, leadMetrics: true },
+  { name: "Дмитрий Григорьев", direction: "B2C", status: "увольнение 14.08", worked: 316, leadsAugust: 16, dealConv: 50.0, paidConv: 6.3, deals: 8, sales: 824_500, avg: 103_063, plan: 12_006_578, planSales: 824_500, pipelineCount: 2, pipelineRaw: 345_000, pipelineWeighted: 240_500, leadMetrics: true },
+  { name: "Варвара Чугреева", direction: "B2C", worked: 94, leadsAugust: 26, dealConv: 11.5, paidConv: 26.9, deals: 3, sales: 167_960, avg: 55_987, plan: 12_006_578, planSales: 167_960, pipelineCount: 26, pipelineRaw: 2_340_580, pipelineWeighted: 1_529_522, leadMetrics: true },
+  { name: "Лилия Рамазанова", direction: "B2C", worked: 89, leadsAugust: 40, dealConv: 0, paidConv: 10.0, deals: 0, sales: 0, avg: 0, plan: 12_006_578, planSales: 0, pipelineCount: 11, pipelineRaw: 1_040_030, pipelineWeighted: 817_527, leadMetrics: true },
+  { name: "Татьяна Баландина", direction: "B2C", status: "уволена", worked: 242, leadsAugust: 0, dealConv: 0, paidConv: 0, deals: 7, sales: 599_840, avg: 85_691, plan: null, planSales: 599_840, pipelineCount: 0, pipelineRaw: 0, pipelineWeighted: 0, leadMetrics: true },
 ] as const;
 
 const pipelineDirections = [
@@ -183,16 +183,16 @@ export default function Home() {
             <span>План команды 68,03 млн ₽</span>
           </div>
           <div className="data-table manager-table">
-            <div className="data-head"><span>Менеджер</span><span>Направление</span><span>Лиды периода</span><span>Успех / предоплата августа</span><span>Проведено</span><span>План августа</span><span>Выполнение</span><span>Осталось добрать</span></div>
+            <div className="data-head"><span>Менеджер</span><span>Направление</span><span>Лиды августа</span><span>Успех / предоплата августа</span><span>Проведено</span><span>План августа</span><span>Выполнение</span><span>Осталось добрать</span></div>
             {managers.map((manager) => {
               const execution = manager.plan ? manager.planSales / manager.plan * 100 : null;
               const gap = manager.plan ? Math.max(manager.plan - manager.planSales, 0) : null;
               return (
                 <div className="data-row" key={manager.name}>
-                  <strong>{manager.name}</strong>
+                  <strong>{manager.name}{("status" in manager && manager.status) && <small className="manager-status">{manager.status}</small>}</strong>
                   <span><b className="direction-tag">{manager.direction}</b></span>
-                  <span className="metric-value">{manager.worked}<small>август: {manager.leadsAugust}</small></span>
-                  <span className="metric-value">{manager.dealConv.toLocaleString("ru-RU")}% / {manager.paidConv.toLocaleString("ru-RU")}%</span>
+                  <span className="metric-value">{manager.leadMetrics ? manager.leadsAugust : "—"}<small>{manager.leadMetrics ? <>Всего: {manager.worked}</> : "направление лидов не заполнено"}</small></span>
+                  <span className="metric-value">{manager.leadMetrics ? `${manager.dealConv.toLocaleString("ru-RU")}% / ${manager.paidConv.toLocaleString("ru-RU")}%` : "—"}</span>
                   <span><strong>{compactMoney(manager.sales)}</strong><small>{manager.deals} сделок · чек {compactMoney(manager.avg)}</small>{manager.planSales !== manager.sales && <small>В план B2B: {compactMoney(manager.planSales)}</small>}</span>
                   <span className="metric-value">{manager.plan ? compactMoney(manager.plan) : "—"}</span>
                   <span className="completion">{execution !== null ? <><strong>{execution.toLocaleString("ru-RU", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%</strong><span className="manager-progress" aria-label={`Выполнение плана ${execution.toFixed(1)}%`}><i style={{ "--plan": `${Math.min(execution, 100)}%` } as CSSProperties} /></span></> : <strong>—</strong>}</span>
