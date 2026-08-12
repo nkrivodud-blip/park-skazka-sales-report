@@ -184,6 +184,15 @@ h2 { margin-bottom: 20px; color: var(--ink); font-size: clamp(40px, 5vw, 68px); 
 .stage { color: var(--muted); }
 .source-table .data-head, .source-table .data-row { grid-template-columns: 1fr 110px 130px; }
 .comparison-table .data-head, .comparison-table .data-row { grid-template-columns: 1.3fr 1fr 1fr 1fr; }
+.pipeline-direction-summary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 16px 24px; border-bottom: 1px solid var(--line); }
+.pipeline-direction-summary article { display: grid; gap: 5px; padding: 16px; border: 1px solid var(--line); border-radius: 13px; background: #f8fbfb; }
+.pipeline-direction-summary span { color: var(--teal); font-size: 11px; font-weight: 800; letter-spacing: .08em; }
+.pipeline-direction-summary strong { color: var(--ink); font-size: 22px; letter-spacing: -.035em; }
+.pipeline-direction-summary small, .pipeline-direction-summary em { color: var(--muted); font-size: 11px; font-style: normal; }
+.pipeline-direction-summary em { color: var(--ink); font-weight: 700; }
+.pipeline-manager-table .data-head, .pipeline-manager-table .data-row { grid-template-columns: minmax(220px, 1.4fr) 100px minmax(150px, .9fr) minmax(160px, .9fr); }
+.pipeline-manager-table .data-head > span:not(:first-child), .pipeline-manager-table .data-row > span, .pipeline-manager-table .data-row > strong:last-child { text-align: left; }
+.pipeline-manager-table .data-row > strong { white-space: nowrap; }
 .manager-table { overflow-x: auto; }
 .manager-table .data-head, .manager-table .data-row { grid-template-columns: minmax(170px, 1.3fr) 72px 82px minmax(125px, 1fr) minmax(135px, 1fr) 115px 120px minmax(145px, 1fr); gap: 12px; min-width: 1120px; }
 .manager-table .data-row { align-items: start; padding-block: 18px; }
@@ -315,6 +324,7 @@ footer > a { justify-self: end; align-self: center; font-size: 12px; font-weight
   .hero { grid-template-columns: 1fr; gap: 34px; min-height: auto; padding-top: 100px; }
   .kpi-grid, .audit-stats, .capacity-summary, .field-grid { grid-template-columns: repeat(2, 1fr); }
   .quality-grid, .call-grid, .reactivation, .decision-grid, .dual-tables { grid-template-columns: 1fr; }
+  .pipeline-direction-summary { grid-template-columns: 1fr; }
   .week-chart, .growth-chart { overflow-x: auto; grid-template-columns: repeat(15, 42px); }
   .peak-grid { grid-template-columns: repeat(2, 1fr); }
   .data-head { display: none; }
@@ -322,6 +332,7 @@ footer > a { justify-self: end; align-self: center; font-size: 12px; font-weight
   .data-row .stage { grid-column: 1 / -1; }
   .manager-table .data-head { display: grid; }
   .manager-table .data-head, .manager-table .data-row { grid-template-columns: minmax(170px, 1.3fr) 72px 82px minmax(125px, 1fr) minmax(135px, 1fr) 115px 120px minmax(145px, 1fr); min-width: 1120px; }
+  .pipeline-manager-table .data-head, .pipeline-manager-table .data-row { display: grid; grid-template-columns: minmax(190px, 1.3fr) 72px 130px 145px; min-width: 650px; }
 }
 
 @media (max-width: 620px) {

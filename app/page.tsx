@@ -79,6 +79,11 @@ const managers = [
   { name: "Наталья Криводуд", direction: "РОП", worked: 603, leadsAugust: 70, dealConv: 0, paidConv: 0, deals: 0, sales: 0, avg: 0, plan: null, planSales: 0, pipelineCount: 0, pipelineRaw: 0, pipelineWeighted: 0 },
 ] as const;
 
+const pipelineDirections = [
+  { direction: "B2C", deals: 118, raw: 11_728_600, weighted: 8_338_700 },
+  { direction: "B2B", deals: 9, raw: 10_386_101, weighted: 6_255_490.9 },
+] as const;
+
 const pipelineStages = [
   ["Внесена предоплата", 37, 5_191_623, "90%"], ["Подготовка к мероприятию", 2, 3_425_491, "90%"],
   ["В работе", 50, 1_930_500, "по прогнозу"], ["Направлено КП", 5, 2_290_000, "по прогнозу"],
@@ -223,7 +228,10 @@ export default function Home() {
         </div>
         <div className="table-card reveal">
           <div className="table-title"><div><h3>Pipeline по менеджерам</h3><p>Raw и weighted суммы по текущему владельцу сделки.</p></div><span>127 сделок</span></div>
-          <div className="data-table source-table"><div className="data-head"><span>Менеджер</span><span>Сделок</span><span>Weighted</span></div>{managers.filter((manager) => manager.pipelineCount > 0).map((manager) => <div className="data-row" key={`pipeline-${manager.name}`}><strong>{manager.name}<small>{manager.direction}</small></strong><span>{manager.pipelineCount}</span><strong>{compactMoney(manager.pipelineWeighted)}<small>raw {compactMoney(manager.pipelineRaw)}</small></strong></div>)}</div>
+          <div className="pipeline-direction-summary">
+            {pipelineDirections.map((item) => <article key={item.direction} data-hint={`${item.direction}: средний чек рассчитан от raw pipeline — ${compactMoney(item.raw)} / ${item.deals} сделок.`} tabIndex={0}><span>{item.direction}</span><strong>{compactMoney(item.weighted)}</strong><small>{item.deals} сделок · raw {compactMoney(item.raw)}</small><em>Средний чек {compactMoney(item.raw / item.deals)}</em></article>)}
+          </div>
+          <div className="data-table pipeline-manager-table"><div className="data-head"><span>Менеджер</span><span>Сделок</span><span>Raw</span><span>Weighted</span></div>{managers.filter((manager) => manager.pipelineCount > 0).map((manager) => <div className="data-row" key={`pipeline-${manager.name}`}><strong>{manager.name}</strong><span>{manager.pipelineCount}</span><span>{compactMoney(manager.pipelineRaw)}</span><strong>{compactMoney(manager.pipelineWeighted)}</strong></div>)}</div>
         </div>
         <aside className="note reveal"><strong>Правило расчёта</strong><p>Сделка успешна не входит в pipeline — она отражена в факте. Предоплаченные мероприятия остаются в pipeline до проведения и считаются с вероятностью 90%; прогнозные сделки используют только заполненное поле «Прогноз закрытия».</p></aside>
       </section>
