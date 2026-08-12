@@ -214,11 +214,11 @@ export default function Home() {
         <div className="dual-tables reveal">
           <div className="table-card">
             <div className="table-title"><div><h3>Стадии pipeline</h3><p>Сумма в таблице уже взвешена по вероятности закрытия.</p></div><span>14,59 млн ₽</span></div>
-            <div className="data-table source-table"><div className="data-head"><span>Стадия</span><span>Сделок</span><span>Weighted</span></div>{pipelineStages.map(([stage, count, weighted, probability]) => <div className="data-row" key={stage}><strong>{stage}<small>{probability}</small></strong><span>{count}</span><strong>{compactMoney(weighted)}</strong></div>)}</div>
+            <div className="data-table source-table"><div className="data-head"><span>Стадия</span><span>Сделок</span><span>Weighted</span></div>{pipelineStages.map(([stage, count, weighted, probability]) => <div className="data-row" key={stage}><strong>{stage}<small> · {probability}</small></strong><span>{count}</span><strong>{compactMoney(weighted)}</strong></div>)}</div>
           </div>
           <div className="table-card">
             <div className="table-title"><div><h3>Прогноз закрытия</h3><p>Только стадии «В работе», «Сделано предложение» и «Направлено КП».</p></div><span>5,31 млн ₽ weighted</span></div>
-            <div className="data-table comparison-table"><div className="data-head"><span>Оценка</span><span>Сделок</span><span>Raw</span><span>Weighted</span></div>{forecastBuckets.map(([label, count, raw, weighted, probability]) => <div className="data-row" key={label}><strong>{label}<small>{probability}</small></strong><span>{count}</span><span>{compactMoney(raw)}</span><strong>{compactMoney(weighted)}</strong></div>)}</div>
+            <div className="data-table comparison-table"><div className="data-head"><span>Оценка</span><span>Сделок</span><span>Raw</span><span>Weighted</span></div>{forecastBuckets.map(([label, count, raw, weighted, probability]) => <div className="data-row" key={label}><strong>{label}<small> · {probability}</small></strong><span>{count}</span><span>{compactMoney(raw)}</span><strong>{compactMoney(weighted)}</strong></div>)}</div>
           </div>
         </div>
         <div className="table-card reveal">
