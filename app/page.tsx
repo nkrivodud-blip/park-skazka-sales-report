@@ -131,20 +131,20 @@ export default function Home() {
         <article className="kpi" data-hint="Сумма успешно проведённых августовских мероприятий после удаления дублей." tabIndex={0}><span>Проведено</span><strong><Counter value={5.27} suffix=" млн ₽" decimals={2} /></strong><small>41 сделка · фактическая выручка</small></article>
         <article className="kpi accent" data-hint="Взвешенная сумма предоплаченных и прогнозных сделок августа: предоплаченные — 90%, прогнозные — по полю «Прогноз закрытия»." tabIndex={0}><span>Взвешенный pipeline</span><strong><Counter value={14.59} suffix=" млн ₽" decimals={2} /></strong><small>127 сделок в контуре</small></article>
         <article className="kpi" data-hint="Мероприятия на стадиях с внесённой предоплатой или начавшейся операционной подготовкой." tabIndex={0}><span>Предоплачено</span><strong><Counter value={43} /></strong><small>10,32 млн ₽ raw · 9,29 млн ₽ weighted</small></article>
-        <article className="kpi danger" data-hint="Лиды, созданные с 1 по 9 августа после удаления дублей. От них рассчитана августовская конверсия в предоплату и успешную сделку." tabIndex={0}><span>Лиды августа</span><strong><Counter value={229} /></strong><small>18,8% в предоплату · 17,9% в успех</small></article>
+        <article className="kpi danger" data-hint="229 лидов, созданных с 1 по 9 августа. 120 стали качественными; 119 новых сделок после удаления дублей, из них 27 в оплаченном контуре." tabIndex={0}><span>Лиды августа</span><strong><Counter value={229} /></strong><small>52,4% квал. лид · 22,7% в оплату</small></article>
       </section>
 
       <section className="section" id="leads">
         <div className="section-heading reveal">
           <p className="eyebrow">Лиды · 1 мая — 9 августа</p>
-          <h2>20,2 лида в день. В августе 18,8% лидов дошли до предоплаты.</h2>
-          <p>В новой выгрузке 2 041 лид, дублей с причиной «Дубль» не найдено. Августовская конверсия считается по созданным в августе лидам и сделкам с датой мероприятия в августе.</p>
+          <h2>20,2 лида в день. 52,4% новых лидов стали качественными.</h2>
+          <p>В новой выгрузке 2 041 лид. Конверсия в качественный лид — 120 из 229 лидов, созданных 1–9 августа. Конверсия новой сделки в оплату — 27 из 119 сделок после удаления 4 дублей.</p>
         </div>
         <div className="capacity-summary reveal">
           <article data-hint="2 041 очищенный лид, разделённый на 101 календарный день с 1 мая по 9 августа." tabIndex={0}><span>Среднее в день</span><strong>20,2</strong><small>101 календарный день</small></article>
           <article data-hint="Среднедневной поток лидов, пересчитанный на семь календарных дней." tabIndex={0}><span>Среднее в неделю</span><strong>141,5</strong><small>week-equivalent</small></article>
-          <article className="accent" data-hint="43 сделки на стадиях внесённой предоплаты и операционной подготовки, разделённые на 229 лидов, созданных в августе." tabIndex={0}><span>Конверсия в предоплату</span><strong>18,8%</strong><small>43 из 229 лидов августа</small></article>
-          <article data-hint="41 успешно проведённое августовское мероприятие, разделённое на 229 лидов, созданных в августе." tabIndex={0}><span>Конверсия в успех</span><strong>17,9%</strong><small>41 из 229 лидов августа</small></article>
+          <article className="accent" data-hint="120 из 229 новых лидов находятся на стадии «Качественный лид» на момент выгрузки. История переходов между стадиями не передана." tabIndex={0}><span>Новый лид → квал. лид</span><strong>52,4%</strong><small>120 из 229 лидов</small></article>
+          <article data-hint="27 из 119 новых сделок находятся в оплаченном контуре: предоплата, 4 дня до банкета или сделка успешна. Четыре дубля исключены." tabIndex={0}><span>Новая сделка → оплата</span><strong>22,7%</strong><small>27 из 119 сделок</small></article>
         </div>
         <div className="chart-heading reveal"><h3>Очищенные лиды по неделям</h3><p>Количество новых лидов после удаления дублей · звёздочкой отмечены неполные недели</p></div>
         <div className="week-chart reveal" aria-label="Очищенные лиды по неделям">
@@ -157,7 +157,7 @@ export default function Home() {
             {sources.map(([name, count, share]) => <div className="data-row" key={name}><strong>{name}</strong><span>{count}</span><strong>{share}%</strong></div>)}
           </div>
         </div>
-        <aside className="note reveal"><strong>Ограничение конверсии</strong><p>В выгрузках нет прямого Lead ID → Deal ID. Поэтому 18,8% и 17,9% — управленческая конверсия по числу августовских сделок из соответствующих стадий, а не сквозная CRM-атрибуция по телефону.</p></aside>
+        <aside className="note reveal"><strong>Ограничение конверсии</strong><p>В выгрузках нет прямого Lead ID → Deal ID и истории переходов между стадиями. Поэтому 52,4% — доля новых лидов, которые сейчас находятся на стадии «Качественный лид», а 22,7% — доля новых сделок, которые сейчас находятся в оплаченном контуре.</p></aside>
       </section>
 
       <section className="section" id="managers">
