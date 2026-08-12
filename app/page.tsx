@@ -313,19 +313,20 @@ export default function Home() {
         <div className="section-heading reveal">
           <p className="eyebrow">Утилизация по 89 уникальным сметам</p>
           <h2>Дефицита площадок нет. Выходные загружены в 2 раза сильнее будней.</h2>
-          <p>Нижняя граница месяца — 80 занятых слот-единиц из 1 271, или 6,29%. Выходные: 9,51%; будни: 4,76%. Учтены уточнения РОП: Айва — 8 слотов в день, шатёр FOOD — 6.</p>
+          <p>Нижняя граница месяца — 91 занятая слот-единица из 1 271, или 7,16%. Выходные: 10,49%; будни: 5,57%. Учтены уточнения РОП: Айва — 8 слотов в день, шатёр FOOD — 6.</p>
         </div>
         <div className="capacity-summary reveal">
           <article data-hint="Теоретическая месячная ёмкость: сумма доступных слотов всех площадок за 31 день августа." tabIndex={0}><span>Всего слот-единиц</span><strong>1 271</strong><small>41 в день × 31 день</small></article>
-          <article data-hint="Минимально подтверждённое число занятых слот-единиц по 89 уникальным сметам. Неопределённые локации не завышают показатель." tabIndex={0}><span>Занято по сметам</span><strong>80</strong><small>нижняя граница</small></article>
-          <article className="accent" data-hint="Занятые слот-единицы по субботам и воскресеньям, разделённые на доступную ёмкость выходных." tabIndex={0}><span>Выходные</span><strong>9,5%</strong><small>39 из 410</small></article>
-          <article data-hint="Занятые слот-единицы с понедельника по пятницу, разделённые на доступную ёмкость будних дней." tabIndex={0}><span>Будни</span><strong>4,8%</strong><small>41 из 861</small></article>
+          <article data-hint="Минимально подтверждённое число занятых слот-единиц по 89 уникальным сметам. Неопределённые локации не завышают показатель." tabIndex={0}><span>Занято по сметам</span><strong>91</strong><small>нижняя граница</small></article>
+          <article className="accent" data-hint="Занятые слот-единицы по субботам и воскресеньям, разделённые на доступную ёмкость выходных." tabIndex={0}><span>Выходные</span><strong>10,5%</strong><small>43 из 410</small></article>
+          <article data-hint="Занятые слот-единицы с понедельника по пятницу, разделённые на доступную ёмкость будних дней." tabIndex={0}><span>Будни</span><strong>5,6%</strong><small>48 из 861</small></article>
         </div>
         <div className="chart-heading reveal"><h3>Пиковые даты по загрузке площадок</h3><p>Доля занятых слот-единиц от общей дневной ёмкости 41 слот</p></div>
         <div className="peak-grid reveal">
-          {[['22 августа',19.5],['1 августа',17.1],['3 августа',17.1],['4 августа',9.8],['15 августа',9.8]].map(([d,v]) => <article key={String(d)} data-hint={`${d}: занято ${v}% доступной дневной ёмкости площадок по данным смет.`} tabIndex={0}><strong>{d}</strong><div className="util-track"><i style={{ "--bar": `${v}%` } as CSSProperties} /></div><span>{v}%</span></article>)}
+          {[['22 августа',29.3],['28 августа',22.0],['1 августа',17.1],['3 августа',17.1],['4 августа',9.8]].map(([d,v]) => <article key={String(d)} data-hint={`${d}: занято ${v}% доступной дневной ёмкости площадок по данным смет.`} tabIndex={0}><strong>{d}</strong><div className="util-track"><i style={{ "--bar": `${v}%` } as CSSProperties} /></div><span>{v}%</span></article>)}
         </div>
         <aside className="note reveal"><strong>Правило кластера Лофт</strong><p>Бриф «Лофт с беседками» блокирует Лофт и все пять беседок на оба дневных слота: 11 слот-единиц за день. С учётом этого кластер занимает 18 из 341 слот-единицы в августе, или 5,3%.</p></aside>
+        <aside className="note reveal"><strong>28 августа · весь Айва-парк</strong><p>В смете на 28 августа указано бронирование всего Айва-парка. В расчёте занятости это 8 слот-единиц за день, а не одна карточка мероприятия.</p></aside>
       </section>
 
       <section className="section" id="packages">

@@ -31,7 +31,9 @@ test("server-renders the August sales report", async () => {
   assert.match(html, /Верю, но с рисками/);
   assert.match(html, /1 271/);
   assert.match(html, /Айва — 8 слотов в день, шатёр FOOD — 6/);
-  assert.match(html, /39 из 410/);
+  assert.match(html, /91 занятая слот-единица/);
+  assert.match(html, /43 из 410/);
+  assert.match(html, /28 августа · весь Айва-парк/);
   assert.match(html, /Отдел продаж · факт/);
   assert.match(html, /выполнение 7,7%/i);
   assert.match(html, /выполнение 8,7%/i);
