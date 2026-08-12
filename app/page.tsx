@@ -133,7 +133,7 @@ export default function Home() {
       </section>
 
       <section className="kpi-grid reveal" aria-label="Ключевые показатели">
-        <article className="kpi" data-hint="Сумма успешно проведённых августовских мероприятий после удаления дублей." tabIndex={0}><span>Проведено</span><strong><Counter value={5.27} suffix=" млн ₽" decimals={2} /></strong><small>41 сделка · фактическая выручка</small></article>
+        <article className="kpi" data-hint="Сумма успешно проведённых августовских мероприятий после удаления дублей. Ниже указаны средние чеки по фактическим закрытым сделкам отдельно для B2C и B2B." tabIndex={0}><span>Проведено</span><strong><Counter value={5.27} suffix=" млн ₽" decimals={2} /></strong><small>41 сделка · фактическая выручка</small><div className="kpi-average-values"><span>B2C <b>107,6 тыс. ₽</b></span><span>B2B <b>537,4 тыс. ₽</b></span></div></article>
         <article className="kpi accent" data-hint="Взвешенная сумма предоплаченных и прогнозных сделок августа: предоплаченные — 90%, прогнозные — по полю «Прогноз закрытия»." tabIndex={0}><span>Взвешенный pipeline</span><strong><Counter value={14.59} suffix=" млн ₽" decimals={2} /></strong><small>127 сделок в контуре</small></article>
         <article className="kpi" data-hint="Мероприятия на стадиях с внесённой предоплатой или начавшейся операционной подготовкой." tabIndex={0}><span>Предоплачено</span><strong><Counter value={43} /></strong><small>10,32 млн ₽ raw · 9,29 млн ₽ weighted</small></article>
         <article className="kpi danger" data-hint="229 лидов, созданных с 1 по 9 августа. 120 стали качественными; 119 новых сделок после удаления дублей, из них 27 в оплаченном контуре." tabIndex={0}><span>Лиды августа</span><strong><Counter value={229} /></strong><small>52,4% квал. лид · 22,7% в оплату</small></article>
@@ -215,6 +215,11 @@ export default function Home() {
           <article data-hint="Взвешенный pipeline: предоплаченные стадии умножены на 90%, прогнозные стадии — на значение поля «Прогноз закрытия»." tabIndex={0}><span>Взвешенный pipeline</span><strong>14,59 млн ₽</strong><small>B2C 8,34 · B2B 6,26</small></article>
           <article data-hint="Предоплаченные и операционные стадии: 43 сделки на 10,32 млн ₽ raw, все с вероятностью 90%." tabIndex={0}><span>Предоплачено</span><strong>43 сделки</strong><small>10,32 млн ₽ raw · 9,29 млн ₽ weighted</small></article>
           <article data-hint="Сделки в работе, с предложением или направленным КП: 84 сделки на 11,39 млн ₽ raw, взвешены по прогнозу закрытия." tabIndex={0}><span>Прогнозные стадии</span><strong>84 сделки</strong><small>11,39 млн ₽ raw · 5,31 млн ₽ weighted</small></article>
+          <article className="fact-average-card" data-hint="Средний чек рассчитан только по фактически закрытым сделкам в стадии «Сделка успешна» за август: отдельно по B2C и B2B." tabIndex={0}>
+            <span>Средний чек · факт</span>
+            <div className="fact-average-values"><strong>B2C 107,6 тыс. ₽</strong><strong>B2B 537,4 тыс. ₽</strong></div>
+            <small>39 B2C-сделок · 2 B2B-сделки</small>
+          </article>
         </div>
         <div className="dual-tables reveal">
           <div className="table-card">
