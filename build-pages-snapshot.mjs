@@ -23,11 +23,11 @@ const setCounter = (label, value) => {
   main = main.replace(pattern, `$1${value}$2`);
 };
 
-setCounter("Прогноз к цели 65 млн ₽", "22,5%");
-setCounter("Проведено", "5,27 млн ₽");
-setCounter("Взвешенный pipeline", "14,59 млн ₽");
-setCounter("Предоплачено", "43");
-setCounter("Лиды августа", "229");
+setCounter("Прогноз к цели 65 млн ₽", "2,7%");
+setCounter("Факт закрытых", "8,95 млн ₽");
+setCounter("Предоплаченные сделки", "6,34 млн ₽");
+setCounter("Взвешенный pipeline", "1,78 млн ₽");
+setCounter("Сырой pipeline", "3,39 млн ₽");
 
 const rawCss = await fs.readFile("app/globals.css", "utf8");
 const css = rawCss.replace(/url\((['"]?)\//g, "url($1./");
