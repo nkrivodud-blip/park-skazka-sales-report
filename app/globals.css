@@ -77,6 +77,11 @@ h1 { max-width: 830px; margin-bottom: 28px; color: var(--ink); font-size: clamp(
 .kpi strong { display: block; margin: 0 0 22px; color: var(--ink); font-size: clamp(26px, 2.8vw, 38px); line-height: 1; letter-spacing: -.045em; }
 .kpi.accent { border-color: #b9ddd6; background: var(--teal-soft); }
 .kpi.danger { border-color: #ebcbc7; background: #faeeec; }
+.fact-plan-card strong { margin-bottom: 14px; }
+.fact-plan-progress { overflow: hidden; height: 5px; margin-top: 10px; border-radius: 99px; background: #e4eaed; }
+.fact-plan-progress i { display: block; height: 100%; border-radius: inherit; background: var(--teal); }
+.fact-plan-card .kpi-average-values { margin-top: 10px; }
+.fact-plan-card .kpi-average-values small { margin-top: 4px; font-size: 10px; line-height: 1.25; }
 .pipeline-total-strip { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin-bottom: 128px; overflow: hidden; border: 1px solid #d7dde2; border-radius: 14px; background: #d7dde2; }
 .pipeline-total-strip > div { padding: 18px 24px; background: #eef1f3; }
 .pipeline-total-strip span, .pipeline-total-strip small { display: block; color: #687887; font-size: 12px; }
