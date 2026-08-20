@@ -23,8 +23,10 @@ function Counter({ value, suffix = "", decimals = 0 }: { value: number; suffix?:
 }
 
 const weekly = [
-  ["10.08", 27], ["11.08", 17], ["12.08", 23], ["13.08", 19],
-  ["14.08", 15], ["15.08", 13], ["16.08", 10],
+  ["27.04–03.05", 36, true], ["04–10.05", 119], ["11–17.05", 120], ["18–24.05", 162],
+  ["25–31.05", 148], ["01–07.06", 125], ["08–14.06", 119], ["15–21.06", 118],
+  ["22–28.06", 127], ["29.06–05.07", 155], ["06–12.07", 146], ["13–19.07", 179],
+  ["20–26.07", 148], ["27.07–02.08", 152], ["03–09.08", 190, true], ["10–16.08", 124],
 ] as const;
 
 const pipelineGrowth = [
@@ -47,11 +49,6 @@ const prepaidGrowth = [
   ["06.07–12.07", 3.006, 26, 3.006, 0], ["13.07–19.07", 3.411, 38, 3.011, 0.400],
   ["20.07–26.07", 7.100, 33, 3.822, 3.277], ["27.07–02.08", 11.518, 57, 6.081, 5.436],
   ["03.08–09.08", 2.167, 23, 2.167, 0, true],
-] as const;
-
-const sources = [
-  ["Веб-сайт", 43, 34.7], ["Звонок", 42, 33.9], ["WAPPI TG sales", 15, 12.1],
-  ["MAX Wappi · отдел продаж", 13, 10.5], ["WAPPI WA sales", 4, 3.2],
 ] as const;
 
 const managers = [
@@ -139,16 +136,9 @@ export default function Home() {
           <article className="accent" data-hint="94 из 124 очищенных лидов находятся на стадии «Качественный лид»." tabIndex={0}><span>Качественные лиды</span><strong>75,8%</strong><small>94 из 124</small></article>
           <article data-hint="Среди лидов выбранной команды исключено 33 записи, где в причине отмены указан дубль." tabIndex={0}><span>Удалено дублей</span><strong>33</strong><small>21,0% выборки</small></article>
         </div>
-        <div className="chart-heading reveal"><h3>Очищенные лиды по дням</h3><p>Только семь выбранных ответственных · дубли по причине отмены исключены</p></div>
-        <div className="week-chart reveal" aria-label="Очищенные лиды по дням">
-          {weekly.map(([label, value]) => <div className="week-col" key={label}><div className="week-value">{value}</div><div className="week-track"><i style={{ "--height": `${value / 27 * 100}%` } as CSSProperties} /></div><small>{label}</small></div>)}
-        </div>
-        <div className="table-card reveal">
-          <div className="table-title"><div><h3>Топ-5 источников · 10–16 августа</h3><p>Только выбранная команда, после исключения дублей по причине отмены.</p></div><span>124 лида</span></div>
-          <div className="data-table source-table">
-            <div className="data-head"><span>Источник</span><span>Лиды</span><span>Доля</span></div>
-            {sources.map(([name, count, share]) => <div className="data-row" key={name}><strong>{name}</strong><span>{count}</span><strong>{share}%</strong></div>)}
-          </div>
+        <div className="chart-heading reveal"><h3>Очищенные лиды по неделям</h3><p>10–16 августа — только семь выбранных ответственных, дубли исключены · звёздочкой отмечены неполные недели</p></div>
+        <div className="week-chart reveal" aria-label="Очищенные лиды по неделям">
+          {weekly.map(([label, value, partial]) => <div className="week-col" key={label}><div className="week-value">{value}</div><div className="week-track"><i style={{ "--height": `${value / 204 * 100}%` } as CSSProperties} /></div><small>{label}{partial ? "*" : ""}</small></div>)}
         </div>
         <aside className="note reveal"><strong>Периметр выборки</strong><p>Наталья Криводуд, Людмила Запорожец, Лилия Рамазанова, Дмитрий Григорьев, Кристина Могачева, Варвара Чугреева и Яна Кузнецова. Удалены только лиды, где поле «Причина отмены» содержит «дубль».</p></aside>
       </section>

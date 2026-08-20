@@ -38,7 +38,9 @@ test("server-renders the August sales report", async () => {
   assert.match(html, /Успех <!-- -->21,6<!-- -->%/);
   assert.match(html, /Предоплата <!-- -->7,8<!-- -->%/);
   assert.match(html, /140 уникальным сметам/);
-  assert.match(html, /Очищенные лиды по дням/);
+  assert.match(html, /Очищенные лиды по неделям/);
+  assert.match(html, /10–16.08/);
+  assert.doesNotMatch(html, /Топ-5 источников/);
   assert.match(html, /Приток новых сделок по неделям/);
   assert.match(html, /Динамика оплаченного контура по неделям/);
   assert.match(html, /Пиковые даты по загрузке площадок/);
