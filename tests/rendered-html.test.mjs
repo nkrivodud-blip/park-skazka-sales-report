@@ -39,8 +39,10 @@ test("server-renders the August sales report", async () => {
   assert.match(html, /28 августа · весь Айва-парк/);
   assert.match(html, /Отдел продаж · факт/);
   assert.match(html, /Показатели по менеджерам · B2B и B2C отдельно/);
-  assert.match(html, /Успех <!-- -->21,6<!-- -->%/);
-  assert.match(html, /Предоплата <!-- -->7,8<!-- -->%/);
+  assert.match(html, /29,4<!-- -->%/);
+  assert.match(html, /Методика конверсии/);
+  assert.match(html, /Сырой pipeline/);
+  assert.doesNotMatch(html, /Александр Поленко/);
   assert.match(html, /140 уникальным сметам/);
   assert.match(html, /Очищенные лиды по неделям/);
   assert.match(html, /10–16.08/);

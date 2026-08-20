@@ -52,19 +52,17 @@ const prepaidGrowth = [
 ] as const;
 
 const managers = [
-  { name: "Александр Поленко", direction: "B2C", total: 1, successConv: 0, prepaidConv: 0, wonCount: 0, wonSum: 0, wonAvg: 0, activeCount: 0, activeRaw: 0, activeWeighted: 0, activeAvg: 0, prepaidCount: 0, prepaidSum: 0, prepaidAvg: 0 },
   { name: "Варвара Чугреева", direction: "B2C", total: 51, successConv: 21.6, prepaidConv: 7.8, wonCount: 11, wonSum: 908_520, wonAvg: 82_593, activeCount: 12, activeRaw: 695_000, activeWeighted: 329_500, activeAvg: 57_917, prepaidCount: 4, prepaidSum: 486_940, prepaidAvg: 121_735 },
-  { name: "Дмитрий Григорьев", direction: "B2C", status: "увольнение 14.08", total: 36, successConv: 22.2, prepaidConv: 2.8, wonCount: 8, wonSum: 824_500, wonAvg: 103_062, activeCount: 0, activeRaw: 0, activeWeighted: 0, activeAvg: 0, prepaidCount: 1, prepaidSum: 245_000, prepaidAvg: 245_000 },
   { name: "Кристина Могачева", direction: "B2B", total: 38, successConv: 7.9, prepaidConv: 2.6, wonCount: 3, wonSum: 1_574_760, wonAvg: 524_920, activeCount: 0, activeRaw: 0, activeWeighted: 0, activeAvg: 0, prepaidCount: 1, prepaidSum: 528_800, prepaidAvg: 528_800 },
   { name: "Кристина Могачева", direction: "B2C", total: 78, successConv: 24.4, prepaidConv: 16.7, wonCount: 19, wonSum: 1_574_330, wonAvg: 82_859, activeCount: 8, activeRaw: 620_000, activeWeighted: 276_500, activeAvg: 77_500, prepaidCount: 13, prepaidSum: 1_391_130, prepaidAvg: 107_010 },
   { name: "Лилия Рамазанова", direction: "B2C", total: 38, successConv: 10.5, prepaidConv: 21.1, wonCount: 4, wonSum: 607_230, wonAvg: 151_808, activeCount: 6, activeRaw: 615_000, activeWeighted: 306_000, activeAvg: 102_500, prepaidCount: 8, prepaidSum: 465_120, prepaidAvg: 58_140 },
-  { name: "Людмила Запорожец", direction: "B2B", total: 3, successConv: 0, prepaidConv: 0, wonCount: 0, wonSum: 0, wonAvg: 0, activeCount: 0, activeRaw: 0, activeWeighted: 0, activeAvg: 0, prepaidCount: 0, prepaidSum: 0, prepaidAvg: 0 },
   { name: "Людмила Запорожец", direction: "B2C", total: 132, successConv: 15.2, prepaidConv: 6.8, wonCount: 20, wonSum: 2_858_950, wonAvg: 142_948, activeCount: 17, activeRaw: 1_122_750, activeWeighted: 583_975, activeAvg: 66_044, prepaidCount: 9, prepaidSum: 2_620_270, prepaidAvg: 291_141 },
   { name: "Наталья Криводуд", direction: "B2B", total: 2, successConv: 0, prepaidConv: 0, wonCount: 0, wonSum: 0, wonAvg: 0, activeCount: 0, activeRaw: 0, activeWeighted: 0, activeAvg: 0, prepaidCount: 0, prepaidSum: 0, prepaidAvg: 0 },
   { name: "Наталья Криводуд", direction: "B2C", total: 3, successConv: 0, prepaidConv: 0, wonCount: 0, wonSum: 0, wonAvg: 0, activeCount: 0, activeRaw: 0, activeWeighted: 0, activeAvg: 0, prepaidCount: 0, prepaidSum: 0, prepaidAvg: 0 },
-  { name: "Татьяна Баландина", direction: "B2C", status: "уволена", total: 29, successConv: 24.1, prepaidConv: 0, wonCount: 7, wonSum: 599_840, wonAvg: 85_691, activeCount: 0, activeRaw: 0, activeWeighted: 0, activeAvg: 0, prepaidCount: 0, prepaidSum: 0, prepaidAvg: 0 },
   { name: "Яна Кузнецова", direction: "B2B", total: 14, successConv: 0, prepaidConv: 7.1, wonCount: 0, wonSum: 0, wonAvg: 0, activeCount: 0, activeRaw: 0, activeWeighted: 0, activeAvg: 0, prepaidCount: 1, prepaidSum: 500_000, prepaidAvg: 500_000 },
   { name: "Яна Кузнецова", direction: "B2C", total: 7, successConv: 0, prepaidConv: 28.6, wonCount: 0, wonSum: 0, wonAvg: 0, activeCount: 2, activeRaw: 335_000, activeWeighted: 287_500, activeAvg: 167_500, prepaidCount: 2, prepaidSum: 99_140, prepaidAvg: 49_570 },
+  { name: "Дмитрий Григорьев", direction: "B2C", status: "увольнение 14.08", total: 36, successConv: 22.2, prepaidConv: 2.8, wonCount: 8, wonSum: 824_500, wonAvg: 103_062, activeCount: 0, activeRaw: 0, activeWeighted: 0, activeAvg: 0, prepaidCount: 1, prepaidSum: 245_000, prepaidAvg: 245_000 },
+  { name: "Татьяна Баландина", direction: "B2C", status: "уволена", total: 29, successConv: 24.1, prepaidConv: 0, wonCount: 7, wonSum: 599_840, wonAvg: 85_691, activeCount: 0, activeRaw: 0, activeWeighted: 0, activeAvg: 0, prepaidCount: 0, prepaidSum: 0, prepaidAvg: 0 },
 ] as const;
 
 const pipelineDirections = [
@@ -161,25 +159,27 @@ export default function Home() {
         </div>
         <div className="table-card reveal">
           <div className="table-title">
-            <div><h3>Показатели по менеджерам · B2B и B2C отдельно</h3><p>Конверсия — от всех сделок менеджера в августовской выборке. В работе — только согласованные стадии с заполненным прогнозом.</p></div>
-            <span>432 сделки в двух выгрузках</span>
+            <div><h3>Показатели по менеджерам · B2B и B2C отдельно</h3><p>Конверсия в оплаченный контур объединяет успешные и предоплаченные сделки. В работе — только согласованные стадии с заполненным прогнозом.</p></div>
+            <span>428 сделок в отображаемом периметре</span>
           </div>
           <div className="data-table manager-table">
-            <div className="data-head"><span>Менеджер</span><span>Напр.</span><span>Конверсия</span><span>Проведено</span><span>В работе</span><span>Предоплачено</span></div>
+            <div className="data-head"><span>Менеджер</span><span>Напр.</span><span>Конверсия в успех / предоплату</span><span>Проведено</span><span>Предоплачено</span><span>В работе · weighted</span><span>Raw · сырой pipeline</span></div>
             {managers.map((manager) => {
               return (
                 <div className="data-row" key={`${manager.name}-${manager.direction}`}>
                   <strong>{manager.name}{("status" in manager && manager.status) && <small className="manager-status">{manager.status}</small>}</strong>
                   <span><b className="direction-tag">{manager.direction}</b></span>
-                  <span className="metric-value">Успех {manager.successConv.toLocaleString("ru-RU")}%<small>Предоплата {manager.prepaidConv.toLocaleString("ru-RU")}% · база {manager.total}</small></span>
+                  <span className="metric-value"><strong>{(((manager.wonCount + manager.prepaidCount) / manager.total) * 100).toLocaleString("ru-RU", { maximumFractionDigits: 1 })}%</strong><small>{manager.wonCount + manager.prepaidCount} из {manager.total} сделок</small></span>
                   <span><strong>{compactMoney(manager.wonSum)}</strong><small>{manager.wonCount} шт. · чек {compactMoney(manager.wonAvg)}</small></span>
-                  <span><strong>{compactMoney(manager.activeWeighted)} weighted</strong><small>{manager.activeCount} шт. · raw {compactMoney(manager.activeRaw)}</small><small>чек raw {compactMoney(manager.activeAvg)}</small></span>
                   <span><strong>{compactMoney(manager.prepaidSum)}</strong><small>{manager.prepaidCount} шт. · чек {compactMoney(manager.prepaidAvg)}</small></span>
+                  <span><strong>{compactMoney(manager.activeWeighted)}</strong><small>{manager.activeCount} сделок в работе</small></span>
+                  <span><strong>{compactMoney(manager.activeRaw)}</strong><small>{manager.activeCount} шт. · чек {compactMoney(manager.activeAvg)}</small></span>
                 </div>
               );
             })}
           </div>
         </div>
+        <aside className="note reveal"><strong>Методика конверсии</strong><p>Конверсия = (количество сделок на стадии «Сделка успешна» + количество сделок на предоплаченных стадиях) ÷ все сделки менеджера в августовской выборке × 100%. Сделки не пересекаются по стадиям. Для B2C предоплаченный контур включает «Внесена предоплата», «4 дня до банкета», «1 день до банкета» и «Банкет начался»; для B2B — «Договор и предоплата» и «Подготовка к мероприятию».</p></aside>
       </section>
 
       <section className="section" id="pipeline">

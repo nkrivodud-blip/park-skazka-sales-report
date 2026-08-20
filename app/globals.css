@@ -203,7 +203,7 @@ h2 { margin-bottom: 20px; color: var(--ink); font-size: clamp(40px, 5vw, 68px); 
 .pipeline-manager-table .data-head > span:not(:first-child), .pipeline-manager-table .data-row > span, .pipeline-manager-table .data-row > strong:last-child { text-align: left; }
 .pipeline-manager-table .data-row > strong { white-space: nowrap; }
 .manager-table { overflow-x: auto; }
-.manager-table .data-head, .manager-table .data-row { grid-template-columns: minmax(170px, 1.25fr) 64px minmax(145px, .95fr) minmax(145px, 1fr) minmax(190px, 1.3fr) minmax(165px, 1.1fr); gap: 14px; min-width: 1080px; }
+.manager-table .data-head, .manager-table .data-row { grid-template-columns: minmax(165px, 1.2fr) 60px minmax(145px, 1fr) minmax(130px, .9fr) minmax(145px, 1fr) minmax(135px, .95fr) minmax(145px, 1fr); gap: 12px; min-width: 1180px; }
 .manager-table .data-row { align-items: start; padding-block: 18px; }
 .manager-table .data-row > strong { line-height: 1.35; }
 .manager-table small { display: block; margin-top: 5px; color: var(--muted); font-size: 10px; line-height: 1.35; }
