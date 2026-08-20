@@ -104,24 +104,28 @@ export default function Home() {
           <p className="eyebrow">Отдел продаж · август 2026 · данные на 20 августа</p>
           <h1>Факт, предоплаты и pipeline собраны в одну картину.</h1>
           <p className="lead">
-            В августе закрыто 72 сделки на 8,95 млн ₽. Ещё 39 сделок находятся на предоплаченных стадиях,
-            а взвешенный pipeline по актуальным прогнозам составляет 1,78 млн ₽.
+            В августе закрыто 74 сделки на 9,55 млн ₽. Ещё 42 сделки находятся на предоплаченных стадиях,
+            а взвешенный августовский pipeline по актуальным прогнозам составляет 1,71 млн ₽.
           </p>
           <div className="hero-actions"><a className="button primary" href="#pipeline">Смотреть сверку</a><a className="button ghost" href="#leads">Разобрать лиды</a></div>
         </div>
         <div className="hero-score">
           <span>Прогноз к цели 65 млн ₽</span>
-          <strong><Counter value={23.5} suffix="%" decimals={1} /></strong>
-          <div className="score-track" aria-hidden="true"><i style={{ width: "23.5%" }} /></div>
-          <small>15,28 млн ₽ из 65 млн ₽ · факт + предоплаты</small>
+          <strong><Counter value={26.7} suffix="%" decimals={1} /></strong>
+          <div className="score-track" aria-hidden="true"><i style={{ width: "26.7%" }} /></div>
+          <small>17,37 млн ₽ из 65 млн ₽ · факт + предоплаты</small>
         </div>
       </section>
 
       <section className="kpi-grid reveal" aria-label="Ключевые показатели">
-        <article className="kpi" data-hint="Сумма и количество сделок на стадии «Сделка успешна» в августовских выгрузках B2C и B2B." tabIndex={0}><span>Факт закрытых</span><strong><Counter value={8.95} suffix=" млн ₽" decimals={2} /></strong><small>72 сделки · фактическая выручка</small><div className="kpi-average-values"><span>B2C <b>7,37 млн ₽ · 69</b></span><span>B2B <b>1,57 млн ₽ · 3</b></span></div></article>
-        <article className="kpi" data-hint="Сделки на предоплаченных и операционных стадиях: B2C — «Внесена предоплата», «4 дня до банкета», «1 день до банкета»; B2B — «Договор и предоплата», «Подготовка к мероприятию»." tabIndex={0}><span>Предоплаченные сделки</span><strong><Counter value={6.34} suffix=" млн ₽" decimals={2} /></strong><small>39 сделок</small><div className="kpi-average-values"><span>B2C <b>5,31 млн ₽ · 37</b></span><span>B2B <b>1,03 млн ₽ · 2</b></span></div></article>
-        <article className="kpi accent" data-hint="Только сделки на стадиях «В работе» и «Сделано предложение» для B2C, «В работе» и «Направлено КП» для B2B, с заполненным прогнозом закрытия. Вес прогноза: 90%, 50% или 20%." tabIndex={0}><span>Взвешенный pipeline</span><strong><Counter value={1.78} suffix=" млн ₽" decimals={2} /></strong><small>45 сделок с актуальным прогнозом</small><div className="kpi-average-values"><span>B2C <b>1,78 млн ₽ · 45</b></span><span>B2B <b>0 ₽ · 0</b></span></div></article>
-        <article className="kpi" data-hint="Полная сумма тех же сделок pipeline до применения веса прогноза закрытия." tabIndex={0}><span>Сырой pipeline</span><strong><Counter value={3.39} suffix=" млн ₽" decimals={2} /></strong><small>45 сделок с актуальным прогнозом</small><div className="kpi-average-values"><span>B2C <b>3,39 млн ₽ · 45</b></span><span>B2B <b>0 ₽ · 0</b></span></div></article>
+        <article className="kpi" data-hint="Только сделки со стадией «Сделка успешна» и датой мероприятия в августе." tabIndex={0}><span>Факт закрытых · август</span><strong><Counter value={9.55} suffix=" млн ₽" decimals={2} /></strong><small>74 сделки · фактическая выручка</small><div className="kpi-average-values"><span>B2C <b>7,42 млн ₽ · 70</b></span><span>B2B <b>2,13 млн ₽ · 4</b></span></div></article>
+        <article className="kpi" data-hint="Предоплаченные и операционные стадии только для мероприятий августа." tabIndex={0}><span>Предоплачено · август</span><strong><Counter value={7.81} suffix=" млн ₽" decimals={2} /></strong><small>42 сделки</small><div className="kpi-average-values"><span>B2C <b>6,78 млн ₽ · 40</b></span><span>B2B <b>1,03 млн ₽ · 2</b></span></div></article>
+        <article className="kpi accent" data-hint="Только августовские сделки в работе или со сделанным предложением / направленным КП, с заполненным прогнозом закрытия." tabIndex={0}><span>Взвешенный pipeline · август</span><strong><Counter value={1.71} suffix=" млн ₽" decimals={2} /></strong><small>42 сделки с актуальным прогнозом</small><div className="kpi-average-values"><span>B2C <b>1,71 млн ₽ · 42</b></span><span>B2B <b>0 ₽ · 0</b></span></div></article>
+        <article className="kpi" data-hint="Полная сумма тех же августовских сделок pipeline до применения веса прогноза закрытия." tabIndex={0}><span>Сырой pipeline · август</span><strong><Counter value={3.23} suffix=" млн ₽" decimals={2} /></strong><small>42 сделки с актуальным прогнозом</small><div className="kpi-average-values"><span>B2C <b>3,23 млн ₽ · 42</b></span><span>B2B <b>0 ₽ · 0</b></span></div></article>
+      </section>
+      <section className="pipeline-total-strip reveal" aria-label="Pipeline по всем датам выгрузки">
+        <div><span>Всего сырой pipeline</span><strong>30,35 млн ₽</strong><small>124 сделки · B2C 7,77 млн ₽ · B2B 22,58 млн ₽</small></div>
+        <div><span>Всего взвешенный pipeline</span><strong>15,26 млн ₽</strong><small>B2C 4,03 млн ₽ · B2B 11,23 млн ₽</small></div>
       </section>
 
       <section className="section" id="leads">

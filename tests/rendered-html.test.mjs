@@ -21,6 +21,10 @@ test("server-renders the August sales report", async () => {
   const html = await response.text();
   assert.match(html, /<title>Продажи · Август 2026 · Парк Сказка<\/title>/i);
   assert.match(html, /Pipeline на август/);
+  assert.match(html, /9,55 млн ₽/);
+  assert.match(html, /Предоплачено · август/);
+  assert.match(html, /30,35 млн ₽/);
+  assert.match(html, /15,26 млн ₽/);
   assert.match(html, /1,78 млн ₽/);
   assert.match(html, /8,95 млн ₽/);
   assert.match(html, /72 сделки/);
