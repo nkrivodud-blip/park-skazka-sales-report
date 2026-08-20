@@ -23,7 +23,7 @@ const setCounter = (label, value) => {
   main = main.replace(pattern, `$1${value}$2`);
 };
 
-setCounter("Прогноз к цели 65 млн ₽", "2,7%");
+setCounter("Прогноз к цели 65 млн ₽", "23,5%");
 setCounter("Факт закрытых", "8,95 млн ₽");
 setCounter("Предоплаченные сделки", "6,34 млн ₽");
 setCounter("Взвешенный pipeline", "1,78 млн ₽");
