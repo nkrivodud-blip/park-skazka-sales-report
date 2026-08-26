@@ -87,6 +87,34 @@ h1 { max-width: 830px; margin-bottom: 28px; color: var(--ink); font-size: clamp(
 .pipeline-total-strip span, .pipeline-total-strip small { display: block; color: #687887; font-size: 12px; }
 .pipeline-total-strip strong { display: block; margin: 5px 0 6px; color: #314558; font-size: 24px; letter-spacing: -.03em; }
 
+.pipeline-dashboard { padding: 26px 0 112px; }
+.period-toolbar { display: flex; justify-content: space-between; gap: 24px; align-items: end; margin-bottom: 22px; }
+.period-toolbar h2 { margin: 5px 0 8px; font-size: clamp(34px, 4vw, 54px); }
+.period-toolbar > div > span { color: var(--muted); font-size: 13px; }
+.period-toolbar label { display: grid; gap: 7px; min-width: 210px; color: var(--muted); font-size: 11px; font-weight: 700; }
+.period-toolbar select { width: 100%; padding: 12px 38px 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: white; color: var(--ink); font: inherit; font-size: 14px; font-weight: 800; cursor: pointer; }
+.pipeline-kpi { min-height: 238px; }
+.pipeline-kpi .kpi-average-values small { margin-top: 4px; font-size: 10px; line-height: 1.3; }
+.annual-plan-note { margin: -2px 0 18px; padding: 10px 14px; border-radius: 10px; background: #eef1f3; color: #687887; font-size: 12px; }
+.pipeline-charts { display: grid; gap: 16px; margin-top: 28px; }
+.combo-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: white; }
+.combo-title { display: flex; justify-content: space-between; gap: 20px; align-items: start; padding: 22px 24px 10px; }
+.combo-title h3 { margin-bottom: 5px; color: var(--ink); font-size: 21px; }
+.combo-title p, .combo-title > span { margin: 0; color: var(--muted); font-size: 11px; }
+.combo-title > span { padding: 6px 9px; border-radius: 8px; background: var(--teal-soft); color: var(--teal); font-weight: 800; white-space: nowrap; }
+.combo-scroll { overflow-x: auto; padding: 12px 24px 22px; }
+.combo-chart { position: relative; display: grid; grid-template-columns: repeat(var(--columns), minmax(70px, 1fr)); gap: 10px; min-width: calc(var(--columns) * 80px); height: 260px; padding-top: 12px; }
+.combo-chart svg { position: absolute; inset: 46px 0 40px; z-index: 3; width: 100%; height: calc(100% - 86px); overflow: visible; pointer-events: none; }
+.combo-chart polyline { fill: none; stroke: #f28b64; stroke-width: 1.7; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; }
+.combo-week { display: grid; grid-template-rows: 38px 1fr 30px; gap: 8px; min-width: 0; text-align: center; }
+.combo-value b, .combo-value small { display: block; }
+.combo-value b { color: var(--ink); font-size: 15px; }
+.combo-value small { margin-top: 2px; color: #c26646; font-size: 9px; white-space: nowrap; }
+.combo-bar { display: flex; align-items: end; overflow: hidden; border-radius: 8px 8px 3px 3px; background: #eef2f3; }
+.combo-bar i { display: block; width: 100%; min-height: 2px; border-radius: 6px 6px 0 0; background: var(--teal); animation: grow-height 1s both cubic-bezier(.22,1,.36,1); }
+.combo-week > small { color: var(--muted); font-size: 9px; line-height: 1.3; }
+.pipeline-dashboard > .note { margin-top: 18px; }
+
 article[data-hint] {
   position: relative;
   isolation: isolate;
@@ -340,6 +368,7 @@ footer > a { justify-self: end; align-self: center; font-size: 12px; font-weight
   .kpi-grid, .audit-stats, .capacity-summary, .field-grid { grid-template-columns: repeat(2, 1fr); }
   .quality-grid, .call-grid, .reactivation, .decision-grid, .dual-tables { grid-template-columns: 1fr; }
   .pipeline-direction-summary { grid-template-columns: 1fr; }
+  .period-toolbar { align-items: stretch; }
   .week-chart, .growth-chart { overflow-x: auto; grid-template-columns: repeat(15, 42px); }
   .peak-grid { grid-template-columns: repeat(2, 1fr); }
   .data-head { display: none; }
@@ -357,6 +386,11 @@ footer > a { justify-self: end; align-self: center; font-size: 12px; font-weight
   h1 { font-size: 50px; }
   .lead { font-size: 16px; }
   .kpi-grid, .pipeline-total-strip, .audit-stats, .capacity-summary, .field-grid, footer { grid-template-columns: 1fr; }
+  .pipeline-dashboard { padding-bottom: 72px; }
+  .period-toolbar, .combo-title { display: grid; }
+  .period-toolbar label { min-width: 0; }
+  .combo-title > span { justify-self: start; white-space: normal; }
+  .combo-scroll { padding-inline: 14px; }
   .peak-grid { grid-template-columns: 1fr; }
   .section { padding: 70px 0; }
   .location-row { grid-template-columns: 1fr 64px; }

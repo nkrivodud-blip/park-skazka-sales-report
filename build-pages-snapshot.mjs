@@ -23,11 +23,7 @@ const setCounter = (label, value) => {
   main = main.replace(pattern, `$1${value}$2`);
 };
 
-setCounter("Прогноз к цели 65 млн ₽", "26,7%");
-setCounter("Факт закрытых · август", "9,55 млн ₽");
-setCounter("Предоплачено · август", "7,81 млн ₽");
-setCounter("Взвешенный pipeline · август", "1,71 млн ₽");
-setCounter("Сырой pipeline · август", "3,23 млн ₽");
+setCounter("Прогноз к плану августа", "33,6%");
 
 const rawCss = await fs.readFile("app/globals.css", "utf8");
 const css = rawCss.replace(/url\((['"]?)\//g, "url($1./");
@@ -47,6 +43,18 @@ const html = `<!doctype html>
 </head>
 <body>
 ${main}
+<script>
+  (() => {
+    const select = document.querySelector('[data-period-select]');
+    if (!select) return;
+    const update = () => {
+      document.querySelectorAll('[data-period-panel]').forEach((node) => { node.hidden = node.dataset.periodPanel !== select.value; });
+      document.querySelectorAll('[data-period-range]').forEach((node) => { node.hidden = node.dataset.periodRange !== select.value; });
+    };
+    select.addEventListener('change', update);
+    update();
+  })();
+</script>
 </body>
 </html>`;
 
