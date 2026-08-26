@@ -31,9 +31,12 @@ test("server-renders the August sales report", async () => {
   assert.match(html, /0,59 млн ₽/);
   assert.match(html, /Сырой pipeline/);
   assert.match(html, /1,32 млн ₽/);
-  assert.match(html, /Вход в предоплаченные стадии/);
-  assert.match(html, /Динамика взвешенного pipeline/);
-  assert.match(html, /Динамика сырого pipeline/);
+  assert.match(html, /Динамика недельных снимков · мероприятия 2026 года/);
+  assert.match(html, /История фактического состояния в даты отчётов/);
+  assert.match(html, /Предоплаченные сделки/);
+  assert.match(html, /20.08/);
+  assert.match(html, /26.08/);
+  assert.match(html, /сравнивают сохранённые годовые снимки отчёта/);
   assert.match(html, /81,44 млн ₽/);
   assert.match(html, /18,69 млн ₽/);
   assert.match(html, /34,92 млн ₽/);
