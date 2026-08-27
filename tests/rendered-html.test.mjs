@@ -34,6 +34,11 @@ test("server-renders the August sales report", async () => {
   assert.match(html, /Динамика недельных снимков · мероприятия 2026 года/);
   assert.match(html, /История фактического состояния в даты отчётов/);
   assert.match(html, /Предоплаченные сделки/);
+  assert.match(html, /Сумма предоплаченных сделок/);
+  assert.match(html, /Сумма с учётом вероятности/);
+  assert.match(html, /Сумма без взвешивания/);
+  assert.equal((html.match(/class="combo-sum"/g) ?? []).length, 6);
+  assert.equal((html.match(/class="combo-count"/g) ?? []).length, 6);
   assert.match(html, /20.08/);
   assert.match(html, /26.08/);
   assert.match(html, /сравнивают сохранённые годовые снимки отчёта/);

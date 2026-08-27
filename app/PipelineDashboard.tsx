@@ -51,7 +51,7 @@ function MetricCard({ name, metric, b2c, b2b, plan, accent = false }: { name: st
   </article>;
 }
 
-function ComboChart({ title, subtitle, weeks }: { title: string; subtitle: string; weeks: Week[] }) {
+function ComboChart({ title, subtitle, sumLabel, weeks }: { title: string; subtitle: string; sumLabel: string; weeks: Week[] }) {
   const maxCount = Math.max(...weeks.map((week) => week.count), 1);
   const maxSum = Math.max(...weeks.map((week) => week.sum), 1);
   const points = weeks.map((week, index) => `${(index + 0.5) / weeks.length * 100},${92 - week.sum / maxSum * 76}`).join(" ");
@@ -61,9 +61,9 @@ function ComboChart({ title, subtitle, weeks }: { title: string; subtitle: strin
       <div className="combo-chart" style={{ "--columns": weeks.length } as CSSProperties}>
         <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline points={points} /></svg>
         {weeks.map((week) => <div className="combo-week" key={week.label}>
-          <div className="combo-value"><b>{week.count}</b><small>{money(week.sum)}</small></div>
+          <div className="combo-value"><span className="combo-count">Сделок: <b>{week.count}</b></span><span className="combo-sum-label">{sumLabel}</span><strong className="combo-sum">{money(week.sum)}</strong></div>
           <div className="combo-bar"><i style={{ height: `${week.count / maxCount * 100}%` }} /></div>
-          <small>{week.label}</small>
+          <small>На дату {week.label}.2026</small>
         </div>)}
       </div>
     </div>
@@ -88,9 +88,9 @@ export default function PipelineDashboard() {
     </div>)}
     <div className="snapshot-heading reveal"><p className="eyebrow">Динамика недельных снимков · мероприятия 2026 года</p><h2>История фактического состояния в даты отчётов</h2><p>Каждая точка — пересчёт всей выгрузки на дату обновления. Внутри одной календарной недели сохраняется последний снимок.</p></div>
     <div className="pipeline-charts reveal">
-      <ComboChart title="Предоплаченные сделки" subtitle="Годовой остаток на дату формирования отчёта" weeks={snapshotHistory.prepaid} />
-      <ComboChart title="Взвешенный pipeline" subtitle="Годовой остаток · в работе и предложение · с прогнозом" weeks={snapshotHistory.weighted} />
-      <ComboChart title="Сырой pipeline" subtitle="Годовой остаток того же контура до применения вероятности" weeks={snapshotHistory.raw} />
+      <ComboChart title="Предоплаченные сделки" subtitle="Годовой остаток на дату формирования отчёта" sumLabel="Сумма предоплаченных сделок" weeks={snapshotHistory.prepaid} />
+      <ComboChart title="Взвешенный pipeline" subtitle="Годовой остаток · в работе и предложение · с прогнозом" sumLabel="Сумма с учётом вероятности" weeks={snapshotHistory.weighted} />
+      <ComboChart title="Сырой pipeline" subtitle="Годовой остаток того же контура до применения вероятности" sumLabel="Сумма без взвешивания" weeks={snapshotHistory.raw} />
     </div>
     <aside className="note reveal"><strong>Методика</strong><p>Факт и KPI отбираются по дате мероприятия. B2C-предоплата: «Внесена предоплата», «4 дня до банкета», «1 день до банкета», «Банкет начался»; B2B: «Договор и предоплата», «Подготовка к мероприятию», «Дополнительный счёт». Для B2B стадия предложения называется «Направлено КП». Исторические графики больше не используют дату изменения стадии: они сравнивают сохранённые годовые снимки отчёта. Сопоставимая история начинается 20 августа; более ранние выгрузки охватывали только август и не включены в годовой ряд.</p></aside>
   </section>;

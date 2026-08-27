@@ -194,7 +194,7 @@ export default function Home() {
         </div>
         <div className="chart-heading reveal"><h3>NQL лиды по неделям</h3><p>История недель сохранена · 17–23 августа добавлено по данным РОП · звёздочкой отмечены неполные недели</p></div>
         <div className="week-chart reveal" aria-label="NQL лиды по неделям">
-          {weekly.map(([label, value, partial]) => <div className="week-col" key={label}><div className="week-value">{value}</div><div className="week-track"><i style={{ "--height": `${value / 204 * 100}%` } as CSSProperties} /></div><small>{label}{partial ? "*" : ""}</small></div>)}
+          {weekly.map(([label, value, partial]) => <div className="week-col" key={label}><div className="week-value">{value}<span>NQL лидов</span></div><div className="week-track"><i style={{ "--height": `${value / 204 * 100}%` } as CSSProperties} /></div><small>{label}{partial ? "*" : ""}</small></div>)}
         </div>
       </section>
 
@@ -374,7 +374,7 @@ export default function Home() {
         </div>
         <div className="chart-heading reveal"><h3>Пиковые даты по загрузке площадок</h3><p>Доля занятых слот-единиц от общей дневной ёмкости 41 слот</p></div>
         <div className="peak-grid reveal">
-          {[['28 августа',58.5],['15 августа',43.9],['7 августа',36.6],['29 августа',34.1],['6 августа',29.3]].map(([d,v]) => <article key={String(d)} data-hint={`${d}: занято ${v}% доступной дневной ёмкости площадок по данным смет.`} tabIndex={0}><strong>{d}</strong><div className="util-track"><i style={{ "--bar": `${v}%` } as CSSProperties} /></div><span>{v}%</span></article>)}
+          {[['28 августа',58.5],['15 августа',43.9],['7 августа',36.6],['29 августа',34.1],['6 августа',29.3]].map(([d,v]) => <article key={String(d)} data-hint={`${d}: занято ${v}% доступной дневной ёмкости площадок по данным смет.`} tabIndex={0}><strong>{d}</strong><div className="util-track"><i style={{ "--bar": `${v}%` } as CSSProperties} /></div><span>Утилизация: {v}%</span></article>)}
         </div>
       </section>
 
