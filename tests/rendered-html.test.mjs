@@ -47,7 +47,10 @@ test("server-renders the August sales report", async () => {
   assert.match(html, /184 слот-единицы/);
   assert.match(html, /103 в «Проведено»/);
   assert.match(html, /74 из 410/);
-  assert.match(html, /28 августа · весь Айва-парк/);
+  assert.doesNotMatch(html, /Правило кластера Лофт|Границы расчёта|28 августа · весь Айва-парк|Наталья Криводуд/);
+  assert.match(html, /14,48%/);
+  assert.match(html, /12,8%/);
+  assert.match(html, /18,0%/);
   assert.match(html, /Показатели по менеджерам/);
   assert.match(html, /План августа/);
   assert.match(html, /Осталось до плана/);

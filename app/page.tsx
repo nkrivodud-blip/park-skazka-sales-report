@@ -210,7 +210,7 @@ export default function Home() {
           </div>
           <div className="data-table manager-table">
             <div className="data-head"><span>Менеджер</span><span>Конверсия в успех / предоплату</span><span>Проведено</span><span>Предоплачено</span><span>Взвешенный pipeline</span><span>Сырой pipeline</span><span>План августа</span><span>Выполнение</span><span>Осталось до плана</span></div>
-            {managers.filter((m) => m.direction === direction).map((manager) => {
+            {managers.filter((m) => m.direction === direction && m.name !== "Наталья Криводуд").map((manager) => {
               const plan = managerPlans[`${manager.name}-${direction}`];
               const execution = plan ? manager.wonSum / plan * 100 : 0;
               return (
@@ -376,9 +376,6 @@ export default function Home() {
         <div className="peak-grid reveal">
           {[['28 августа',58.5],['15 августа',43.9],['7 августа',36.6],['29 августа',34.1],['6 августа',29.3]].map(([d,v]) => <article key={String(d)} data-hint={`${d}: занято ${v}% доступной дневной ёмкости площадок по данным смет.`} tabIndex={0}><strong>{d}</strong><div className="util-track"><i style={{ "--bar": `${v}%` } as CSSProperties} /></div><span>{v}%</span></article>)}
         </div>
-        <aside className="note reveal"><strong>Правило кластера Лофт</strong><p>Бриф «Лофт с беседками» блокирует Лофт и все пять беседок на оба дневных слота: 11 слот-единиц за день. С учётом этого кластер занимает 63 из 341 слот-единицы в августе, или 18,5%.</p></aside>
-        <aside className="note reveal"><strong>Границы расчёта</strong><p>Отмены, переносы, шаблоны и прошлые предложения исключены. 8 мероприятий без определённой площадки, 6 в Базилике (нет ёмкости в справочнике) и 2 с противоречивой локацией не включены в процент. Для неоднозначных номеров беседок используется группа локаций. Полная аренда веранды или FOOD на одну волну занимает 3 слот-единицы; обычная бронь — минимум одну. Время и длительность всех броней требуют отдельной сверки.</p></aside>
-        <aside className="note reveal"><strong>28 августа · весь Айва-парк</strong><p>В смете на 28 августа указано бронирование всего Айва-парка. В расчёте занятости это 8 слот-единиц за день, а не одна карточка мероприятия.</p></aside>
       </section>
 
       <footer><div><strong>Парк «Сказка» · отчёт продаж</strong><span>Bitrix · 26.08.2026 · сметы · 27.08.2026</span></div><span>Публичная версия без исходных выгрузок</span></footer>
