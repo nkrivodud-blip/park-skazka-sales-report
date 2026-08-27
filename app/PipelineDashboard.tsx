@@ -16,22 +16,24 @@ type PeriodData = {
 const toWeeks = (rows: readonly (readonly [string, number, number])[]): Week[] => rows.map(([label, count, sum]) => ({ label, count, sum }));
 
 const snapshotHistory = {
-  prepaid: toWeeks([["20.08", 50, 12861661], ["26.08", 42, 12040826]]),
-  weighted: toWeeks([["20.08", 124, 15258045], ["26.08", 107, 18691570]]),
-  raw: toWeeks([["20.08", 124, 30350650], ["26.08", 107, 34922900]]),
+  prepaid: toWeeks([["20.08", 50, 12861661], ["27.08", 41, 11619838]]),
+  weighted: toWeeks([["20.08", 124, 15258045], ["27.08", 107, 18691570]]),
+  raw: toWeeks([["20.08", 124, 30350650], ["27.08", 107, 34922900]]),
 };
 
+// Корректировка РОП 27.08: сделка 85731, B2C, Людмила Запорожец.
+// Из предоплат 420988 ₽ перенесена в факт 434988 ₽; количество сделок не увеличено.
 const periods: Record<"month" | "year", PeriodData> = {
   month: {
     label: "Текущий месяц", range: "1–31 августа 2026", plan: { total: 68026312, B2C: 48026312, B2B: 20000000 },
-    total: { fact: { count: 102, sum: 13207176 }, prepaid: { count: 32, sum: 9620436 }, weighted: { count: 19, sum: 590500 }, raw: { count: 19, sum: 1315000 } },
-    B2C: { fact: { count: 98, sum: 11077216 }, prepaid: { count: 29, sum: 5607208 }, weighted: { count: 19, sum: 590500 }, raw: { count: 19, sum: 1315000 } },
+    total: { fact: { count: 103, sum: 13642164 }, prepaid: { count: 31, sum: 9199448 }, weighted: { count: 19, sum: 590500 }, raw: { count: 19, sum: 1315000 } },
+    B2C: { fact: { count: 99, sum: 11512204 }, prepaid: { count: 28, sum: 5186220 }, weighted: { count: 19, sum: 590500 }, raw: { count: 19, sum: 1315000 } },
     B2B: { fact: { count: 4, sum: 2129960 }, prepaid: { count: 3, sum: 4013228 }, weighted: { count: 0, sum: 0 }, raw: { count: 0, sum: 0 } },
   },
   year: {
     label: "2026 год", range: "1 января–31 декабря 2026",
-    total: { fact: { count: 534, sum: 81440256 }, prepaid: { count: 42, sum: 12040826 }, weighted: { count: 107, sum: 18691570 }, raw: { count: 107, sum: 34922900 } },
-    B2C: { fact: { count: 515, sum: 65164957 }, prepaid: { count: 37, sum: 6596998 }, weighted: { count: 85, sum: 3176570 }, raw: { count: 85, sum: 6292900 } },
+    total: { fact: { count: 535, sum: 81875244 }, prepaid: { count: 41, sum: 11619838 }, weighted: { count: 107, sum: 18691570 }, raw: { count: 107, sum: 34922900 } },
+    B2C: { fact: { count: 516, sum: 65599945 }, prepaid: { count: 36, sum: 6176010 }, weighted: { count: 85, sum: 3176570 }, raw: { count: 85, sum: 6292900 } },
     B2B: { fact: { count: 19, sum: 16275299 }, prepaid: { count: 5, sum: 5443828 }, weighted: { count: 22, sum: 15515000 }, raw: { count: 22, sum: 28630000 } },
   },
 };
@@ -74,7 +76,7 @@ export default function PipelineDashboard() {
   const [periodKey, setPeriodKey] = useState<"month" | "year">("month");
   return <section className="pipeline-dashboard" id="pipeline">
     <div className="period-toolbar reveal">
-      <div><p className="eyebrow">Pipeline · данные на 26 августа</p><h2>Факт, предоплаты и прогноз</h2>{Object.entries(periods).map(([key, period]) => <span key={key} data-period-range={key} hidden={periodKey !== key}>{period.range}</span>)}</div>
+      <div><p className="eyebrow">Pipeline · выгрузки 26 августа + корректировка 27 августа</p><h2>Факт, предоплаты и прогноз</h2>{Object.entries(periods).map(([key, period]) => <span key={key} data-period-range={key} hidden={periodKey !== key}>{period.range}</span>)}</div>
       <label><span>Период</span><select data-period-select value={periodKey} onChange={(event) => setPeriodKey(event.target.value as "month" | "year")}><option value="month">Текущий месяц</option><option value="year">2026 год</option></select></label>
     </div>
     {Object.entries(periods).map(([key, data]) => <div key={key} data-period-panel={key} hidden={periodKey !== key}>
@@ -86,7 +88,7 @@ export default function PipelineDashboard() {
       </div>
       {!data.plan && <p className="annual-plan-note">Процент выполнения годового плана не показан: годовой план не задан.</p>}
     </div>)}
-    <div className="snapshot-heading reveal"><p className="eyebrow">Динамика недельных снимков · мероприятия 2026 года</p><h2>История фактического состояния в даты отчётов</h2><p>Каждая точка — пересчёт всей выгрузки на дату обновления. Внутри одной календарной недели сохраняется последний снимок.</p></div>
+    <div className="snapshot-heading reveal"><p className="eyebrow">Динамика недельных снимков · мероприятия 2026 года</p><h2>История фактического состояния в даты отчётов</h2><p>Каждая точка — пересчёт всей выгрузки на дату обновления. Внутри одной календарной недели сохраняется последний снимок. Точка 27 августа — выгрузки 26 августа с уточнением проведённой сделки на 434 988 ₽.</p></div>
     <div className="pipeline-charts reveal">
       <ComboChart title="Предоплаченные сделки" subtitle="Годовой остаток на дату формирования отчёта" sumLabel="Сумма предоплаченных сделок" weeks={snapshotHistory.prepaid} />
       <ComboChart title="Взвешенный pipeline" subtitle="Годовой остаток · в работе и предложение · с прогнозом" sumLabel="Сумма с учётом вероятности" weeks={snapshotHistory.weighted} />

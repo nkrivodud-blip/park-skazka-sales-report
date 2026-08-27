@@ -58,7 +58,7 @@ const managers = [
   { name: "Кристина Могачева", direction: "B2B", total: 38, wonCount: 4, wonSum: 2_129_960, wonAvg: 532_490, activeCount: 0, activeRaw: 0, activeWeighted: 0, activeAvg: 0, prepaidCount: 2, prepaidSum: 3_631_828, prepaidAvg: 1_815_914 },
   { name: "Кристина Могачева", direction: "B2C", total: 73, wonCount: 24, wonSum: 2_449_356, wonAvg: 102_056, activeCount: 0, activeRaw: 0, activeWeighted: 0, activeAvg: 0, prepaidCount: 9, prepaidSum: 1_457_660, prepaidAvg: 161_962 },
   { name: "Лилия Рамазанова", direction: "B2C", total: 45, wonCount: 13, wonSum: 1_550_190, wonAvg: 119_245, activeCount: 5, activeRaw: 390_000, activeWeighted: 235_000, activeAvg: 78_000, prepaidCount: 4, prepaidSum: 351_230, prepaidAvg: 87_808 },
-  { name: "Людмила Запорожец", direction: "B2C", total: 145, wonCount: 27, wonSum: 3_733_520, wonAvg: 138_279, activeCount: 7, activeRaw: 395_000, activeWeighted: 195_500, activeAvg: 56_429, prepaidCount: 8, prepaidSum: 2_741_948, prepaidAvg: 342_744 },
+  { name: "Людмила Запорожец", direction: "B2C", total: 145, wonCount: 28, wonSum: 4_168_508, wonAvg: 148_875, activeCount: 7, activeRaw: 395_000, activeWeighted: 195_500, activeAvg: 56_429, prepaidCount: 7, prepaidSum: 2_320_960, prepaidAvg: 331_566 },
   { name: "Наталья Криводуд", direction: "B2B", total: 2, wonCount: 0, wonSum: 0, wonAvg: 0, activeCount: 0, activeRaw: 0, activeWeighted: 0, activeAvg: 0, prepaidCount: 0, prepaidSum: 0, prepaidAvg: 0 },
   { name: "Наталья Криводуд", direction: "B2C", total: 7, wonCount: 0, wonSum: 0, wonAvg: 0, activeCount: 0, activeRaw: 0, activeWeighted: 0, activeAvg: 0, prepaidCount: 0, prepaidSum: 0, prepaidAvg: 0 },
   { name: "Яна Кузнецова", direction: "B2B", total: 13, wonCount: 0, wonSum: 0, wonAvg: 0, activeCount: 0, activeRaw: 0, activeWeighted: 0, activeAvg: 0, prepaidCount: 1, prepaidSum: 381_400, prepaidAvg: 381_400 },
@@ -162,10 +162,10 @@ export default function Home() {
 
       <section className="hero reveal" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">Отдел продаж · август 2026 · данные на 26 августа</p>
+          <p className="eyebrow">Отдел продаж · август 2026 · выгрузки 26 августа + корректировка 27 августа</p>
           <h1>Факт, предоплаты и pipeline собраны в одну картину.</h1>
           <p className="lead">
-            В августе закрыто 102 сделки на 13,21 млн ₽. Ещё 32 сделки находятся на предоплаченных стадиях,
+            В августе закрыто 103 сделки на 13,64 млн ₽. Ещё 31 сделка находится на предоплаченных стадиях,
             а взвешенный августовский pipeline по актуальным прогнозам составляет 0,59 млн ₽.
           </p>
           <div className="hero-actions"><a className="button primary" href="#pipeline">Смотреть сверку</a><a className="button ghost" href="#leads">Разобрать лиды</a></div>
@@ -174,7 +174,7 @@ export default function Home() {
           <span>Прогноз к плану августа</span>
           <strong><Counter value={33.6} suffix="%" decimals={1} /></strong>
           <div className="score-track" aria-hidden="true"><i style={{ width: "33.6%" }} /></div>
-          <small>22,83 млн ₽ из 68,03 млн ₽ · факт + предоплаты</small>
+          <small>22,84 млн ₽ из 68,03 млн ₽ · факт + предоплаты</small>
         </div>
       </section>
 
@@ -354,7 +354,7 @@ export default function Home() {
         <div className="section-heading reveal">
           <p className="eyebrow">Утилизация · 27 августа · 146 мероприятий</p>
           <h2>Утилизация площадок</h2>
-          <p>По актуальной папке «АВГУСТ 2026»: 146 мероприятий, из них 103 в «Проведено». Расчётная загрузка — 184 слот-единицы из 1 271, или 14,48%. Включены 6 будущих предложений — это потенциальная, а не подтверждённая бронь. Айва — 8 слотов в день, шатёр FOOD — 6.</p>
+          <p>По актуальной папке «АВГУСТ 2026»: 146 мероприятий, из них 104 в «Проведено». Расчётная загрузка — 184 слот-единицы из 1 271, или 14,48%. Включены 6 будущих предложений — это потенциальная, а не подтверждённая бронь. Айва — 8 слотов в день, шатёр FOOD — 6.</p>
         </div>
         <div className="capacity-summary reveal">
           <article data-hint="Теоретическая месячная ёмкость: сумма доступных слотов всех площадок за 31 день августа." tabIndex={0}><span>Всего слот-единиц</span><strong>1 271</strong><small>41 в день × 31 день</small></article>

@@ -20,13 +20,13 @@ test("server-renders the August sales report", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>Продажи · Август 2026 · Парк Сказка<\/title>/i);
-  assert.match(html, /Pipeline · данные на 26 августа/);
+  assert.match(html, /Pipeline · выгрузки 26 августа/);
   assert.match(html, /Текущий месяц/);
   assert.match(html, /2026 год/);
-  assert.match(html, /13,21 млн ₽/);
-  assert.match(html, /102 сделки/);
+  assert.match(html, /13,64 млн ₽/);
+  assert.match(html, /103 сделки/);
   assert.match(html, /Предоплачено/);
-  assert.match(html, /9,62 млн ₽/);
+  assert.match(html, /9,20 млн ₽/);
   assert.match(html, /Взвешенный pipeline/);
   assert.match(html, /0,59 млн ₽/);
   assert.match(html, /Сырой pipeline/);
@@ -40,9 +40,11 @@ test("server-renders the August sales report", async () => {
   assert.equal((html.match(/class="combo-sum"/g) ?? []).length, 6);
   assert.equal((html.match(/class="combo-count"/g) ?? []).length, 6);
   assert.match(html, /20.08/);
-  assert.match(html, /26.08/);
+  assert.match(html, /27.08/);
+  assert.match(html, /434 988 ₽/);
+  assert.match(html, /22,84 млн ₽/);
   assert.match(html, /сравнивают сохранённые годовые снимки отчёта/);
-  assert.match(html, /81,44 млн ₽/);
+  assert.match(html, /81,88 млн ₽/);
   assert.match(html, /18,69 млн ₽/);
   assert.match(html, /34,92 млн ₽/);
   assert.match(html, /Предоплаченные сделки/);
@@ -50,7 +52,7 @@ test("server-renders the August sales report", async () => {
   assert.match(html, /1 271/);
   assert.match(html, /Айва — 8 слотов в день, шатёр FOOD — 6/);
   assert.match(html, /184 слот-единицы/);
-  assert.match(html, /103 в «Проведено»/);
+  assert.match(html, /104 в «Проведено»/);
   assert.match(html, /74 из 410/);
   assert.doesNotMatch(html, /Правило кластера Лофт|Границы расчёта|28 августа · весь Айва-парк|Наталья Криводуд/);
   assert.match(html, /14,48%/);
