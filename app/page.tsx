@@ -27,7 +27,7 @@ const weekly = [
   ["27.04–03.05", 36, true], ["04–10.05", 119], ["11–17.05", 120], ["18–24.05", 162],
   ["25–31.05", 148], ["01–07.06", 125], ["08–14.06", 119], ["15–21.06", 118],
   ["22–28.06", 127], ["29.06–05.07", 155], ["06–12.07", 146], ["13–19.07", 179],
-  ["20–26.07", 148], ["27.07–02.08", 152], ["03–09.08", 190, true], ["10–16.08", 124],
+  ["20–26.07", 148], ["27.07–02.08", 152], ["03–09.08", 190, true], ["10–16.08", 124], ["17–23.08", 161],
 ] as const;
 
 const pipelineGrowth = [
@@ -53,6 +53,7 @@ const prepaidGrowth = [
 ] as const;
 
 const managers = [
+  { name: "Александр Воронин", direction: "B2C", total: 6, wonCount: 1, wonSum: 296320, wonAvg: 296320, activeCount: 3, activeRaw: 180000, activeWeighted: 45000, activeAvg: 60000, prepaidCount: 1, prepaidSum: 250500, prepaidAvg: 250500 },
   { name: "Варвара Чугреева", direction: "B2C", total: 58, wonCount: 15, wonSum: 1_491_450, wonAvg: 99_430, activeCount: 4, activeRaw: 350_000, activeWeighted: 115_000, activeAvg: 87_500, prepaidCount: 6, prepaidSum: 773_870, prepaidAvg: 128_978 },
   { name: "Кристина Могачева", direction: "B2B", total: 38, wonCount: 4, wonSum: 2_129_960, wonAvg: 532_490, activeCount: 0, activeRaw: 0, activeWeighted: 0, activeAvg: 0, prepaidCount: 2, prepaidSum: 3_631_828, prepaidAvg: 1_815_914 },
   { name: "Кристина Могачева", direction: "B2C", total: 73, wonCount: 24, wonSum: 2_449_356, wonAvg: 102_056, activeCount: 0, activeRaw: 0, activeWeighted: 0, activeAvg: 0, prepaidCount: 9, prepaidSum: 1_457_660, prepaidAvg: 161_962 },
@@ -88,6 +89,67 @@ const compactMoney = (value: number) => value === 0
     ? `${(value / 1_000_000).toLocaleString("ru-RU", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} млн ₽`
     : `${Math.round(value / 1_000).toLocaleString("ru-RU")} тыс. ₽`;
 
+const managerPlans: Record<string, number> = {
+  "Людмила Запорожец-B2C": 12006577.895833332,
+  "Александр Воронин-B2C": 12006577.895833332,
+  "Варвара Чугреева-B2C": 12006577.895833332,
+  "Лилия Рамазанова-B2C": 12006577.895833332,
+  "Кристина Могачева-B2B": 10000000,
+  "Яна Кузнецова-B2B": 10000000,
+};
+const exactMoney = (value: number) => Math.round(value).toLocaleString("ru-RU") + " ₽";
+const locations = [
+  {
+    "name": "Айва-парк · все беседки",
+    "occupied": 23,
+    "capacity": 186,
+    "offers": 0,
+    "detail": "23 занятых слот-единиц из 186. В том числе предложения: 0."
+  },
+  {
+    "name": "Айва-парк · домик",
+    "occupied": 12,
+    "capacity": 62,
+    "offers": 1,
+    "detail": "12 занятых слот-единиц из 62. В том числе предложения: 1."
+  },
+  {
+    "name": "Лофт и пять беседок",
+    "occupied": 63,
+    "capacity": 341,
+    "offers": 2,
+    "detail": "63 занятых слот-единиц из 341. В том числе предложения: 2."
+  },
+  {
+    "name": "Дино · все шатры",
+    "occupied": 10,
+    "capacity": 186,
+    "offers": 1,
+    "detail": "10 занятых слот-единиц из 186. В том числе предложения: 1."
+  },
+  {
+    "name": "Веранда Мадагаскар",
+    "occupied": 53,
+    "capacity": 186,
+    "offers": 2,
+    "detail": "53 занятых слот-единиц из 186. В том числе предложения: 2."
+  },
+  {
+    "name": "Шатёр FOOD",
+    "occupied": 9,
+    "capacity": 186,
+    "offers": 0,
+    "detail": "9 занятых слот-единиц из 186. В том числе предложения: 0."
+  },
+  {
+    "name": "Нитро · оба шатра",
+    "occupied": 14,
+    "capacity": 124,
+    "offers": 0,
+    "detail": "14 занятых слот-единиц из 124. В том числе предложения: 0."
+  }
+];
+
 export default function Home() {
   return (
     <main>
@@ -120,57 +182,53 @@ export default function Home() {
 
       <section className="section" id="leads">
         <div className="section-heading reveal">
-          <p className="eyebrow">Лиды · 10–16 августа</p>
-          <h2>17,7 лида в день по выбранной команде.</h2>
-          <p>У семи указанных ответственных найдено 157 лидов. Исключены 33 лида с причиной отмены «дубль»: осталось 124, из них 94 находятся на стадии «Качественный лид».</p>
+          <p className="eyebrow">Лиды · 17–23 августа</p>
+          <h2>NQL и QL лиды.</h2>
+          <p>161 NQL лид, из них 142 QL. Конверсия из NQL в QL — 88,2%.</p>
         </div>
         <div className="capacity-summary reveal">
-          <article data-hint="124 очищенных лида за семь календарных дней с 10 по 16 августа." tabIndex={0}><span>Среднее в день</span><strong>17,7</strong><small>124 лида · 7 дней</small></article>
-          <article data-hint="Количество лидов семи выбранных ответственных после удаления дублей." tabIndex={0}><span>Очищенные лиды</span><strong>124</strong><small>из 157 исходных</small></article>
-          <article className="accent" data-hint="94 из 124 очищенных лидов находятся на стадии «Качественный лид»." tabIndex={0}><span>Качественные лиды</span><strong>75,8%</strong><small>94 из 124</small></article>
-          <article data-hint="Среди лидов выбранной команды исключено 33 записи, где в причине отмены указан дубль." tabIndex={0}><span>Удалено дублей</span><strong>33</strong><small>21,0% выборки</small></article>
+          <article data-hint="17,7 — показатель, предоставленный РОП отдельно. Расчёт 161 NQL за 7 календарных дней даёт 23 в день." tabIndex={0}><span>Среднее в день</span><strong>17,7</strong><small>Значение по данным РОП</small></article>
+          <article data-hint="161 NQL лид за 17–23 августа по данным РОП." tabIndex={0}><span>NQL лиды</span><strong>161</strong><small>17–23 августа</small></article>
+          <article className="accent" data-hint="142 QL лида из 161 NQL за 17–23 августа по данным РОП." tabIndex={0}><span>QL лиды</span><strong>142</strong><small>из 161 NQL</small></article>
+          <article data-hint="Конверсия NQL → QL = 142 ÷ 161 × 100%." tabIndex={0}><span>Конверсия</span><strong>88,2%</strong><small>NQL → QL</small></article>
         </div>
-        <div className="chart-heading reveal"><h3>Очищенные лиды по неделям</h3><p>10–16 августа — только семь выбранных ответственных, дубли исключены · звёздочкой отмечены неполные недели</p></div>
-        <div className="week-chart reveal" aria-label="Очищенные лиды по неделям">
+        <div className="chart-heading reveal"><h3>NQL лиды по неделям</h3><p>История недель сохранена · 17–23 августа добавлено по данным РОП · звёздочкой отмечены неполные недели</p></div>
+        <div className="week-chart reveal" aria-label="NQL лиды по неделям">
           {weekly.map(([label, value, partial]) => <div className="week-col" key={label}><div className="week-value">{value}</div><div className="week-track"><i style={{ "--height": `${value / 204 * 100}%` } as CSSProperties} /></div><small>{label}{partial ? "*" : ""}</small></div>)}
         </div>
-        <aside className="note reveal"><strong>Периметр выборки</strong><p>Наталья Криводуд, Людмила Запорожец, Лилия Рамазанова, Дмитрий Григорьев, Кристина Могачева, Варвара Чугреева и Яна Кузнецова. Удалены только лиды, где поле «Причина отмены» содержит «дубль».</p></aside>
       </section>
 
       <section className="section" id="managers">
         <div className="section-heading reveal">
-          <p className="eyebrow">Отдел продаж · факт</p>
-          <h2>Проведено 102 мероприятия на 13,21 млн ₽.</h2>
-          <p>Факт считается по стадии «Сделка успешна» в августовских выгрузках. Конверсия менеджеров ниже рассчитана от всех сделок соответствующего направления в выборке.</p>
+          <h2>Показатели по менеджерам</h2>
+          <p>Август 2026 · Выполнение = проведено ÷ план × 100%. Осталось до плана = план − проведено, не ниже нуля. Планы — из файла «Распределение плана».</p>
         </div>
-        <div className="capacity-summary reveal">
-          <article className="accent" data-hint="Сумма успешно проведённых августовских мероприятий B2B и B2C." tabIndex={0}><span>Проведено</span><strong>13,21 млн ₽</strong><small>102 сделки · средний чек 129,5 тыс. ₽</small></article>
-          <article data-hint="Успешные сделки воронки «Дни рождения»." tabIndex={0}><span>B2C</span><strong>11,08 млн ₽</strong><small>98 сделок · чек 113,0 тыс. ₽</small></article>
-          <article data-hint="Успешные сделки воронки «Корпоративные мероприятия»." tabIndex={0}><span>B2B</span><strong>2,13 млн ₽</strong><small>4 сделки · чек 532,5 тыс. ₽</small></article>
-          <article data-hint="Сумма факта и предоплаченных сделок относительно плана августа 68,03 млн ₽." tabIndex={0}><span>Прогноз к плану</span><strong>33,6%</strong><small>22,83 млн ₽ · факт + предоплаты</small></article>
-        </div>
-        <div className="table-card reveal">
+        {(["B2C", "B2B"] as const).map((direction) => <div className="table-card manager-group reveal" key={direction}>
           <div className="table-title">
-            <div><h3>Показатели по менеджерам · B2B и B2C отдельно</h3><p>Конверсия в оплаченный контур объединяет успешные и предоплаченные сделки. В работе — только согласованные стадии с заполненным прогнозом.</p></div>
-            <span>452 сделки в отображаемом периметре</span>
+            <div><h3>{direction}</h3><p>Конверсия объединяет успешные и предоплаченные сделки. В работе — только согласованные стадии с заполненным прогнозом.</p></div>
+            <span>План августа: {exactMoney(direction === "B2C" ? 48026311.58333333 : 20000000)}</span>
           </div>
           <div className="data-table manager-table">
-            <div className="data-head"><span>Менеджер</span><span>Напр.</span><span>Конверсия в успех / предоплату</span><span>Проведено</span><span>Предоплачено</span><span>В работе · weighted</span><span>Raw · сырой pipeline</span></div>
-            {managers.map((manager) => {
+            <div className="data-head"><span>Менеджер</span><span>Конверсия в успех / предоплату</span><span>Проведено</span><span>Предоплачено</span><span>Взвешенный pipeline</span><span>Сырой pipeline</span><span>План августа</span><span>Выполнение</span><span>Осталось до плана</span></div>
+            {managers.filter((m) => m.direction === direction).map((manager) => {
+              const plan = managerPlans[`${manager.name}-${direction}`];
+              const execution = plan ? manager.wonSum / plan * 100 : 0;
               return (
-                <div className="data-row" key={`${manager.name}-${manager.direction}`}>
+                <div className="data-row" key={manager.name}>
                   <strong>{manager.name}{("status" in manager && manager.status) && <small className="manager-status">{manager.status}</small>}</strong>
-                  <span><b className="direction-tag">{manager.direction}</b></span>
-                  <span className="metric-value"><strong>{(((manager.wonCount + manager.prepaidCount) / manager.total) * 100).toLocaleString("ru-RU", { maximumFractionDigits: 1 })}%</strong><small>{manager.wonCount + manager.prepaidCount} из {manager.total} сделок</small></span>
+                  <span className="metric-value"><strong>{(manager.total ? (manager.wonCount + manager.prepaidCount) / manager.total * 100 : 0).toLocaleString("ru-RU", { maximumFractionDigits: 1 })}%</strong><small>{manager.wonCount + manager.prepaidCount} из {manager.total} сделок</small></span>
                   <span><strong>{compactMoney(manager.wonSum)}</strong><small>{manager.wonCount} шт. · чек {compactMoney(manager.wonAvg)}</small></span>
                   <span><strong>{compactMoney(manager.prepaidSum)}</strong><small>{manager.prepaidCount} шт. · чек {compactMoney(manager.prepaidAvg)}</small></span>
                   <span><strong>{compactMoney(manager.activeWeighted)}</strong><small>{manager.activeCount} сделок в работе</small></span>
                   <span><strong>{compactMoney(manager.activeRaw)}</strong><small>{manager.activeCount} шт. · чек {compactMoney(manager.activeAvg)}</small></span>
+                  <span><strong>{plan ? exactMoney(plan) : "Не задан"}</strong></span>
+                  <span><strong>{plan ? execution.toLocaleString("ru-RU", { maximumFractionDigits: 1 }) + "%" : "—"}</strong>{plan && <progress max={100} value={Math.min(100, execution)} aria-label="Выполнение плана" />}</span>
+                  <span><strong>{plan ? exactMoney(Math.max(0, plan - manager.wonSum)) : "—"}</strong></span>
                 </div>
               );
             })}
           </div>
-        </div>
+        </div>)}
         <aside className="note reveal"><strong>Методика конверсии</strong><p>Конверсия = (количество сделок на стадии «Сделка успешна» + количество сделок на предоплаченных стадиях) ÷ все сделки менеджера в августовской выборке × 100%. Сделки не пересекаются по стадиям. Для B2C предоплаченный контур включает «Внесена предоплата», «4 дня до банкета», «1 день до банкета» и «Банкет начался»; для B2B — «Договор и предоплата», «Подготовка к мероприятию» и «Дополнительный счёт».</p></aside>
       </section>
 
@@ -294,25 +352,36 @@ export default function Home() {
 
       <section className="section" id="capacity">
         <div className="section-heading reveal">
-          <p className="eyebrow">Утилизация по 140 уникальным сметам</p>
-          <h2>Дефицита площадок нет. Выходные загружены в 2,3 раза сильнее будней.</h2>
-          <p>Нижняя граница месяца — 141 занятая слот-единица из 1 271, или 11,09%. Выходные: 18,05%; будни: 7,78%. Учтены основная папка, «Предложения» и «Проведено», а также уточнения РОП: Айва — 8 слотов в день, шатёр FOOD — 6.</p>
+          <p className="eyebrow">Утилизация · 27 августа · 146 мероприятий</p>
+          <h2>Утилизация площадок</h2>
+          <p>По актуальной папке «АВГУСТ 2026»: 146 мероприятий, из них 103 в «Проведено». Расчётная загрузка — 184 слот-единицы из 1 271, или 14,48%. Включены 6 будущих предложений — это потенциальная, а не подтверждённая бронь. Айва — 8 слотов в день, шатёр FOOD — 6.</p>
         </div>
         <div className="capacity-summary reveal">
           <article data-hint="Теоретическая месячная ёмкость: сумма доступных слотов всех площадок за 31 день августа." tabIndex={0}><span>Всего слот-единиц</span><strong>1 271</strong><small>41 в день × 31 день</small></article>
-          <article data-hint="Минимально подтверждённое число занятых слот-единиц по 140 уникальным сметам, включая папку «Проведено». Неопределённые локации не завышают показатель." tabIndex={0}><span>Занято по сметам</span><strong>141</strong><small>нижняя граница</small></article>
+          <article data-hint="Расчёт по 130 мероприятиям с определённой группой площадок, включая проведённые и будущие предложения. Не является подтверждением оплаты или точным почасовым расписанием." tabIndex={0}><span>Занято по сметам</span><strong>184</strong><small>14,48% · включая предложения</small></article>
           <article className="accent" data-hint="Занятые слот-единицы по субботам и воскресеньям, разделённые на доступную ёмкость выходных." tabIndex={0}><span>Выходные</span><strong>18,0%</strong><small>74 из 410</small></article>
-          <article data-hint="Занятые слот-единицы с понедельника по пятницу, разделённые на доступную ёмкость будних дней." tabIndex={0}><span>Будни</span><strong>7,8%</strong><small>67 из 861</small></article>
+          <article data-hint="Занятые слот-единицы с понедельника по пятницу, разделённые на доступную ёмкость будних дней." tabIndex={0}><span>Будни</span><strong>12,8%</strong><small>110 из 861</small></article>
+        </div>
+        <div className="chart-heading reveal"><h3>Утилизация по локациям</h3><p>Актуальные сметы на 27 августа, включая «Проведено» и будущие предложения. Занятые слот-единицы ÷ ёмкость августа × 100%.</p></div>
+        <div className="location-grid reveal">
+          {locations.map((location) => <article key={location.name} data-hint={location.detail} tabIndex={0}>
+            <h3>{location.name}</h3>
+            <strong>{(location.occupied / location.capacity * 100).toLocaleString("ru-RU", { maximumFractionDigits: 1 })}%</strong>
+            <progress max={location.capacity} value={location.occupied} aria-label={location.name} />
+            <p>{location.occupied} из {location.capacity} слот-единиц</p>
+            <small>{location.detail}</small>
+          </article>)}
         </div>
         <div className="chart-heading reveal"><h3>Пиковые даты по загрузке площадок</h3><p>Доля занятых слот-единиц от общей дневной ёмкости 41 слот</p></div>
         <div className="peak-grid reveal">
-          {[['15 августа',43.9],['22 августа',39.0],['28 августа',22.0],['29 августа',17.1],['30 августа',17.1]].map(([d,v]) => <article key={String(d)} data-hint={`${d}: занято ${v}% доступной дневной ёмкости площадок по данным смет.`} tabIndex={0}><strong>{d}</strong><div className="util-track"><i style={{ "--bar": `${v}%` } as CSSProperties} /></div><span>{v}%</span></article>)}
+          {[['28 августа',58.5],['15 августа',43.9],['7 августа',36.6],['29 августа',34.1],['6 августа',29.3]].map(([d,v]) => <article key={String(d)} data-hint={`${d}: занято ${v}% доступной дневной ёмкости площадок по данным смет.`} tabIndex={0}><strong>{d}</strong><div className="util-track"><i style={{ "--bar": `${v}%` } as CSSProperties} /></div><span>{v}%</span></article>)}
         </div>
-        <aside className="note reveal"><strong>Правило кластера Лофт</strong><p>Бриф «Лофт с беседками» блокирует Лофт и все пять беседок на оба дневных слота: 11 слот-единиц за день. С учётом этого кластер занимает 25 из 341 слот-единицы в августе, или 7,3%.</p></aside>
+        <aside className="note reveal"><strong>Правило кластера Лофт</strong><p>Бриф «Лофт с беседками» блокирует Лофт и все пять беседок на оба дневных слота: 11 слот-единиц за день. С учётом этого кластер занимает 63 из 341 слот-единицы в августе, или 18,5%.</p></aside>
+        <aside className="note reveal"><strong>Границы расчёта</strong><p>Отмены, переносы, шаблоны и прошлые предложения исключены. 8 мероприятий без определённой площадки, 6 в Базилике (нет ёмкости в справочнике) и 2 с противоречивой локацией не включены в процент. Для неоднозначных номеров беседок используется группа локаций. Полная аренда веранды или FOOD на одну волну занимает 3 слот-единицы; обычная бронь — минимум одну. Время и длительность всех броней требуют отдельной сверки.</p></aside>
         <aside className="note reveal"><strong>28 августа · весь Айва-парк</strong><p>В смете на 28 августа указано бронирование всего Айва-парка. В расчёте занятости это 8 слот-единиц за день, а не одна карточка мероприятия.</p></aside>
       </section>
 
-      <footer><div><strong>Парк «Сказка» · отчёт продаж</strong><span>Bitrix + сметы + лиды · 26.08.2026 · ParkOps 04.08.2026</span></div><span>Публичная версия без исходных выгрузок</span></footer>
+      <footer><div><strong>Парк «Сказка» · отчёт продаж</strong><span>Bitrix · 26.08.2026 · сметы · 27.08.2026</span></div><span>Публичная версия без исходных выгрузок</span></footer>
     </main>
   );
 }
