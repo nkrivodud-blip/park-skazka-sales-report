@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Отчет по воронке продаж за период 1 июня — 2 сентября 2026 года" />
+  <title>Воронка продаж · 01.06–02.09.2026</title>
+  <style>
+    :root{--ink:#182028;--muted:#64717d;--paper:#f4f1ea;--card:#fffdf8;--line:#ded9cf;--navy:#14324a;--blue:#1f6f8b;--teal:#35a29f;--gold:#e0a82e;--green:#23845b;--red:#c64b4b;--shadow:0 16px 45px rgba(34,45,51,.08)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 Inter,Segoe UI,Arial,sans-serif}
+    .shell{max-width:1220px;margin:auto;padding:24px 28px 56px}.top{background:var(--navy);color:#fff;border-radius:26px;padding:34px 38px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+    .top:after{content:"";position:absolute;width:360px;height:360px;border:85px solid rgba(53,162,159,.2);border-radius:50%;right:-120px;top:-170px}.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#a8d8d4;font-weight:700}.top h1{margin:9px 0 5px;font-size:clamp(30px,5vw,54px);line-height:1.05;letter-spacing:-.035em;max-width:750px}.subtitle{color:#cedbe3;font-size:17px;margin:0}.stamp{display:inline-flex;margin-top:22px;padding:8px 12px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.15);border-radius:99px;font-size:13px}
+    .nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 24px}.nav a{color:var(--navy);text-decoration:none;background:#fff;border:1px solid var(--line);padding:8px 13px;border-radius:99px;font-size:13px}.nav a:hover{border-color:var(--teal)}
+    .grid{display:grid;gap:16px}.kpis{grid-template-columns:repeat(5,1fr)}.card,.panel{background:var(--card);border:1px solid var(--line);border-radius:19px;box-shadow:0 7px 24px rgba(34,45,51,.04)}.card{padding:20px;min-height:138px;display:flex;flex-direction:column;justify-content:space-between}.card .label{color:var(--muted);font-size:13px}.card .value{font-size:34px;line-height:1;font-weight:750;letter-spacing:-.04em}.card .detail{font-size:12px;color:var(--muted)}.card.green{border-top:4px solid var(--green)}.card.red{border-top:4px solid var(--red)}.card.blue{border-top:4px solid var(--blue)}.card.gold{border-top:4px solid var(--gold)}
+    section{margin-top:26px}.section-title{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:0 2px 12px}.section-title h2{font-size:23px;margin:0;letter-spacing:-.02em}.section-title p{margin:0;color:var(--muted);font-size:13px;text-align:right}.panel{padding:25px}.two{grid-template-columns:1.25fr .75fr}
+    .funnel{display:grid;gap:10px}.funnel-row{display:grid;grid-template-columns:200px 1fr 78px;align-items:center;gap:12px}.funnel-label{font-weight:650}.track{height:34px;background:#e7e6df;border-radius:9px;overflow:hidden}.fill{height:100%;min-width:7px;border-radius:9px;display:flex;align-items:center;padding-left:10px;color:#fff;font-weight:700;background:linear-gradient(90deg,var(--blue),var(--teal))}.funnel-num{text-align:right;font-variant-numeric:tabular-nums}.funnel-num strong{display:block;font-size:18px}.funnel-num span{font-size:11px;color:var(--muted)}
+    .conversion{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.conv{border:1px solid var(--line);border-radius:14px;padding:15px;background:#fff}.conv b{display:block;font-size:27px;color:var(--navy)}.conv span{font-size:12px;color:var(--muted)}
+    .money{grid-template-columns:repeat(3,1fr)}.money .panel{padding:22px}.money-label{color:var(--muted);font-size:13px}.money-value{font-size:29px;font-weight:750;margin:5px 0;letter-spacing:-.03em}.money-note{font-size:12px;color:var(--muted)}
+    .reasons{display:grid;gap:14px}.reason-head{display:flex;justify-content:space-between;gap:12px;margin-bottom:5px}.reason-head span:first-child{max-width:75%}.reason-head b{font-variant-numeric:tabular-nums}.reason-track{height:9px;border-radius:9px;background:#ece8df;overflow:hidden}.reason-fill{height:100%;background:var(--red);border-radius:9px}.reason-sub{font-size:11px;color:var(--muted);margin-top:4px}
+    .months{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.month{padding:18px;border:1px solid var(--line);border-radius:15px;background:#fff}.month h3{margin:0 0 12px;font-size:15px}.month-total{font-size:28px;font-weight:750}.legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;font-size:11px;color:var(--muted)}.dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:4px}.active{background:var(--blue)}.won{background:var(--green)}.lost{background:var(--red)}
+    .insight{border-left:5px solid var(--gold);padding:18px 20px;background:#fff9e9;border-radius:0 14px 14px 0}.insight strong{color:#7a5712}.notes{font-size:12px;color:var(--muted);display:grid;gap:7px}.footer{margin-top:24px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:12px}.print{border:0;border-radius:10px;padding:9px 13px;background:var(--navy);color:#fff;cursor:pointer}
+    @media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.kpis .card:first-child{grid-column:span 2}.two,.money{grid-template-columns:1fr}.months{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.shell{padding:12px 12px 36px}.top{padding:26px 22px;border-radius:19px}.kpis,.months{grid-template-columns:1fr}.kpis .card:first-child{grid-column:auto}.funnel-row{grid-template-columns:120px 1fr 55px;font-size:12px}.panel{padding:18px}.conversion{grid-template-columns:1fr}.section-title{display:block}.section-title p{text-align:left;margin-top:4px}.footer{display:block}.print{margin-top:12px}}
+    @media print{body{background:#fff}.shell{max-width:none;padding:0}.top,.card,.panel{box-shadow:none}.nav,.print{display:none}.top{border-radius:0}section{break-inside:avoid}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="top">
+      <div class="eyebrow">Парк «Сказка» · CRM-аналитика</div>
+      <h1>Воронка продаж</h1>
+      <p class="subtitle">Сделки, созданные с 1 июня по 2 сентября 2026 года</p>
+      <div class="stamp">Срез данных: 02.09.2026 · 43 сделки</div>
+    </header>
+    <nav class="nav" aria-label="Разделы отчета"><a href="#summary">Итоги</a><a href="#funnel">Воронка</a><a href="#revenue">Деньги</a><a href="#losses">Причины проигрыша</a><a href="#method">Методика</a></nav>
+
+    <section id="summary">
+      <div class="section-title"><h2>Итоги периода</h2><p>Текущий статус сделок на дату выгрузки</p></div>
+      <div class="grid kpis">
+        <article class="card blue"><div class="label">Новые лиды</div><div class="value">43</div><div class="detail">все сделки, созданные в периоде</div></article>
+        <article class="card gold"><div class="label">Квалифицированные</div><div class="value">42</div><div class="detail">97,7% от новых лидов</div></article>
+        <article class="card blue"><div class="label">Активные сделки</div><div class="value">25</div><div class="detail">58,1% всей когорты</div></article>
+        <article class="card green"><div class="label">Успешно закрыты</div><div class="value">1</div><div class="detail">2,3% всей когорты</div></article>
+        <article class="card red"><div class="label">Неуспешно закрыты</div><div class="value">17</div><div class="detail">39,5% всей когорты</div></article>
+      </div>
+    </section>
+
+    <section id="funnel">
+      <div class="section-title"><h2>Воронка и конверсии</h2><p>Распределение по текущим стадиям</p></div>
+      <div class="grid two">
+        <div class="panel funnel" aria-label="Количество сделок по стадиям">
+          <div class="funnel-row"><div class="funnel-label">Новый запрос</div><div class="track"><div class="fill" style="width:8%"></div></div><div class="funnel-num"><strong>1</strong><span>2,3%</span></div></div>
+          <div class="funnel-row"><div class="funnel-label">В работе</div><div class="track"><div class="fill" style="width:83%">10</div></div><div class="funnel-num"><strong>10</strong><span>23,3%</span></div></div>
+          <div class="funnel-row"><div class="funnel-label">Направлено КП</div><div class="track"><div class="fill" style="width:100%">12</div></div><div class="funnel-num"><strong>12</strong><span>27,9%</span></div></div>
+          <div class="funnel-row"><div class="funnel-label">Финальное КП</div><div class="track"><div class="fill" style="width:8%"></div></div><div class="funnel-num"><strong>1</strong><span>2,3%</span></div></div>
+          <div class="funnel-row"><div class="funnel-label">Согласование</div><div class="track"><div class="fill" style="width:8%"></div></div><div class="funnel-num"><strong>1</strong><span>2,3%</span></div></div>
+          <div class="funnel-row"><div class="funnel-label">Успешно</div><div class="track"><div class="fill" style="width:8%;background:var(--green)"></div></div><div class="funnel-num"><strong>1</strong><span>2,3%</span></div></div>
+          <div class="funnel-row"><div class="funnel-label">Проиграно</div><div class="track"><div class="fill" style="width:100%;background:var(--red)">17</div></div><div class="funnel-num"><strong>17</strong><span>39,5%</span></div></div>
+        </div>
+        <div class="panel">
+          <div class="conversion">
+            <div class="conv"><b>97,7%</b><span>новый лид → квалифицированный<br>42 / 43</span></div>
+            <div class="conv"><b>42,9%</b><span>квалифицированный → закрытый<br>18 / 42</span></div>
+            <div class="conv"><b>5,6%</b><span>закрытый → успешный<br>1 / 18</span></div>
+            <div class="conv"><b>2,3%</b><span>новый лид → успешная сделка<br>1 / 43</span></div>
+          </div>
+          <div class="insight" style="margin-top:14px"><strong>Главный сигнал:</strong> на одну победу приходится 17 проигрышей. При этом 25 сделок еще активны, поэтому итоговая конверсия когорты может вырасти.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="revenue">
+      <div class="section-title"><h2>Выручка и средний чек</h2><p>Суммы в рублях</p></div>
+      <div class="grid money">
+        <div class="panel"><div class="money-label">Фактическая выручка</div><div class="money-value">381 400 ₽</div><div class="money-note">сумма 1 успешной сделки</div></div>
+        <div class="panel"><div class="money-label">Средний чек</div><div class="money-value">381 400 ₽</div><div class="money-note">выручка / успешные сделки</div></div>
+        <div class="panel"><div class="money-label">Активный пайплайн</div><div class="money-value">78 000 001 ₽</div><div class="money-note">заявленные суммы 25 активных сделок; не прогноз</div></div>
+      </div>
+    </section>
+
+    <section id="losses">
+      <div class="section-title"><h2>Причины проигрыша</h2><p>17 закрытых неуспешно · 7 662 500 ₽ заявленной суммы</p></div>
+      <div class="grid two">
+        <div class="panel reasons">
+          <div><div class="reason-head"><span>Причина не указана</span><b>5 · 29,4%</b></div><div class="reason-track"><div class="reason-fill" style="width:100%"></div></div><div class="reason-sub">1 002 500 ₽</div></div>
+          <div><div class="reason-head"><span>Не дозвонились после 3+ касаний</span><b>4 · 23,5%</b></div><div class="reason-track"><div class="reason-fill" style="width:80%"></div></div><div class="reason-sub">1 960 000 ₽</div></div>
+          <div><div class="reason-head"><span>Территориально неудобно добираться</span><b>3 · 17,6%</b></div><div class="reason-track"><div class="reason-fill" style="width:60%"></div></div><div class="reason-sub">1 750 000 ₽</div></div>
+          <div><div class="reason-head"><span>Выбрали другой формат</span><b>2 · 11,8%</b></div><div class="reason-track"><div class="reason-fill" style="width:40%"></div></div><div class="reason-sub">1 100 000 ₽</div></div>
+          <div><div class="reason-head"><span>Не подошла площадка</span><b>1 · 5,9%</b></div><div class="reason-track"><div class="reason-fill" style="width:20%"></div></div><div class="reason-sub">600 000 ₽</div></div>
+          <div><div class="reason-head"><span>Проиграли тендер</span><b>1 · 5,9%</b></div><div class="reason-track"><div class="reason-fill" style="width:20%"></div></div><div class="reason-sub">1 000 000 ₽</div></div>
+          <div><div class="reason-head"><span>Решили не отмечать</span><b>1 · 5,9%</b></div><div class="reason-track"><div class="reason-fill" style="width:20%"></div></div><div class="reason-sub">250 000 ₽</div></div>
+        </div>
+        <div class="panel">
+          <h3 style="margin-top:0">Что требует внимания</h3>
+          <p><b>29,4% проигрышей без причины.</b> Это крупнейшая категория и пробел в качестве CRM-данных.</p>
+          <p><b>23,5% — недозвон.</b> Стоит проверить скорость первого контакта и сценарий повторных касаний.</p>
+          <p><b>17,6% — локация.</b> Причина системная: полезно заранее показывать логистику, трансфер и время в пути.</p>
+          <div class="insight"><strong>Приоритет:</strong> обязательное поле причины проигрыша и еженедельный разбор сделок без заполненной причины.</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title"><h2>Динамика поступления лидов</h2><p>По месяцу создания</p></div>
+      <div class="panel months">
+        <div class="month"><h3>Июнь</h3><div class="month-total">4</div><div class="legend"><span><i class="dot active"></i>1 активна</span><span><i class="dot lost"></i>3 проиграны</span></div></div>
+        <div class="month"><h3>Июль</h3><div class="month-total">16</div><div class="legend"><span><i class="dot active"></i>4 активны</span><span><i class="dot won"></i>1 успешна</span><span><i class="dot lost"></i>11 проиграны</span></div></div>
+        <div class="month"><h3>Август</h3><div class="month-total">19</div><div class="legend"><span><i class="dot active"></i>16 активны</span><span><i class="dot lost"></i>3 проиграны</span></div></div>
+        <div class="month"><h3>1–2 сентября</h3><div class="month-total">4</div><div class="legend"><span><i class="dot active"></i>4 активны</span></div></div>
+      </div>
+    </section>
+
+    <section id="method">
+      <div class="section-title"><h2>Методика и ограничения</h2></div>
+      <div class="panel notes">
+        <div>Источник: CRM-выгрузка <b>DEAL_20260902_207389e6_6a98013a05d24.xls</b>, 44 строки; 1 сделка от 15.05.2026 исключена как созданная до начала периода.</div>
+        <div><b>Новый лид</b> — любая сделка, созданная в периоде. <b>Квалифицированный лид</b> — сделка, покинувшая текущую стадию «Новый запрос».</div>
+        <div><b>Активная сделка</b> — любой статус, кроме «Сделка успешна» и «Сделка провалена». Выручка и средний чек рассчитаны только по успешным сделкам.</div>
+        <div>Выгрузка не содержит историю смены стадий. Поэтому распределение по внутренним стадиям — текущий срез, а не когортная история переходов. Конверсии рассчитаны по наблюдаемым текущим статусам.</div>
+        <div>Сумма активного пайплайна включает одну технически подозрительную сделку на 1 ₽ и не учитывает вероятность закрытия.</div>
+      </div>
+    </section>
+    <footer class="footer"><span>Сформировано 2 сентября 2026 года · агрегированные данные без персональных данных</span><button class="print" onclick="window.print()">Сохранить в PDF</button></footer>
+  </main>
+</body>
+</html>
