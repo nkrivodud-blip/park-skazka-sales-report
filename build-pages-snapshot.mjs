@@ -23,7 +23,6 @@ const setCounter = (label, value) => {
   main = main.replace(pattern, `$1${value}$2`);
 };
 
-setCounter("Прогноз к плану августа", "33,6%");
 
 const rawCss = await fs.readFile("app/globals.css", "utf8");
 const css = rawCss.replace(/url\((['"]?)\//g, "url($1./");
@@ -45,14 +44,15 @@ const html = `<!doctype html>
 ${main}
 <script>
   (() => {
-    const select = document.querySelector('[data-period-select]');
-    if (!select) return;
-    const update = () => {
-      document.querySelectorAll('[data-period-panel]').forEach((node) => { node.hidden = node.dataset.periodPanel !== select.value; });
-      document.querySelectorAll('[data-period-range]').forEach((node) => { node.hidden = node.dataset.periodRange !== select.value; });
-    };
-    select.addEventListener('change', update);
-    update();
+    document.querySelectorAll('[data-dashboard]').forEach((root) => {
+      const select = root.querySelector('[data-period-select]');
+      if (!select) return;
+      const update = () => {
+        root.querySelectorAll('[data-period-panel]').forEach((node) => { node.hidden = node.dataset.periodPanel !== select.value; });
+        root.querySelectorAll('[data-period-range]').forEach((node) => { node.hidden = node.dataset.periodRange !== select.value; });
+      };
+      select.addEventListener('change', update); update();
+    });
   })();
 </script>
 </body>
