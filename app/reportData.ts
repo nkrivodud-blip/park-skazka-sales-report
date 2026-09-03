@@ -13,8 +13,8 @@ export const reportPeriods = {
     },
     "total": {
       "fact": {
-        "count": 135,
-        "sum": 19000000
+        "count": 140,
+        "sum": 23364002
       },
       "prepaid": {
         "count": 0,
@@ -31,8 +31,8 @@ export const reportPeriods = {
     },
     "B2C": {
       "fact": {
-        "count": 129,
-        "sum": 16000000
+        "count": 133,
+        "sum": 16945814
       },
       "prepaid": {
         "count": 0,
@@ -49,8 +49,8 @@ export const reportPeriods = {
     },
     "B2B": {
       "fact": {
-        "count": 6,
-        "sum": 3000000
+        "count": 7,
+        "sum": 6418188
       },
       "prepaid": {
         "count": 0,
@@ -683,8 +683,8 @@ export const reportPeriods = {
     },
     "total": {
       "fact": {
-        "count": 549,
-        "sum": 81582510
+        "count": 554,
+        "sum": 85946512
       },
       "prepaid": {
         "count": 24,
@@ -701,8 +701,8 @@ export const reportPeriods = {
     },
     "B2C": {
       "fact": {
-        "count": 530,
-        "sum": 68582510
+        "count": 534,
+        "sum": 69528324
       },
       "prepaid": {
         "count": 21,
@@ -719,8 +719,8 @@ export const reportPeriods = {
     },
     "B2B": {
       "fact": {
-        "count": 19,
-        "sum": 13000000
+        "count": 20,
+        "sum": 16418188
       },
       "prepaid": {
         "count": 3,
