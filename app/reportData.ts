@@ -13,8 +13,8 @@ export const reportPeriods = {
     },
     "total": {
       "fact": {
-        "count": 137,
-        "sum": 22256552
+        "count": 135,
+        "sum": 19000000
       },
       "prepaid": {
         "count": 0,
@@ -31,8 +31,8 @@ export const reportPeriods = {
     },
     "B2C": {
       "fact": {
-        "count": 132,
-        "sum": 16893564
+        "count": 129,
+        "sum": 16000000
       },
       "prepaid": {
         "count": 0,
@@ -49,8 +49,8 @@ export const reportPeriods = {
     },
     "B2B": {
       "fact": {
-        "count": 5,
-        "sum": 5362988
+        "count": 6,
+        "sum": 3000000
       },
       "prepaid": {
         "count": 0,
@@ -683,8 +683,8 @@ export const reportPeriods = {
     },
     "total": {
       "fact": {
-        "count": 339,
-        "sum": 50347765
+        "count": 549,
+        "sum": 81582510
       },
       "prepaid": {
         "count": 24,
@@ -701,8 +701,8 @@ export const reportPeriods = {
     },
     "B2C": {
       "fact": {
-        "count": 330,
-        "sum": 40311454
+        "count": 530,
+        "sum": 68582510
       },
       "prepaid": {
         "count": 21,
@@ -719,8 +719,8 @@ export const reportPeriods = {
     },
     "B2B": {
       "fact": {
-        "count": 9,
-        "sum": 10036311
+        "count": 19,
+        "sum": 13000000
       },
       "prepaid": {
         "count": 3,
@@ -1290,4 +1290,3 @@ export const reportPeriods = {
 } as const;
 
 export type ReportPeriodKey = keyof typeof reportPeriods;
-
