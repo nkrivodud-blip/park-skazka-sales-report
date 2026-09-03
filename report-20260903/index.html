@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f8">
+  <title>Продажи · Август 2026 · Парк Сказка</title>
+  <meta name="description" content="Управленческий отчёт по лидам, сделкам B2C и B2B, планам менеджеров и загрузке площадок за август 2026 года.">
+  <meta property="og:title" content="Продажи Парка Сказка · Август 2026">
+  <meta property="og:description" content="Pipeline, оплаченный контур, выполнение планов и загрузка площадок.">
+  <link rel="icon" href="./favicon.svg">
+  <style>@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+:root {
+  --ink: #17324d;
+  --text: #203040;
+  --muted: #6b7b89;
+  --line: #dbe3e9;
+  --paper: #f5f7f8;
+  --white: #ffffff;
+  --teal: #0f766e;
+  --teal-soft: #e4f3f0;
+  --amber: #b97716;
+  --red: #b4473d;
+  --radius: 20px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--text);
+  font-family: "Manrope", Arial, sans-serif;
+  font-style: normal;
+}
+a { color: inherit; text-decoration: none; }
+main { width: min(1240px, calc(100% - 40px)); margin: 0 auto; }
+h1, h2, h3, p { margin-top: 0; }
+
+.topbar {
+  position: sticky;
+  top: 14px;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  min-height: 64px;
+  margin-top: 14px;
+  padding: 10px 14px;
+  border: 1px solid rgba(219, 227, 233, .9);
+  border-radius: 16px;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(14px);
+}
+.brand { display: inline-flex; align-items: center; gap: 10px; width: max-content; font-weight: 800; }
+.brand-mark { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 11px; background: var(--ink); color: white; font-size: 12px; }
+nav { display: flex; gap: 25px; color: var(--muted); font-size: 13px; font-weight: 700; }
+nav a:hover, nav a:focus-visible { color: var(--teal); }
+.download { justify-self: end; padding: 10px 14px; border-radius: 10px; background: var(--ink); color: white; font-size: 12px; font-weight: 700; }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.35fr .65fr;
+  gap: 64px;
+  align-items: end;
+  min-height: 620px;
+  padding: 120px 0 72px;
+}
+.eyebrow { margin: 0 0 20px; color: var(--teal); font-size: 12px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+h1 { max-width: 830px; margin-bottom: 28px; color: var(--ink); font-size: clamp(54px, 7vw, 94px); line-height: .96; letter-spacing: -.065em; }
+.lead { max-width: 720px; margin-bottom: 30px; color: var(--muted); font-size: 19px; line-height: 1.62; }
+.hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.button { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 12px; font-size: 13px; font-weight: 800; }
+.button.primary { background: var(--teal); color: white; }
+.button.ghost { border: 1px solid var(--line); background: white; }
+.hero-score { padding: 28px; border-radius: var(--radius); background: var(--ink); color: white; }
+.hero-score > span, .hero-score small { color: #bdc9d1; font-size: 12px; }
+.hero-score strong { display: block; margin: 28px 0 20px; font-size: clamp(58px, 7vw, 88px); line-height: 1; letter-spacing: -.055em; }
+.score-track { overflow: hidden; height: 6px; margin-bottom: 14px; border-radius: 99px; background: rgba(255,255,255,.14); }
+.score-track i { display: block; width: 23.3%; height: 100%; border-radius: inherit; background: #5cdbb4; animation: grow 1.1s both cubic-bezier(.22,1,.36,1); }
+
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+.kpi { min-height: 184px; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: white; }
+.kpi span, .kpi small { display: block; color: var(--muted); font-size: 12px; }
+.kpi span { margin-bottom: 12px; }
+.kpi strong { display: block; margin: 0 0 22px; color: var(--ink); font-size: clamp(26px, 2.8vw, 38px); line-height: 1; letter-spacing: -.045em; }
+.kpi.accent { border-color: #b9ddd6; background: var(--teal-soft); }
+.kpi.danger { border-color: #ebcbc7; background: #faeeec; }
+.fact-plan-card strong { margin-bottom: 14px; }
+.fact-plan-progress { overflow: hidden; height: 5px; margin-top: 10px; border-radius: 99px; background: #e4eaed; }
+.fact-plan-progress i { display: block; height: 100%; border-radius: inherit; background: var(--teal); }
+.fact-plan-card .kpi-average-values { margin-top: 10px; }
+.fact-plan-card .kpi-average-values small { margin-top: 4px; font-size: 10px; line-height: 1.25; }
+.pipeline-total-strip { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin-bottom: 128px; overflow: hidden; border: 1px solid #d7dde2; border-radius: 14px; background: #d7dde2; }
+.pipeline-total-strip > div { padding: 18px 24px; background: #eef1f3; }
+.pipeline-total-strip span, .pipeline-total-strip small { display: block; color: #687887; font-size: 12px; }
+.pipeline-total-strip strong { display: block; margin: 5px 0 6px; color: #314558; font-size: 24px; letter-spacing: -.03em; }
+
+.pipeline-dashboard { padding: 26px 0 112px; }
+.period-toolbar { display: flex; justify-content: space-between; gap: 24px; align-items: end; margin-bottom: 22px; }
+.period-toolbar h2 { margin: 5px 0 8px; font-size: clamp(34px, 4vw, 54px); }
+.period-toolbar > div > span { color: var(--muted); font-size: 13px; }
+.period-toolbar label { display: grid; gap: 7px; min-width: 210px; color: var(--muted); font-size: 11px; font-weight: 700; }
+.period-toolbar select { width: 100%; padding: 12px 38px 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: white; color: var(--ink); font: inherit; font-size: 14px; font-weight: 800; cursor: pointer; }
+.pipeline-kpi { min-height: 238px; }
+.pipeline-kpi .kpi-average-values small { margin-top: 4px; font-size: 10px; line-height: 1.3; }
+.fact-comparison-card { min-height: 330px; }
+.period-comparison { display: grid; gap: 7px; margin-top: 14px; padding: 12px; border-radius: 12px; background: #edf2f4; }
+.period-comparison > strong { margin: 0 0 2px; font-size: 12px; letter-spacing: 0; }
+.period-comparison > div { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; align-items: center; }
+.period-comparison span { color: var(--muted); font-size: 10px; }
+.period-comparison b { color: var(--ink); font-size: 13px; }
+.period-comparison em { grid-column: 1 / -1; color: var(--muted); font-size: 10px; font-style: normal; font-weight: 800; text-align: right; }
+.period-comparison .negative { color: #a14b3f; }
+.period-comparison .positive { color: var(--teal); }
+.period-comparison .current { padding-bottom: 7px; border-bottom: 1px solid var(--line); }
+.period-comparison { position: relative; cursor: help; outline: none; }
+.comparison-help { display: inline-grid; place-items: center; width: 18px; height: 18px; margin-left: 5px; border: 1px solid #9fcac5; border-radius: 50%; color: var(--teal); font-size: 11px; }
+.monthly-tooltip { position: absolute; z-index: 20; left: calc(100% + 12px); bottom: 0; display: none; width: 340px; padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: #183751; color: white; box-shadow: 0 18px 45px rgba(20,48,70,.22); }
+.period-comparison:hover .monthly-tooltip { display: block; }
+.monthly-tooltip > strong { display: block; margin: 0 0 11px; color: white; font-size: 14px; letter-spacing: 0; }
+.monthly-head, .monthly-row { display: grid; grid-template-columns: 1.35fr repeat(3, .65fr); gap: 8px; align-items: center; padding: 6px 0; }
+.monthly-head { border-bottom: 1px solid rgba(255,255,255,.25); color: #9edbd4; font-size: 10px; text-transform: uppercase; }
+.monthly-row { border-bottom: 1px solid rgba(255,255,255,.1); }
+.monthly-row span, .monthly-row b, .monthly-head span, .monthly-head b { color: white; font-size: 11px; }
+.monthly-row b, .monthly-head b { text-align: right; }
+.monthly-tooltip small { display: block; margin-top: 10px; color: #b9cad7; font-size: 9px; line-height: 1.35; }
+@media (max-width: 1100px) { .monthly-tooltip { left: 0; bottom: calc(100% + 10px); width: min(340px, 82vw); } }
+.annual-plan-note { margin: -2px 0 18px; padding: 10px 14px; border-radius: 10px; background: #eef1f3; color: #687887; font-size: 12px; }
+.pipeline-charts { display: grid; gap: 16px; margin-top: 28px; }
+.snapshot-heading { max-width: 900px; margin-top: 82px; }
+.snapshot-heading h2 { margin: 8px 0 14px; font-size: clamp(32px, 4vw, 52px); }
+.snapshot-heading > p:last-child { color: var(--muted); line-height: 1.6; }
+.combo-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: white; }
+.combo-title { display: flex; justify-content: space-between; gap: 20px; align-items: start; padding: 22px 24px 10px; }
+.combo-title h3 { margin-bottom: 5px; color: var(--ink); font-size: 21px; }
+.combo-title p, .combo-title > span { margin: 0; color: var(--muted); font-size: 11px; }
+.combo-title > span { padding: 6px 9px; border-radius: 8px; background: var(--teal-soft); color: var(--teal); font-weight: 800; white-space: nowrap; }
+.combo-scroll { overflow-x: auto; padding: 12px 24px 22px; }
+.combo-chart { position: relative; display: grid; grid-template-columns: repeat(var(--columns), minmax(190px, 1fr)); gap: 14px; min-width: calc(var(--columns) * 204px); height: 340px; padding-top: 12px; }
+.combo-chart svg { position: absolute; inset: 126px 0 40px; z-index: 3; width: 100%; height: calc(100% - 166px); overflow: visible; pointer-events: none; }
+.combo-chart polyline { fill: none; stroke: #f28b64; stroke-width: 1.7; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; }
+.combo-week { display: grid; grid-template-rows: 106px 1fr 30px; gap: 8px; min-width: 0; text-align: center; }
+.combo-count { display: block; color: var(--ink); font-size: 16px; }
+.combo-count b { font-size: 20px; }
+.combo-sum-label { display: block; margin-top: 10px; color: var(--muted); font-size: 12px; line-height: 1.4; }
+.combo-sum { display: block; margin-top: 3px; color: #a64d2f; font-size: 28px; line-height: 1.25; font-weight: 800; white-space: nowrap; }
+.combo-bar { display: flex; justify-self: center; align-items: end; overflow: hidden; width: min(100%, 140px); border-radius: 8px 8px 3px 3px; background: #eef2f3; }
+.combo-bar i { display: block; width: 100%; min-height: 2px; border-radius: 6px 6px 0 0; background: var(--teal); animation: grow-height 1s both cubic-bezier(.22,1,.36,1); }
+.combo-week > small { color: var(--muted); font-size: 12px; line-height: 1.3; }
+.pipeline-dashboard > .note { margin-top: 18px; }
+
+article[data-hint] {
+  position: relative;
+  isolation: isolate;
+  outline: none;
+  cursor: help;
+  transition: transform 250ms ease-in-out, box-shadow 250ms ease-in-out, border-color 200ms ease-in-out;
+}
+article[data-hint]::after {
+  content: "?";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(15, 118, 110, .22);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .86);
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 800;
+  transition: opacity 150ms ease-out, transform 150ms ease-out;
+}
+article[data-hint]::before {
+  content: attr(data-hint);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  left: 10px;
+  z-index: 5;
+  padding: 14px 38px 14px 15px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 13px;
+  background: rgba(23, 50, 77, .97);
+  box-shadow: 0 14px 32px rgba(23, 50, 77, .2);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(5px) scale(.985);
+  transform-origin: top right;
+  transition: opacity 160ms ease-out, transform 180ms ease-out;
+}
+article[data-hint]:hover::before,
+article[data-hint]:focus-visible::before {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+article[data-hint]:hover::after,
+article[data-hint]:focus-visible::after {
+  opacity: 0;
+  transform: scale(.75);
+}
+article[data-hint]:focus-visible {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, .2);
+}
+
+@media (hover: hover) {
+  article[data-hint]:hover {
+    z-index: 6;
+    transform: translateY(-3px);
+    border-color: rgba(15, 118, 110, .34);
+    box-shadow: 0 12px 26px rgba(23, 50, 77, .1);
+    transition: transform 180ms ease-out, box-shadow 180ms ease-out, border-color 150ms ease-out;
+  }
+}
+
+.section { padding: 94px 0; border-top: 1px solid var(--line); }
+.legacy-pipeline { display: none; }
+.section-heading { max-width: 860px; margin-bottom: 50px; }
+h2 { margin-bottom: 20px; color: var(--ink); font-size: clamp(40px, 5vw, 68px); line-height: 1.02; letter-spacing: -.05em; }
+.section-heading > p:last-child { max-width: 760px; margin-bottom: 0; color: var(--muted); font-size: 16px; line-height: 1.65; }
+.chart-heading { margin: 28px 0 14px; }
+.chart-heading.compact { margin: 30px 24px 0; }
+.chart-heading h3 { margin-bottom: 6px; color: var(--ink); font-size: 20px; letter-spacing: -.02em; }
+.chart-heading p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+
+.audit-stats, .capacity-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 18px; }
+.audit-stats article, .capacity-summary article { min-height: 130px; padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: white; }
+.audit-stats strong, .capacity-summary strong { display: block; margin: 0 0 12px; color: var(--ink); font-size: 32px; letter-spacing: -.04em; }
+.audit-stats span, .capacity-summary span { display: block; margin-bottom: 10px; color: var(--muted); font-size: 12px; line-height: 1.4; }
+.audit-stats small, .capacity-summary small { display: block; margin-top: 6px; color: var(--muted); font-size: 12px; line-height: 1.4; }
+.capacity-summary .accent { background: var(--teal-soft); }
+.fact-average-card .fact-average-values { display: grid; gap: 4px; margin: 0 0 12px; }
+.fact-average-card .fact-average-values strong { margin: 0; font-size: 22px; letter-spacing: -.03em; line-height: 1.15; }
+.kpi-average-values { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+.kpi-average-values span { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.3; }
+.kpi-average-values b { display: block; margin-top: 2px; color: var(--ink); font-size: 13px; }
+.plan-track { overflow: hidden; height: 5px; margin-top: 14px; border-radius: 99px; background: #e4eaee; }
+.plan-track i { display: block; width: var(--plan); height: 100%; border-radius: inherit; background: var(--teal); animation: grow 1.1s both cubic-bezier(.22,1,.36,1); }
+.plan-gap { display: block; margin-top: 10px; padding: 7px 9px; border-radius: 8px; background: #fff1c9; color: #80520b; font-size: 11px; font-style: normal; font-weight: 800; line-height: 1.35; }
+
+.table-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: white; }
+.table-title { display: flex; justify-content: space-between; gap: 20px; align-items: start; padding: 24px; }
+.table-title h3 { margin-bottom: 6px; color: var(--ink); font-size: 23px; }
+.table-title p { margin: 0; color: var(--muted); font-size: 12px; }
+.table-title > span { padding: 6px 9px; border-radius: 8px; background: var(--teal-soft); color: var(--teal); font-size: 11px; font-weight: 800; }
+.data-head, .data-row { display: grid; grid-template-columns: 1fr .55fr .9fr .9fr .9fr 1.3fr; gap: 16px; align-items: center; padding: 14px 24px; }
+.data-head { background: var(--ink); color: white; font-size: 10px; font-weight: 800; text-transform: uppercase; }
+.data-row { border-top: 1px solid var(--line); font-size: 12px; }
+.data-row strong { font-size: 13px; }
+.data-row > strong > small { display: inline-block; margin-left: 8px; color: var(--muted); font-size: 10px; font-weight: 700; white-space: nowrap; }
+.positive { color: var(--teal); }
+.stage { color: var(--muted); }
+.source-table .data-head, .source-table .data-row { grid-template-columns: 1fr 110px 130px; }
+.comparison-table .data-head, .comparison-table .data-row { grid-template-columns: 1.3fr 1fr 1fr 1fr; }
+.pipeline-direction-summary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 16px 24px; border-bottom: 1px solid var(--line); }
+.pipeline-direction-summary article { display: grid; gap: 5px; padding: 16px; border: 1px solid var(--line); border-radius: 13px; background: #f8fbfb; }
+.pipeline-direction-summary span { color: var(--teal); font-size: 11px; font-weight: 800; letter-spacing: .08em; }
+.pipeline-direction-summary strong { color: var(--ink); font-size: 22px; letter-spacing: -.035em; }
+.pipeline-direction-summary small, .pipeline-direction-summary em { color: var(--muted); font-size: 11px; font-style: normal; }
+.pipeline-direction-summary em { color: var(--ink); font-weight: 700; }
+.pipeline-manager-table .data-head, .pipeline-manager-table .data-row { grid-template-columns: minmax(220px, 1.4fr) 100px minmax(150px, .9fr) minmax(160px, .9fr); }
+.pipeline-manager-table .data-head > span:not(:first-child), .pipeline-manager-table .data-row > span, .pipeline-manager-table .data-row > strong:last-child { text-align: left; }
+.pipeline-manager-table .data-row > strong { white-space: nowrap; }
+.manager-table { overflow-x: auto; }
+.manager-group { margin-bottom: 22px; }
+.manager-group .manager-table .data-head, .manager-group .manager-table .data-row { display: grid; grid-template-columns: 170px repeat(5, minmax(130px, 1fr)) 145px 110px 145px; min-width: 1400px; }
+.manager-table progress, .location-grid progress { display: block; width: 100%; height: 7px; margin: 12px 0; accent-color: var(--teal); }
+.location-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 32px; }
+.location-grid article { padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: white; }
+.location-grid h3 { font-size: 18px; margin-bottom: 16px; }
+.location-grid strong { font-size: 32px; color: var(--ink); }
+.location-grid p, .location-grid small { color: var(--muted); font-size: 12px; line-height: 1.6; }
+.manager-table .data-head, .manager-table .data-row { grid-template-columns: minmax(165px, 1.2fr) 60px minmax(145px, 1fr) minmax(130px, .9fr) minmax(145px, 1fr) minmax(135px, .95fr) minmax(145px, 1fr); gap: 12px; min-width: 1180px; }
+.manager-table .data-row { align-items: start; padding-block: 18px; }
+.manager-table .data-row > strong { line-height: 1.35; }
+.manager-table small { display: block; margin-top: 5px; color: var(--muted); font-size: 10px; line-height: 1.35; }
+.manager-table .manager-status { color: #a14b3f; font-size: 11px; font-weight: 800; }
+.manager-table .metric-value { color: var(--ink); font-size: 13px; font-weight: 700; }
+.direction-tag { display: inline-block; padding: 4px 7px; border-radius: 7px; background: var(--teal-soft); color: var(--teal); font-size: 10px; letter-spacing: .02em; }
+.completion { display: grid; gap: 8px; }
+.completion > strong { color: var(--teal); font-size: 15px; }
+.manager-progress { display: block; overflow: hidden; height: 5px; border-radius: 99px; background: #e4eaee; }
+.manager-progress i { display: block; width: var(--plan); height: 100%; border-radius: inherit; background: var(--teal); animation: grow 1.1s both cubic-bezier(.22,1,.36,1); }
+.gap-amount { display: inline-block; padding: 7px 9px; border-radius: 8px; background: #faeeec; color: #9b3d34; font-size: 12px; font-weight: 800; line-height: 1.35; }
+.gap-amount.no-plan { background: #f0f3f5; color: var(--muted); font-weight: 700; }
+
+.week-chart { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(45px, 1fr); overflow-x: auto; gap: 7px; min-height: 310px; margin: 18px 0; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: white; }
+.week-col { display: grid; grid-template-rows: 22px 1fr 34px; gap: 8px; min-width: 0; text-align: center; }
+.week-value { color: var(--ink); font-size: 16px; font-weight: 800; }
+.week-value span { display: block; font-size: 9px; font-weight: 500; color: var(--muted); }
+.week-track { display: flex; align-items: end; overflow: hidden; border-radius: 7px; background: #edf1f3; }
+.week-track i { display: block; width: 100%; height: var(--height); min-height: 2px; background: var(--teal); animation: grow-height 1.1s both cubic-bezier(.22,1,.36,1); }
+.week-col small { color: var(--muted); font-size: 8px; writing-mode: vertical-rl; transform: rotate(180deg); justify-self: center; }
+
+.peak-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.peak-grid article { padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: white; }
+.peak-grid strong, .peak-grid span { display: block; }
+.peak-grid .util-track { margin: 24px 0 12px; }
+.peak-grid span { color: var(--muted); font-size: 12px; }
+.dual-tables { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.note.warning { background: #faeeec; color: var(--ink); }
+.note.warning p { color: var(--muted); }
+
+.quality-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+.quality-card { min-height: 210px; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: white; }
+.quality-card.critical { background: #faeeec; border-color: #ebcbc7; }
+.quality-card strong, .quality-card span { display: block; }
+.quality-card strong { margin-bottom: 34px; color: var(--ink); font-size: 31px; letter-spacing: -.04em; }
+.quality-card span { margin-bottom: 12px; font-weight: 800; }
+.quality-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+
+.growth-block { overflow: hidden; margin: 18px 0; border: 1px solid var(--line); border-radius: var(--radius); background: white; }
+.growth-block .table-title { border-bottom: 1px solid var(--line); }
+.growth-summary { margin: 18px 24px 0; }
+.growth-summary article { background: #f8fafb; }
+.growth-chart { display: grid; grid-template-columns: repeat(15, 1fr); gap: 7px; min-height: 300px; padding: 24px; }
+.growth-col { display: grid; grid-template-rows: 22px 1fr 34px; gap: 8px; min-width: 0; text-align: center; }
+.growth-value { color: var(--ink); font-size: 10px; font-weight: 800; }
+.growth-track { display: flex; flex-direction: column; justify-content: end; overflow: hidden; border-radius: 7px; background: #edf1f3; }
+.growth-track i { display: block; width: 100%; height: var(--height); min-height: 0; animation: grow-height 1.1s both cubic-bezier(.22,1,.36,1); }
+.growth-track .b2c, .growth-legend .b2c { background: var(--teal); }
+.growth-track .b2b, .growth-legend .b2b { background: var(--amber); }
+.growth-col small { color: var(--muted); font-size: 8px; writing-mode: vertical-rl; transform: rotate(180deg); justify-self: center; }
+.growth-legend { display: flex; align-items: center; gap: 18px; padding: 0 24px 24px; color: var(--muted); font-size: 11px; }
+.growth-legend span { display: flex; align-items: center; gap: 7px; font-weight: 800; }
+.growth-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; }
+.growth-legend small { margin-left: auto; }
+
+.location-list { display: grid; gap: 8px; }
+.location-row { display: grid; grid-template-columns: 1.2fr 1fr 70px; gap: 24px; align-items: center; min-height: 74px; padding: 14px 20px; border: 1px solid var(--line); border-radius: 14px; background: white; }
+.location-row strong, .location-row small { display: block; }
+.location-row small { margin-top: 5px; color: var(--muted); font-size: 11px; }
+.location-row > strong { text-align: right; }
+.util-track { overflow: hidden; height: 7px; border-radius: 99px; background: #e8edf0; }
+.util-track i { display: block; width: var(--bar); height: 100%; border-radius: inherit; background: var(--teal); animation: grow 1.1s both cubic-bezier(.22,1,.36,1); }
+.note { display: grid; grid-template-columns: .35fr 1fr; gap: 40px; margin-top: 18px; padding: 24px; border-radius: 16px; background: var(--ink); color: white; }
+.note p { margin: 0; color: #bdc9d1; font-size: 13px; line-height: 1.6; }
+
+.call-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.call-card { padding: 30px; border: 1px solid var(--line); border-radius: var(--radius); background: white; }
+.call-card.dark { background: var(--ink); color: white; }
+.call-label { display: flex; justify-content: space-between; color: var(--teal); font-size: 12px; font-weight: 800; }
+.dark .call-label { color: #63ddb9; }
+.call-label small { color: var(--muted); }
+.dark .call-label small { color: #bdc9d1; }
+.call-card > strong { display: block; margin: 42px 0 6px; font-size: clamp(40px, 5vw, 64px); letter-spacing: -.05em; }
+.call-card > p { color: var(--muted); }
+.dark > p { color: #bdc9d1; }
+.call-card ul { display: grid; gap: 8px; margin: 28px 0; padding: 0; list-style: none; }
+.call-card li { display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+.dark li { border-color: rgba(255,255,255,.12); }
+.call-card li span { font-weight: 800; }
+.call-card dl div { display: flex; justify-content: space-between; padding: 10px 0; }
+.call-card dt { color: var(--muted); font-size: 12px; }
+.dark dt { color: #bdc9d1; }
+.call-card dd { margin: 0; font-size: 13px; font-weight: 800; }
+.reactivation { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.reactivation article { padding: 24px; border-radius: 16px; background: var(--teal-soft); }
+.reactivation span, .reactivation strong { display: block; }
+.reactivation span { color: var(--teal); font-size: 11px; font-weight: 800; text-transform: uppercase; }
+.reactivation strong { margin: 22px 0 10px; color: var(--ink); font-size: 24px; }
+.reactivation p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+
+.bridge { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: white; }
+.bridge-row { display: grid; grid-template-columns: 44px 1.3fr 1fr 140px; gap: 20px; align-items: center; min-height: 80px; padding: 12px 22px; border-bottom: 1px solid var(--line); }
+.bridge-row:last-child { border-bottom: 0; background: var(--teal-soft); }
+.bridge-index, .bridge-row small { color: var(--muted); font-size: 11px; }
+.bridge-row strong, .bridge-row small { display: block; }
+.bridge-row small { margin-top: 5px; }
+.bridge-row > strong { text-align: right; }
+.bridge-track { overflow: hidden; height: 8px; border-radius: 99px; background: #e8edf0; }
+.bridge-track i { display: block; width: var(--bar); height: 100%; border-radius: inherit; background: var(--teal); animation: grow 1.1s both cubic-bezier(.22,1,.36,1); }
+.bridge-row.anchor .bridge-track i { background: var(--amber); }
+.decision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.decision-grid article { padding: 24px; border-radius: 16px; background: var(--ink); color: white; }
+.decision-grid span, .decision-grid strong { display: block; }
+.decision-grid span { color: #bdc9d1; font-size: 11px; text-transform: uppercase; }
+.decision-grid strong { margin: 22px 0 10px; font-size: 24px; }
+.decision-grid p { margin: 0; color: #bdc9d1; font-size: 13px; }
+
+.field-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.field-grid article { min-height: 190px; padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: white; }
+.field-grid span { color: var(--teal); font-size: 11px; font-weight: 800; }
+.field-grid strong { display: block; margin: 44px 0 10px; color: var(--ink); }
+.field-grid p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+
+footer { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; margin: 70px 0 30px; padding: 30px; border-radius: var(--radius); background: var(--ink); color: white; }
+footer strong { display: block; margin-bottom: 12px; font-size: 13px; }
+footer p { margin: 0; color: #bdc9d1; font-size: 12px; line-height: 1.55; }
+footer span { display: block; color: #bdc9d1; font-size: 12px; }
+footer > a { justify-self: end; align-self: center; font-size: 12px; font-weight: 800; }
+
+.reveal { animation: reveal 700ms both cubic-bezier(.22,1,.36,1); }
+@keyframes reveal { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes grow { from { width: 0; } }
+@keyframes grow-height { from { height: 0; } }
+
+@media (max-width: 900px) {
+  main { width: min(100% - 24px, 760px); }
+  .topbar { grid-template-columns: 1fr auto; }
+  nav { display: none; }
+  .hero { grid-template-columns: 1fr; gap: 34px; min-height: auto; padding-top: 100px; }
+  .kpi-grid, .audit-stats, .capacity-summary, .field-grid { grid-template-columns: repeat(2, 1fr); }
+  .quality-grid, .call-grid, .reactivation, .decision-grid, .dual-tables { grid-template-columns: 1fr; }
+  .pipeline-direction-summary { grid-template-columns: 1fr; }
+  .period-toolbar { align-items: stretch; }
+  .growth-chart { overflow-x: auto; grid-template-columns: repeat(15, 42px); }
+  .peak-grid { grid-template-columns: repeat(2, 1fr); }
+  .data-head { display: none; }
+  .data-row { grid-template-columns: 1fr 1fr 1fr; }
+  .data-row .stage { grid-column: 1 / -1; }
+  .manager-table .data-head { display: grid; }
+  .manager-table .data-head, .manager-table .data-row { grid-template-columns: minmax(170px, 1.3fr) 72px 82px minmax(125px, 1fr) minmax(135px, 1fr) 115px 120px minmax(145px, 1fr); min-width: 1120px; }
+  .pipeline-manager-table .data-head, .pipeline-manager-table .data-row { display: grid; grid-template-columns: minmax(190px, 1.3fr) 72px 130px 145px; min-width: 650px; }
+}
+
+@media (max-width: 620px) {
+  main { width: min(100% - 16px, 520px); }
+  .topbar { top: 8px; margin-top: 8px; }
+  .download { padding: 9px 11px; }
+  h1 { font-size: 50px; }
+  .lead { font-size: 16px; }
+  .kpi-grid, .pipeline-total-strip, .audit-stats, .capacity-summary, .field-grid, footer { grid-template-columns: 1fr; }
+  .pipeline-dashboard { padding-bottom: 72px; }
+  .period-toolbar, .combo-title { display: grid; }
+  .period-toolbar label { min-width: 0; }
+  .combo-title > span { justify-self: start; white-space: normal; }
+  .combo-scroll { padding-inline: 14px; }
+  .peak-grid { grid-template-columns: 1fr; }
+  .section { padding: 70px 0; }
+  .location-row { grid-template-columns: 1fr 64px; }
+  .location-row .util-track { grid-column: 1 / -1; grid-row: 2; }
+  .bridge-row { grid-template-columns: 34px 1fr auto; }
+  .bridge-track { grid-column: 2 / -1; }
+  .note { grid-template-columns: 1fr; gap: 12px; }
+  .growth-legend { align-items: flex-start; flex-wrap: wrap; }
+  .growth-legend small { width: 100%; margin-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+</style>
+</head>
+<body>
+<main><header class="topbar"><a class="brand" href="#top"><span class="brand-mark">ПС</span><span>Продажи · сезон 2026</span></a><nav><a href="#pipeline">Pipeline</a><a href="#leads">Лиды</a><a href="#managers">Менеджеры</a><a href="#capacity">Площадки</a></nav></header><section class="hero reveal" id="top"><div class="hero-copy"><p class="eyebrow">Отдел продаж · обновлено 3 сентября 2026</p><h1>Продажи, pipeline и загрузка площадок.</h1><p class="lead">Отчёт обновлён по новым B2C- и B2B-выгрузкам. В каждом ключевом блоке доступны четыре периода.</p><div class="hero-actions"><a class="button primary" href="#pipeline">Смотреть pipeline</a><a class="button ghost" href="#leads">Смотреть лиды</a></div></div><div class="hero-score"><span>План сентября</span><strong>38,03 млн ₽</strong><div class="score-track"><i style="width:0.7%"></i></div><small>Факт 0,28 млн ₽ · 0,7% плана</small></div></section><section class="pipeline-dashboard" id="pipeline" data-dashboard="true"><div class="period-toolbar reveal"><div><p class="eyebrow">Pipeline · выгрузки 3 сентября 2026</p><h2>Факт, предоплаты и прогноз</h2><span data-period-range="august" hidden="">1–31 августа 2026</span><span data-period-range="september">1–30 сентября 2026</span><span data-period-range="season" hidden="">1 апреля–30 сентября 2026</span><span data-period-range="winter" hidden="">1 октября 2026–31 марта 2027</span></div><label><span>Период</span><select data-period-select="true"><option value="august">Август · факт</option><option value="september" selected="">Сентябрь</option><option value="season">Сезон апрель–сентябрь</option><option value="winter">Сезон октябрь–март</option></select></label></div><div data-period-panel="august" hidden=""><div class="kpi-grid reveal"><article class="kpi pipeline-kpi fact-comparison-card"><span>Факт · сделка успешна</span><strong>23,36 млн ₽</strong><small>140<!-- --> сделок<!-- --> · 34,3% плана</small><div class="plan-track"><i style="--plan:34.345536768184644%"></i></div><div class="kpi-average-values"><span>B2C<b>16,95 млн ₽<!-- --> · <!-- -->133<!-- --> шт.</b><small>план <!-- -->48,03 млн ₽<!-- --> · <!-- -->35,3<!-- -->%</small></span><span>B2B<b>6,42 млн ₽<!-- --> · <!-- -->7<!-- --> шт.</b><small>план <!-- -->20,00 млн ₽<!-- --> · <!-- -->32,1<!-- -->%</small></span></div><div class="period-comparison" tabindex="0"><strong>Сравнение факта <span class="comparison-help">?</span></strong><div class="current"><span>2026 · выбранный период</span><b>23,36 млн ₽</b></div><div class="previous"><span>2025 · тот же период</span><b>9,20 млн ₽</b><em class="positive">+<!-- -->14,16 млн ₽<!-- --> · <!-- -->+<!-- -->154<!-- -->%</em></div><div class="previous"><span>2024 · тот же период</span><b>19,00 млн ₽</b><em class="positive">+<!-- -->4,36 млн ₽<!-- --> · <!-- -->+<!-- -->23<!-- -->%</em></div><div class="monthly-tooltip"><strong>Помесячное сравнение, млн ₽</strong><div class="monthly-head"><span>Месяц</span><b>2026</b><b>2025</b><b>2024</b></div><div class="monthly-row"><span>Август</span><b>23,36</b><b>9,2</b><b>19</b></div><small>ParkOps «Коммерция»; сентябрь 2026 — свежая CRM-выгрузка.</small></div></div></article><article class="kpi pipeline-kpi muted-kpi"><span>Предоплачено</span><strong>—</strong><small>Для закрытого августа показываем только факт</small></article><article class="kpi pipeline-kpi muted-kpi"><span>Взвешенный pipeline</span><strong>—</strong><small>Для закрытого августа показываем только факт</small></article><article class="kpi pipeline-kpi muted-kpi"><span>Сырой pipeline</span><strong>—</strong><small>Для закрытого августа показываем только факт</small></article></div></div><div data-period-panel="september"><div class="kpi-grid reveal"><article class="kpi pipeline-kpi fact-comparison-card"><span>Факт · сделка успешна</span><strong>0,28 млн ₽</strong><small>3<!-- --> сделок<!-- --> · 0,7% плана</small><div class="plan-track"><i style="--plan:0.7429329460085428%"></i></div><div class="kpi-average-values"><span>B2C<b>0,28 млн ₽<!-- --> · <!-- -->3<!-- --> шт.</b><small>план <!-- -->28,03 млн ₽<!-- --> · <!-- -->1<!-- -->%</small></span><span>B2B<b>0 ₽<!-- --> · <!-- -->0<!-- --> шт.</b><small>план <!-- -->10,00 млн ₽<!-- --> · <!-- -->0<!-- -->%</small></span></div><div class="period-comparison" tabindex="0"><strong>Сравнение факта <span class="comparison-help">?</span></strong><div class="current"><span>2026 · выбранный период</span><b>0,28 млн ₽</b></div><div class="previous"><span>2025 · тот же период</span><b>9,50 млн ₽</b><em class="negative">-9,22 млн ₽<!-- --> · <!-- -->-97<!-- -->%</em></div><div class="previous"><span>2024 · тот же период</span><b>18,00 млн ₽</b><em class="negative">-17,72 млн ₽<!-- --> · <!-- -->-98,4<!-- -->%</em></div><div class="monthly-tooltip"><strong>Помесячное сравнение, млн ₽</strong><div class="monthly-head"><span>Месяц</span><b>2026</b><b>2025</b><b>2024</b></div><div class="monthly-row"><span>Сентябрь</span><b>0,28</b><b>9,5</b><b>18</b></div><small>ParkOps «Коммерция»; сентябрь 2026 — свежая CRM-выгрузка.</small></div></div></article><article class="kpi pipeline-kpi"><span>Предоплачено</span><strong>5,18 млн ₽</strong><small>24<!-- --> сделок</small><div class="kpi-average-values"><span>B2C<b>2,64 млн ₽<!-- --> · <!-- -->21<!-- --> шт.</b></span><span>B2B<b>2,55 млн ₽<!-- --> · <!-- -->3<!-- --> шт.</b></span></div></article><article class="kpi pipeline-kpi accent"><span>Взвешенный pipeline</span><strong>2,49 млн ₽</strong><small>55<!-- --> сделок</small><div class="kpi-average-values"><span>B2C<b>2,13 млн ₽<!-- --> · <!-- -->52<!-- --> шт.</b></span><span>B2B<b>0,36 млн ₽<!-- --> · <!-- -->3<!-- --> шт.</b></span></div></article><article class="kpi pipeline-kpi"><span>Сырой pipeline</span><strong>4,56 млн ₽</strong><small>55<!-- --> сделок</small><div class="kpi-average-values"><span>B2C<b>3,84 млн ₽<!-- --> · <!-- -->52<!-- --> шт.</b></span><span>B2B<b>0,72 млн ₽<!-- --> · <!-- -->3<!-- --> шт.</b></span></div></article></div></div><div data-period-panel="season" hidden=""><div class="kpi-grid reveal"><article class="kpi pipeline-kpi fact-comparison-card"><span>Факт · сделка успешна</span><strong>85,95 млн ₽</strong><small>554<!-- --> сделок<!-- --> · 39,1% плана</small><div class="plan-track"><i style="--plan:39.066596363636364%"></i></div><div class="kpi-average-values"><span>B2C<b>69,53 млн ₽<!-- --> · <!-- -->534<!-- --> шт.</b><small>план <!-- -->167,06 млн ₽<!-- --> · <!-- -->41,6<!-- -->%</small></span><span>B2B<b>16,42 млн ₽<!-- --> · <!-- -->20<!-- --> шт.</b><small>план <!-- -->52,94 млн ₽<!-- --> · <!-- -->31<!-- -->%</small></span></div><div class="period-comparison" tabindex="0"><strong>Сравнение факта <span class="comparison-help">?</span></strong><div class="current"><span>2026 · выбранный период</span><b>85,95 млн ₽</b></div><div class="previous"><span>2025 · тот же период</span><b>66,10 млн ₽</b><em class="positive">+<!-- -->19,85 млн ₽<!-- --> · <!-- -->+<!-- -->30<!-- -->%</em></div><div class="previous"><span>2024 · тот же период</span><b>93,40 млн ₽</b><em class="negative">-7,45 млн ₽<!-- --> · <!-- -->-8<!-- -->%</em></div><div class="monthly-tooltip"><strong>Помесячное сравнение, млн ₽</strong><div class="monthly-head"><span>Месяц</span><b>2026</b><b>2025</b><b>2024</b></div><div class="monthly-row"><span>Апрель</span><b>1,3</b><b>2,4</b><b>3,4</b></div><div class="monthly-row"><span>Май</span><b>17</b><b>18</b><b>18</b></div><div class="monthly-row"><span>Июнь</span><b>27</b><b>14</b><b>19</b></div><div class="monthly-row"><span>Июль</span><b>17</b><b>13</b><b>16</b></div><div class="monthly-row"><span>Август</span><b>23,36</b><b>9,2</b><b>19</b></div><div class="monthly-row"><span>Сентябрь</span><b>0,28</b><b>9,5</b><b>18</b></div><small>ParkOps «Коммерция»; сентябрь 2026 — свежая CRM-выгрузка.</small></div></div></article><article class="kpi pipeline-kpi"><span>Предоплачено</span><strong>5,18 млн ₽</strong><small>24<!-- --> сделок</small><div class="kpi-average-values"><span>B2C<b>2,64 млн ₽<!-- --> · <!-- -->21<!-- --> шт.</b></span><span>B2B<b>2,55 млн ₽<!-- --> · <!-- -->3<!-- --> шт.</b></span></div></article><article class="kpi pipeline-kpi accent"><span>Взвешенный pipeline</span><strong>2,49 млн ₽</strong><small>55<!-- --> сделок</small><div class="kpi-average-values"><span>B2C<b>2,13 млн ₽<!-- --> · <!-- -->52<!-- --> шт.</b></span><span>B2B<b>0,36 млн ₽<!-- --> · <!-- -->3<!-- --> шт.</b></span></div></article><article class="kpi pipeline-kpi"><span>Сырой pipeline</span><strong>4,56 млн ₽</strong><small>55<!-- --> сделок</small><div class="kpi-average-values"><span>B2C<b>3,84 млн ₽<!-- --> · <!-- -->52<!-- --> шт.</b></span><span>B2B<b>0,72 млн ₽<!-- --> · <!-- -->3<!-- --> шт.</b></span></div></article></div></div><div data-period-panel="winter" hidden=""><div class="kpi-grid reveal"><article class="kpi pipeline-kpi fact-comparison-card"><span>Факт · сделка успешна</span><strong>0 ₽</strong><small>0<!-- --> сделок</small><div class="kpi-average-values"><span>B2C<b>0 ₽<!-- --> · <!-- -->0<!-- --> шт.</b></span><span>B2B<b>0 ₽<!-- --> · <!-- -->0<!-- --> шт.</b></span></div><div class="period-comparison" tabindex="0"><strong>Сравнение факта <span class="comparison-help">?</span></strong><div class="current"><span>2026 · выбранный период</span><b>0 ₽</b></div><div class="previous"><span>2025 · тот же период</span><b>26,40 млн ₽</b><em class="negative">-26,40 млн ₽<!-- --> · <!-- -->-100<!-- -->%</em></div><div class="previous"><span>2024 · тот же период</span><b>46,30 млн ₽</b><em class="negative">-46,30 млн ₽<!-- --> · <!-- -->-100<!-- -->%</em></div><div class="monthly-tooltip"><strong>Помесячное сравнение, млн ₽</strong><div class="monthly-head"><span>Месяц</span><b>2026</b><b>2025</b><b>2024</b></div><div class="monthly-row"><span>Октябрь</span><b>0</b><b>0,59</b><b>15</b></div><div class="monthly-row"><span>Ноябрь</span><b>0</b><b>0,91</b><b>0,45</b></div><div class="monthly-row"><span>Декабрь</span><b>0</b><b>19</b><b>25</b></div><div class="monthly-row"><span>Январь</span><b>0</b><b>0,32</b><b>3,2</b></div><div class="monthly-row"><span>Февраль</span><b>0</b><b>1,7</b><b>0,97</b></div><div class="monthly-row"><span>Март</span><b>0</b><b>3,9</b><b>1,7</b></div><small>ParkOps «Коммерция»; сентябрь 2026 — свежая CRM-выгрузка.</small></div></div></article><article class="kpi pipeline-kpi"><span>Предоплачено</span><strong>0 ₽</strong><small>0<!-- --> сделок</small><div class="kpi-average-values"><span>B2C<b>0 ₽<!-- --> · <!-- -->0<!-- --> шт.</b></span><span>B2B<b>0 ₽<!-- --> · <!-- -->0<!-- --> шт.</b></span></div></article><article class="kpi pipeline-kpi accent"><span>Взвешенный pipeline</span><strong>18,76 млн ₽</strong><small>45<!-- --> сделок</small><div class="kpi-average-values"><span>B2C<b>0,44 млн ₽<!-- --> · <!-- -->18<!-- --> шт.</b></span><span>B2B<b>18,31 млн ₽<!-- --> · <!-- -->27<!-- --> шт.</b></span></div></article><article class="kpi pipeline-kpi"><span>Сырой pipeline</span><strong>34,62 млн ₽</strong><small>45<!-- --> сделок</small><div class="kpi-average-values"><span>B2C<b>1,00 млн ₽<!-- --> · <!-- -->18<!-- --> шт.</b></span><span>B2B<b>33,63 млн ₽<!-- --> · <!-- -->27<!-- --> шт.</b></span></div></article></div><p class="annual-plan-note">План на период не задан; пустые месяцы считаются нулевыми.</p></div><div class="snapshot-heading reveal"><p class="eyebrow">Динамика сохранённых снимков</p><h2>Состояние в даты формирования отчёта</h2><p>Графики отражают фактическое состояние стадий в каждый момент обновления, а не текущую последнюю стадию сделки.</p></div><div class="pipeline-charts reveal"><div class="combo-card"><div class="combo-title"><div><h3>Предоплачено</h3><p>Сохранённое состояние в дату отчёта</p></div><span>столбцы — сделки · линия — сумма</span></div><div class="combo-scroll"><div class="combo-chart" style="--columns:3"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><polyline points="16.666666666666664,16 50,23.33797508735458 83.33333333333334,61.381155357772215"></polyline></svg><div class="combo-week"><div class="combo-value"><span class="combo-count">Сделок: <b>50</b></span><strong class="combo-sum">12,86 млн ₽</strong></div><div class="combo-bar"><i style="height:100%"></i></div><small>Снимок <!-- -->20.08<!-- -->.2026</small></div><div class="combo-week"><div class="combo-value"><span class="combo-count">Сделок: <b>41</b></span><strong class="combo-sum">11,62 млн ₽</strong></div><div class="combo-bar"><i style="height:82%"></i></div><small>Снимок <!-- -->27.08<!-- -->.2026</small></div><div class="combo-week"><div class="combo-value"><span class="combo-count">Сделок: <b>24</b></span><strong class="combo-sum">5,18 млн ₽</strong></div><div class="combo-bar"><i style="height:48%"></i></div><small>Снимок <!-- -->03.09<!-- -->.2026</small></div></div></div></div><div class="combo-card"><div class="combo-title"><div><h3>Взвешенный pipeline</h3><p>Сохранённое состояние в дату отчёта</p></div><span>столбцы — сделки · линия — сумма</span></div><div class="combo-scroll"><div class="combo-chart" style="--columns:3"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><polyline points="16.666666666666664,37.425099274889504 50,25.144083849113457 83.33333333333334,16"></polyline></svg><div class="combo-week"><div class="combo-value"><span class="combo-count">Сделок: <b>124</b></span><strong class="combo-sum">15,26 млн ₽</strong></div><div class="combo-bar"><i style="height:100%"></i></div><small>Снимок <!-- -->20.08<!-- -->.2026</small></div><div class="combo-week"><div class="combo-value"><span class="combo-count">Сделок: <b>107</b></span><strong class="combo-sum">18,69 млн ₽</strong></div><div class="combo-bar"><i style="height:86.29032258064517%"></i></div><small>Снимок <!-- -->27.08<!-- -->.2026</small></div><div class="combo-week"><div class="combo-value"><span class="combo-count">Сделок: <b>100</b></span><strong class="combo-sum">21,25 млн ₽</strong></div><div class="combo-bar"><i style="height:80.64516129032258%"></i></div><small>Снимок <!-- -->03.09<!-- -->.2026</small></div></div></div></div><div class="combo-card"><div class="combo-title"><div><h3>Сырой pipeline</h3><p>Сохранённое состояние в дату отчёта</p></div><span>столбцы — сделки · линия — сумма</span></div><div class="combo-scroll"><div class="combo-chart" style="--columns:3"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><polyline points="16.666666666666664,33.13123057108706 50,24.262796747714347 83.33333333333334,16"></polyline></svg><div class="combo-week"><div class="combo-value"><span class="combo-count">Сделок: <b>124</b></span><strong class="combo-sum">30,35 млн ₽</strong></div><div class="combo-bar"><i style="height:100%"></i></div><small>Снимок <!-- -->20.08<!-- -->.2026</small></div><div class="combo-week"><div class="combo-value"><span class="combo-count">Сделок: <b>107</b></span><strong class="combo-sum">34,92 млн ₽</strong></div><div class="combo-bar"><i style="height:86.29032258064517%"></i></div><small>Снимок <!-- -->27.08<!-- -->.2026</small></div><div class="combo-week"><div class="combo-value"><span class="combo-count">Сделок: <b>100</b></span><strong class="combo-sum">39,18 млн ₽</strong></div><div class="combo-bar"><i style="height:80.64516129032258%"></i></div><small>Снимок <!-- -->03.09<!-- -->.2026</small></div></div></div></div></div><aside class="note reveal"><strong>Методика</strong><p>Факт — стадия «Сделка успешна». Предоплата и pipeline рассчитаны по согласованным стадиям и заполненному прогнозу. Сравнение 2024/2025 взято из блока «Коммерция» ParkOps.</p></aside></section><section class="section" id="leads"><div class="section-heading reveal"><p class="eyebrow">Лиды · 31 августа–3 сентября</p><h2>NQL и QL лиды</h2><p>Текущая неполная неделя: 55 NQL и 55 QL. Из них 45 B2C и 10 B2B.</p></div><div class="capacity-summary reveal"><article><span>Среднее в день</span><strong>13,8</strong><small>55 NQL за 4 дня</small></article><article><span>NQL лиды</span><strong>55</strong><small>31.08–03.09</small></article><article class="accent"><span>QL лиды</span><strong>55</strong><small>B2C 45 · B2B 10</small></article><article><span>Конверсия</span><strong>100%</strong><small>NQL → QL</small></article></div><div class="chart-heading reveal"><h3>NQL лиды по неделям</h3><p>24–30 августа: 121 NQL, 118 QL — B2C 111, B2B 7. Звёздочкой отмечены неполные недели.</p></div><div class="week-chart reveal" aria-label="NQL лиды по неделям"><div class="week-col"><div class="week-value">36<span>NQL лидов</span></div><div class="week-track"><i style="--height:17.647058823529413%"></i></div><small>27.04–03.05<!-- -->*</small></div><div class="week-col"><div class="week-value">119<span>NQL лидов</span></div><div class="week-track"><i style="--height:58.333333333333336%"></i></div><small>04–10.05</small></div><div class="week-col"><div class="week-value">120<span>NQL лидов</span></div><div class="week-track"><i style="--height:58.82352941176471%"></i></div><small>11–17.05</small></div><div class="week-col"><div class="week-value">162<span>NQL лидов</span></div><div class="week-track"><i style="--height:79.41176470588235%"></i></div><small>18–24.05</small></div><div class="week-col"><div class="week-value">148<span>NQL лидов</span></div><div class="week-track"><i style="--height:72.54901960784314%"></i></div><small>25–31.05</small></div><div class="week-col"><div class="week-value">125<span>NQL лидов</span></div><div class="week-track"><i style="--height:61.274509803921575%"></i></div><small>01–07.06</small></div><div class="week-col"><div class="week-value">119<span>NQL лидов</span></div><div class="week-track"><i style="--height:58.333333333333336%"></i></div><small>08–14.06</small></div><div class="week-col"><div class="week-value">118<span>NQL лидов</span></div><div class="week-track"><i style="--height:57.84313725490197%"></i></div><small>15–21.06</small></div><div class="week-col"><div class="week-value">127<span>NQL лидов</span></div><div class="week-track"><i style="--height:62.254901960784316%"></i></div><small>22–28.06</small></div><div class="week-col"><div class="week-value">155<span>NQL лидов</span></div><div class="week-track"><i style="--height:75.98039215686273%"></i></div><small>29.06–05.07</small></div><div class="week-col"><div class="week-value">146<span>NQL лидов</span></div><div class="week-track"><i style="--height:71.56862745098039%"></i></div><small>06–12.07</small></div><div class="week-col"><div class="week-value">179<span>NQL лидов</span></div><div class="week-track"><i style="--height:87.74509803921569%"></i></div><small>13–19.07</small></div><div class="week-col"><div class="week-value">148<span>NQL лидов</span></div><div class="week-track"><i style="--height:72.54901960784314%"></i></div><small>20–26.07</small></div><div class="week-col"><div class="week-value">152<span>NQL лидов</span></div><div class="week-track"><i style="--height:74.50980392156863%"></i></div><small>27.07–02.08</small></div><div class="week-col"><div class="week-value">190<span>NQL лидов</span></div><div class="week-track"><i style="--height:93.13725490196079%"></i></div><small>03–09.08<!-- -->*</small></div><div class="week-col"><div class="week-value">124<span>NQL лидов</span></div><div class="week-track"><i style="--height:60.78431372549019%"></i></div><small>10–16.08</small></div><div class="week-col"><div class="week-value">161<span>NQL лидов</span></div><div class="week-track"><i style="--height:78.92156862745098%"></i></div><small>17–23.08</small></div><div class="week-col"><div class="week-value">121<span>NQL лидов</span></div><div class="week-track"><i style="--height:59.31372549019608%"></i></div><small>24–30.08</small></div><div class="week-col"><div class="week-value">55<span>NQL лидов</span></div><div class="week-track"><i style="--height:26.96078431372549%"></i></div><small>31.08–03.09<!-- -->*</small></div></div></section><section class="section" id="managers" data-dashboard="true"><div class="period-toolbar reveal"><div><h2>Показатели по менеджерам</h2><span data-period-range="august" hidden="">1–31 августа 2026</span><span data-period-range="september">1–30 сентября 2026</span><span data-period-range="season" hidden="">1 апреля–30 сентября 2026</span><span data-period-range="winter" hidden="">1 октября 2026–31 марта 2027</span></div><label><span>Период</span><select data-period-select="true"><option value="august">Август · факт</option><option value="september" selected="">Сентябрь</option><option value="season">Сезон апрель–сентябрь</option><option value="winter">Сезон октябрь–март</option></select></label></div><div data-period-panel="august" hidden=""><div class="table-card manager-group reveal"><div class="table-title"><div><h3>B2C</h3><p>Конверсия, факт, предоплата и pipeline</p></div><span>План периода: <!-- -->48,03 млн ₽</span></div><div class="data-table manager-table"><div class="data-head"><span>Менеджер</span><span>Конверсия</span><span>Проведено</span><span>Предоплачено</span><span>Взвешенный pipeline</span><span>Сырой pipeline</span><span>План</span><span>Выполнение</span><span>Осталось</span></div><div class="data-row"><strong>Александр Воронин</strong><span><strong>41,7<!-- -->%</strong><small>5<!-- --> из <!-- -->12</small></span><span><strong>0,93 млн ₽</strong><small>5<!-- --> шт. · чек <!-- -->0,19 млн ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>12,01 млн ₽</strong></span><span><strong>7,7%</strong><progress max="100" value="7.712355677029708"></progress></span><span><strong>11,08 млн ₽</strong></span></div><div class="data-row"><strong>Варвара Чугреева</strong><span><strong>35<!-- -->%</strong><small>21<!-- --> из <!-- -->60</small></span><span><strong>2,33 млн ₽</strong><small>21<!-- --> шт. · чек <!-- -->0,11 млн ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>12,01 млн ₽</strong></span><span><strong>19,4%</strong><progress max="100" value="19.44417468491022"></progress></span><span><strong>9,67 млн ₽</strong></span></div><div class="data-row"><strong>Кристина Могачева</strong><span><strong>45,1<!-- -->%</strong><small>32<!-- --> из <!-- -->71</small></span><span><strong>3,80 млн ₽</strong><small>32<!-- --> шт. · чек <!-- -->0,12 млн ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong></span><span><strong>0%</strong></span><span><strong>0 ₽</strong></span></div><div class="data-row"><strong>Лилия Рамазанова</strong><span><strong>37,5<!-- -->%</strong><small>18<!-- --> из <!-- -->48</small></span><span><strong>1,96 млн ₽</strong><small>18<!-- --> шт. · чек <!-- -->0,11 млн ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>12,01 млн ₽</strong></span><span><strong>16,3%</strong><progress max="100" value="16.299981560108133"></progress></span><span><strong>10,05 млн ₽</strong></span></div><div class="data-row"><strong>Людмила Запорожец</strong><span><strong>26,1<!-- -->%</strong><small>37<!-- --> из <!-- -->142</small></span><span><strong>6,26 млн ₽</strong><small>37<!-- --> шт. · чек <!-- -->0,17 млн ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>12,01 млн ₽</strong></span><span><strong>52,2%</strong><progress max="100" value="52.165138143441034"></progress></span><span><strong>5,74 млн ₽</strong></span></div><div class="data-row"><strong>Яна Кузнецова</strong><span><strong>50<!-- -->%</strong><small>4<!-- --> из <!-- -->8</small></span><span><strong>0,18 млн ₽</strong><small>4<!-- --> шт. · чек <!-- -->0,05 млн ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong></span><span><strong>0%</strong></span><span><strong>0 ₽</strong></span></div><div class="data-row"><strong>Дмитрий Григорьев</strong><span><strong>27,6<!-- -->%</strong><small>8<!-- --> из <!-- -->29</small></span><span><strong>0,82 млн ₽</strong><small>8<!-- --> шт. · чек <!-- -->0,10 млн ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong></span><span><strong>0%</strong></span><span><strong>0 ₽</strong></span></div><div class="data-row"><strong>Татьяна Баландина</strong><span><strong>28<!-- -->%</strong><small>7<!-- --> из <!-- -->25</small></span><span><strong>0,60 млн ₽</strong><small>7<!-- --> шт. · чек <!-- -->0,09 млн ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong></span><span><strong>0%</strong></span><span><strong>0 ₽</strong></span></div></div></div><div class="table-card manager-group reveal"><div class="table-title"><div><h3>B2B</h3><p>Конверсия, факт, предоплата и pipeline</p></div><span>План периода: <!-- -->20,00 млн ₽</span></div><div class="data-table manager-table"><div class="data-head"><span>Менеджер</span><span>Конверсия</span><span>Проведено</span><span>Предоплачено</span><span>Взвешенный pipeline</span><span>Сырой pipeline</span><span>План</span><span>Выполнение</span><span>Осталось</span></div><div class="data-row"><strong>Кристина Могачева</strong><span><strong>20<!-- -->%</strong><small>4<!-- --> из <!-- -->20</small></span><span><strong>4,98 млн ₽</strong><small>4<!-- --> шт. · чек <!-- -->1,25 млн ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>10,00 млн ₽</strong></span><span><strong>49,8%</strong><progress max="100" value="49.81588"></progress></span><span><strong>5,02 млн ₽</strong></span></div><div class="data-row"><strong>Яна Кузнецова</strong><span><strong>8,3<!-- -->%</strong><small>1<!-- --> из <!-- -->12</small></span><span><strong>0,38 млн ₽</strong><small>1<!-- --> шт. · чек <!-- -->0,38 млн ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>—</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>10,00 млн ₽</strong></span><span><strong>3,8%</strong><progress max="100" value="3.814"></progress></span><span><strong>9,62 млн ₽</strong></span></div></div></div></div><div data-period-panel="september"><div class="table-card manager-group reveal"><div class="table-title"><div><h3>B2C</h3><p>Конверсия, факт, предоплата и pipeline</p></div><span>План периода: <!-- -->28,03 млн ₽</span></div><div class="data-table manager-table"><div class="data-head"><span>Менеджер</span><span>Конверсия</span><span>Проведено</span><span>Предоплачено</span><span>Взвешенный pipeline</span><span>Сырой pipeline</span><span>План</span><span>Выполнение</span><span>Осталось</span></div><div class="data-row"><strong>Александр Воронин</strong><span><strong>21,1<!-- -->%</strong><small>4<!-- --> из <!-- -->19</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0,75 млн ₽</strong><small>4<!-- --> шт. · чек <!-- -->0,19 млн ₽</small></span><span><strong>0,13 млн ₽</strong><small>6<!-- --> шт. · чек <!-- -->0,02 млн ₽</small></span><span><strong>0,29 млн ₽</strong><small>6<!-- --> шт. · чек <!-- -->0,05 млн ₽</small></span><span><strong>6,42 млн ₽</strong></span><span><strong>0%</strong><progress max="100" value="0"></progress></span><span><strong>6,42 млн ₽</strong></span></div><div class="data-row"><strong>Варвара Чугреева</strong><span><strong>3,8<!-- -->%</strong><small>1<!-- --> из <!-- -->26</small></span><span><strong>0,06 млн ₽</strong><small>1<!-- --> шт. · чек <!-- -->0,06 млн ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0,07 млн ₽</strong><small>6<!-- --> шт. · чек <!-- -->0,01 млн ₽</small></span><span><strong>0,18 млн ₽</strong><small>6<!-- --> шт. · чек <!-- -->0,03 млн ₽</small></span><span><strong>7,01 млн ₽</strong></span><span><strong>0,9%</strong><progress max="100" value="0.8620470649152839"></progress></span><span><strong>6,95 млн ₽</strong></span></div><div class="data-row"><strong>Кристина Могачева</strong><span><strong>0<!-- -->%</strong><small>0<!-- --> из <!-- -->5</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong></span><span><strong>0%</strong></span><span><strong>0 ₽</strong></span></div><div class="data-row"><strong>Лилия Рамазанова</strong><span><strong>15,9<!-- -->%</strong><small>7<!-- --> из <!-- -->44</small></span><span><strong>0,22 млн ₽</strong><small>2<!-- --> шт. · чек <!-- -->0,11 млн ₽</small></span><span><strong>0,54 млн ₽</strong><small>5<!-- --> шт. · чек <!-- -->0,11 млн ₽</small></span><span><strong>1,02 млн ₽</strong><small>24<!-- --> шт. · чек <!-- -->0,04 млн ₽</small></span><span><strong>1,78 млн ₽</strong><small>24<!-- --> шт. · чек <!-- -->0,07 млн ₽</small></span><span><strong>7,01 млн ₽</strong></span><span><strong>3,2%</strong><progress max="100" value="3.1700210858995646"></progress></span><span><strong>6,78 млн ₽</strong></span></div><div class="data-row"><strong>Людмила Запорожец</strong><span><strong>21,6<!-- -->%</strong><small>11<!-- --> из <!-- -->51</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>1,25 млн ₽</strong><small>11<!-- --> шт. · чек <!-- -->0,11 млн ₽</small></span><span><strong>0,91 млн ₽</strong><small>15<!-- --> шт. · чек <!-- -->0,06 млн ₽</small></span><span><strong>1,55 млн ₽</strong><small>15<!-- --> шт. · чек <!-- -->0,10 млн ₽</small></span><span><strong>7,01 млн ₽</strong></span><span><strong>0%</strong><progress max="100" value="0"></progress></span><span><strong>7,01 млн ₽</strong></span></div><div class="data-row"><strong>Яна Кузнецова</strong><span><strong>0<!-- -->%</strong><small>0<!-- --> из <!-- -->5</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong></span><span><strong>0%</strong></span><span><strong>0 ₽</strong></span></div><div class="data-row"><strong>Дмитрий Григорьев</strong><span><strong>25<!-- -->%</strong><small>1<!-- --> из <!-- -->4</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0,10 млн ₽</strong><small>1<!-- --> шт. · чек <!-- -->0,10 млн ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong></span><span><strong>0%</strong></span><span><strong>0 ₽</strong></span></div></div></div><div class="table-card manager-group reveal"><div class="table-title"><div><h3>B2B</h3><p>Конверсия, факт, предоплата и pipeline</p></div><span>План периода: <!-- -->10,00 млн ₽</span></div><div class="data-table manager-table"><div class="data-head"><span>Менеджер</span><span>Конверсия</span><span>Проведено</span><span>Предоплачено</span><span>Взвешенный pipeline</span><span>Сырой pipeline</span><span>План</span><span>Выполнение</span><span>Осталось</span></div><div class="data-row"><strong>Кристина Могачева</strong><span><strong>18,8<!-- -->%</strong><small>3<!-- --> из <!-- -->16</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>2,55 млн ₽</strong><small>3<!-- --> шт. · чек <!-- -->0,85 млн ₽</small></span><span><strong>0,11 млн ₽</strong><small>2<!-- --> шт. · чек <!-- -->0,06 млн ₽</small></span><span><strong>0,22 млн ₽</strong><small>2<!-- --> шт. · чек <!-- -->0,11 млн ₽</small></span><span><strong>5,00 млн ₽</strong></span><span><strong>0%</strong><progress max="100" value="0"></progress></span><span><strong>5,00 млн ₽</strong></span></div><div class="data-row"><strong>Яна Кузнецова</strong><span><strong>0<!-- -->%</strong><small>0<!-- --> из <!-- -->7</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0,25 млн ₽</strong><small>1<!-- --> шт. · чек <!-- -->0,25 млн ₽</small></span><span><strong>0,50 млн ₽</strong><small>1<!-- --> шт. · чек <!-- -->0,50 млн ₽</small></span><span><strong>5,00 млн ₽</strong></span><span><strong>0%</strong><progress max="100" value="0"></progress></span><span><strong>5,00 млн ₽</strong></span></div></div></div></div><div data-period-panel="season" hidden=""><div class="table-card manager-group reveal"><div class="table-title"><div><h3>B2C</h3><p>Конверсия, факт, предоплата и pipeline</p></div><span>План периода: <!-- -->167,06 млн ₽</span></div><div class="data-table manager-table"><div class="data-head"><span>Менеджер</span><span>Конверсия</span><span>Проведено</span><span>Предоплачено</span><span>Взвешенный pipeline</span><span>Сырой pipeline</span><span>План</span><span>Выполнение</span><span>Осталось</span></div><div class="data-row"><strong>Александр Воронин</strong><span><strong>29<!-- -->%</strong><small>9<!-- --> из <!-- -->31</small></span><span><strong>0,93 млн ₽</strong><small>5<!-- --> шт. · чек <!-- -->0,19 млн ₽</small></span><span><strong>0,75 млн ₽</strong><small>4<!-- --> шт. · чек <!-- -->0,19 млн ₽</small></span><span><strong>0,13 млн ₽</strong><small>6<!-- --> шт. · чек <!-- -->0,02 млн ₽</small></span><span><strong>0,29 млн ₽</strong><small>6<!-- --> шт. · чек <!-- -->0,05 млн ₽</small></span><span><strong>18,42 млн ₽</strong></span><span><strong>5%</strong><progress max="100" value="5.026181204690943"></progress></span><span><strong>17,50 млн ₽</strong></span></div><div class="data-row"><strong>Варвара Чугреева</strong><span><strong>24,7<!-- -->%</strong><small>22<!-- --> из <!-- -->89</small></span><span><strong>2,39 млн ₽</strong><small>22<!-- --> шт. · чек <!-- -->0,11 млн ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0,07 млн ₽</strong><small>6<!-- --> шт. · чек <!-- -->0,01 млн ₽</small></span><span><strong>0,18 млн ₽</strong><small>6<!-- --> шт. · чек <!-- -->0,03 млн ₽</small></span><span><strong>24,76 млн ₽</strong></span><span><strong>9,7%</strong><progress max="100" value="9.671545904730399"></progress></span><span><strong>22,37 млн ₽</strong></span></div><div class="data-row"><strong>Кристина Могачева</strong><span><strong>37,3<!-- -->%</strong><small>75<!-- --> из <!-- -->201</small></span><span><strong>8,19 млн ₽</strong><small>75<!-- --> шт. · чек <!-- -->0,11 млн ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong></span><span><strong>0%</strong></span><span><strong>0 ₽</strong></span></div><div class="data-row"><strong>Лилия Рамазанова</strong><span><strong>26,9<!-- -->%</strong><small>25<!-- --> из <!-- -->93</small></span><span><strong>2,18 млн ₽</strong><small>20<!-- --> шт. · чек <!-- -->0,11 млн ₽</small></span><span><strong>0,54 млн ₽</strong><small>5<!-- --> шт. · чек <!-- -->0,11 млн ₽</small></span><span><strong>1,02 млн ₽</strong><small>24<!-- --> шт. · чек <!-- -->0,04 млн ₽</small></span><span><strong>1,78 млн ₽</strong><small>24<!-- --> шт. · чек <!-- -->0,07 млн ₽</small></span><span><strong>24,76 млн ₽</strong></span><span><strong>8,8%</strong><progress max="100" value="8.800089940070643"></progress></span><span><strong>22,58 млн ₽</strong></span></div><div class="data-row"><strong>Людмила Запорожец</strong><span><strong>26,6<!-- -->%</strong><small>117<!-- --> из <!-- -->440</small></span><span><strong>15,56 млн ₽</strong><small>106<!-- --> шт. · чек <!-- -->0,15 млн ₽</small></span><span><strong>1,25 млн ₽</strong><small>11<!-- --> шт. · чек <!-- -->0,11 млн ₽</small></span><span><strong>0,91 млн ₽</strong><small>15<!-- --> шт. · чек <!-- -->0,06 млн ₽</small></span><span><strong>1,55 млн ₽</strong><small>15<!-- --> шт. · чек <!-- -->0,10 млн ₽</small></span><span><strong>60,10 млн ₽</strong></span><span><strong>25,9%</strong><progress max="100" value="25.897035897010607"></progress></span><span><strong>44,53 млн ₽</strong></span></div><div class="data-row"><strong>Яна Кузнецова</strong><span><strong>30,8<!-- -->%</strong><small>4<!-- --> из <!-- -->13</small></span><span><strong>0,18 млн ₽</strong><small>4<!-- --> шт. · чек <!-- -->0,05 млн ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong></span><span><strong>0%</strong></span><span><strong>0 ₽</strong></span></div><div class="data-row"><strong>Дмитрий Григорьев</strong><span><strong>29<!-- -->%</strong><small>40<!-- --> из <!-- -->138</small></span><span><strong>4,53 млн ₽</strong><small>39<!-- --> шт. · чек <!-- -->0,12 млн ₽</small></span><span><strong>0,10 млн ₽</strong><small>1<!-- --> шт. · чек <!-- -->0,10 млн ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>39,01 млн ₽</strong></span><span><strong>11,6%</strong><progress max="100" value="11.62036211579499"></progress></span><span><strong>34,48 млн ₽</strong></span></div><div class="data-row"><strong>Татьяна Баландина</strong><span><strong>43,7<!-- -->%</strong><small>59<!-- --> из <!-- -->135</small></span><span><strong>6,34 млн ₽</strong><small>59<!-- --> шт. · чек <!-- -->0,11 млн ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong></span><span><strong>0%</strong></span><span><strong>0 ₽</strong></span></div></div></div><div class="table-card manager-group reveal"><div class="table-title"><div><h3>B2B</h3><p>Конверсия, факт, предоплата и pipeline</p></div><span>План периода: <!-- -->52,94 млн ₽</span></div><div class="data-table manager-table"><div class="data-head"><span>Менеджер</span><span>Конверсия</span><span>Проведено</span><span>Предоплачено</span><span>Взвешенный pipeline</span><span>Сырой pipeline</span><span>План</span><span>Выполнение</span><span>Осталось</span></div><div class="data-row"><strong>Кристина Могачева</strong><span><strong>16,7<!-- -->%</strong><small>11<!-- --> из <!-- -->66</small></span><span><strong>9,65 млн ₽</strong><small>8<!-- --> шт. · чек <!-- -->1,21 млн ₽</small></span><span><strong>2,55 млн ₽</strong><small>3<!-- --> шт. · чек <!-- -->0,85 млн ₽</small></span><span><strong>0,11 млн ₽</strong><small>2<!-- --> шт. · чек <!-- -->0,06 млн ₽</small></span><span><strong>0,22 млн ₽</strong><small>2<!-- --> шт. · чек <!-- -->0,11 млн ₽</small></span><span><strong>28,64 млн ₽</strong></span><span><strong>33,7%</strong><progress max="100" value="33.711481527648736"></progress></span><span><strong>18,98 млн ₽</strong></span></div><div class="data-row"><strong>Яна Кузнецова</strong><span><strong>5,3<!-- -->%</strong><small>1<!-- --> из <!-- -->19</small></span><span><strong>0,38 млн ₽</strong><small>1<!-- --> шт. · чек <!-- -->0,38 млн ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0,25 млн ₽</strong><small>1<!-- --> шт. · чек <!-- -->0,25 млн ₽</small></span><span><strong>0,50 млн ₽</strong><small>1<!-- --> шт. · чек <!-- -->0,50 млн ₽</small></span><span><strong>24,30 млн ₽</strong></span><span><strong>1,6%</strong><progress max="100" value="1.5695473251028806"></progress></span><span><strong>23,92 млн ₽</strong></span></div></div></div></div><div data-period-panel="winter" hidden=""><div class="table-card manager-group reveal"><div class="table-title"><div><h3>B2C</h3><p>Конверсия, факт, предоплата и pipeline</p></div><span>План периода: <!-- -->0 ₽</span></div><div class="data-table manager-table"><div class="data-head"><span>Менеджер</span><span>Конверсия</span><span>Проведено</span><span>Предоплачено</span><span>Взвешенный pipeline</span><span>Сырой pipeline</span><span>План</span><span>Выполнение</span><span>Осталось</span></div><div class="data-row"><strong>Александр Воронин</strong><span><strong>0<!-- -->%</strong><small>0<!-- --> из <!-- -->1</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong></span><span><strong>0%</strong></span><span><strong>0 ₽</strong></span></div><div class="data-row"><strong>Варвара Чугреева</strong><span><strong>0<!-- -->%</strong><small>0<!-- --> из <!-- -->7</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0,13 млн ₽</strong><small>7<!-- --> шт. · чек <!-- -->0,02 млн ₽</small></span><span><strong>0,30 млн ₽</strong><small>7<!-- --> шт. · чек <!-- -->0,04 млн ₽</small></span><span><strong>0 ₽</strong></span><span><strong>0%</strong></span><span><strong>0 ₽</strong></span></div><div class="data-row"><strong>Кристина Могачева</strong><span><strong>0<!-- -->%</strong><small>0<!-- --> из <!-- -->1</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong></span><span><strong>0%</strong></span><span><strong>0 ₽</strong></span></div><div class="data-row"><strong>Лилия Рамазанова</strong><span><strong>0<!-- -->%</strong><small>0<!-- --> из <!-- -->8</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0,24 млн ₽</strong><small>7<!-- --> шт. · чек <!-- -->0,03 млн ₽</small></span><span><strong>0,51 млн ₽</strong><small>7<!-- --> шт. · чек <!-- -->0,07 млн ₽</small></span><span><strong>0 ₽</strong></span><span><strong>0%</strong></span><span><strong>0 ₽</strong></span></div><div class="data-row"><strong>Людмила Запорожец</strong><span><strong>0<!-- -->%</strong><small>0<!-- --> из <!-- -->7</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0,07 млн ₽</strong><small>4<!-- --> шт. · чек <!-- -->0,02 млн ₽</small></span><span><strong>0,19 млн ₽</strong><small>4<!-- --> шт. · чек <!-- -->0,05 млн ₽</small></span><span><strong>0 ₽</strong></span><span><strong>0%</strong></span><span><strong>0 ₽</strong></span></div></div></div><div class="table-card manager-group reveal"><div class="table-title"><div><h3>B2B</h3><p>Конверсия, факт, предоплата и pipeline</p></div><span>План периода: <!-- -->0 ₽</span></div><div class="data-table manager-table"><div class="data-head"><span>Менеджер</span><span>Конверсия</span><span>Проведено</span><span>Предоплачено</span><span>Взвешенный pipeline</span><span>Сырой pipeline</span><span>План</span><span>Выполнение</span><span>Осталось</span></div><div class="data-row"><strong>Кристина Могачева</strong><span><strong>0<!-- -->%</strong><small>0<!-- --> из <!-- -->10</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>7,85 млн ₽</strong><small>7<!-- --> шт. · чек <!-- -->1,12 млн ₽</small></span><span><strong>16,00 млн ₽</strong><small>7<!-- --> шт. · чек <!-- -->2,29 млн ₽</small></span><span><strong>0 ₽</strong></span><span><strong>0%</strong></span><span><strong>0 ₽</strong></span></div><div class="data-row"><strong>Яна Кузнецова</strong><span><strong>0<!-- -->%</strong><small>0<!-- --> из <!-- -->22</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>0 ₽</strong><small>0<!-- --> шт. · чек <!-- -->0 ₽</small></span><span><strong>10,46 млн ₽</strong><small>19<!-- --> шт. · чек <!-- -->0,55 млн ₽</small></span><span><strong>17,63 млн ₽</strong><small>19<!-- --> шт. · чек <!-- -->0,93 млн ₽</small></span><span><strong>0 ₽</strong></span><span><strong>0%</strong></span><span><strong>0 ₽</strong></span></div></div></div></div><aside class="note reveal"><strong>Методика конверсии</strong><p>Конверсия = (успешные + предоплаченные сделки) ÷ все сделки менеджера. Пустой план считается нулевым.</p></aside></section><section class="section" id="capacity" data-dashboard="true"><div class="period-toolbar reveal"><div><p class="eyebrow">Утилизация площадок</p><h2>Загрузка по локациям</h2><span data-period-range="august" hidden="">1–31 августа 2026</span><span data-period-range="september">1–30 сентября 2026</span><span data-period-range="season" hidden="">1 апреля–30 сентября 2026</span><span data-period-range="winter" hidden="">1 октября 2026–31 марта 2027</span></div><label><span>Период</span><select data-period-select="true"><option value="august">Август · факт</option><option value="september" selected="">Сентябрь</option><option value="season">Сезон апрель–сентябрь</option><option value="winter">Сезон октябрь–март</option></select></label></div><div data-period-panel="august" hidden=""><div class="capacity-summary reveal"><article><span>Мероприятий</span><strong>124</strong><small>учтено в расчёте</small></article><article><span>Утилизация</span><strong>14<!-- -->%</strong><small>178<!-- --> из <!-- -->1271<!-- --> слот-единиц</small></article><article class="accent"><span>Выходные</span><strong>16,34<!-- -->%</strong><small>67<!-- --> из <!-- -->410</small></article><article><span>Будни</span><strong>12,89<!-- -->%</strong><small>111<!-- --> из <!-- -->861</small></article></div><div class="chart-heading reveal"><h3>Утилизация по локациям</h3><p>Занятые слот-единицы ÷ доступная ёмкость периода</p></div><div class="location-grid reveal"><article><h3>Айва-парк · беседки</h3><strong>14<!-- -->%</strong><progress max="186" value="26"></progress><p>26<!-- --> из <!-- -->186<!-- --> слот-единиц</p></article><article><h3>Айва-парк · домик</h3><strong>16,1<!-- -->%</strong><progress max="62" value="10"></progress><p>10<!-- --> из <!-- -->62<!-- --> слот-единиц</p></article><article><h3>Лофт и пять беседок</h3><strong>18,2<!-- -->%</strong><progress max="341" value="62"></progress><p>62<!-- --> из <!-- -->341<!-- --> слот-единиц</p></article><article><h3>Дино · все шатры</h3><strong>4,3<!-- -->%</strong><progress max="186" value="8"></progress><p>8<!-- --> из <!-- -->186<!-- --> слот-единиц</p></article><article><h3>Веранда Мадагаскар</h3><strong>27,4<!-- -->%</strong><progress max="186" value="51"></progress><p>51<!-- --> из <!-- -->186<!-- --> слот-единиц</p></article><article><h3>Шатёр FOOD</h3><strong>4,8<!-- -->%</strong><progress max="186" value="9"></progress><p>9<!-- --> из <!-- -->186<!-- --> слот-единиц</p></article><article><h3>Нитро · оба шатра</h3><strong>9,7<!-- -->%</strong><progress max="124" value="12"></progress><p>12<!-- --> из <!-- -->124<!-- --> слот-единиц</p></article></div></div><div data-period-panel="september"><div class="capacity-summary reveal"><article><span>Мероприятий</span><strong>20</strong><small>учтено в расчёте</small></article><article><span>Утилизация</span><strong>3,25<!-- -->%</strong><small>40<!-- --> из <!-- -->1230<!-- --> слот-единиц</small></article><article class="accent"><span>Выходные</span><strong>3,35<!-- -->%</strong><small>11<!-- --> из <!-- -->328</small></article><article><span>Будни</span><strong>3,22<!-- -->%</strong><small>29<!-- --> из <!-- -->902</small></article></div><div class="chart-heading reveal"><h3>Утилизация по локациям</h3><p>Занятые слот-единицы ÷ доступная ёмкость периода</p></div><div class="location-grid reveal"><article><h3>Айва-парк · беседки</h3><strong>1,7<!-- -->%</strong><progress max="180" value="3"></progress><p>3<!-- --> из <!-- -->180<!-- --> слот-единиц</p></article><article><h3>Айва-парк · домик</h3><strong>1,7<!-- -->%</strong><progress max="60" value="1"></progress><p>1<!-- --> из <!-- -->60<!-- --> слот-единиц</p></article><article><h3>Лофт и пять беседок</h3><strong>6,7<!-- -->%</strong><progress max="330" value="22"></progress><p>22<!-- --> из <!-- -->330<!-- --> слот-единиц</p></article><article><h3>Дино · все шатры</h3><strong>2,8<!-- -->%</strong><progress max="180" value="5"></progress><p>5<!-- --> из <!-- -->180<!-- --> слот-единиц</p></article><article><h3>Веранда Мадагаскар</h3><strong>1,7<!-- -->%</strong><progress max="180" value="3"></progress><p>3<!-- --> из <!-- -->180<!-- --> слот-единиц</p></article><article><h3>Шатёр FOOD</h3><strong>1,7<!-- -->%</strong><progress max="180" value="3"></progress><p>3<!-- --> из <!-- -->180<!-- --> слот-единиц</p></article><article><h3>Нитро · оба шатра</h3><strong>2,5<!-- -->%</strong><progress max="120" value="3"></progress><p>3<!-- --> из <!-- -->120<!-- --> слот-единиц</p></article></div></div><div data-period-panel="season" hidden=""><div class="capacity-summary reveal"><article><span>Мероприятий</span><strong>489</strong><small>учтено в расчёте</small></article><article><span>Утилизация</span><strong>7,9<!-- -->%</strong><small>593<!-- --> из <!-- -->7503<!-- --> слот-единиц</small></article><article class="accent"><span>Выходные</span><strong>10,55<!-- -->%</strong><small>225<!-- --> из <!-- -->2132</small></article><article><span>Будни</span><strong>6,85<!-- -->%</strong><small>368<!-- --> из <!-- -->5371</small></article></div><div class="chart-heading reveal"><h3>Утилизация по локациям</h3><p>Занятые слот-единицы ÷ доступная ёмкость периода</p></div><div class="location-grid reveal"><article><h3>Айва-парк · беседки</h3><strong>3,6<!-- -->%</strong><progress max="1098" value="40"></progress><p>40<!-- --> из <!-- -->1098<!-- --> слот-единиц</p></article><article><h3>Айва-парк · домик</h3><strong>10,9<!-- -->%</strong><progress max="366" value="40"></progress><p>40<!-- --> из <!-- -->366<!-- --> слот-единиц</p></article><article><h3>Лофт и пять беседок</h3><strong>7,4<!-- -->%</strong><progress max="2013" value="148"></progress><p>148<!-- --> из <!-- -->2013<!-- --> слот-единиц</p></article><article><h3>Дино · все шатры</h3><strong>6,8<!-- -->%</strong><progress max="1098" value="75"></progress><p>75<!-- --> из <!-- -->1098<!-- --> слот-единиц</p></article><article><h3>Веранда Мадагаскар</h3><strong>20,7<!-- -->%</strong><progress max="1098" value="227"></progress><p>227<!-- --> из <!-- -->1098<!-- --> слот-единиц</p></article><article><h3>Шатёр FOOD</h3><strong>4,4<!-- -->%</strong><progress max="1098" value="48"></progress><p>48<!-- --> из <!-- -->1098<!-- --> слот-единиц</p></article><article><h3>Нитро · оба шатра</h3><strong>2<!-- -->%</strong><progress max="732" value="15"></progress><p>15<!-- --> из <!-- -->732<!-- --> слот-единиц</p></article></div></div><div data-period-panel="winter" hidden=""><div class="capacity-summary reveal"><article><span>Мероприятий</span><strong>0</strong><small>учтено в расчёте</small></article><article><span>Утилизация</span><strong>0<!-- -->%</strong><small>0<!-- --> из <!-- -->7462<!-- --> слот-единиц</small></article><article class="accent"><span>Выходные</span><strong>0<!-- -->%</strong><small>0<!-- --> из <!-- -->2132</small></article><article><span>Будни</span><strong>0<!-- -->%</strong><small>0<!-- --> из <!-- -->5330</small></article></div><div class="chart-heading reveal"><h3>Утилизация по локациям</h3><p>Занятые слот-единицы ÷ доступная ёмкость периода</p></div><div class="location-grid reveal"><article><h3>Айва-парк · беседки</h3><strong>0<!-- -->%</strong><progress max="1092" value="0"></progress><p>0<!-- --> из <!-- -->1092<!-- --> слот-единиц</p></article><article><h3>Айва-парк · домик</h3><strong>0<!-- -->%</strong><progress max="364" value="0"></progress><p>0<!-- --> из <!-- -->364<!-- --> слот-единиц</p></article><article><h3>Лофт и пять беседок</h3><strong>0<!-- -->%</strong><progress max="2002" value="0"></progress><p>0<!-- --> из <!-- -->2002<!-- --> слот-единиц</p></article><article><h3>Дино · все шатры</h3><strong>0<!-- -->%</strong><progress max="1092" value="0"></progress><p>0<!-- --> из <!-- -->1092<!-- --> слот-единиц</p></article><article><h3>Веранда Мадагаскар</h3><strong>0<!-- -->%</strong><progress max="1092" value="0"></progress><p>0<!-- --> из <!-- -->1092<!-- --> слот-единиц</p></article><article><h3>Шатёр FOOD</h3><strong>0<!-- -->%</strong><progress max="1092" value="0"></progress><p>0<!-- --> из <!-- -->1092<!-- --> слот-единиц</p></article><article><h3>Нитро · оба шатра</h3><strong>0<!-- -->%</strong><progress max="728" value="0"></progress><p>0<!-- --> из <!-- -->728<!-- --> слот-единиц</p></article></div></div><aside class="note reveal"><strong>Периметр расчёта</strong><p>Завершённые месяцы — папки «Проведено»; текущий и будущие — основная папка с заполненной предоплатой. Отсутствующие месяцы считаются нулевыми.</p></aside></section><footer><div><strong>Парк «Сказка» · отчёт продаж</strong><span>Bitrix · 03.09.2026 · сметы · 03.09.2026</span></div><span>Публичная версия без исходных выгрузок</span></footer></main>
+<script>
+  (() => {
+    document.querySelectorAll('[data-dashboard]').forEach((root) => {
+      const select = root.querySelector('[data-period-select]');
+      if (!select) return;
+      const update = () => {
+        root.querySelectorAll('[data-period-panel]').forEach((node) => { node.hidden = node.dataset.periodPanel !== select.value; });
+        root.querySelectorAll('[data-period-range]').forEach((node) => { node.hidden = node.dataset.periodRange !== select.value; });
+      };
+      select.addEventListener('change', update); update();
+    });
+  })();
+</script>
+</body>
+</html>
