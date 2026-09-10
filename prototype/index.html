@@ -40,5 +40,6 @@ document.querySelector('#metrics').innerHTML=metricDefs.map(metricCard).join('')
 const managerNames=['Конверсия','Факт выручки','Средний чек','Предоплаты','Взвешенный pipeline','Сырой pipeline','Выполнение плана','Недобор'];document.querySelector('#managerCharts').innerHTML=managerNames.map((n,j)=>`<article class="manager-metric"><h3>${n}</h3><div class="spark">${base.slice(0,10).map((v,i)=>`<i style="--h:${(v+j*9+i*3)%88+8}%"></i>`).join('')}</div><div class="manager-foot"><span>Динамика периода</span><b>${j===0?'14,8%':j===2?'109 тыс. ₽':j===6?'5,1%':`${(.36+j*.21).toLocaleString('ru-RU')} млн ₽`}</b></div></article>`).join('');
 const locations=[['Айва-парк · беседки',22,9],['Айва-парк · домик',12,5],['Лофт и пять беседок',31,18],['Дино · все шатры',15,12],['Веранда Мадагаскар',9,4],['Шатёр FOOD',18,8],['Нитро · оба шатра',13,7]];function util(parent,m){document.querySelector(parent).insertAdjacentHTML('beforeend',locations.map(([n,s,p],i)=>`<div class="util-row"><header><span>${n}</span><b>${Math.round((s+p)*m)}%</b></header><div class="stack"><i class="success" style="--s:${s*m}%"></i><i class="prepaid" style="--p:${p*m}%"></i></div></div>`).join(''))}util('#utilA',.65);util('#utilB',1.35);
 </script>
+<script src="actual-data.js"></script>
 <script src="comparison.js"></script>
 </body></html>
