@@ -1,3 +1,10 @@
+const periodAxisLabels = {
+  august: Array.from({length: 31}, (_, index) => `${index + 1} авг`),
+  september: Array.from({length: 30}, (_, index) => `${index + 1} сен`),
+  season: ['01–05 апр','06–12 апр','13–19 апр','20–26 апр','27 апр–03 мая','04–10 мая','11–17 мая','18–24 мая','25–31 мая','01–07 июн','08–14 июн','15–21 июн','22–28 июн','29 июн–05 июл','06–12 июл','13–19 июл','20–26 июл','27 июл–02 авг','03–09 авг','10–16 авг','17–23 авг','24–30 авг','31 авг–06 сен','07–13 сен','14–20 сен','21–27 сен','28–30 сен'],
+  winter: ['01–04 окт','05–11 окт','12–18 окт','19–25 окт','26 окт–01 ноя','02–08 ноя','09–15 ноя','16–22 ноя','23–29 ноя','30 ноя–06 дек','07–13 дек','14–20 дек','21–27 дек','28 дек–03 янв','04–10 янв','11–17 янв','18–24 янв','25–31 янв','01–07 фев','08–14 фев','15–21 фев','22–28 фев','01–07 мар','08–14 мар','15–21 мар','22–28 мар','29–31 мар']
+};
+
 document.querySelectorAll('.metric').forEach((card, metricIndex) => {
   const chart = card.querySelector('.chart');
   chart.querySelectorAll(':scope > .bar').forEach((bar, index) => {
@@ -31,9 +38,17 @@ document.querySelectorAll('.metric').forEach((card, metricIndex) => {
   card.querySelector('.compare25').addEventListener('change', event => {
     card.classList.toggle('show25', event.target.checked);
   });
-  card.querySelector('.metric-period').addEventListener('change', event => {
-    card.querySelectorAll('.bar-group small').forEach((label, index) => {
-      label.textContent = event.target.value === 'month' ? String(index + 1) : `Нед. ${index + 1}`;
+  const periodSelect = card.querySelector('.metric-period');
+  const applyPeriod = value => {
+    const labels = periodAxisLabels[value];
+    const weekly = value === 'season' || value === 'winter';
+    card.querySelector('.metric-title span').textContent = weekly ? 'Динамика по неделям · месяц указан на оси' : 'Динамика по дням';
+    chart.style.gridTemplateColumns = `repeat(${labels.length}, minmax(26px, 1fr))`;
+    card.querySelectorAll('.bar-group').forEach((group, index) => {
+      group.hidden = index >= labels.length;
+      if (labels[index]) group.querySelector('small').textContent = labels[index];
     });
-  });
+  };
+  periodSelect.addEventListener('change', event => applyPeriod(event.target.value));
+  applyPeriod(periodSelect.value);
 });
