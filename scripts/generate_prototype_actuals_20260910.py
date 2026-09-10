@@ -112,6 +112,16 @@ report_source = Path("app/reportData.ts").read_text(encoding="utf-8")
 report_json = report_source.split("export const reportPeriods = ", 1)[1].rsplit(" as const;", 1)[0]
 report = json.loads(report_json)
 output["capacity"] = {period: report[period]["capacity"] for period in PERIODS}
+# Закрытый август берём из подтверждённого факта ParkOps. Дневной разбивки
+# этого источника нет, поэтому не распределяем сумму по дням искусственно.
+for direction in ("all", "B2C", "B2B"):
+    source = report["august"]["total" if direction == "all" else direction]["fact"]
+    output["periods"]["august"]["metrics"]["fact"][direction] = {
+        "sum": int(source["sum"]),
+        "count": int(source["count"]),
+        "series": [{"label": "Август", "sum": int(source["sum"]), "count": int(source["count"]), "weekend": False}],
+        "source": "ParkOps — закрытый факт",
+    }
 for period, period_data in output["periods"].items():
     source_managers = report[period]["managers"]
     for record in period_data["managers"].values():
