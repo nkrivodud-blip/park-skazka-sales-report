@@ -17,42 +17,497 @@ window.ACTUAL_REPORT_DATA={
             "count": 133,
             "series": [
               {
-                "key": "august-total",
-                "label": "Август",
-                "sum": 16945814,
-                "count": 133,
+                "key": "08-01",
+                "label": "01.08",
+                "sum": 828330,
+                "count": 7,
+                "weekend": true
+              },
+              {
+                "key": "08-02",
+                "label": "02.08",
+                "sum": 308580,
+                "count": 3,
+                "weekend": true
+              },
+              {
+                "key": "08-03",
+                "label": "03.08",
+                "sum": 942110,
+                "count": 9,
+                "weekend": false
+              },
+              {
+                "key": "08-04",
+                "label": "04.08",
+                "sum": 420600,
+                "count": 5,
+                "weekend": false
+              },
+              {
+                "key": "08-05",
+                "label": "05.08",
+                "sum": 135700,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "08-06",
+                "label": "06.08",
+                "sum": 194980,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "08-07",
+                "label": "07.08",
+                "sum": 428760,
+                "count": 4,
+                "weekend": false
+              },
+              {
+                "key": "08-08",
+                "label": "08.08",
+                "sum": 454120,
+                "count": 5,
+                "weekend": true
+              },
+              {
+                "key": "08-09",
+                "label": "09.08",
+                "sum": 425670,
+                "count": 3,
+                "weekend": true
+              },
+              {
+                "key": "08-10",
+                "label": "10.08",
+                "sum": 146660,
+                "count": 2,
+                "weekend": false
+              },
+              {
+                "key": "08-11",
+                "label": "11.08",
+                "sum": 483470,
+                "count": 4,
+                "weekend": false
+              },
+              {
+                "key": "08-12",
+                "label": "12.08",
+                "sum": 148720,
+                "count": 2,
+                "weekend": false
+              },
+              {
+                "key": "08-13",
+                "label": "13.08",
+                "sum": 313710,
+                "count": 4,
+                "weekend": false
+              },
+              {
+                "key": "08-14",
+                "label": "14.08",
+                "sum": 539760,
+                "count": 3,
+                "weekend": false
+              },
+              {
+                "key": "08-15",
+                "label": "15.08",
+                "sum": 629210,
+                "count": 7,
+                "weekend": true
+              },
+              {
+                "key": "08-16",
+                "label": "16.08",
+                "sum": 340880,
+                "count": 2,
+                "weekend": true
+              },
+              {
+                "key": "08-17",
+                "label": "17.08",
+                "sum": 215640,
+                "count": 3,
+                "weekend": false
+              },
+              {
+                "key": "08-18",
+                "label": "18.08",
+                "sum": 454270,
+                "count": 4,
+                "weekend": false
+              },
+              {
+                "key": "08-19",
+                "label": "19.08",
+                "sum": 13000,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "08-20",
+                "label": "20.08",
+                "sum": 53040,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "08-21",
+                "label": "21.08",
+                "sum": 569530,
+                "count": 6,
+                "weekend": false
+              },
+              {
+                "key": "08-22",
+                "label": "22.08",
+                "sum": 1526128,
+                "count": 10,
+                "weekend": true
+              },
+              {
+                "key": "08-23",
+                "label": "23.08",
+                "sum": 754570,
+                "count": 5,
+                "weekend": true
+              },
+              {
+                "key": "08-24",
+                "label": "24.08",
+                "sum": 581970,
+                "count": 4,
+                "weekend": false
+              },
+              {
+                "key": "08-25",
+                "label": "25.08",
+                "sum": 291856,
+                "count": 2,
+                "weekend": false
+              },
+              {
+                "key": "08-26",
+                "label": "26.08",
+                "sum": 10000,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "08-27",
+                "label": "27.08",
+                "sum": 693770,
+                "count": 6,
+                "weekend": false
+              },
+              {
+                "key": "08-28",
+                "label": "28.08",
+                "sum": 1498330,
+                "count": 6,
+                "weekend": false
+              },
+              {
+                "key": "08-29",
+                "label": "29.08",
+                "sum": 2433410,
+                "count": 12,
+                "weekend": true
+              },
+              {
+                "key": "08-30",
+                "label": "30.08",
+                "sum": 808210,
+                "count": 7,
+                "weekend": true
+              },
+              {
+                "key": "08-31",
+                "label": "31.08",
+                "sum": 300830,
+                "count": 3,
                 "weekend": false
               }
             ],
-            "source": "ParkOps — закрытый факт"
+            "source": "Bitrix — закрытый факт по датам мероприятий"
           },
           "B2B": {
             "sum": 6418188,
             "count": 7,
             "series": [
               {
-                "key": "august-total",
-                "label": "Август",
-                "sum": 6418188,
-                "count": 7,
+                "key": "08-06",
+                "label": "06.08",
+                "sum": 826360,
+                "count": 2,
+                "weekend": false
+              },
+              {
+                "key": "08-07",
+                "label": "07.08",
+                "sum": 748400,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "08-13",
+                "label": "13.08",
+                "sum": 555200,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "08-15",
+                "label": "15.08",
+                "sum": 3302881,
+                "count": 1,
+                "weekend": true
+              },
+              {
+                "key": "08-21",
+                "label": "21.08",
+                "sum": 381400,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "08-28",
+                "label": "28.08",
+                "sum": 603947,
+                "count": 1,
                 "weekend": false
               }
             ],
-            "source": "ParkOps — закрытый факт"
+            "source": "Bitrix — закрытый факт по датам мероприятий"
           },
           "all": {
             "sum": 23364002,
             "count": 140,
             "series": [
               {
-                "key": "august-total",
-                "label": "Август",
-                "sum": 23364002,
-                "count": 140,
+                "key": "08-01",
+                "label": "01.08",
+                "sum": 828330,
+                "count": 7,
+                "weekend": true
+              },
+              {
+                "key": "08-02",
+                "label": "02.08",
+                "sum": 308580,
+                "count": 3,
+                "weekend": true
+              },
+              {
+                "key": "08-03",
+                "label": "03.08",
+                "sum": 942110,
+                "count": 9,
+                "weekend": false
+              },
+              {
+                "key": "08-04",
+                "label": "04.08",
+                "sum": 420600,
+                "count": 5,
+                "weekend": false
+              },
+              {
+                "key": "08-05",
+                "label": "05.08",
+                "sum": 135700,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "08-06",
+                "label": "06.08",
+                "sum": 1021340,
+                "count": 3,
+                "weekend": false
+              },
+              {
+                "key": "08-07",
+                "label": "07.08",
+                "sum": 1177160,
+                "count": 5,
+                "weekend": false
+              },
+              {
+                "key": "08-08",
+                "label": "08.08",
+                "sum": 454120,
+                "count": 5,
+                "weekend": true
+              },
+              {
+                "key": "08-09",
+                "label": "09.08",
+                "sum": 425670,
+                "count": 3,
+                "weekend": true
+              },
+              {
+                "key": "08-10",
+                "label": "10.08",
+                "sum": 146660,
+                "count": 2,
+                "weekend": false
+              },
+              {
+                "key": "08-11",
+                "label": "11.08",
+                "sum": 483470,
+                "count": 4,
+                "weekend": false
+              },
+              {
+                "key": "08-12",
+                "label": "12.08",
+                "sum": 148720,
+                "count": 2,
+                "weekend": false
+              },
+              {
+                "key": "08-13",
+                "label": "13.08",
+                "sum": 868910,
+                "count": 5,
+                "weekend": false
+              },
+              {
+                "key": "08-14",
+                "label": "14.08",
+                "sum": 539760,
+                "count": 3,
+                "weekend": false
+              },
+              {
+                "key": "08-15",
+                "label": "15.08",
+                "sum": 3932091,
+                "count": 8,
+                "weekend": true
+              },
+              {
+                "key": "08-16",
+                "label": "16.08",
+                "sum": 340880,
+                "count": 2,
+                "weekend": true
+              },
+              {
+                "key": "08-17",
+                "label": "17.08",
+                "sum": 215640,
+                "count": 3,
+                "weekend": false
+              },
+              {
+                "key": "08-18",
+                "label": "18.08",
+                "sum": 454270,
+                "count": 4,
+                "weekend": false
+              },
+              {
+                "key": "08-19",
+                "label": "19.08",
+                "sum": 13000,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "08-20",
+                "label": "20.08",
+                "sum": 53040,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "08-21",
+                "label": "21.08",
+                "sum": 950930,
+                "count": 7,
+                "weekend": false
+              },
+              {
+                "key": "08-22",
+                "label": "22.08",
+                "sum": 1526128,
+                "count": 10,
+                "weekend": true
+              },
+              {
+                "key": "08-23",
+                "label": "23.08",
+                "sum": 754570,
+                "count": 5,
+                "weekend": true
+              },
+              {
+                "key": "08-24",
+                "label": "24.08",
+                "sum": 581970,
+                "count": 4,
+                "weekend": false
+              },
+              {
+                "key": "08-25",
+                "label": "25.08",
+                "sum": 291856,
+                "count": 2,
+                "weekend": false
+              },
+              {
+                "key": "08-26",
+                "label": "26.08",
+                "sum": 10000,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "08-27",
+                "label": "27.08",
+                "sum": 693770,
+                "count": 6,
+                "weekend": false
+              },
+              {
+                "key": "08-28",
+                "label": "28.08",
+                "sum": 2102277,
+                "count": 7,
+                "weekend": false
+              },
+              {
+                "key": "08-29",
+                "label": "29.08",
+                "sum": 2433410,
+                "count": 12,
+                "weekend": true
+              },
+              {
+                "key": "08-30",
+                "label": "30.08",
+                "sum": 808210,
+                "count": 7,
+                "weekend": true
+              },
+              {
+                "key": "08-31",
+                "label": "31.08",
+                "sum": 300830,
+                "count": 3,
                 "weekend": false
               }
             ],
-            "source": "ParkOps — закрытый факт"
+            "source": "Bitrix — закрытый факт по датам мероприятий"
           }
         },
         "prepaid": {

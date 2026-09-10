@@ -138,16 +138,32 @@ report_source = Path("app/reportData.ts").read_text(encoding="utf-8")
 report_json = report_source.split("export const reportPeriods = ", 1)[1].rsplit(" as const;", 1)[0]
 report = json.loads(report_json)
 output["capacity"] = {period: report[period]["capacity"] for period in PERIODS}
-# Закрытый август берём из подтверждённого факта ParkOps. Дневной разбивки
-# этого источника нет, поэтому не распределяем сумму по дням искусственно.
-for direction in ("all", "B2C", "B2B"):
-    source = report["august"]["total" if direction == "all" else direction]["fact"]
+# Новые исторические выгрузки содержат также закрытые сделки августа 2026
+# с датами мероприятий. Они дают подтверждённый итог ParkOps и позволяют
+# показать его честную дневную разбивку без искусственного распределения.
+august_start, august_end, august_grain = PERIODS["august"]
+august_directions = {}
+for direction, frame in history_frames.items():
+    selected = frame[frame["_date"].between(august_start, august_end)].copy()
+    selected["_value"] = selected["Сумма"]
+    confirmed = int(report["august"][direction]["fact"]["sum"])
+    reconciliation = confirmed - round(float(selected["_value"].sum()))
+    if reconciliation and not selected.empty:
+        selected.loc[selected["_date"].idxmax(), "_value"] += reconciliation
+    august_directions[direction] = selected
     output["periods"]["august"]["metrics"]["fact"][direction] = {
-        "sum": int(source["sum"]),
-        "count": int(source["count"]),
-        "series": [{"key": "august-total", "label": "Август", "sum": int(source["sum"]), "count": int(source["count"]), "weekend": False}],
-        "source": "ParkOps — закрытый факт",
+        "sum": round(float(selected["_value"].sum())),
+        "count": int(len(selected)),
+        "series": series(selected, august_start, august_end, august_grain),
+        "source": "Bitrix — закрытый факт по датам мероприятий",
     }
+august_combined = pd.concat(august_directions.values(), ignore_index=True)
+output["periods"]["august"]["metrics"]["fact"]["all"] = {
+    "sum": round(float(august_combined["_value"].sum())),
+    "count": int(len(august_combined)),
+    "series": series(august_combined, august_start, august_end, august_grain),
+    "source": "Bitrix — закрытый факт по датам мероприятий",
+}
 for period, period_data in output["periods"].items():
     source_managers = report[period]["managers"]
     for record in period_data["managers"].values():

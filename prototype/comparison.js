@@ -54,7 +54,7 @@ document.querySelectorAll('.metric').forEach((card, metricIndex) => {
     const direction = directionKey(directionSelect.value);
     const current = DATA.periods[period].metrics[metric][direction];
     const selectedYears = [['2025', card.querySelector('.compare25').checked], ['2024', card.querySelector('.compare24').checked]].filter(([, checked]) => checked).map(([year]) => year);
-    const historicalSeries = metric === 'fact' && period !== 'august' ? selectedYears.map(year => [year, DATA.periods[period].history[year][direction].series]) : [];
+    const historicalSeries = metric === 'fact' ? selectedYears.map(year => [year, DATA.periods[period].history[year][direction].series]) : [];
     const points = new Map(current.series.map(item => [item.key, {label: item.label, weekend: item.weekend, current: item}]));
     historicalSeries.forEach(([year, items]) => items.forEach(item => points.set(item.key, {...(points.get(item.key) || {label: item.label, weekend: item.weekend}), [year]: item})));
     const visibleValues = [...current.series.map(item => item.sum), ...historicalSeries.flatMap(([, items]) => items.map(item => item.sum))];
