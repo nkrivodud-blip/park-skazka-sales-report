@@ -117,5 +117,5 @@ for period, period_data in output["periods"].items():
         match = next((item for item in source_managers if item["name"] == record["name"] and item["direction"] == record["direction"]), None)
         record["plan"] = int(match.get("plan", 0)) if match else 0
 
-Path("prototype/actual-data.js").write_text("window.ACTUAL_REPORT_DATA=" + json.dumps(output, ensure_ascii=False, separators=(",", ":")) + ";\n", encoding="utf-8")
+Path("prototype/actual-data.js").write_text("window.ACTUAL_REPORT_DATA=" + json.dumps(output, ensure_ascii=False, indent=2) + ";\n", encoding="utf-8")
 print("prototype/actual-data.js generated")
