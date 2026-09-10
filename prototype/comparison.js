@@ -49,8 +49,8 @@ document.querySelectorAll('.metric').forEach((card, metricIndex) => {
     const direction = directionKey(directionSelect.value);
     const current = DATA.periods[period].metrics[metric][direction];
     const max = Math.max(1, ...current.series.map(item => item.sum));
-    chart.style.gridTemplateColumns = `repeat(${current.series.length}, minmax(30px, 1fr))`;
-    chart.innerHTML = current.series.map(item => `<div class="bar-group${item.weekend ? ' weekend' : ''}"><div class="bar current" style="--h:${item.sum ? Math.max(5, item.sum / max * 100) : 0}%" data-value="${item.label} · ${money(item.sum)} · ${item.count} шт."></div><small>${item.label}</small></div>`).join('');
+    chart.style.gridTemplateColumns = `repeat(${Math.max(1, current.series.length)}, minmax(52px, 1fr))`;
+    chart.innerHTML = current.series.length ? current.series.map(item => `<div class="bar-group${item.weekend ? ' weekend' : ''}"><div class="bar current" style="--h:${Math.max(5, item.sum / max * 100)}%" data-value="${item.label} · ${money(item.sum)} · ${item.count} шт."></div><small>${item.label}</small></div>`).join('') : '<p style="align-self:center;color:var(--muted)">Нет данных за выбранный период</p>';
     const plan = DATA.periods[period].plan[direction];
     const percent = metric === 'fact' && plan ? current.sum / plan * 100 : 0;
     footer.innerHTML = `<div><span>Total за период</span><b>${money(current.sum)}</b></div><div><span>Количество</span><b>${current.count} сделок</b></div><div><span>План</span><b>${plan ? money(plan) : 'Не задан'}</b></div><div><span>Выполнение</span><b>${metric === 'fact' && plan ? `${percent.toLocaleString('ru-RU', {maximumFractionDigits: 1})}%` : '—'}</b><div class="progress"><i style="--p:${Math.min(percent, 100)}%"></i></div></div>`;

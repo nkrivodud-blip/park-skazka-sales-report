@@ -64,7 +64,7 @@ def series(frame, start, end, grain):
         dates = pd.date_range(start, end, freq="D")
         sums = frame.groupby(frame["_date"].dt.normalize())["_value"].sum()
         counts = frame.groupby(frame["_date"].dt.normalize()).size()
-        return [{"label": date.strftime("%d.%m"), "sum": round(float(sums.get(date, 0))), "count": int(counts.get(date, 0)), "weekend": date.weekday() >= 5} for date in dates]
+        return [{"label": date.strftime("%d.%m"), "sum": round(float(sums.get(date, 0))), "count": int(counts.get(date, 0)), "weekend": date.weekday() >= 5} for date in dates if sums.get(date, 0) or counts.get(date, 0)]
     first = start - pd.Timedelta(days=start.weekday())
     starts = pd.date_range(first, end, freq="7D")
     bucket = frame["_date"].dt.normalize() - pd.to_timedelta(frame["_date"].dt.weekday, unit="D")
@@ -74,7 +74,8 @@ def series(frame, start, end, grain):
     for date in starts:
         finish = min(date + pd.Timedelta(days=6), end)
         visible_start = max(date, start)
-        result.append({"label": f"{visible_start:%d.%m}–{finish:%d.%m}", "sum": round(float(sums.get(date, 0))), "count": int(counts.get(date, 0)), "weekend": False})
+        if sums.get(date, 0) or counts.get(date, 0):
+            result.append({"label": f"{visible_start:%d.%m}–{finish:%d.%m}", "sum": round(float(sums.get(date, 0))), "count": int(counts.get(date, 0)), "weekend": False})
     return result
 
 
