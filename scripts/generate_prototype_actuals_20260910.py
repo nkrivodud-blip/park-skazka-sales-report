@@ -8,6 +8,10 @@ FILES = {
     "B2C": Path(r"C:/Users/n.krivodud/Downloads/DEAL_20260910_d766d98b_6aa263653d17c.xls"),
     "B2B": Path(r"C:/Users/n.krivodud/Downloads/DEAL_20260910_d766d98b_6aa2633b4648b.xls"),
 }
+HISTORY_FILES = {
+    "B2B": Path(r"C:/Users/n.krivodud/Downloads/DEAL_20260910_d766d98b_6aa2987aaef5f.xls"),
+    "B2C": Path(r"C:/Users/n.krivodud/Downloads/DEAL_20260910_d766d98b_6aa29858d69bc.xls"),
+}
 WEIGHTS = {"Верю, что закроется": .9, "Верю, но с рисками": .5, "Не верю": .2}
 STAGES = {
     "B2C": {"prepaid": {"Внесена предоплата", "4 дня до банкета", "1 день до банкета", "Банкет начался"}, "active": {"В работе", "Сделано предложение"}},
@@ -64,22 +68,23 @@ def series(frame, start, end, grain):
         dates = pd.date_range(start, end, freq="D")
         sums = frame.groupby(frame["_date"].dt.normalize())["_value"].sum()
         counts = frame.groupby(frame["_date"].dt.normalize()).size()
-        return [{"label": date.strftime("%d.%m"), "sum": round(float(sums.get(date, 0))), "count": int(counts.get(date, 0)), "weekend": date.weekday() >= 5} for date in dates if sums.get(date, 0) or counts.get(date, 0)]
+        return [{"key": date.strftime("%m-%d"), "label": date.strftime("%d.%m"), "sum": round(float(sums.get(date, 0))), "count": int(counts.get(date, 0)), "weekend": date.weekday() >= 5} for date in dates if sums.get(date, 0) or counts.get(date, 0)]
     first = start - pd.Timedelta(days=start.weekday())
     starts = pd.date_range(first, end, freq="7D")
     bucket = frame["_date"].dt.normalize() - pd.to_timedelta(frame["_date"].dt.weekday, unit="D")
     sums = frame.groupby(bucket)["_value"].sum()
     counts = frame.groupby(bucket).size()
     result = []
-    for date in starts:
+    for index, date in enumerate(starts):
         finish = min(date + pd.Timedelta(days=6), end)
         visible_start = max(date, start)
         if sums.get(date, 0) or counts.get(date, 0):
-            result.append({"label": f"{visible_start:%d.%m}–{finish:%d.%m}", "sum": round(float(sums.get(date, 0))), "count": int(counts.get(date, 0)), "weekend": False})
+            result.append({"key": f"w{index:02d}", "label": f"{visible_start:%d.%m}–{finish:%d.%m}", "sum": round(float(sums.get(date, 0))), "count": int(counts.get(date, 0)), "weekend": False})
     return result
 
 
 frames = {direction: load(path) for direction, path in FILES.items()}
+history_frames = {direction: load(path) for direction, path in HISTORY_FILES.items()}
 output = {"periods": {}, "leads": {"weeks": [
     {"label": "24–30.08", "nql": 121, "ql": 118, "B2C": 111, "B2B": 7, "other": 0},
     {"label": "31.08–06.09", "nql": 120, "ql": 120, "B2C": 82, "B2B": 11, "other": 27},
@@ -87,7 +92,7 @@ output = {"periods": {}, "leads": {"weeks": [
 ]}}
 
 for period, (start, end, grain) in PERIODS.items():
-    period_data = {"plan": PLANS[period], "comparison": COMPARISON[period], "metrics": {}, "managers": {}}
+    period_data = {"plan": PLANS[period], "comparison": COMPARISON[period], "metrics": {}, "managers": {}, "history": {}}
     for metric in ("fact", "prepaid", "weighted", "raw"):
         period_data["metrics"][metric] = {}
         selected_by_direction = {}
@@ -106,6 +111,27 @@ for period, (start, end, grain) in PERIODS.items():
                 selected = select_metric(group, direction, metric)
                 record["metrics"][metric] = {"sum": round(float(selected["_value"].sum())), "count": int(len(selected)), "series": series(selected, start, end, grain)}
             period_data["managers"][key] = record
+    for year in (2024, 2025):
+        if period == "winter":
+            historical_start = pd.Timestamp(year=year, month=10, day=1)
+            historical_end = pd.Timestamp(year=year + 1, month=3, day=31)
+        else:
+            historical_start = start.replace(year=year)
+            historical_end = end.replace(year=year)
+        directions = {}
+        for direction, frame in history_frames.items():
+            selected = frame[frame["_date"].between(historical_start, historical_end)].copy()
+            selected["_value"] = selected["Сумма"]
+            directions[direction] = selected
+            period_data["history"].setdefault(str(year), {})[direction] = {
+                "sum": round(float(selected["_value"].sum())), "count": int(len(selected)),
+                "series": series(selected, historical_start, historical_end, grain),
+            }
+        combined = pd.concat(directions.values(), ignore_index=True)
+        period_data["history"][str(year)]["all"] = {
+            "sum": round(float(combined["_value"].sum())), "count": int(len(combined)),
+            "series": series(combined, historical_start, historical_end, grain),
+        }
     output["periods"][period] = period_data
 
 report_source = Path("app/reportData.ts").read_text(encoding="utf-8")
@@ -119,7 +145,7 @@ for direction in ("all", "B2C", "B2B"):
     output["periods"]["august"]["metrics"]["fact"][direction] = {
         "sum": int(source["sum"]),
         "count": int(source["count"]),
-        "series": [{"label": "Август", "sum": int(source["sum"]), "count": int(source["count"]), "weekend": False}],
+        "series": [{"key": "august-total", "label": "Август", "sum": int(source["sum"]), "count": int(source["count"]), "weekend": False}],
         "source": "ParkOps — закрытый факт",
     }
 for period, period_data in output["periods"].items():
