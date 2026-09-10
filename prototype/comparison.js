@@ -23,6 +23,12 @@ document.querySelectorAll('.metric').forEach((card, metricIndex) => {
   const chart = card.querySelector('.chart');
   const footer = card.querySelector('.total');
   const legend = card.querySelector('.legend');
+  const chartShell = document.createElement('div');
+  chartShell.className = 'chart-shell';
+  const axis = document.createElement('div');
+  axis.className = 'y-axis';
+  chart.before(chartShell);
+  chartShell.append(axis, chart);
   const summary = document.createElement('div');
   summary.className = 'comparison-summary';
   legend.after(summary);
@@ -31,17 +37,16 @@ document.querySelectorAll('.metric').forEach((card, metricIndex) => {
     const period = periodSelect.value;
     const direction = directionKey(directionSelect.value);
     const current = DATA.periods[period].metrics[metric][direction].sum;
+    const years = [['2025', card.querySelector('.compare25').checked], ['2024', card.querySelector('.compare24').checked]].filter(([, checked]) => checked);
     summary.innerHTML = '';
-    [['2025', card.querySelector('.compare25').checked], ['2024', card.querySelector('.compare24').checked]].forEach(([year, checked]) => {
-      if (!checked) return;
-      if (metric !== 'fact' || direction !== 'all') {
-        summary.insertAdjacentHTML('beforeend', `<span style="display:block;background:#f1f4f6;color:#66798b">Нет сопоставимой детализации ${year} для выбранного показателя</span>`);
-        return;
-      }
-      const previous = DATA.periods[period].comparison[year];
-      const delta = previous ? (current - previous) / previous * 100 : 0;
-      summary.insertAdjacentHTML('beforeend', `<span style="display:block;background:${delta >= 0 ? '#e4f5f0' : '#faece9'};color:${delta >= 0 ? '#08786f' : '#a4483e'}">${year}: ${money(previous)} · 2026 ${delta >= 0 ? 'выше' : 'ниже'} на ${Math.abs(delta).toLocaleString('ru-RU', {maximumFractionDigits: 1})}%</span>`);
-    });
+    if (!years.length) return;
+    if (metric !== 'fact' || direction !== 'all') {
+      summary.innerHTML = '<span style="display:block;background:#f1f4f6;color:#66798b">В источнике нет сопоставимых данных 2024/2025 для выбранного показателя и направления</span>';
+      return;
+    }
+    const values = [['2026', current], ...years.map(([year]) => [year, DATA.periods[period].comparison[year]])];
+    const maximum = Math.max(...values.map(([, value]) => value), 1);
+    summary.innerHTML = `<div class="compare-total">${values.map(([year, value]) => `<div class="compare-total-group"><div class="compare-total-bar y${year.slice(-2)}" style="--h:${Math.max(4, value / maximum * 92)}%"><b>${money(value)}</b></div><small>${year}</small></div>`).join('')}<p class="comparison-note">Сравниваются подтверждённые итоги периода. Дневной разбивки 2024/2025 в ParkOps нет.</p></div>`;
   }
 
   function render() {
@@ -49,12 +54,18 @@ document.querySelectorAll('.metric').forEach((card, metricIndex) => {
     const direction = directionKey(directionSelect.value);
     const current = DATA.periods[period].metrics[metric][direction];
     const max = Math.max(1, ...current.series.map(item => item.sum));
+    const maxMillions = max / 1e6;
+    const step = maxMillions <= 1 ? .25 : maxMillions <= 5 ? 1 : maxMillions <= 15 ? 2 : 5;
+    const axisMax = Math.max(step, Math.ceil(maxMillions / step) * step);
+    const ticks = [];
+    for (let value = 0; value <= axisMax + .0001; value += step) ticks.push(value);
+    axis.innerHTML = ticks.map(value => `<span class="y-tick" style="--y:${value / axisMax * 82}%">${value ? `${value.toLocaleString('ru-RU')} млн` : '0'}</span>`).join('');
     chart.style.gridTemplateColumns = `repeat(${Math.max(1, current.series.length)}, minmax(52px, 1fr))`;
-    chart.innerHTML = current.series.length ? current.series.map(item => `<div class="bar-group${item.weekend ? ' weekend' : ''}"><div class="bar current" style="--h:${Math.max(5, item.sum / max * 100)}%" data-value="${item.label} · ${money(item.sum)} · ${item.count} шт."></div><small>${item.label}</small></div>`).join('') : '<p style="align-self:center;color:var(--muted)">Нет данных за выбранный период</p>';
+    chart.innerHTML = current.series.length ? current.series.map(item => `<div class="bar-group${item.weekend ? ' weekend' : ''}"><div class="bar current" style="--h:${Math.max(3, item.sum / (axisMax * 1e6) * 82)}%" data-value="${item.label} · ${money(item.sum)} · ${item.count} шт."></div><small>${item.label}</small></div>`).join('') : '<p style="align-self:center;color:var(--muted)">Нет данных за выбранный период</p>';
     const plan = DATA.periods[period].plan[direction];
     const percent = metric === 'fact' && plan ? current.sum / plan * 100 : 0;
     footer.innerHTML = `<div><span>Total за период</span><b>${money(current.sum)}</b></div><div><span>Количество</span><b>${current.count} сделок</b></div><div><span>План</span><b>${plan ? money(plan) : 'Не задан'}</b></div><div><span>Выполнение</span><b>${metric === 'fact' && plan ? `${percent.toLocaleString('ru-RU', {maximumFractionDigits: 1})}%` : '—'}</b><div class="progress"><i style="--p:${Math.min(percent, 100)}%"></i></div></div>`;
-    card.querySelector('.metric-title span').textContent = period === 'august' || period === 'september' ? 'Фактические данные по дням мероприятия' : 'Фактические данные по неделям мероприятия';
+    card.querySelector('.metric-title span').textContent = current.source || (period === 'august' || period === 'september' ? 'Фактические данные по дням мероприятия' : 'Фактические данные по неделям мероприятия');
     renderComparison();
   }
 
