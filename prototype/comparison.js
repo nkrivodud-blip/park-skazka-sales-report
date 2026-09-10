@@ -40,28 +40,36 @@ document.querySelectorAll('.metric').forEach((card, metricIndex) => {
     const years = [['2025', card.querySelector('.compare25').checked], ['2024', card.querySelector('.compare24').checked]].filter(([, checked]) => checked);
     summary.innerHTML = '';
     if (!years.length) return;
-    if (metric !== 'fact' || direction !== 'all') {
-      summary.innerHTML = '<span style="display:block;background:#f1f4f6;color:#66798b">В источнике нет сопоставимых данных 2024/2025 для выбранного показателя и направления</span>';
+    if (metric !== 'fact') {
+      summary.innerHTML = '<span style="display:block;background:#f1f4f6;color:#66798b">Исторические выгрузки содержат только финальную стадию «Сделка успешна». Сравнение предоплат и pipeline недоступно.</span>';
       return;
     }
-    const values = [['2026', current], ...years.map(([year]) => [year, DATA.periods[period].comparison[year]])];
+    const values = [['2026', current], ...years.map(([year]) => [year, DATA.periods[period].history[year][direction].sum])];
     const maximum = Math.max(...values.map(([, value]) => value), 1);
-    summary.innerHTML = `<div class="compare-total">${values.map(([year, value]) => `<div class="compare-total-group"><div class="compare-total-bar y${year.slice(-2)}" style="--h:${Math.max(4, value / maximum * 92)}%"><b>${money(value)}</b></div><small>${year}</small></div>`).join('')}<p class="comparison-note">Сравниваются подтверждённые итоги периода. Дневной разбивки 2024/2025 в ParkOps нет.</p></div>`;
+    summary.innerHTML = `<div class="compare-total">${values.map(([year, value]) => `<div class="compare-total-group"><div class="compare-total-bar y${year.slice(-2)}" style="--h:${Math.max(4, value / maximum * 92)}%"><b>${money(value)}</b></div><small>${year}</small></div>`).join('')}<p class="comparison-note">Итоги рассчитаны из исторических B2C- и B2B-выгрузок Bitrix.</p></div>`;
   }
 
   function render() {
     const period = periodSelect.value;
     const direction = directionKey(directionSelect.value);
     const current = DATA.periods[period].metrics[metric][direction];
-    const max = Math.max(1, ...current.series.map(item => item.sum));
+    const selectedYears = [['2025', card.querySelector('.compare25').checked], ['2024', card.querySelector('.compare24').checked]].filter(([, checked]) => checked).map(([year]) => year);
+    const historicalSeries = metric === 'fact' && period !== 'august' ? selectedYears.map(year => [year, DATA.periods[period].history[year][direction].series]) : [];
+    const points = new Map(current.series.map(item => [item.key, {label: item.label, weekend: item.weekend, current: item}]));
+    historicalSeries.forEach(([year, items]) => items.forEach(item => points.set(item.key, {...(points.get(item.key) || {label: item.label, weekend: item.weekend}), [year]: item})));
+    const visibleValues = [...current.series.map(item => item.sum), ...historicalSeries.flatMap(([, items]) => items.map(item => item.sum))];
+    const max = Math.max(1, ...visibleValues);
     const maxMillions = max / 1e6;
     const step = maxMillions <= 1 ? .25 : maxMillions <= 5 ? 1 : maxMillions <= 15 ? 2 : 5;
     const axisMax = Math.max(step, Math.ceil(maxMillions / step) * step);
     const ticks = [];
     for (let value = 0; value <= axisMax + .0001; value += step) ticks.push(value);
     axis.innerHTML = ticks.map(value => `<span class="y-tick" style="--y:${value / axisMax * 82}%">${value ? `${value.toLocaleString('ru-RU')} млн` : '0'}</span>`).join('');
-    chart.style.gridTemplateColumns = `repeat(${Math.max(1, current.series.length)}, minmax(52px, 1fr))`;
-    chart.innerHTML = current.series.length ? current.series.map(item => `<div class="bar-group${item.weekend ? ' weekend' : ''}"><div class="bar current" style="--h:${Math.max(3, item.sum / (axisMax * 1e6) * 82)}%" data-value="${item.label} · ${money(item.sum)} · ${item.count} шт."></div><small>${item.label}</small></div>`).join('') : '<p style="align-self:center;color:var(--muted)">Нет данных за выбранный период</p>';
+    chart.classList.toggle('show24', selectedYears.includes('2024'));
+    chart.classList.toggle('show25', selectedYears.includes('2025'));
+    chart.style.gridTemplateColumns = `repeat(${Math.max(1, points.size)}, minmax(52px, 1fr))`;
+    const orderedPoints = [...points.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([, point]) => point);
+    chart.innerHTML = points.size ? orderedPoints.map(point => `<div class="bar-group${point.weekend ? ' weekend' : ''}">${point.current ? `<div class="bar current" style="--h:${Math.max(3, point.current.sum / (axisMax * 1e6) * 82)}%" data-value="2026 · ${point.label} · ${money(point.current.sum)} · ${point.current.count} шт."></div>` : ''}${point['2025'] ? `<div class="bar y25" style="--h:${Math.max(3, point['2025'].sum / (axisMax * 1e6) * 82)}%" data-value="2025 · ${point.label} · ${money(point['2025'].sum)} · ${point['2025'].count} шт."></div>` : ''}${point['2024'] ? `<div class="bar y24" style="--h:${Math.max(3, point['2024'].sum / (axisMax * 1e6) * 82)}%" data-value="2024 · ${point.label} · ${money(point['2024'].sum)} · ${point['2024'].count} шт."></div>` : ''}<small>${point.label}</small></div>`).join('') : '<p style="align-self:center;color:var(--muted)">Нет данных за выбранный период</p>';
     const plan = DATA.periods[period].plan[direction];
     const percent = metric === 'fact' && plan ? current.sum / plan * 100 : 0;
     footer.innerHTML = `<div><span>Total за период</span><b>${money(current.sum)}</b></div><div><span>Количество</span><b>${current.count} сделок</b></div><div><span>План</span><b>${plan ? money(plan) : 'Не задан'}</b></div><div><span>Выполнение</span><b>${metric === 'fact' && plan ? `${percent.toLocaleString('ru-RU', {maximumFractionDigits: 1})}%` : '—'}</b><div class="progress"><i style="--p:${Math.min(percent, 100)}%"></i></div></div>`;
@@ -71,8 +79,8 @@ document.querySelectorAll('.metric').forEach((card, metricIndex) => {
 
   periodSelect.addEventListener('change', render);
   directionSelect.addEventListener('change', render);
-  card.querySelector('.compare24').addEventListener('change', renderComparison);
-  card.querySelector('.compare25').addEventListener('change', renderComparison);
+  card.querySelector('.compare24').addEventListener('change', render);
+  card.querySelector('.compare25').addEventListener('change', render);
   render();
 });
 
