@@ -661,54 +661,104 @@ export const reportPeriods = {
       "y2024": 18000000
     },
     "capacity": {
-      "events": 20,
-      "occupied": 40,
+      "events": 36,
+      "occupied": 75,
       "capacity": 1230,
       "weekday": {
-        "occupied": 29,
+        "occupied": 35,
         "capacity": 902
       },
       "weekend": {
-        "occupied": 11,
+        "occupied": 40,
         "capacity": 328
       },
       "locations": [
         {
-          "name": "Айва-парк · беседки",
-          "occupied": 3,
+          "name": "Лофт",
+          "occupied": 18,
           "capacity": 180
+        },
+        {
+          "name": "Беседки лофта",
+          "occupied": 16,
+          "capacity": 150
         },
         {
           "name": "Айва-парк · домик",
-          "occupied": 1,
+          "occupied": 5,
           "capacity": 60
         },
         {
-          "name": "Лофт и пять беседок",
-          "occupied": 22,
-          "capacity": 330
-        },
-        {
-          "name": "Дино · все шатры",
-          "occupied": 5,
+          "name": "Айва-парк · беседки",
+          "occupied": 9,
           "capacity": 180
         },
         {
-          "name": "Веранда Мадагаскар",
-          "occupied": 3,
+          "name": "Дино · шатры",
+          "occupied": 12,
           "capacity": 180
         },
         {
-          "name": "Шатёр FOOD",
-          "occupied": 3,
+          "name": "Веранда",
+          "occupied": 4,
           "capacity": 180
         },
         {
-          "name": "Нитро · оба шатра",
+          "name": "Шатёр · сфера",
+          "occupied": 8,
+          "capacity": 180
+        },
+        {
+          "name": "Шатры · Нитро",
           "occupied": 3,
           "capacity": 120
         }
-      ]
+      ],
+      "directions": {
+        "all": {
+          "events": 36,
+          "occupied": 75,
+          "capacity": 1230,
+          "weekday": { "occupied": 35, "capacity": 902 },
+          "weekend": { "occupied": 40, "capacity": 328 },
+          "locations": [
+            { "name": "Лофт", "occupied": 18, "capacity": 180 },
+            { "name": "Беседки лофта", "occupied": 16, "capacity": 150 },
+            { "name": "Айва-парк · домик", "occupied": 5, "capacity": 60 },
+            { "name": "Айва-парк · беседки", "occupied": 9, "capacity": 180 },
+            { "name": "Дино · шатры", "occupied": 12, "capacity": 180 },
+            { "name": "Веранда", "occupied": 4, "capacity": 180 },
+            { "name": "Шатёр · сфера", "occupied": 8, "capacity": 180 },
+            { "name": "Шатры · Нитро", "occupied": 3, "capacity": 120 }
+          ]
+        },
+        "B2C": {
+          "events": 32,
+          "occupied": 41,
+          "capacity": 900,
+          "weekday": { "occupied": 12, "capacity": 660 },
+          "weekend": { "occupied": 29, "capacity": 240 },
+          "locations": [
+            { "name": "Айва-парк · домик", "occupied": 5, "capacity": 60 },
+            { "name": "Айва-парк · беседки", "occupied": 9, "capacity": 180 },
+            { "name": "Дино · шатры", "occupied": 12, "capacity": 180 },
+            { "name": "Веранда", "occupied": 4, "capacity": 180 },
+            { "name": "Шатёр · сфера", "occupied": 8, "capacity": 180 },
+            { "name": "Шатры · Нитро", "occupied": 3, "capacity": 120 }
+          ]
+        },
+        "B2B": {
+          "events": 4,
+          "occupied": 34,
+          "capacity": 330,
+          "weekday": { "occupied": 23, "capacity": 242 },
+          "weekend": { "occupied": 11, "capacity": 88 },
+          "locations": [
+            { "name": "Лофт", "occupied": 18, "capacity": 180 },
+            { "name": "Беседки лофта", "occupied": 16, "capacity": 150 }
+          ]
+        }
+      }
     }
   },
   "season": {
