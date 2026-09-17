@@ -93,7 +93,7 @@ leadCard.querySelector('.donut').style.background = `conic-gradient(var(--teal) 
 leadCard.querySelector('.donut b').textContent = `${leadRate.toLocaleString('ru-RU', {maximumFractionDigits: 1})}%`;
 leadCard.querySelector('span').textContent = 'Конверсия NQL → QL';
 leadCard.querySelector('h3').textContent = `${leadQl} из ${leadNql}`;
-leadCard.querySelector('p').textContent = 'Данные трёх последних периодов';
+leadCard.querySelector('p').textContent = 'Данные четырёх последних периодов';
 document.querySelector('.mini-bars').innerHTML = leadWeeks.map(item => `<div class="mini-row"><span>${item.label}${item.partial ? '*' : ''}</span><div class="track"><i style="--w:${item.ql / Math.max(...leadWeeks.map(row => row.ql)) * 100}%"></i></div><b>${item.ql} QL</b></div>`).join('') + `<p style="color:var(--muted);margin:14px 0 0">${leadWeeks.map(item => `${item.label}: B2C ${item.B2C} · B2B ${item.B2B}${item.other ? ` · без направления ${item.other}` : ''}`).join('<br>')}</p>`;
 
 const managerPeriod = document.querySelector('.manager-picker select:nth-child(2)');
