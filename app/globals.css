@@ -127,6 +127,10 @@ h1 { max-width: 830px; margin-bottom: 28px; color: var(--ink); font-size: clamp(
 .combo-title h3 { margin-bottom: 5px; color: var(--ink); font-size: 21px; }
 .combo-title p, .combo-title > span { margin: 0; color: var(--muted); font-size: 11px; }
 .combo-title > span { padding: 6px 9px; border-radius: 8px; background: var(--teal-soft); color: var(--teal); font-weight: 800; white-space: nowrap; }
+.combo-controls { display: flex; align-items: end; gap: 12px; }
+.combo-controls > span { padding: 6px 9px; border-radius: 8px; background: var(--teal-soft); color: var(--teal); font-size: 11px; font-weight: 800; white-space: nowrap; }
+.combo-controls label { display: grid; gap: 4px; color: var(--muted); font-size: 10px; font-weight: 700; }
+.combo-controls select { min-width: 110px; padding: 7px 28px 7px 9px; border: 1px solid var(--line); border-radius: 9px; background: white; color: var(--ink); font-weight: 700; }
 .combo-scroll { overflow-x: auto; padding: 12px 24px 22px; }
 .combo-chart { position: relative; display: grid; grid-template-columns: repeat(var(--columns), minmax(190px, 1fr)); gap: 14px; min-width: calc(var(--columns) * 204px); height: 340px; padding-top: 12px; }
 .combo-chart svg { position: absolute; inset: 126px 0 40px; z-index: 3; width: 100%; height: calc(100% - 166px); overflow: visible; pointer-events: none; }
