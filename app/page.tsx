@@ -3,5 +3,152 @@ import type { CSSProperties } from "react";
 import PipelineDashboard from "./PipelineDashboard";
 import ManagerDashboard from "./ManagerDashboard";
 import CapacityDashboard from "./CapacityDashboard";
-const qlWeekly=[["24–30.08",111,7,0,false],["31.08–06.09",82,11,27,false],["07–09.09",48,8,0,true]] as const;
-export default function Home(){return <main><header className="topbar"><a className="brand" href="#top"><span className="brand-mark">ПС</span><span>Продажи · сезон 2026</span></a><nav><a href="#pipeline">Pipeline</a><a href="#leads">Лиды</a><a href="#managers">Менеджеры</a><a href="#capacity">Площадки</a></nav></header><section className="hero reveal" id="top"><div className="hero-copy"><p className="eyebrow">Отдел продаж · обновлено 10 сентября 2026</p><h1>Продажи, pipeline и загрузка площадок.</h1><p className="lead">Отчёт обновлён по новым B2C- и B2B-выгрузкам. В каждом ключевом блоке доступны четыре периода.</p><div className="hero-actions"><a className="button primary" href="#pipeline">Смотреть pipeline</a><a className="button ghost" href="#leads">Смотреть лиды</a></div></div><div className="hero-score"><span>План сентября</span><strong>38,03 млн ₽</strong><div className="score-track"><i style={{width:"6.5%"}}/></div><small>Факт 2,47 млн ₽ · 6,5% плана</small></div></section><PipelineDashboard/><section className="section" id="leads"><div className="section-heading reveal"><p className="eyebrow">Лиды · 7–9 сентября</p><h2>QL лиды по направлениям</h2><p>Основной показатель — квалифицированные лиды. NQL показываем справочно для расчёта конверсии.</p></div><div className="capacity-summary reveal"><article className="accent"><span>QL лиды</span><strong>56</strong><small>07–09.09 · 98,2% от NQL</small></article><article><span>QL · B2C</span><strong>48</strong><small>85,7% квалифицированных лидов</small></article><article><span>QL · B2B</span><strong>8</strong><small>14,3% квалифицированных лидов</small></article><article className="reference"><span>NQL · справочно</span><strong>57</strong><small>19,0 лида в день</small></article></div><div className="chart-heading reveal"><h3>QL лиды по неделям: B2C и B2B</h3><p>Парные столбцы показывают распределение квалифицированных лидов по направлениям. Звёздочкой отмечена неполная неделя.</p></div><div className="ql-chart reveal" aria-label="QL лиды B2C и B2B по неделям">{qlWeekly.map(([label,b2c,b2b,other,partial])=><div className="ql-week" key={label}><div className="ql-bars"><div className="ql-series b2c" style={{"--height":`${b2c/120*100}%`} as CSSProperties}><b>{b2c}</b><span>B2C</span></div><div className="ql-series b2b" style={{"--height":`${b2b/120*100}%`} as CSSProperties}><b>{b2b}</b><span>B2B</span></div></div><strong>{label}{partial?"*":""}</strong><small>{b2c+b2b+other} QL всего{other?` · ${other} без направления`:""}</small></div>)}</div><div className="ql-legend reveal"><span><i className="legend-dot b2c"/>B2C</span><span><i className="legend-dot b2b"/>B2B</span><span>NQL: 121 · 120 · 57 (справочно)</span></div></section><ManagerDashboard/><CapacityDashboard/><footer><div><strong>Парк «Сказка» · отчёт продаж</strong><span>Bitrix · 10.09.2026 · сметы · 03.09.2026</span></div><span>Публичная версия без исходных выгрузок</span></footer></main>}
+
+const qlWeekly = [
+  ["24–30.08", 111, 7, 0, false],
+  ["31.08–06.09", 82, 11, 27, false],
+  ["07–13.09", 110, 15, 0, false],
+  ["14–16.09", 63, 4, 0, true],
+] as const;
+
+export default function Home() {
+  return (
+    <main>
+      <header className="topbar">
+        <a className="brand" href="#top">
+          <span className="brand-mark">ПС</span>
+          <span>Продажи · сезон 2026</span>
+        </a>
+        <nav>
+          <a href="#pipeline">Pipeline</a>
+          <a href="#leads">Лиды</a>
+          <a href="#managers">Менеджеры</a>
+          <a href="#capacity">Площадки</a>
+        </nav>
+      </header>
+      <section className="hero reveal" id="top">
+        <div className="hero-copy">
+          <p className="eyebrow">Отдел продаж · обновлено 17 сентября 2026</p>
+          <h1>Продажи, pipeline и загрузка площадок.</h1>
+          <p className="lead">
+            Отчёт обновлён по новым B2C- и B2B-выгрузкам. В каждом ключевом
+            блоке доступны четыре периода.
+          </p>
+          <div className="hero-actions">
+            <a className="button primary" href="#pipeline">
+              Смотреть pipeline
+            </a>
+            <a className="button ghost" href="#leads">
+              Смотреть лиды
+            </a>
+          </div>
+        </div>
+        <div className="hero-score">
+          <span>План сентября</span>
+          <strong>38,03 млн ₽</strong>
+          <div className="score-track">
+            <i style={{ width: "13.6%" }} />
+          </div>
+          <small>Факт 5,16 млн ₽ · 13,6% плана</small>
+        </div>
+      </section>
+      <PipelineDashboard />
+      <section className="section" id="leads">
+        <div className="section-heading reveal">
+          <p className="eyebrow">Лиды · 14–16 сентября</p>
+          <h2>QL лиды по направлениям</h2>
+          <p>
+            Основной показатель — квалифицированные лиды. NQL показываем
+            справочно для расчёта конверсии.
+          </p>
+        </div>
+        <div className="capacity-summary reveal">
+          <article className="accent">
+            <span>QL лиды</span>
+            <strong>67</strong>
+            <small>14–16.09 · 124,1% от NQL</small>
+          </article>
+          <article>
+            <span>QL · B2C</span>
+            <strong>63</strong>
+            <small>94,0% квалифицированных лидов</small>
+          </article>
+          <article>
+            <span>QL · B2B</span>
+            <strong>4</strong>
+            <small>6,0% квалифицированных лидов</small>
+          </article>
+          <article className="reference">
+            <span>NQL · справочно</span>
+            <strong>54</strong>
+            <small>18,0 лидов в день</small>
+          </article>
+        </div>
+        <div className="chart-heading reveal">
+          <h3>QL лиды по неделям: B2C и B2B</h3>
+          <p>
+            Парные столбцы показывают распределение квалифицированных лидов по
+            направлениям. Звёздочкой отмечена неполная неделя.
+          </p>
+        </div>
+        <div
+          className="ql-chart reveal"
+          aria-label="QL лиды B2C и B2B по неделям"
+        >
+          {qlWeekly.map(([label, b2c, b2b, other, partial]) => (
+            <div className="ql-week" key={label}>
+              <div className="ql-bars">
+                <div
+                  className="ql-series b2c"
+                  style={
+                    { "--height": `${(b2c / 120) * 100}%` } as CSSProperties
+                  }
+                >
+                  <b>{b2c}</b>
+                  <span>B2C</span>
+                </div>
+                <div
+                  className="ql-series b2b"
+                  style={
+                    { "--height": `${(b2b / 120) * 100}%` } as CSSProperties
+                  }
+                >
+                  <b>{b2b}</b>
+                  <span>B2B</span>
+                </div>
+              </div>
+              <strong>
+                {label}
+                {partial ? "*" : ""}
+              </strong>
+              <small>
+                {b2c + b2b + other} QL всего
+                {other ? ` · ${other} без направления` : ""}
+              </small>
+            </div>
+          ))}
+        </div>
+        <div className="ql-legend reveal">
+          <span>
+            <i className="legend-dot b2c" />
+            B2C
+          </span>
+          <span>
+            <i className="legend-dot b2b" />
+            B2B
+          </span>
+          <span>NQL: 121 · 120 · 135 · 54 (справочно)</span>
+        </div>
+      </section>
+      <ManagerDashboard />
+      <CapacityDashboard />
+      <footer>
+        <div>
+          <strong>Парк «Сказка» · отчёт продаж</strong>
+          <span>Bitrix · 17.09.2026 · сметы · 03.09.2026</span>
+        </div>
+        <span>Публичная версия без исходных выгрузок</span>
+      </footer>
+    </main>
+  );
+}

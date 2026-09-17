@@ -358,78 +358,78 @@ export const reportPeriods = {
   "september": {
     "total": {
       "fact": {
-        "count": 16,
-        "sum": 2471312
+        "count": 30,
+        "sum": 5157442
       },
       "prepaid": {
-        "count": 18,
-        "sum": 4479276
+        "count": 20,
+        "sum": 3639978
       },
       "weighted": {
-        "count": 35,
-        "sum": 1103625
+        "count": 26,
+        "sum": 831700
       },
       "raw": {
-        "count": 35,
-        "sum": 2386250
+        "count": 26,
+        "sum": 1665400
       }
     },
     "B2C": {
       "fact": {
-        "count": 15,
-        "sum": 1911712
+        "count": 28,
+        "sum": 3560842
       },
       "prepaid": {
-        "count": 16,
-        "sum": 2442276
+        "count": 19,
+        "sum": 2349996
       },
       "weighted": {
-        "count": 33,
-        "sum": 992625
+        "count": 26,
+        "sum": 831700
       },
       "raw": {
-        "count": 33,
-        "sum": 2164250
+        "count": 26,
+        "sum": 1665400
       }
     },
     "B2B": {
       "fact": {
-        "count": 1,
-        "sum": 559600
+        "count": 2,
+        "sum": 1596600
       },
       "prepaid": {
-        "count": 2,
-        "sum": 2037000
+        "count": 1,
+        "sum": 1289982
       },
       "weighted": {
-        "count": 2,
-        "sum": 111000
+        "count": 0,
+        "sum": 0
       },
       "raw": {
-        "count": 2,
-        "sum": 222000
+        "count": 0,
+        "sum": 0
       }
     },
     "managers": [
       {
         "name": "Александр Воронин",
         "direction": "B2C",
-        "total": 27,
+        "total": 35,
         "fact": {
-          "count": 4,
-          "sum": 842790
+          "count": 5,
+          "sum": 867540
         },
         "prepaid": {
-          "count": 3,
-          "sum": 210380
+          "count": 5,
+          "sum": 360380
         },
         "weighted": {
-          "count": 6,
-          "sum": 121700
+          "count": 5,
+          "sum": 102200
         },
         "raw": {
-          "count": 6,
-          "sum": 300400
+          "count": 5,
+          "sum": 255400
         },
         "plan": 6416753
       },
@@ -446,47 +446,47 @@ export const reportPeriods = {
           "sum": 0
         },
         "weighted": {
-          "count": 1,
-          "sum": 11000
+          "count": 0,
+          "sum": 0
         },
         "raw": {
-          "count": 1,
-          "sum": 55000
+          "count": 0,
+          "sum": 0
         }
       },
       {
         "name": "Варвара Чугреева",
         "direction": "B2C",
-        "total": 37,
+        "total": 47,
         "fact": {
-          "count": 1,
-          "sum": 60400
+          "count": 3,
+          "sum": 127130
         },
         "prepaid": {
-          "count": 3,
-          "sum": 963666
+          "count": 4,
+          "sum": 1021666
         },
         "weighted": {
-          "count": 8,
-          "sum": 115000
+          "count": 5,
+          "sum": 96500
         },
         "raw": {
-          "count": 8,
-          "sum": 275000
+          "count": 5,
+          "sum": 205000
         },
         "plan": 7006578
       },
       {
         "name": "Дмитрий Григорьев",
         "direction": "B2C",
-        "total": 4,
+        "total": 3,
         "fact": {
           "count": 0,
           "sum": 0
         },
         "prepaid": {
-          "count": 1,
-          "sum": 95000
+          "count": 0,
+          "sum": 0
         },
         "weighted": {
           "count": 0,
@@ -521,51 +521,51 @@ export const reportPeriods = {
       {
         "name": "Лилия Рамазанова",
         "direction": "B2C",
-        "total": 53,
+        "total": 62,
         "fact": {
-          "count": 5,
-          "sum": 651080
+          "count": 7,
+          "sum": 1110380
         },
         "prepaid": {
           "count": 2,
-          "sum": 360740
+          "sum": 191000
         },
         "weighted": {
           "count": 13,
-          "sum": 533000
+          "sum": 558000
         },
         "raw": {
           "count": 13,
-          "sum": 1050000
+          "sum": 1025000
         },
         "plan": 7006578
       },
       {
         "name": "Людмила Запорожец",
         "direction": "B2C",
-        "total": 61,
+        "total": 72,
         "fact": {
-          "count": 5,
-          "sum": 357442
+          "count": 13,
+          "sum": 1455792
         },
         "prepaid": {
-          "count": 7,
-          "sum": 812490
+          "count": 8,
+          "sum": 776950
         },
         "weighted": {
-          "count": 5,
-          "sum": 211925
+          "count": 3,
+          "sum": 75000
         },
         "raw": {
-          "count": 5,
-          "sum": 483850
+          "count": 3,
+          "sum": 180000
         },
         "plan": 7006578
       },
       {
         "name": "Татьяна Баландина",
         "direction": "B2C",
-        "total": 3,
+        "total": 5,
         "fact": {
           "count": 0,
           "sum": 0
@@ -609,20 +609,20 @@ export const reportPeriods = {
         "direction": "B2B",
         "total": 16,
         "fact": {
-          "count": 1,
-          "sum": 559600
+          "count": 2,
+          "sum": 1596600
         },
         "prepaid": {
-          "count": 2,
-          "sum": 2037000
+          "count": 1,
+          "sum": 1289982
         },
         "weighted": {
-          "count": 2,
-          "sum": 111000
+          "count": 0,
+          "sum": 0
         },
         "raw": {
-          "count": 2,
-          "sum": 222000
+          "count": 0,
+          "sum": 0
         }
       },
       {
@@ -724,114 +724,114 @@ export const reportPeriods = {
     },
     "total": {
       "fact": {
-        "count": 567,
-        "sum": 88135314
+        "count": 581,
+        "sum": 90821444
       },
       "prepaid": {
-        "count": 18,
-        "sum": 4479276
+        "count": 20,
+        "sum": 3639978
       },
       "weighted": {
-        "count": 35,
-        "sum": 1103625
+        "count": 26,
+        "sum": 831700
       },
       "raw": {
-        "count": 35,
-        "sum": 2386250
+        "count": 26,
+        "sum": 1665400
       }
     },
     "B2C": {
       "fact": {
-        "count": 546,
-        "sum": 71157526
+        "count": 559,
+        "sum": 72806656
       },
       "prepaid": {
-        "count": 16,
-        "sum": 2442276
+        "count": 19,
+        "sum": 2349996
       },
       "weighted": {
-        "count": 33,
-        "sum": 992625
+        "count": 26,
+        "sum": 831700
       },
       "raw": {
-        "count": 33,
-        "sum": 2164250
+        "count": 26,
+        "sum": 1665400
       }
     },
     "B2B": {
       "fact": {
-        "count": 21,
-        "sum": 16977788
+        "count": 22,
+        "sum": 18014788
       },
       "prepaid": {
-        "count": 2,
-        "sum": 2037000
+        "count": 1,
+        "sum": 1289982
       },
       "weighted": {
-        "count": 2,
-        "sum": 111000
+        "count": 0,
+        "sum": 0
       },
       "raw": {
-        "count": 2,
-        "sum": 222000
+        "count": 0,
+        "sum": 0
       }
     },
     "managers": [
       {
         "name": "Александр Воронин",
         "direction": "B2C",
-        "total": 39,
+        "total": 47,
         "fact": {
-          "count": 9,
-          "sum": 1768780
+          "count": 10,
+          "sum": 1793530
         },
         "prepaid": {
-          "count": 3,
-          "sum": 210380
+          "count": 5,
+          "sum": 360380
         },
         "weighted": {
-          "count": 6,
-          "sum": 121700
+          "count": 5,
+          "sum": 102200
         },
         "raw": {
-          "count": 6,
-          "sum": 300400
+          "count": 5,
+          "sum": 255400
         },
         "plan": 18423331
       },
       {
         "name": "Варвара Чугреева",
         "direction": "B2C",
-        "total": 100,
+        "total": 110,
         "fact": {
-          "count": 22,
-          "sum": 2394980
+          "count": 24,
+          "sum": 2461710
         },
         "prepaid": {
-          "count": 3,
-          "sum": 963666
+          "count": 4,
+          "sum": 1021666
         },
         "weighted": {
-          "count": 8,
-          "sum": 115000
+          "count": 5,
+          "sum": 96500
         },
         "raw": {
-          "count": 8,
-          "sum": 275000
+          "count": 5,
+          "sum": 205000
         },
         "plan": 24763156
       },
       {
         "name": "Дмитрий Григорьев",
         "direction": "B2C",
-        "total": 138,
+        "total": 137,
         "fact": {
           "count": 39,
           "sum": 4533470
         },
         "prepaid": {
-          "count": 1,
-          "sum": 95000
+          "count": 0,
+          "sum": 0
         },
         "weighted": {
           "count": 0,
@@ -867,51 +867,51 @@ export const reportPeriods = {
       {
         "name": "Лилия Рамазанова",
         "direction": "B2C",
-        "total": 102,
+        "total": 111,
         "fact": {
-          "count": 23,
-          "sum": 2608150
+          "count": 25,
+          "sum": 3067450
         },
         "prepaid": {
           "count": 2,
-          "sum": 360740
+          "sum": 191000
         },
         "weighted": {
           "count": 13,
-          "sum": 533000
+          "sum": 558000
         },
         "raw": {
           "count": 13,
-          "sum": 1050000
+          "sum": 1025000
         },
         "plan": 24763156
       },
       {
         "name": "Людмила Запорожец",
         "direction": "B2C",
-        "total": 450,
+        "total": 461,
         "fact": {
-          "count": 111,
-          "sum": 15920880
+          "count": 119,
+          "sum": 17019230
         },
         "prepaid": {
-          "count": 7,
-          "sum": 812490
+          "count": 8,
+          "sum": 776950
         },
         "weighted": {
-          "count": 5,
-          "sum": 211925
+          "count": 3,
+          "sum": 75000
         },
         "raw": {
-          "count": 5,
-          "sum": 483850
+          "count": 3,
+          "sum": 180000
         },
         "plan": 60097372
       },
       {
         "name": "Татьяна Баландина",
         "direction": "B2C",
-        "total": 138,
+        "total": 140,
         "fact": {
           "count": 59,
           "sum": 6337070
@@ -1028,12 +1028,12 @@ export const reportPeriods = {
           "sum": 0
         },
         "weighted": {
-          "count": 1,
-          "sum": 11000
+          "count": 0,
+          "sum": 0
         },
         "raw": {
-          "count": 1,
-          "sum": 55000
+          "count": 0,
+          "sum": 0
         }
       },
       {
@@ -1041,20 +1041,20 @@ export const reportPeriods = {
         "direction": "B2B",
         "total": 16,
         "fact": {
-          "count": 1,
-          "sum": 559600
+          "count": 2,
+          "sum": 1596600
         },
         "prepaid": {
-          "count": 2,
-          "sum": 2037000
+          "count": 1,
+          "sum": 1289982
         },
         "weighted": {
-          "count": 2,
-          "sum": 111000
+          "count": 0,
+          "sum": 0
         },
         "raw": {
-          "count": 2,
-          "sum": 222000
+          "count": 0,
+          "sum": 0
         }
       }
     ],
@@ -1116,16 +1116,16 @@ export const reportPeriods = {
         "sum": 0
       },
       "prepaid": {
-        "count": 1,
-        "sum": 92750
+        "count": 4,
+        "sum": 411750
       },
       "weighted": {
-        "count": 58,
-        "sum": 24798002
+        "count": 67,
+        "sum": 71821712
       },
       "raw": {
-        "count": 58,
-        "sum": 43938006
+        "count": 67,
+        "sum": 101634519
       }
     },
     "B2C": {
@@ -1134,16 +1134,16 @@ export const reportPeriods = {
         "sum": 0
       },
       "prepaid": {
-        "count": 1,
-        "sum": 92750
+        "count": 4,
+        "sum": 411750
       },
       "weighted": {
-        "count": 25,
-        "sum": 579000
+        "count": 33,
+        "sum": 1244250
       },
       "raw": {
-        "count": 25,
-        "sum": 1560000
+        "count": 33,
+        "sum": 2722500
       }
     },
     "B2B": {
@@ -1156,40 +1156,40 @@ export const reportPeriods = {
         "sum": 0
       },
       "weighted": {
-        "count": 33,
-        "sum": 24219002
+        "count": 34,
+        "sum": 70577462
       },
       "raw": {
-        "count": 33,
-        "sum": 42378006
+        "count": 34,
+        "sum": 98912019
       }
     },
     "managers": [
       {
         "name": "Александр Воронин",
         "direction": "B2C",
-        "total": 3,
+        "total": 7,
         "fact": {
           "count": 0,
           "sum": 0
         },
         "prepaid": {
-          "count": 1,
-          "sum": 92750
+          "count": 3,
+          "sum": 262750
         },
         "weighted": {
           "count": 1,
-          "sum": 35000
+          "sum": 15000
         },
         "raw": {
           "count": 1,
-          "sum": 70000
+          "sum": 30000
         }
       },
       {
         "name": "Александр Поленко",
         "direction": "B2C",
-        "total": 9,
+        "total": 1,
         "fact": {
           "count": 0,
           "sum": 0
@@ -1199,16 +1199,37 @@ export const reportPeriods = {
           "sum": 0
         },
         "weighted": {
-          "count": 9,
-          "sum": 158000
+          "count": 1,
+          "sum": 9000
         },
         "raw": {
-          "count": 9,
-          "sum": 370000
+          "count": 1,
+          "sum": 45000
         }
       },
       {
         "name": "Варвара Чугреева",
+        "direction": "B2C",
+        "total": 12,
+        "fact": {
+          "count": 0,
+          "sum": 0
+        },
+        "prepaid": {
+          "count": 1,
+          "sum": 149000
+        },
+        "weighted": {
+          "count": 9,
+          "sum": 138000
+        },
+        "raw": {
+          "count": 9,
+          "sum": 375000
+        }
+      },
+      {
+        "name": "Дмитрий Григорьев",
         "direction": "B2C",
         "total": 1,
         "fact": {
@@ -1229,7 +1250,7 @@ export const reportPeriods = {
         }
       },
       {
-        "name": "Дмитрий Григорьев",
+        "name": "Кристина Могачева",
         "direction": "B2C",
         "total": 13,
         "fact": {
@@ -1250,9 +1271,9 @@ export const reportPeriods = {
         }
       },
       {
-        "name": "Кристина Могачева",
+        "name": "Лилия Рамазанова",
         "direction": "B2C",
-        "total": 11,
+        "total": 15,
         "fact": {
           "count": 0,
           "sum": 0
@@ -1262,16 +1283,16 @@ export const reportPeriods = {
           "sum": 0
         },
         "weighted": {
-          "count": 3,
-          "sum": 44000
+          "count": 10,
+          "sum": 740250
         },
         "raw": {
-          "count": 3,
-          "sum": 115000
+          "count": 10,
+          "sum": 1267500
         }
       },
       {
-        "name": "Лилия Рамазанова",
+        "name": "Людмила Запорожец",
         "direction": "B2C",
         "total": 1,
         "fact": {
@@ -1305,17 +1326,17 @@ export const reportPeriods = {
         },
         "weighted": {
           "count": 1,
-          "sum": 1
+          "sum": 45000000
         },
         "raw": {
           "count": 1,
-          "sum": 1
+          "sum": 50000000
         }
       },
       {
         "name": "Кристина Могачева",
         "direction": "B2B",
-        "total": 10,
+        "total": 11,
         "fact": {
           "count": 0,
           "sum": 0
@@ -1325,12 +1346,12 @@ export const reportPeriods = {
           "sum": 0
         },
         "weighted": {
-          "count": 7,
-          "sum": 7850000
+          "count": 6,
+          "sum": 4532501
         },
         "raw": {
-          "count": 7,
-          "sum": 16000000
+          "count": 6,
+          "sum": 9065002
         }
       },
       {
@@ -1357,7 +1378,7 @@ export const reportPeriods = {
       {
         "name": "Яна Кузнецова",
         "direction": "B2B",
-        "total": 29,
+        "total": 35,
         "fact": {
           "count": 0,
           "sum": 0
@@ -1367,12 +1388,12 @@ export const reportPeriods = {
           "sum": 0
         },
         "weighted": {
-          "count": 25,
-          "sum": 16369002
+          "count": 27,
+          "sum": 21044961
         },
         "raw": {
-          "count": 25,
-          "sum": 26378005
+          "count": 27,
+          "sum": 39847017
         }
       }
     ],
