@@ -605,7 +605,7 @@ export const reportPeriods = {
         }
       },
       {
-        "name": "Иван Неизвестный",
+        "name": "Кристина Могачева",
         "direction": "B2B",
         "total": 16,
         "fact": {
@@ -623,10 +623,11 @@ export const reportPeriods = {
         "raw": {
           "count": 0,
           "sum": 0
-        }
+        },
+        "plan": 5000000
       },
       {
-        "name": "Кристина Могачева",
+        "name": "Яна Кузнецова",
         "direction": "B2B",
         "total": 7,
         "fact": {
