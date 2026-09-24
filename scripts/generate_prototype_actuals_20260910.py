@@ -5,8 +5,8 @@ from pathlib import Path
 import pandas as pd
 
 FILES = {
-    "B2C": Path(r"C:/Users/n.krivodud/Downloads/DEAL_20260917_49024c28_6aabb79df00c9.xls"),
-    "B2B": Path(r"C:/Users/n.krivodud/Downloads/DEAL_20260917_49024c28_6aabb7ff2416f.xls"),
+    "B2C": Path(r"C:/Users/n.krivodud/Downloads/DEAL_20260924_fb264e51_6ab4ed8a87e61.xls"),
+    "B2B": Path(r"C:/Users/n.krivodud/Downloads/DEAL_20260924_fb264e51_6ab4ede2455f9.xls"),
 }
 HISTORY_FILES = {
     "B2B": Path(r"C:/Users/n.krivodud/Downloads/DEAL_20260910_d766d98b_6aa2987aaef5f.xls"),
@@ -22,18 +22,21 @@ PERIODS = {
     "september": (pd.Timestamp("2026-09-01"), pd.Timestamp("2026-09-30"), "day"),
     "season": (pd.Timestamp("2026-04-01"), pd.Timestamp("2026-09-30"), "week"),
     "winter": (pd.Timestamp("2026-10-01"), pd.Timestamp("2027-03-31"), "week"),
+    "season2027": (pd.Timestamp("2027-04-01"), pd.Timestamp("2027-09-30"), "week"),
 }
 PLANS = {
     "august": {"all": 68026312, "B2C": 48026312, "B2B": 20000000},
     "september": {"all": 38026312, "B2C": 28026312, "B2B": 10000000},
     "season": {"all": 220000000, "B2C": 167060170, "B2B": 52939830},
     "winter": {"all": 0, "B2C": 0, "B2B": 0},
+    "season2027": {"all": 0, "B2C": 0, "B2B": 0},
 }
 COMPARISON = {
     "august": {"2025": 9200000, "2024": 19000000},
     "september": {"2025": 9500000, "2024": 18000000},
     "season": {"2025": 66100000, "2024": 93400000},
     "winter": {"2025": 26400000, "2024": 46300000},
+    "season2027": {"2025": 0, "2024": 0},
 }
 ALLOWED = {
     "B2C": {"Александр Воронин", "Варвара Чугреева", "Лилия Рамазанова", "Людмила Запорожец"},
@@ -44,6 +47,8 @@ ALLOWED = {
 def load(path):
     frame = pd.read_html(StringIO(path.read_text(encoding="utf-8-sig")), flavor="lxml")[0]
     frame["Сумма"] = pd.to_numeric(frame["Сумма"], errors="coerce").fillna(0)
+    if "Прогноз закрытия" not in frame:
+        frame["Прогноз закрытия"] = ""
     date_cols = [column for column in frame if str(column).startswith("Дата мероприятия")]
     frame["_date"] = pd.concat([pd.to_datetime(frame[column], dayfirst=True, errors="coerce") for column in date_cols], axis=1).bfill(axis=1).iloc[:, 0]
     title = frame.get("Название сделки", pd.Series("", index=frame.index)).astype(str)
@@ -89,7 +94,8 @@ output = {"periods": {}, "leads": {"weeks": [
     {"label": "24–30.08", "nql": 121, "ql": 118, "B2C": 111, "B2B": 7, "other": 0},
     {"label": "31.08–06.09", "nql": 120, "ql": 120, "B2C": 82, "B2B": 11, "other": 27},
     {"label": "07–13.09", "nql": 135, "ql": 125, "B2C": 110, "B2B": 15, "other": 0},
-    {"label": "14–16.09", "nql": 54, "ql": 67, "B2C": 63, "B2B": 4, "other": 0, "partial": True},
+    {"label": "14–20.09", "nql": 104, "ql": 98, "B2C": 87, "B2B": 11, "other": 0},
+    {"label": "21–23.09", "nql": 24, "ql": 24, "B2C": 20, "B2B": 4, "other": 0, "partial": True},
 ]}}
 
 for period, (start, end, grain) in PERIODS.items():

@@ -358,38 +358,38 @@ export const reportPeriods = {
   "september": {
     "total": {
       "fact": {
-        "count": 30,
-        "sum": 5157442
+        "count": 48,
+        "sum": 7681492
       },
       "prepaid": {
-        "count": 20,
-        "sum": 3639978
+        "count": 8,
+        "sum": 2038519
       },
       "weighted": {
-        "count": 26,
-        "sum": 831700
+        "count": 14,
+        "sum": 354500
       },
       "raw": {
-        "count": 26,
-        "sum": 1665400
+        "count": 14,
+        "sum": 904000
       }
     },
     "B2C": {
       "fact": {
-        "count": 28,
-        "sum": 3560842
+        "count": 46,
+        "sum": 6084892
       },
       "prepaid": {
-        "count": 19,
-        "sum": 2349996
+        "count": 7,
+        "sum": 656766
       },
       "weighted": {
-        "count": 26,
-        "sum": 831700
+        "count": 14,
+        "sum": 354500
       },
       "raw": {
-        "count": 26,
-        "sum": 1665400
+        "count": 14,
+        "sum": 904000
       }
     },
     "B2B": {
@@ -399,7 +399,7 @@ export const reportPeriods = {
       },
       "prepaid": {
         "count": 1,
-        "sum": 1289982
+        "sum": 1381753
       },
       "weighted": {
         "count": 0,
@@ -414,22 +414,22 @@ export const reportPeriods = {
       {
         "name": "Александр Воронин",
         "direction": "B2C",
-        "total": 35,
+        "total": 39,
         "fact": {
-          "count": 5,
-          "sum": 867540
+          "count": 10,
+          "sum": 1502420
         },
         "prepaid": {
-          "count": 5,
-          "sum": 360380
+          "count": 2,
+          "sum": 97100
         },
         "weighted": {
-          "count": 5,
-          "sum": 102200
+          "count": 2,
+          "sum": 19500
         },
         "raw": {
-          "count": 5,
-          "sum": 255400
+          "count": 2,
+          "sum": 84000
         },
         "plan": 6416753
       },
@@ -457,22 +457,22 @@ export const reportPeriods = {
       {
         "name": "Варвара Чугреева",
         "direction": "B2C",
-        "total": 47,
+        "total": 49,
         "fact": {
-          "count": 3,
-          "sum": 127130
+          "count": 6,
+          "sum": 729630
         },
         "prepaid": {
-          "count": 4,
-          "sum": 1021666
+          "count": 3,
+          "sum": 384666
         },
         "weighted": {
-          "count": 5,
-          "sum": 96500
+          "count": 2,
+          "sum": 35000
         },
         "raw": {
-          "count": 5,
-          "sum": 205000
+          "count": 2,
+          "sum": 100000
         },
         "plan": 7006578
       },
@@ -521,22 +521,22 @@ export const reportPeriods = {
       {
         "name": "Лилия Рамазанова",
         "direction": "B2C",
-        "total": 62,
+        "total": 70,
         "fact": {
-          "count": 7,
-          "sum": 1110380
+          "count": 10,
+          "sum": 1580320
         },
         "prepaid": {
-          "count": 2,
-          "sum": 191000
+          "count": 1,
+          "sum": 95000
         },
         "weighted": {
-          "count": 13,
-          "sum": 558000
+          "count": 8,
+          "sum": 240000
         },
         "raw": {
-          "count": 13,
-          "sum": 1025000
+          "count": 8,
+          "sum": 570000
         },
         "plan": 7006578
       },
@@ -545,25 +545,25 @@ export const reportPeriods = {
         "direction": "B2C",
         "total": 72,
         "fact": {
-          "count": 13,
-          "sum": 1455792
+          "count": 20,
+          "sum": 2272522
         },
         "prepaid": {
-          "count": 8,
-          "sum": 776950
+          "count": 1,
+          "sum": 80000
         },
         "weighted": {
-          "count": 3,
-          "sum": 75000
+          "count": 2,
+          "sum": 60000
         },
         "raw": {
-          "count": 3,
-          "sum": 180000
+          "count": 2,
+          "sum": 150000
         },
         "plan": 7006578
       },
       {
-        "name": "Татьяна Баландина",
+        "name": "Наталья Криводуд",
         "direction": "B2C",
         "total": 5,
         "fact": {
@@ -607,14 +607,14 @@ export const reportPeriods = {
       {
         "name": "Кристина Могачева",
         "direction": "B2B",
-        "total": 16,
+        "total": 17,
         "fact": {
           "count": 2,
           "sum": 1596600
         },
         "prepaid": {
           "count": 1,
-          "sum": 1289982
+          "sum": 1381753
         },
         "weighted": {
           "count": 0,
@@ -719,43 +719,125 @@ export const reportPeriods = {
           "events": 36,
           "occupied": 75,
           "capacity": 1230,
-          "weekday": { "occupied": 35, "capacity": 902 },
-          "weekend": { "occupied": 40, "capacity": 328 },
+          "weekday": {
+            "occupied": 35,
+            "capacity": 902
+          },
+          "weekend": {
+            "occupied": 40,
+            "capacity": 328
+          },
           "locations": [
-            { "name": "Лофт", "occupied": 18, "capacity": 180 },
-            { "name": "Беседки лофта", "occupied": 16, "capacity": 150 },
-            { "name": "Айва-парк · домик", "occupied": 5, "capacity": 60 },
-            { "name": "Айва-парк · беседки", "occupied": 9, "capacity": 180 },
-            { "name": "Дино · шатры", "occupied": 12, "capacity": 180 },
-            { "name": "Веранда", "occupied": 4, "capacity": 180 },
-            { "name": "Шатёр · сфера", "occupied": 8, "capacity": 180 },
-            { "name": "Шатры · Нитро", "occupied": 3, "capacity": 120 }
+            {
+              "name": "Лофт",
+              "occupied": 18,
+              "capacity": 180
+            },
+            {
+              "name": "Беседки лофта",
+              "occupied": 16,
+              "capacity": 150
+            },
+            {
+              "name": "Айва-парк · домик",
+              "occupied": 5,
+              "capacity": 60
+            },
+            {
+              "name": "Айва-парк · беседки",
+              "occupied": 9,
+              "capacity": 180
+            },
+            {
+              "name": "Дино · шатры",
+              "occupied": 12,
+              "capacity": 180
+            },
+            {
+              "name": "Веранда",
+              "occupied": 4,
+              "capacity": 180
+            },
+            {
+              "name": "Шатёр · сфера",
+              "occupied": 8,
+              "capacity": 180
+            },
+            {
+              "name": "Шатры · Нитро",
+              "occupied": 3,
+              "capacity": 120
+            }
           ]
         },
         "B2C": {
           "events": 32,
           "occupied": 41,
           "capacity": 900,
-          "weekday": { "occupied": 12, "capacity": 660 },
-          "weekend": { "occupied": 29, "capacity": 240 },
+          "weekday": {
+            "occupied": 12,
+            "capacity": 660
+          },
+          "weekend": {
+            "occupied": 29,
+            "capacity": 240
+          },
           "locations": [
-            { "name": "Айва-парк · домик", "occupied": 5, "capacity": 60 },
-            { "name": "Айва-парк · беседки", "occupied": 9, "capacity": 180 },
-            { "name": "Дино · шатры", "occupied": 12, "capacity": 180 },
-            { "name": "Веранда", "occupied": 4, "capacity": 180 },
-            { "name": "Шатёр · сфера", "occupied": 8, "capacity": 180 },
-            { "name": "Шатры · Нитро", "occupied": 3, "capacity": 120 }
+            {
+              "name": "Айва-парк · домик",
+              "occupied": 5,
+              "capacity": 60
+            },
+            {
+              "name": "Айва-парк · беседки",
+              "occupied": 9,
+              "capacity": 180
+            },
+            {
+              "name": "Дино · шатры",
+              "occupied": 12,
+              "capacity": 180
+            },
+            {
+              "name": "Веранда",
+              "occupied": 4,
+              "capacity": 180
+            },
+            {
+              "name": "Шатёр · сфера",
+              "occupied": 8,
+              "capacity": 180
+            },
+            {
+              "name": "Шатры · Нитро",
+              "occupied": 3,
+              "capacity": 120
+            }
           ]
         },
         "B2B": {
           "events": 4,
           "occupied": 34,
           "capacity": 330,
-          "weekday": { "occupied": 23, "capacity": 242 },
-          "weekend": { "occupied": 11, "capacity": 88 },
+          "weekday": {
+            "occupied": 23,
+            "capacity": 242
+          },
+          "weekend": {
+            "occupied": 11,
+            "capacity": 88
+          },
           "locations": [
-            { "name": "Лофт", "occupied": 18, "capacity": 180 },
-            { "name": "Беседки лофта", "occupied": 16, "capacity": 150 }
+            {
+              "name": "Лофт",
+              "occupied": 18,
+              "capacity": 180
+            },
+            {
+              "name": "Беседки лофта",
+              "occupied": 16,
+              "capacity": 150
+            }
           ]
         }
       }
@@ -775,38 +857,38 @@ export const reportPeriods = {
     },
     "total": {
       "fact": {
-        "count": 581,
-        "sum": 90821444
+        "count": 599,
+        "sum": 93345494
       },
       "prepaid": {
-        "count": 20,
-        "sum": 3639978
+        "count": 8,
+        "sum": 2038519
       },
       "weighted": {
-        "count": 26,
-        "sum": 831700
+        "count": 14,
+        "sum": 354500
       },
       "raw": {
-        "count": 26,
-        "sum": 1665400
+        "count": 14,
+        "sum": 904000
       }
     },
     "B2C": {
       "fact": {
-        "count": 559,
-        "sum": 72806656
+        "count": 577,
+        "sum": 75330706
       },
       "prepaid": {
-        "count": 19,
-        "sum": 2349996
+        "count": 7,
+        "sum": 656766
       },
       "weighted": {
-        "count": 26,
-        "sum": 831700
+        "count": 14,
+        "sum": 354500
       },
       "raw": {
-        "count": 26,
-        "sum": 1665400
+        "count": 14,
+        "sum": 904000
       }
     },
     "B2B": {
@@ -816,7 +898,7 @@ export const reportPeriods = {
       },
       "prepaid": {
         "count": 1,
-        "sum": 1289982
+        "sum": 1381753
       },
       "weighted": {
         "count": 0,
@@ -831,44 +913,44 @@ export const reportPeriods = {
       {
         "name": "Александр Воронин",
         "direction": "B2C",
-        "total": 47,
+        "total": 51,
         "fact": {
-          "count": 10,
-          "sum": 1793530
+          "count": 15,
+          "sum": 2428410
         },
         "prepaid": {
-          "count": 5,
-          "sum": 360380
+          "count": 2,
+          "sum": 97100
         },
         "weighted": {
-          "count": 5,
-          "sum": 102200
+          "count": 2,
+          "sum": 19500
         },
         "raw": {
-          "count": 5,
-          "sum": 255400
+          "count": 2,
+          "sum": 84000
         },
         "plan": 18423331
       },
       {
         "name": "Варвара Чугреева",
         "direction": "B2C",
-        "total": 110,
+        "total": 112,
         "fact": {
-          "count": 24,
-          "sum": 2461710
+          "count": 27,
+          "sum": 3064210
         },
         "prepaid": {
-          "count": 4,
-          "sum": 1021666
+          "count": 3,
+          "sum": 384666
         },
         "weighted": {
-          "count": 5,
-          "sum": 96500
+          "count": 2,
+          "sum": 35000
         },
         "raw": {
-          "count": 5,
-          "sum": 205000
+          "count": 2,
+          "sum": 100000
         },
         "plan": 24763156
       },
@@ -918,22 +1000,22 @@ export const reportPeriods = {
       {
         "name": "Лилия Рамазанова",
         "direction": "B2C",
-        "total": 111,
+        "total": 119,
         "fact": {
-          "count": 25,
-          "sum": 3067450
+          "count": 28,
+          "sum": 3537390
         },
         "prepaid": {
-          "count": 2,
-          "sum": 191000
+          "count": 1,
+          "sum": 95000
         },
         "weighted": {
-          "count": 13,
-          "sum": 558000
+          "count": 8,
+          "sum": 240000
         },
         "raw": {
-          "count": 13,
-          "sum": 1025000
+          "count": 8,
+          "sum": 570000
         },
         "plan": 24763156
       },
@@ -942,27 +1024,27 @@ export const reportPeriods = {
         "direction": "B2C",
         "total": 461,
         "fact": {
-          "count": 119,
-          "sum": 17019230
+          "count": 126,
+          "sum": 17835960
         },
         "prepaid": {
-          "count": 8,
-          "sum": 776950
+          "count": 1,
+          "sum": 80000
         },
         "weighted": {
-          "count": 3,
-          "sum": 75000
+          "count": 2,
+          "sum": 60000
         },
         "raw": {
-          "count": 3,
-          "sum": 180000
+          "count": 2,
+          "sum": 150000
         },
         "plan": 60097372
       },
       {
         "name": "Татьяна Баландина",
         "direction": "B2C",
-        "total": 140,
+        "total": 135,
         "fact": {
           "count": 59,
           "sum": 6337070
@@ -1004,14 +1086,14 @@ export const reportPeriods = {
       {
         "name": "Кристина Могачева",
         "direction": "B2B",
-        "total": 57,
+        "total": 58,
         "fact": {
           "count": 8,
           "sum": 9654911
         },
         "prepaid": {
           "count": 0,
-          "sum": 0
+          "sum": 91771
         },
         "weighted": {
           "count": 0,
@@ -1107,6 +1189,27 @@ export const reportPeriods = {
           "count": 0,
           "sum": 0
         }
+      },
+      {
+        "name": "Наталья Криводуд",
+        "direction": "B2C",
+        "total": 5,
+        "fact": {
+          "count": 0,
+          "sum": 0
+        },
+        "prepaid": {
+          "count": 0,
+          "sum": 0
+        },
+        "weighted": {
+          "count": 0,
+          "sum": 0
+        },
+        "raw": {
+          "count": 0,
+          "sum": 0
+        }
       }
     ],
     "capacity": {
@@ -1167,16 +1270,16 @@ export const reportPeriods = {
         "sum": 0
       },
       "prepaid": {
-        "count": 4,
-        "sum": 411750
+        "count": 7,
+        "sum": 715750
       },
       "weighted": {
-        "count": 67,
-        "sum": 71821712
+        "count": 35,
+        "sum": 976300
       },
       "raw": {
-        "count": 67,
-        "sum": 101634519
+        "count": 35,
+        "sum": 2184000
       }
     },
     "B2C": {
@@ -1185,16 +1288,16 @@ export const reportPeriods = {
         "sum": 0
       },
       "prepaid": {
-        "count": 4,
-        "sum": 411750
+        "count": 7,
+        "sum": 715750
       },
       "weighted": {
-        "count": 33,
-        "sum": 1244250
+        "count": 35,
+        "sum": 976300
       },
       "raw": {
-        "count": 33,
-        "sum": 2722500
+        "count": 35,
+        "sum": 2184000
       }
     },
     "B2B": {
@@ -1207,38 +1310,38 @@ export const reportPeriods = {
         "sum": 0
       },
       "weighted": {
-        "count": 34,
-        "sum": 70577462
+        "count": 0,
+        "sum": 0
       },
       "raw": {
-        "count": 34,
-        "sum": 98912019
+        "count": 0,
+        "sum": 0
       }
     },
     "managers": [
       {
         "name": "Александр Воронин",
         "direction": "B2C",
-        "total": 7,
+        "total": 9,
         "fact": {
           "count": 0,
           "sum": 0
         },
         "prepaid": {
-          "count": 3,
-          "sum": 262750
+          "count": 4,
+          "sum": 362750
         },
         "weighted": {
-          "count": 1,
-          "sum": 15000
+          "count": 3,
+          "sum": 42800
         },
         "raw": {
-          "count": 1,
-          "sum": 30000
+          "count": 3,
+          "sum": 94000
         }
       },
       {
-        "name": "Александр Поленко",
+        "name": "Анна Копина",
         "direction": "B2C",
         "total": 1,
         "fact": {
@@ -1261,7 +1364,7 @@ export const reportPeriods = {
       {
         "name": "Варвара Чугреева",
         "direction": "B2C",
-        "total": 12,
+        "total": 19,
         "fact": {
           "count": 0,
           "sum": 0
@@ -1271,16 +1374,16 @@ export const reportPeriods = {
           "sum": 149000
         },
         "weighted": {
-          "count": 9,
-          "sum": 138000
+          "count": 12,
+          "sum": 251000
         },
         "raw": {
-          "count": 9,
-          "sum": 375000
+          "count": 12,
+          "sum": 530000
         }
       },
       {
-        "name": "Дмитрий Григорьев",
+        "name": "Кристина Могачева",
         "direction": "B2C",
         "total": 1,
         "fact": {
@@ -1301,9 +1404,9 @@ export const reportPeriods = {
         }
       },
       {
-        "name": "Кристина Могачева",
+        "name": "Лилия Рамазанова",
         "direction": "B2C",
-        "total": 13,
+        "total": 17,
         "fact": {
           "count": 0,
           "sum": 0
@@ -1313,17 +1416,80 @@ export const reportPeriods = {
           "sum": 0
         },
         "weighted": {
-          "count": 12,
-          "sum": 342000
+          "count": 9,
+          "sum": 210500
         },
         "raw": {
-          "count": 12,
-          "sum": 1005000
+          "count": 9,
+          "sum": 640000
         }
       },
       {
-        "name": "Лилия Рамазанова",
+        "name": "Людмила Запорожец",
         "direction": "B2C",
+        "total": 17,
+        "fact": {
+          "count": 0,
+          "sum": 0
+        },
+        "prepaid": {
+          "count": 2,
+          "sum": 204000
+        },
+        "weighted": {
+          "count": 10,
+          "sum": 463000
+        },
+        "raw": {
+          "count": 10,
+          "sum": 875000
+        }
+      },
+      {
+        "name": "Наталья Криводуд",
+        "direction": "B2C",
+        "total": 1,
+        "fact": {
+          "count": 0,
+          "sum": 0
+        },
+        "prepaid": {
+          "count": 0,
+          "sum": 0
+        },
+        "weighted": {
+          "count": 0,
+          "sum": 0
+        },
+        "raw": {
+          "count": 0,
+          "sum": 0
+        }
+      },
+      {
+        "name": "Иван Солодовников",
+        "direction": "B2B",
+        "total": 1,
+        "fact": {
+          "count": 0,
+          "sum": 0
+        },
+        "prepaid": {
+          "count": 0,
+          "sum": 0
+        },
+        "weighted": {
+          "count": 0,
+          "sum": 0
+        },
+        "raw": {
+          "count": 0,
+          "sum": 0
+        }
+      },
+      {
+        "name": "Кристина Могачева",
+        "direction": "B2B",
         "total": 15,
         "fact": {
           "count": 0,
@@ -1334,27 +1500,6 @@ export const reportPeriods = {
           "sum": 0
         },
         "weighted": {
-          "count": 10,
-          "sum": 740250
-        },
-        "raw": {
-          "count": 10,
-          "sum": 1267500
-        }
-      },
-      {
-        "name": "Людмила Запорожец",
-        "direction": "B2C",
-        "total": 1,
-        "fact": {
-          "count": 0,
-          "sum": 0
-        },
-        "prepaid": {
-          "count": 0,
-          "sum": 0
-        },
-        "weighted": {
           "count": 0,
           "sum": 0
         },
@@ -1364,49 +1509,7 @@ export const reportPeriods = {
         }
       },
       {
-        "name": "Иван Неизвестный",
-        "direction": "B2B",
-        "total": 1,
-        "fact": {
-          "count": 0,
-          "sum": 0
-        },
-        "prepaid": {
-          "count": 0,
-          "sum": 0
-        },
-        "weighted": {
-          "count": 1,
-          "sum": 45000000
-        },
-        "raw": {
-          "count": 1,
-          "sum": 50000000
-        }
-      },
-      {
-        "name": "Кристина Могачева",
-        "direction": "B2B",
-        "total": 11,
-        "fact": {
-          "count": 0,
-          "sum": 0
-        },
-        "prepaid": {
-          "count": 0,
-          "sum": 0
-        },
-        "weighted": {
-          "count": 6,
-          "sum": 4532501
-        },
-        "raw": {
-          "count": 6,
-          "sum": 9065002
-        }
-      },
-      {
-        "name": "Людмила Запорожец",
+        "name": "Наталья Криводуд",
         "direction": "B2B",
         "total": 1,
         "fact": {
@@ -1429,7 +1532,7 @@ export const reportPeriods = {
       {
         "name": "Яна Кузнецова",
         "direction": "B2B",
-        "total": 35,
+        "total": 37,
         "fact": {
           "count": 0,
           "sum": 0
@@ -1439,12 +1542,12 @@ export const reportPeriods = {
           "sum": 0
         },
         "weighted": {
-          "count": 27,
-          "sum": 21044961
+          "count": 0,
+          "sum": 0
         },
         "raw": {
-          "count": 27,
-          "sum": 39847017
+          "count": 0,
+          "sum": 0
         }
       }
     ],
@@ -1501,6 +1604,314 @@ export const reportPeriods = {
           "name": "Нитро · оба шатра",
           "occupied": 0,
           "capacity": 728
+        }
+      ]
+    }
+  },
+  "season2027": {
+    "total": {
+      "fact": {
+        "count": 0,
+        "sum": 0
+      },
+      "prepaid": {
+        "count": 0,
+        "sum": 0
+      },
+      "weighted": {
+        "count": 28,
+        "sum": 2747000
+      },
+      "raw": {
+        "count": 28,
+        "sum": 5635000
+      }
+    },
+    "B2C": {
+      "fact": {
+        "count": 0,
+        "sum": 0
+      },
+      "prepaid": {
+        "count": 0,
+        "sum": 0
+      },
+      "weighted": {
+        "count": 28,
+        "sum": 2747000
+      },
+      "raw": {
+        "count": 28,
+        "sum": 5635000
+      }
+    },
+    "B2B": {
+      "fact": {
+        "count": 0,
+        "sum": 0
+      },
+      "prepaid": {
+        "count": 0,
+        "sum": 0
+      },
+      "weighted": {
+        "count": 0,
+        "sum": 0
+      },
+      "raw": {
+        "count": 0,
+        "sum": 0
+      }
+    },
+    "managers": [
+      {
+        "name": "Александр Воронин",
+        "direction": "B2C",
+        "total": 4,
+        "fact": {
+          "count": 0,
+          "sum": 0
+        },
+        "prepaid": {
+          "count": 0,
+          "sum": 0
+        },
+        "weighted": {
+          "count": 4,
+          "sum": 480000
+        },
+        "raw": {
+          "count": 4,
+          "sum": 1050000
+        }
+      },
+      {
+        "name": "Александр Поленко",
+        "direction": "B2C",
+        "total": 1,
+        "fact": {
+          "count": 0,
+          "sum": 0
+        },
+        "prepaid": {
+          "count": 0,
+          "sum": 0
+        },
+        "weighted": {
+          "count": 0,
+          "sum": 0
+        },
+        "raw": {
+          "count": 0,
+          "sum": 0
+        }
+      },
+      {
+        "name": "Варвара Чугреева",
+        "direction": "B2C",
+        "total": 10,
+        "fact": {
+          "count": 0,
+          "sum": 0
+        },
+        "prepaid": {
+          "count": 0,
+          "sum": 0
+        },
+        "weighted": {
+          "count": 7,
+          "sum": 457000
+        },
+        "raw": {
+          "count": 7,
+          "sum": 935000
+        }
+      },
+      {
+        "name": "Жанна Пахомова-Давлетшина",
+        "direction": "B2C",
+        "total": 1,
+        "fact": {
+          "count": 0,
+          "sum": 0
+        },
+        "prepaid": {
+          "count": 0,
+          "sum": 0
+        },
+        "weighted": {
+          "count": 1,
+          "sum": 30000
+        },
+        "raw": {
+          "count": 1,
+          "sum": 150000
+        }
+      },
+      {
+        "name": "Лилия Рамазанова",
+        "direction": "B2C",
+        "total": 10,
+        "fact": {
+          "count": 0,
+          "sum": 0
+        },
+        "prepaid": {
+          "count": 0,
+          "sum": 0
+        },
+        "weighted": {
+          "count": 8,
+          "sum": 530000
+        },
+        "raw": {
+          "count": 8,
+          "sum": 1250000
+        }
+      },
+      {
+        "name": "Людмила Запорожец",
+        "direction": "B2C",
+        "total": 10,
+        "fact": {
+          "count": 0,
+          "sum": 0
+        },
+        "prepaid": {
+          "count": 0,
+          "sum": 0
+        },
+        "weighted": {
+          "count": 8,
+          "sum": 1250000
+        },
+        "raw": {
+          "count": 8,
+          "sum": 2250000
+        }
+      },
+      {
+        "name": "Кристина Могачева",
+        "direction": "B2B",
+        "total": 1,
+        "fact": {
+          "count": 0,
+          "sum": 0
+        },
+        "prepaid": {
+          "count": 0,
+          "sum": 0
+        },
+        "weighted": {
+          "count": 0,
+          "sum": 0
+        },
+        "raw": {
+          "count": 0,
+          "sum": 0
+        }
+      },
+      {
+        "name": "Наталья Криводуд",
+        "direction": "B2B",
+        "total": 2,
+        "fact": {
+          "count": 0,
+          "sum": 0
+        },
+        "prepaid": {
+          "count": 0,
+          "sum": 0
+        },
+        "weighted": {
+          "count": 0,
+          "sum": 0
+        },
+        "raw": {
+          "count": 0,
+          "sum": 0
+        }
+      },
+      {
+        "name": "Яна Кузнецова",
+        "direction": "B2B",
+        "total": 4,
+        "fact": {
+          "count": 0,
+          "sum": 0
+        },
+        "prepaid": {
+          "count": 0,
+          "sum": 0
+        },
+        "weighted": {
+          "count": 0,
+          "sum": 0
+        },
+        "raw": {
+          "count": 0,
+          "sum": 0
+        }
+      }
+    ],
+    "label": "Сезон апрель–сентябрь 2027",
+    "range": "1 апреля–30 сентября 2027",
+    "plan": {
+      "total": 0,
+      "B2C": 0,
+      "B2B": 0
+    },
+    "comparison": {
+      "y2025": 0,
+      "y2024": 0
+    },
+    "capacity": {
+      "events": 0,
+      "occupied": 0,
+      "capacity": 7503,
+      "weekday": {
+        "occupied": 0,
+        "capacity": 5330
+      },
+      "weekend": {
+        "occupied": 0,
+        "capacity": 2173
+      },
+      "locations": [
+        {
+          "name": "Айва-парк · беседки",
+          "occupied": 0,
+          "capacity": 1098
+        },
+        {
+          "name": "Айва-парк · домик",
+          "occupied": 0,
+          "capacity": 366
+        },
+        {
+          "name": "Лофт и пять беседок",
+          "occupied": 0,
+          "capacity": 2013
+        },
+        {
+          "name": "Дино · все шатры",
+          "occupied": 0,
+          "capacity": 1098
+        },
+        {
+          "name": "Веранда Мадагаскар",
+          "occupied": 0,
+          "capacity": 1098
+        },
+        {
+          "name": "Шатёр FOOD",
+          "occupied": 0,
+          "capacity": 1098
+        },
+        {
+          "name": "Нитро · оба шатра",
+          "occupied": 0,
+          "capacity": 732
         }
       ]
     }
