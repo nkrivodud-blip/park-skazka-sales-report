@@ -6245,40 +6245,132 @@ window.ACTUAL_REPORT_DATA={
             ]
           },
           "B2B": {
-            "sum": 0,
-            "count": 0,
-            "series": []
-          },
-          "all": {
-            "sum": 976300,
+            "sum": 24795611,
             "count": 35,
             "series": [
               {
                 "key": "w00",
                 "label": "01.10–04.10",
-                "sum": 151000,
-                "count": 7,
+                "sum": 12000,
+                "count": 1,
                 "weekend": false
               },
               {
                 "key": "w01",
                 "label": "05.10–11.10",
-                "sum": 225500,
-                "count": 6,
+                "sum": 100000,
+                "count": 1,
                 "weekend": false
               },
               {
                 "key": "w02",
                 "label": "12.10–18.10",
-                "sum": 263000,
-                "count": 9,
+                "sum": 504058,
+                "count": 2,
                 "weekend": false
               },
               {
                 "key": "w03",
                 "label": "19.10–25.10",
-                "sum": 64500,
-                "count": 4,
+                "sum": 2266254,
+                "count": 2,
+                "weekend": false
+              },
+              {
+                "key": "w06",
+                "label": "09.11–15.11",
+                "sum": 625000,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "w07",
+                "label": "16.11–22.11",
+                "sum": 75000,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "w09",
+                "label": "30.11–06.12",
+                "sum": 893750,
+                "count": 2,
+                "weekend": false
+              },
+              {
+                "key": "w10",
+                "label": "07.12–13.12",
+                "sum": 3575000,
+                "count": 3,
+                "weekend": false
+              },
+              {
+                "key": "w11",
+                "label": "14.12–20.12",
+                "sum": 6779556,
+                "count": 11,
+                "weekend": false
+              },
+              {
+                "key": "w12",
+                "label": "21.12–27.12",
+                "sum": 3841638,
+                "count": 6,
+                "weekend": false
+              },
+              {
+                "key": "w13",
+                "label": "28.12–03.01",
+                "sum": 145799,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "w15",
+                "label": "11.01–17.01",
+                "sum": 4227556,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "w16",
+                "label": "18.01–24.01",
+                "sum": 1750000,
+                "count": 3,
+                "weekend": false
+              }
+            ]
+          },
+          "all": {
+            "sum": 25771911,
+            "count": 70,
+            "series": [
+              {
+                "key": "w00",
+                "label": "01.10–04.10",
+                "sum": 163000,
+                "count": 8,
+                "weekend": false
+              },
+              {
+                "key": "w01",
+                "label": "05.10–11.10",
+                "sum": 325500,
+                "count": 7,
+                "weekend": false
+              },
+              {
+                "key": "w02",
+                "label": "12.10–18.10",
+                "sum": 767058,
+                "count": 11,
+                "weekend": false
+              },
+              {
+                "key": "w03",
+                "label": "19.10–25.10",
+                "sum": 2330754,
+                "count": 6,
                 "weekend": false
               },
               {
@@ -6289,24 +6381,52 @@ window.ACTUAL_REPORT_DATA={
                 "weekend": false
               },
               {
+                "key": "w06",
+                "label": "09.11–15.11",
+                "sum": 625000,
+                "count": 1,
+                "weekend": false
+              },
+              {
                 "key": "w07",
                 "label": "16.11–22.11",
-                "sum": 2000,
-                "count": 1,
+                "sum": 77000,
+                "count": 2,
+                "weekend": false
+              },
+              {
+                "key": "w09",
+                "label": "30.11–06.12",
+                "sum": 893750,
+                "count": 2,
                 "weekend": false
               },
               {
                 "key": "w10",
                 "label": "07.12–13.12",
-                "sum": 15000,
-                "count": 1,
+                "sum": 3590000,
+                "count": 4,
+                "weekend": false
+              },
+              {
+                "key": "w11",
+                "label": "14.12–20.12",
+                "sum": 6779556,
+                "count": 11,
+                "weekend": false
+              },
+              {
+                "key": "w12",
+                "label": "21.12–27.12",
+                "sum": 3841638,
+                "count": 6,
                 "weekend": false
               },
               {
                 "key": "w13",
                 "label": "28.12–03.01",
-                "sum": 0,
-                "count": 1,
+                "sum": 145799,
+                "count": 2,
                 "weekend": false
               },
               {
@@ -6314,6 +6434,20 @@ window.ACTUAL_REPORT_DATA={
                 "label": "04.01–10.01",
                 "sum": 25000,
                 "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "w15",
+                "label": "11.01–17.01",
+                "sum": 4227556,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "w16",
+                "label": "18.01–24.01",
+                "sum": 1750000,
+                "count": 3,
                 "weekend": false
               },
               {
@@ -6404,40 +6538,132 @@ window.ACTUAL_REPORT_DATA={
             ]
           },
           "B2B": {
-            "sum": 0,
-            "count": 0,
-            "series": []
-          },
-          "all": {
-            "sum": 2184000,
+            "sum": 48839680,
             "count": 35,
             "series": [
               {
                 "key": "w00",
                 "label": "01.10–04.10",
-                "sum": 380000,
-                "count": 7,
+                "sum": 60000,
+                "count": 1,
                 "weekend": false
               },
               {
                 "key": "w01",
                 "label": "05.10–11.10",
-                "sum": 535000,
-                "count": 6,
+                "sum": 500000,
+                "count": 1,
                 "weekend": false
               },
               {
                 "key": "w02",
                 "label": "12.10–18.10",
-                "sum": 580000,
-                "count": 9,
+                "sum": 2520286,
+                "count": 2,
                 "weekend": false
               },
               {
                 "key": "w03",
                 "label": "19.10–25.10",
-                "sum": 130000,
-                "count": 4,
+                "sum": 4532508,
+                "count": 2,
+                "weekend": false
+              },
+              {
+                "key": "w06",
+                "label": "09.11–15.11",
+                "sum": 1250000,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "w07",
+                "label": "16.11–22.11",
+                "sum": 150000,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "w09",
+                "label": "30.11–06.12",
+                "sum": 1787500,
+                "count": 2,
+                "weekend": false
+              },
+              {
+                "key": "w10",
+                "label": "07.12–13.12",
+                "sum": 7150000,
+                "count": 3,
+                "weekend": false
+              },
+              {
+                "key": "w11",
+                "label": "14.12–20.12",
+                "sum": 11669411,
+                "count": 11,
+                "weekend": false
+              },
+              {
+                "key": "w12",
+                "label": "21.12–27.12",
+                "sum": 7860690,
+                "count": 6,
+                "weekend": false
+              },
+              {
+                "key": "w13",
+                "label": "28.12–03.01",
+                "sum": 161999,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "w15",
+                "label": "11.01–17.01",
+                "sum": 4697285,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "w16",
+                "label": "18.01–24.01",
+                "sum": 6500001,
+                "count": 3,
+                "weekend": false
+              }
+            ]
+          },
+          "all": {
+            "sum": 51023680,
+            "count": 70,
+            "series": [
+              {
+                "key": "w00",
+                "label": "01.10–04.10",
+                "sum": 440000,
+                "count": 8,
+                "weekend": false
+              },
+              {
+                "key": "w01",
+                "label": "05.10–11.10",
+                "sum": 1035000,
+                "count": 7,
+                "weekend": false
+              },
+              {
+                "key": "w02",
+                "label": "12.10–18.10",
+                "sum": 3100286,
+                "count": 11,
+                "weekend": false
+              },
+              {
+                "key": "w03",
+                "label": "19.10–25.10",
+                "sum": 4662508,
+                "count": 6,
                 "weekend": false
               },
               {
@@ -6448,24 +6674,52 @@ window.ACTUAL_REPORT_DATA={
                 "weekend": false
               },
               {
+                "key": "w06",
+                "label": "09.11–15.11",
+                "sum": 1250000,
+                "count": 1,
+                "weekend": false
+              },
+              {
                 "key": "w07",
                 "label": "16.11–22.11",
-                "sum": 10000,
-                "count": 1,
+                "sum": 160000,
+                "count": 2,
+                "weekend": false
+              },
+              {
+                "key": "w09",
+                "label": "30.11–06.12",
+                "sum": 1787500,
+                "count": 2,
                 "weekend": false
               },
               {
                 "key": "w10",
                 "label": "07.12–13.12",
-                "sum": 30000,
-                "count": 1,
+                "sum": 7180000,
+                "count": 4,
+                "weekend": false
+              },
+              {
+                "key": "w11",
+                "label": "14.12–20.12",
+                "sum": 11669411,
+                "count": 11,
+                "weekend": false
+              },
+              {
+                "key": "w12",
+                "label": "21.12–27.12",
+                "sum": 7860690,
+                "count": 6,
                 "weekend": false
               },
               {
                 "key": "w13",
                 "label": "28.12–03.01",
-                "sum": 0,
-                "count": 1,
+                "sum": 161999,
+                "count": 2,
                 "weekend": false
               },
               {
@@ -6473,6 +6727,20 @@ window.ACTUAL_REPORT_DATA={
                 "label": "04.01–10.01",
                 "sum": 50000,
                 "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "w15",
+                "label": "11.01–17.01",
+                "sum": 4697285,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "w16",
+                "label": "18.01–24.01",
+                "sum": 6500001,
+                "count": 3,
                 "weekend": false
               },
               {
@@ -6913,14 +7181,100 @@ window.ACTUAL_REPORT_DATA={
               "series": []
             },
             "weighted": {
-              "sum": 0,
-              "count": 0,
-              "series": []
+              "sum": 5757500,
+              "count": 9,
+              "series": [
+                {
+                  "key": "w07",
+                  "label": "16.11–22.11",
+                  "sum": 75000,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w09",
+                  "label": "30.11–06.12",
+                  "sum": 150000,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w10",
+                  "label": "07.12–13.12",
+                  "sum": 500000,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w11",
+                  "label": "14.12–20.12",
+                  "sum": 2000000,
+                  "count": 2,
+                  "weekend": false
+                },
+                {
+                  "key": "w12",
+                  "label": "21.12–27.12",
+                  "sum": 2282500,
+                  "count": 3,
+                  "weekend": false
+                },
+                {
+                  "key": "w16",
+                  "label": "18.01–24.01",
+                  "sum": 750000,
+                  "count": 1,
+                  "weekend": false
+                }
+              ]
             },
             "raw": {
-              "sum": 0,
-              "count": 0,
-              "series": []
+              "sum": 11515001,
+              "count": 9,
+              "series": [
+                {
+                  "key": "w07",
+                  "label": "16.11–22.11",
+                  "sum": 150000,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w09",
+                  "label": "30.11–06.12",
+                  "sum": 300000,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w10",
+                  "label": "07.12–13.12",
+                  "sum": 1000000,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w11",
+                  "label": "14.12–20.12",
+                  "sum": 4000001,
+                  "count": 2,
+                  "weekend": false
+                },
+                {
+                  "key": "w12",
+                  "label": "21.12–27.12",
+                  "sum": 4565000,
+                  "count": 3,
+                  "weekend": false
+                },
+                {
+                  "key": "w16",
+                  "label": "18.01–24.01",
+                  "sum": 1500000,
+                  "count": 1,
+                  "weekend": false
+                }
+              ]
             }
           },
           "plan": 0
@@ -6941,14 +7295,184 @@ window.ACTUAL_REPORT_DATA={
               "series": []
             },
             "weighted": {
-              "sum": 0,
-              "count": 0,
-              "series": []
+              "sum": 19038111,
+              "count": 26,
+              "series": [
+                {
+                  "key": "w00",
+                  "label": "01.10–04.10",
+                  "sum": 12000,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w01",
+                  "label": "05.10–11.10",
+                  "sum": 100000,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w02",
+                  "label": "12.10–18.10",
+                  "sum": 504058,
+                  "count": 2,
+                  "weekend": false
+                },
+                {
+                  "key": "w03",
+                  "label": "19.10–25.10",
+                  "sum": 2266254,
+                  "count": 2,
+                  "weekend": false
+                },
+                {
+                  "key": "w06",
+                  "label": "09.11–15.11",
+                  "sum": 625000,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w09",
+                  "label": "30.11–06.12",
+                  "sum": 743750,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w10",
+                  "label": "07.12–13.12",
+                  "sum": 3075000,
+                  "count": 2,
+                  "weekend": false
+                },
+                {
+                  "key": "w11",
+                  "label": "14.12–20.12",
+                  "sum": 4779556,
+                  "count": 9,
+                  "weekend": false
+                },
+                {
+                  "key": "w12",
+                  "label": "21.12–27.12",
+                  "sum": 1559138,
+                  "count": 3,
+                  "weekend": false
+                },
+                {
+                  "key": "w13",
+                  "label": "28.12–03.01",
+                  "sum": 145799,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w15",
+                  "label": "11.01–17.01",
+                  "sum": 4227556,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w16",
+                  "label": "18.01–24.01",
+                  "sum": 1000000,
+                  "count": 2,
+                  "weekend": false
+                }
+              ]
             },
             "raw": {
-              "sum": 0,
-              "count": 0,
-              "series": []
+              "sum": 37324679,
+              "count": 26,
+              "series": [
+                {
+                  "key": "w00",
+                  "label": "01.10–04.10",
+                  "sum": 60000,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w01",
+                  "label": "05.10–11.10",
+                  "sum": 500000,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w02",
+                  "label": "12.10–18.10",
+                  "sum": 2520286,
+                  "count": 2,
+                  "weekend": false
+                },
+                {
+                  "key": "w03",
+                  "label": "19.10–25.10",
+                  "sum": 4532508,
+                  "count": 2,
+                  "weekend": false
+                },
+                {
+                  "key": "w06",
+                  "label": "09.11–15.11",
+                  "sum": 1250000,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w09",
+                  "label": "30.11–06.12",
+                  "sum": 1487500,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w10",
+                  "label": "07.12–13.12",
+                  "sum": 6150000,
+                  "count": 2,
+                  "weekend": false
+                },
+                {
+                  "key": "w11",
+                  "label": "14.12–20.12",
+                  "sum": 7669410,
+                  "count": 9,
+                  "weekend": false
+                },
+                {
+                  "key": "w12",
+                  "label": "21.12–27.12",
+                  "sum": 3295690,
+                  "count": 3,
+                  "weekend": false
+                },
+                {
+                  "key": "w13",
+                  "label": "28.12–03.01",
+                  "sum": 161999,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w15",
+                  "label": "11.01–17.01",
+                  "sum": 4697285,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w16",
+                  "label": "18.01–24.01",
+                  "sum": 5000001,
+                  "count": 2,
+                  "weekend": false
+                }
+              ]
             }
           },
           "plan": 0
@@ -7743,13 +8267,35 @@ window.ACTUAL_REPORT_DATA={
             ]
           },
           "B2B": {
-            "sum": 0,
-            "count": 0,
-            "series": []
+            "sum": 25758690,
+            "count": 4,
+            "series": [
+              {
+                "key": "w09",
+                "label": "31.05–06.06",
+                "sum": 700000,
+                "count": 2,
+                "weekend": false
+              },
+              {
+                "key": "w17",
+                "label": "26.07–01.08",
+                "sum": 25000000,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "w19",
+                "label": "09.08–15.08",
+                "sum": 58690,
+                "count": 1,
+                "weekend": false
+              }
+            ]
           },
           "all": {
-            "sum": 2747000,
-            "count": 28,
+            "sum": 28505690,
+            "count": 32,
             "series": [
               {
                 "key": "w03",
@@ -7777,6 +8323,13 @@ window.ACTUAL_REPORT_DATA={
                 "label": "24.05–30.05",
                 "sum": 930000,
                 "count": 8,
+                "weekend": false
+              },
+              {
+                "key": "w09",
+                "label": "31.05–06.06",
+                "sum": 700000,
+                "count": 2,
                 "weekend": false
               },
               {
@@ -7811,6 +8364,20 @@ window.ACTUAL_REPORT_DATA={
                 "key": "w15",
                 "label": "12.07–18.07",
                 "sum": 20000,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "w17",
+                "label": "26.07–01.08",
+                "sum": 25000000,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "w19",
+                "label": "09.08–15.08",
+                "sum": 58690,
                 "count": 1,
                 "weekend": false
               }
@@ -7888,13 +8455,35 @@ window.ACTUAL_REPORT_DATA={
             ]
           },
           "B2B": {
-            "sum": 0,
-            "count": 0,
-            "series": []
+            "sum": 51117380,
+            "count": 4,
+            "series": [
+              {
+                "key": "w09",
+                "label": "31.05–06.06",
+                "sum": 1000000,
+                "count": 2,
+                "weekend": false
+              },
+              {
+                "key": "w17",
+                "label": "26.07–01.08",
+                "sum": 50000000,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "w19",
+                "label": "09.08–15.08",
+                "sum": 117380,
+                "count": 1,
+                "weekend": false
+              }
+            ]
           },
           "all": {
-            "sum": 5635000,
-            "count": 28,
+            "sum": 56752380,
+            "count": 32,
             "series": [
               {
                 "key": "w03",
@@ -7922,6 +8511,13 @@ window.ACTUAL_REPORT_DATA={
                 "label": "24.05–30.05",
                 "sum": 1950000,
                 "count": 8,
+                "weekend": false
+              },
+              {
+                "key": "w09",
+                "label": "31.05–06.06",
+                "sum": 1000000,
+                "count": 2,
                 "weekend": false
               },
               {
@@ -7956,6 +8552,20 @@ window.ACTUAL_REPORT_DATA={
                 "key": "w15",
                 "label": "12.07–18.07",
                 "sum": 100000,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "w17",
+                "label": "26.07–01.08",
+                "sum": 50000000,
+                "count": 1,
+                "weekend": false
+              },
+              {
+                "key": "w19",
+                "label": "09.08–15.08",
+                "sum": 117380,
                 "count": 1,
                 "weekend": false
               }
@@ -8366,14 +8976,58 @@ window.ACTUAL_REPORT_DATA={
               "series": []
             },
             "weighted": {
-              "sum": 0,
-              "count": 0,
-              "series": []
+              "sum": 25758690,
+              "count": 4,
+              "series": [
+                {
+                  "key": "w09",
+                  "label": "31.05–06.06",
+                  "sum": 700000,
+                  "count": 2,
+                  "weekend": false
+                },
+                {
+                  "key": "w17",
+                  "label": "26.07–01.08",
+                  "sum": 25000000,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w19",
+                  "label": "09.08–15.08",
+                  "sum": 58690,
+                  "count": 1,
+                  "weekend": false
+                }
+              ]
             },
             "raw": {
-              "sum": 0,
-              "count": 0,
-              "series": []
+              "sum": 51117380,
+              "count": 4,
+              "series": [
+                {
+                  "key": "w09",
+                  "label": "31.05–06.06",
+                  "sum": 1000000,
+                  "count": 2,
+                  "weekend": false
+                },
+                {
+                  "key": "w17",
+                  "label": "26.07–01.08",
+                  "sum": 50000000,
+                  "count": 1,
+                  "weekend": false
+                },
+                {
+                  "key": "w19",
+                  "label": "09.08–15.08",
+                  "sum": 117380,
+                  "count": 1,
+                  "weekend": false
+                }
+              ]
             }
           },
           "plan": 0
