@@ -1274,12 +1274,12 @@ export const reportPeriods = {
         "sum": 715750
       },
       "weighted": {
-        "count": 35,
-        "sum": 976300
+        "count": 70,
+        "sum": 25771911
       },
       "raw": {
-        "count": 35,
-        "sum": 2184000
+        "count": 70,
+        "sum": 51023680
       }
     },
     "B2C": {
@@ -1310,12 +1310,12 @@ export const reportPeriods = {
         "sum": 0
       },
       "weighted": {
-        "count": 0,
-        "sum": 0
+        "count": 35,
+        "sum": 24795611
       },
       "raw": {
-        "count": 0,
-        "sum": 0
+        "count": 35,
+        "sum": 48839680
       }
     },
     "managers": [
@@ -1467,27 +1467,6 @@ export const reportPeriods = {
         }
       },
       {
-        "name": "Иван Солодовников",
-        "direction": "B2B",
-        "total": 1,
-        "fact": {
-          "count": 0,
-          "sum": 0
-        },
-        "prepaid": {
-          "count": 0,
-          "sum": 0
-        },
-        "weighted": {
-          "count": 0,
-          "sum": 0
-        },
-        "raw": {
-          "count": 0,
-          "sum": 0
-        }
-      },
-      {
         "name": "Кристина Могачева",
         "direction": "B2B",
         "total": 15,
@@ -1500,12 +1479,12 @@ export const reportPeriods = {
           "sum": 0
         },
         "weighted": {
-          "count": 0,
-          "sum": 0
+          "count": 9,
+          "sum": 5757500
         },
         "raw": {
-          "count": 0,
-          "sum": 0
+          "count": 9,
+          "sum": 11515001
         }
       },
       {
@@ -1542,12 +1521,12 @@ export const reportPeriods = {
           "sum": 0
         },
         "weighted": {
-          "count": 0,
-          "sum": 0
+          "count": 26,
+          "sum": 19038111
         },
         "raw": {
-          "count": 0,
-          "sum": 0
+          "count": 26,
+          "sum": 37324679
         }
       }
     ],
@@ -1619,12 +1598,12 @@ export const reportPeriods = {
         "sum": 0
       },
       "weighted": {
-        "count": 28,
-        "sum": 2747000
+        "count": 32,
+        "sum": 28505690
       },
       "raw": {
-        "count": 28,
-        "sum": 5635000
+        "count": 32,
+        "sum": 56752380
       }
     },
     "B2C": {
@@ -1655,12 +1634,12 @@ export const reportPeriods = {
         "sum": 0
       },
       "weighted": {
-        "count": 0,
-        "sum": 0
+        "count": 4,
+        "sum": 25758690
       },
       "raw": {
-        "count": 0,
-        "sum": 0
+        "count": 4,
+        "sum": 51117380
       }
     },
     "managers": [
@@ -1845,12 +1824,12 @@ export const reportPeriods = {
           "sum": 0
         },
         "weighted": {
-          "count": 0,
-          "sum": 0
+          "count": 4,
+          "sum": 25758690
         },
         "raw": {
-          "count": 0,
-          "sum": 0
+          "count": 4,
+          "sum": 51117380
         }
       }
     ],
