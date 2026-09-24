@@ -6245,8 +6245,8 @@ window.ACTUAL_REPORT_DATA={
             ]
           },
           "B2B": {
-            "sum": 24795611,
-            "count": 35,
+            "sum": 69795611,
+            "count": 36,
             "series": [
               {
                 "key": "w00",
@@ -6307,8 +6307,8 @@ window.ACTUAL_REPORT_DATA={
               {
                 "key": "w11",
                 "label": "14.12–20.12",
-                "sum": 6779556,
-                "count": 11,
+                "sum": 51779556,
+                "count": 12,
                 "weekend": false
               },
               {
@@ -6342,8 +6342,8 @@ window.ACTUAL_REPORT_DATA={
             ]
           },
           "all": {
-            "sum": 25771911,
-            "count": 70,
+            "sum": 70771911,
+            "count": 71,
             "series": [
               {
                 "key": "w00",
@@ -6411,8 +6411,8 @@ window.ACTUAL_REPORT_DATA={
               {
                 "key": "w11",
                 "label": "14.12–20.12",
-                "sum": 6779556,
-                "count": 11,
+                "sum": 51779556,
+                "count": 12,
                 "weekend": false
               },
               {
@@ -6538,8 +6538,8 @@ window.ACTUAL_REPORT_DATA={
             ]
           },
           "B2B": {
-            "sum": 48839680,
-            "count": 35,
+            "sum": 98839680,
+            "count": 36,
             "series": [
               {
                 "key": "w00",
@@ -6600,8 +6600,8 @@ window.ACTUAL_REPORT_DATA={
               {
                 "key": "w11",
                 "label": "14.12–20.12",
-                "sum": 11669411,
-                "count": 11,
+                "sum": 61669411,
+                "count": 12,
                 "weekend": false
               },
               {
@@ -6635,8 +6635,8 @@ window.ACTUAL_REPORT_DATA={
             ]
           },
           "all": {
-            "sum": 51023680,
-            "count": 70,
+            "sum": 101023680,
+            "count": 71,
             "series": [
               {
                 "key": "w00",
@@ -6704,8 +6704,8 @@ window.ACTUAL_REPORT_DATA={
               {
                 "key": "w11",
                 "label": "14.12–20.12",
-                "sum": 11669411,
-                "count": 11,
+                "sum": 61669411,
+                "count": 12,
                 "weekend": false
               },
               {

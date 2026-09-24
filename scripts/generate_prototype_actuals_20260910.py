@@ -52,10 +52,7 @@ def load(path):
     date_cols = [column for column in frame if str(column).startswith("Дата мероприятия")]
     frame["_date"] = pd.concat([pd.to_datetime(frame[column], dayfirst=True, errors="coerce") for column in date_cols], axis=1).bfill(axis=1).iloc[:, 0]
     title = frame.get("Название сделки", pd.Series("", index=frame.index)).astype(str)
-    excluded_park_closure = (
-        title.str.contains("Закрытие парка", case=False, na=False)
-        | title.str.contains(r"Дарья_19\.12\.2026_Корпоратив_ВК", case=False, na=False)
-    ) & frame["Сумма"].ge(49_000_000)
+    excluded_park_closure = title.str.contains("Закрытие парка", case=False, na=False) & frame["Сумма"].ge(49_000_000)
     return frame[~excluded_park_closure]
 
 

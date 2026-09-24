@@ -1274,12 +1274,12 @@ export const reportPeriods = {
         "sum": 715750
       },
       "weighted": {
-        "count": 70,
-        "sum": 25771911
+        "count": 71,
+        "sum": 70771911
       },
       "raw": {
-        "count": 70,
-        "sum": 51023680
+        "count": 71,
+        "sum": 101023680
       }
     },
     "B2C": {
@@ -1310,12 +1310,12 @@ export const reportPeriods = {
         "sum": 0
       },
       "weighted": {
-        "count": 35,
-        "sum": 24795611
+        "count": 36,
+        "sum": 69795611
       },
       "raw": {
-        "count": 35,
-        "sum": 48839680
+        "count": 36,
+        "sum": 98839680
       }
     },
     "managers": [
@@ -1464,6 +1464,27 @@ export const reportPeriods = {
         "raw": {
           "count": 0,
           "sum": 0
+        }
+      },
+      {
+        "name": "Иван Солодовников",
+        "direction": "B2B",
+        "total": 1,
+        "fact": {
+          "count": 0,
+          "sum": 0
+        },
+        "prepaid": {
+          "count": 0,
+          "sum": 0
+        },
+        "weighted": {
+          "count": 1,
+          "sum": 45000000
+        },
+        "raw": {
+          "count": 1,
+          "sum": 50000000
         }
       },
       {
