@@ -661,41 +661,41 @@ export const reportPeriods = {
       "y2024": 18000000
     },
     "capacity": {
-      "events": 36,
-      "occupied": 75,
+      "events": 40,
+      "occupied": 91,
       "capacity": 1230,
       "weekday": {
-        "occupied": 35,
+        "occupied": 37,
         "capacity": 902
       },
       "weekend": {
-        "occupied": 40,
+        "occupied": 54,
         "capacity": 328
       },
       "locations": [
         {
           "name": "Лофт",
-          "occupied": 18,
+          "occupied": 24,
           "capacity": 180
         },
         {
           "name": "Беседки лофта",
-          "occupied": 16,
+          "occupied": 21,
           "capacity": 150
         },
         {
           "name": "Айва-парк · домик",
-          "occupied": 5,
+          "occupied": 6,
           "capacity": 60
         },
         {
           "name": "Айва-парк · беседки",
-          "occupied": 9,
+          "occupied": 8,
           "capacity": 180
         },
         {
           "name": "Дино · шатры",
-          "occupied": 12,
+          "occupied": 13,
           "capacity": 180
         },
         {
@@ -705,7 +705,7 @@ export const reportPeriods = {
         },
         {
           "name": "Шатёр · сфера",
-          "occupied": 8,
+          "occupied": 12,
           "capacity": 180
         },
         {
@@ -716,41 +716,41 @@ export const reportPeriods = {
       ],
       "directions": {
         "all": {
-          "events": 36,
-          "occupied": 75,
+          "events": 40,
+          "occupied": 91,
           "capacity": 1230,
           "weekday": {
-            "occupied": 35,
+            "occupied": 37,
             "capacity": 902
           },
           "weekend": {
-            "occupied": 40,
+            "occupied": 54,
             "capacity": 328
           },
           "locations": [
             {
               "name": "Лофт",
-              "occupied": 18,
+              "occupied": 24,
               "capacity": 180
             },
             {
               "name": "Беседки лофта",
-              "occupied": 16,
+              "occupied": 21,
               "capacity": 150
             },
             {
               "name": "Айва-парк · домик",
-              "occupied": 5,
+              "occupied": 6,
               "capacity": 60
             },
             {
               "name": "Айва-парк · беседки",
-              "occupied": 9,
+              "occupied": 8,
               "capacity": 180
             },
             {
               "name": "Дино · шатры",
-              "occupied": 12,
+              "occupied": 13,
               "capacity": 180
             },
             {
@@ -760,7 +760,7 @@ export const reportPeriods = {
             },
             {
               "name": "Шатёр · сфера",
-              "occupied": 8,
+              "occupied": 12,
               "capacity": 180
             },
             {
@@ -771,31 +771,31 @@ export const reportPeriods = {
           ]
         },
         "B2C": {
-          "events": 32,
-          "occupied": 41,
+          "events": 35,
+          "occupied": 46,
           "capacity": 900,
           "weekday": {
-            "occupied": 12,
+            "occupied": 14,
             "capacity": 660
           },
           "weekend": {
-            "occupied": 29,
+            "occupied": 32,
             "capacity": 240
           },
           "locations": [
             {
               "name": "Айва-парк · домик",
-              "occupied": 5,
+              "occupied": 6,
               "capacity": 60
             },
             {
               "name": "Айва-парк · беседки",
-              "occupied": 9,
+              "occupied": 8,
               "capacity": 180
             },
             {
               "name": "Дино · шатры",
-              "occupied": 12,
+              "occupied": 13,
               "capacity": 180
             },
             {
@@ -805,7 +805,7 @@ export const reportPeriods = {
             },
             {
               "name": "Шатёр · сфера",
-              "occupied": 8,
+              "occupied": 12,
               "capacity": 180
             },
             {
@@ -816,26 +816,26 @@ export const reportPeriods = {
           ]
         },
         "B2B": {
-          "events": 4,
-          "occupied": 34,
+          "events": 5,
+          "occupied": 45,
           "capacity": 330,
           "weekday": {
             "occupied": 23,
             "capacity": 242
           },
           "weekend": {
-            "occupied": 11,
+            "occupied": 22,
             "capacity": 88
           },
           "locations": [
             {
               "name": "Лофт",
-              "occupied": 18,
+              "occupied": 24,
               "capacity": 180
             },
             {
               "name": "Беседки лофта",
-              "occupied": 16,
+              "occupied": 21,
               "capacity": 150
             }
           ]
