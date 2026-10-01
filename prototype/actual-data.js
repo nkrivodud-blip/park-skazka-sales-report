@@ -1962,8 +1962,8 @@ window.ACTUAL_REPORT_DATA={
       "metrics": {
         "fact": {
           "B2C": {
-            "sum": 6084892,
-            "count": 46,
+            "sum": 6718842,
+            "count": 51,
             "series": [
               {
                 "key": "09-01",
@@ -2076,12 +2076,26 @@ window.ACTUAL_REPORT_DATA={
                 "sum": 262570,
                 "count": 2,
                 "weekend": false
+              },
+              {
+                "key": "09-26",
+                "label": "26.09",
+                "sum": 290850,
+                "count": 4,
+                "weekend": true
+              },
+              {
+                "key": "09-27",
+                "label": "27.09",
+                "sum": 343100,
+                "count": 1,
+                "weekend": true
               }
             ]
           },
           "B2B": {
-            "sum": 1596600,
-            "count": 2,
+            "sum": 2978353,
+            "count": 3,
             "series": [
               {
                 "key": "09-03",
@@ -2096,12 +2110,19 @@ window.ACTUAL_REPORT_DATA={
                 "sum": 559600,
                 "count": 1,
                 "weekend": true
+              },
+              {
+                "key": "09-18",
+                "label": "18.09",
+                "sum": 1381753,
+                "count": 1,
+                "weekend": false
               }
             ]
           },
           "all": {
-            "sum": 7681492,
-            "count": 48,
+            "sum": 9697195,
+            "count": 54,
             "series": [
               {
                 "key": "09-01",
@@ -2190,8 +2211,8 @@ window.ACTUAL_REPORT_DATA={
               {
                 "key": "09-18",
                 "label": "18.09",
-                "sum": 66200,
-                "count": 1,
+                "sum": 1447953,
+                "count": 2,
                 "weekend": false
               },
               {
@@ -2221,80 +2242,51 @@ window.ACTUAL_REPORT_DATA={
                 "sum": 262570,
                 "count": 2,
                 "weekend": false
+              },
+              {
+                "key": "09-26",
+                "label": "26.09",
+                "sum": 290850,
+                "count": 4,
+                "weekend": true
+              },
+              {
+                "key": "09-27",
+                "label": "27.09",
+                "sum": 343100,
+                "count": 1,
+                "weekend": true
               }
             ]
           }
         },
         "prepaid": {
           "B2C": {
-            "sum": 656766,
-            "count": 7,
+            "sum": 21300,
+            "count": 2,
             "series": [
-              {
-                "key": "09-26",
-                "label": "26.09",
-                "sum": 192100,
-                "count": 3,
-                "weekend": true
-              },
-              {
-                "key": "09-27",
-                "label": "27.09",
-                "sum": 446666,
-                "count": 2,
-                "weekend": true
-              },
               {
                 "key": "09-30",
                 "label": "30.09",
-                "sum": 18000,
+                "sum": 21300,
                 "count": 2,
                 "weekend": false
               }
             ]
           },
           "B2B": {
-            "sum": 1381753,
-            "count": 1,
-            "series": [
-              {
-                "key": "09-18",
-                "label": "18.09",
-                "sum": 1381753,
-                "count": 1,
-                "weekend": false
-              }
-            ]
+            "sum": 0,
+            "count": 0,
+            "series": []
           },
           "all": {
-            "sum": 2038519,
-            "count": 8,
+            "sum": 21300,
+            "count": 2,
             "series": [
-              {
-                "key": "09-18",
-                "label": "18.09",
-                "sum": 1381753,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "09-26",
-                "label": "26.09",
-                "sum": 192100,
-                "count": 3,
-                "weekend": true
-              },
-              {
-                "key": "09-27",
-                "label": "27.09",
-                "sum": 446666,
-                "count": 2,
-                "weekend": true
-              },
               {
                 "key": "09-30",
                 "label": "30.09",
-                "sum": 18000,
+                "sum": 21300,
                 "count": 2,
                 "weekend": false
               }
@@ -2303,59 +2295,9 @@ window.ACTUAL_REPORT_DATA={
         },
         "weighted": {
           "B2C": {
-            "sum": 354500,
-            "count": 14,
-            "series": [
-              {
-                "key": "09-12",
-                "label": "12.09",
-                "sum": 50000,
-                "count": 1,
-                "weekend": true
-              },
-              {
-                "key": "09-17",
-                "label": "17.09",
-                "sum": 9000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "09-23",
-                "label": "23.09",
-                "sum": 4500,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "09-26",
-                "label": "26.09",
-                "sum": 10000,
-                "count": 1,
-                "weekend": true
-              },
-              {
-                "key": "09-27",
-                "label": "27.09",
-                "sum": 212500,
-                "count": 7,
-                "weekend": true
-              },
-              {
-                "key": "09-29",
-                "label": "29.09",
-                "sum": 11000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "09-30",
-                "label": "30.09",
-                "sum": 57500,
-                "count": 2,
-                "weekend": false
-              }
-            ]
+            "sum": 0,
+            "count": 0,
+            "series": []
           },
           "B2B": {
             "sum": 0,
@@ -2363,116 +2305,16 @@ window.ACTUAL_REPORT_DATA={
             "series": []
           },
           "all": {
-            "sum": 354500,
-            "count": 14,
-            "series": [
-              {
-                "key": "09-12",
-                "label": "12.09",
-                "sum": 50000,
-                "count": 1,
-                "weekend": true
-              },
-              {
-                "key": "09-17",
-                "label": "17.09",
-                "sum": 9000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "09-23",
-                "label": "23.09",
-                "sum": 4500,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "09-26",
-                "label": "26.09",
-                "sum": 10000,
-                "count": 1,
-                "weekend": true
-              },
-              {
-                "key": "09-27",
-                "label": "27.09",
-                "sum": 212500,
-                "count": 7,
-                "weekend": true
-              },
-              {
-                "key": "09-29",
-                "label": "29.09",
-                "sum": 11000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "09-30",
-                "label": "30.09",
-                "sum": 57500,
-                "count": 2,
-                "weekend": false
-              }
-            ]
+            "sum": 0,
+            "count": 0,
+            "series": []
           }
         },
         "raw": {
           "B2C": {
-            "sum": 904000,
-            "count": 14,
-            "series": [
-              {
-                "key": "09-12",
-                "label": "12.09",
-                "sum": 100000,
-                "count": 1,
-                "weekend": true
-              },
-              {
-                "key": "09-17",
-                "label": "17.09",
-                "sum": 45000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "09-23",
-                "label": "23.09",
-                "sum": 9000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "09-26",
-                "label": "26.09",
-                "sum": 50000,
-                "count": 1,
-                "weekend": true
-              },
-              {
-                "key": "09-27",
-                "label": "27.09",
-                "sum": 485000,
-                "count": 7,
-                "weekend": true
-              },
-              {
-                "key": "09-29",
-                "label": "29.09",
-                "sum": 55000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "09-30",
-                "label": "30.09",
-                "sum": 160000,
-                "count": 2,
-                "weekend": false
-              }
-            ]
+            "sum": 0,
+            "count": 0,
+            "series": []
           },
           "B2B": {
             "sum": 0,
@@ -2480,59 +2322,9 @@ window.ACTUAL_REPORT_DATA={
             "series": []
           },
           "all": {
-            "sum": 904000,
-            "count": 14,
-            "series": [
-              {
-                "key": "09-12",
-                "label": "12.09",
-                "sum": 100000,
-                "count": 1,
-                "weekend": true
-              },
-              {
-                "key": "09-17",
-                "label": "17.09",
-                "sum": 45000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "09-23",
-                "label": "23.09",
-                "sum": 9000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "09-26",
-                "label": "26.09",
-                "sum": 50000,
-                "count": 1,
-                "weekend": true
-              },
-              {
-                "key": "09-27",
-                "label": "27.09",
-                "sum": 485000,
-                "count": 7,
-                "weekend": true
-              },
-              {
-                "key": "09-29",
-                "label": "29.09",
-                "sum": 55000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "09-30",
-                "label": "30.09",
-                "sum": 160000,
-                "count": 2,
-                "weekend": false
-              }
-            ]
+            "sum": 0,
+            "count": 0,
+            "series": []
           }
         }
       },
@@ -2543,8 +2335,8 @@ window.ACTUAL_REPORT_DATA={
           "total": 39,
           "metrics": {
             "fact": {
-              "sum": 1502420,
-              "count": 10,
+              "sum": 1597640,
+              "count": 12,
               "series": [
                 {
                   "key": "09-04",
@@ -2594,61 +2386,30 @@ window.ACTUAL_REPORT_DATA={
                   "sum": 230570,
                   "count": 1,
                   "weekend": false
-                }
-              ]
-            },
-            "prepaid": {
-              "sum": 97100,
-              "count": 2,
-              "series": [
+                },
                 {
                   "key": "09-26",
                   "label": "26.09",
-                  "sum": 97100,
+                  "sum": 95220,
                   "count": 2,
                   "weekend": true
                 }
               ]
             },
+            "prepaid": {
+              "sum": 0,
+              "count": 0,
+              "series": []
+            },
             "weighted": {
-              "sum": 19500,
-              "count": 2,
-              "series": [
-                {
-                  "key": "09-23",
-                  "label": "23.09",
-                  "sum": 4500,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "09-30",
-                  "label": "30.09",
-                  "sum": 15000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "raw": {
-              "sum": 84000,
-              "count": 2,
-              "series": [
-                {
-                  "key": "09-23",
-                  "label": "23.09",
-                  "sum": 9000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "09-30",
-                  "label": "30.09",
-                  "sum": 75000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             }
           },
           "plan": 6416753
@@ -2656,11 +2417,11 @@ window.ACTUAL_REPORT_DATA={
         "Варвара Чугреева|B2C": {
           "name": "Варвара Чугреева",
           "direction": "B2C",
-          "total": 49,
+          "total": 48,
           "metrics": {
             "fact": {
-              "sum": 729630,
-              "count": 6,
+              "sum": 1072730,
+              "count": 7,
               "series": [
                 {
                   "key": "09-01",
@@ -2689,54 +2450,38 @@ window.ACTUAL_REPORT_DATA={
                   "sum": 602500,
                   "count": 3,
                   "weekend": true
+                },
+                {
+                  "key": "09-27",
+                  "label": "27.09",
+                  "sum": 343100,
+                  "count": 1,
+                  "weekend": true
                 }
               ]
             },
             "prepaid": {
-              "sum": 384666,
-              "count": 3,
+              "sum": 21300,
+              "count": 2,
               "series": [
-                {
-                  "key": "09-27",
-                  "label": "27.09",
-                  "sum": 366666,
-                  "count": 1,
-                  "weekend": true
-                },
                 {
                   "key": "09-30",
                   "label": "30.09",
-                  "sum": 18000,
+                  "sum": 21300,
                   "count": 2,
                   "weekend": false
                 }
               ]
             },
             "weighted": {
-              "sum": 35000,
-              "count": 2,
-              "series": [
-                {
-                  "key": "09-27",
-                  "label": "27.09",
-                  "sum": 35000,
-                  "count": 2,
-                  "weekend": true
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "raw": {
-              "sum": 100000,
-              "count": 2,
-              "series": [
-                {
-                  "key": "09-27",
-                  "label": "27.09",
-                  "sum": 100000,
-                  "count": 2,
-                  "weekend": true
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             }
           },
           "plan": 7006578
@@ -2744,11 +2489,11 @@ window.ACTUAL_REPORT_DATA={
         "Лилия Рамазанова|B2C": {
           "name": "Лилия Рамазанова",
           "direction": "B2C",
-          "total": 70,
+          "total": 69,
           "metrics": {
             "fact": {
-              "sum": 1580320,
-              "count": 10,
+              "sum": 1748950,
+              "count": 11,
               "series": [
                 {
                   "key": "09-01",
@@ -2805,103 +2550,30 @@ window.ACTUAL_REPORT_DATA={
                   "sum": 26220,
                   "count": 1,
                   "weekend": true
-                }
-              ]
-            },
-            "prepaid": {
-              "sum": 95000,
-              "count": 1,
-              "series": [
+                },
                 {
                   "key": "09-26",
                   "label": "26.09",
-                  "sum": 95000,
+                  "sum": 168630,
                   "count": 1,
                   "weekend": true
                 }
               ]
+            },
+            "prepaid": {
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "weighted": {
-              "sum": 240000,
-              "count": 8,
-              "series": [
-                {
-                  "key": "09-17",
-                  "label": "17.09",
-                  "sum": 9000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "09-26",
-                  "label": "26.09",
-                  "sum": 10000,
-                  "count": 1,
-                  "weekend": true
-                },
-                {
-                  "key": "09-27",
-                  "label": "27.09",
-                  "sum": 167500,
-                  "count": 4,
-                  "weekend": true
-                },
-                {
-                  "key": "09-29",
-                  "label": "29.09",
-                  "sum": 11000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "09-30",
-                  "label": "30.09",
-                  "sum": 42500,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "raw": {
-              "sum": 570000,
-              "count": 8,
-              "series": [
-                {
-                  "key": "09-17",
-                  "label": "17.09",
-                  "sum": 45000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "09-26",
-                  "label": "26.09",
-                  "sum": 50000,
-                  "count": 1,
-                  "weekend": true
-                },
-                {
-                  "key": "09-27",
-                  "label": "27.09",
-                  "sum": 335000,
-                  "count": 4,
-                  "weekend": true
-                },
-                {
-                  "key": "09-29",
-                  "label": "29.09",
-                  "sum": 55000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "09-30",
-                  "label": "30.09",
-                  "sum": 85000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             }
           },
           "plan": 7006578
@@ -2909,11 +2581,11 @@ window.ACTUAL_REPORT_DATA={
         "Людмила Запорожец|B2C": {
           "name": "Людмила Запорожец",
           "direction": "B2C",
-          "total": 72,
+          "total": 71,
           "metrics": {
             "fact": {
-              "sum": 2272522,
-              "count": 20,
+              "sum": 2299522,
+              "count": 21,
               "series": [
                 {
                   "key": "09-04",
@@ -3005,61 +2677,30 @@ window.ACTUAL_REPORT_DATA={
                   "sum": 32000,
                   "count": 1,
                   "weekend": false
+                },
+                {
+                  "key": "09-26",
+                  "label": "26.09",
+                  "sum": 27000,
+                  "count": 1,
+                  "weekend": true
                 }
               ]
             },
             "prepaid": {
-              "sum": 80000,
-              "count": 1,
-              "series": [
-                {
-                  "key": "09-27",
-                  "label": "27.09",
-                  "sum": 80000,
-                  "count": 1,
-                  "weekend": true
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "weighted": {
-              "sum": 60000,
-              "count": 2,
-              "series": [
-                {
-                  "key": "09-12",
-                  "label": "12.09",
-                  "sum": 50000,
-                  "count": 1,
-                  "weekend": true
-                },
-                {
-                  "key": "09-27",
-                  "label": "27.09",
-                  "sum": 10000,
-                  "count": 1,
-                  "weekend": true
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "raw": {
-              "sum": 150000,
-              "count": 2,
-              "series": [
-                {
-                  "key": "09-12",
-                  "label": "12.09",
-                  "sum": 100000,
-                  "count": 1,
-                  "weekend": true
-                },
-                {
-                  "key": "09-27",
-                  "label": "27.09",
-                  "sum": 50000,
-                  "count": 1,
-                  "weekend": true
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             }
           },
           "plan": 7006578
@@ -3070,8 +2711,8 @@ window.ACTUAL_REPORT_DATA={
           "total": 17,
           "metrics": {
             "fact": {
-              "sum": 1596600,
-              "count": 2,
+              "sum": 2978353,
+              "count": 3,
               "series": [
                 {
                   "key": "09-03",
@@ -3086,13 +2727,7 @@ window.ACTUAL_REPORT_DATA={
                   "sum": 559600,
                   "count": 1,
                   "weekend": true
-                }
-              ]
-            },
-            "prepaid": {
-              "sum": 1381753,
-              "count": 1,
-              "series": [
+                },
                 {
                   "key": "09-18",
                   "label": "18.09",
@@ -3101,6 +2736,11 @@ window.ACTUAL_REPORT_DATA={
                   "weekend": false
                 }
               ]
+            },
+            "prepaid": {
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "weighted": {
               "sum": 0,
@@ -3760,8 +3400,8 @@ window.ACTUAL_REPORT_DATA={
       "metrics": {
         "fact": {
           "B2C": {
-            "sum": 63014187,
-            "count": 501,
+            "sum": 63648137,
+            "count": 506,
             "series": [
               {
                 "key": "w04",
@@ -3913,15 +3553,15 @@ window.ACTUAL_REPORT_DATA={
               {
                 "key": "w25",
                 "label": "21.09–27.09",
-                "sum": 359800,
-                "count": 4,
+                "sum": 993750,
+                "count": 9,
                 "weekend": false
               }
             ]
           },
           "B2B": {
-            "sum": 13761414,
-            "count": 15,
+            "sum": 15143167,
+            "count": 16,
             "series": [
               {
                 "key": "w08",
@@ -4006,12 +3646,19 @@ window.ACTUAL_REPORT_DATA={
                 "sum": 1596600,
                 "count": 2,
                 "weekend": false
+              },
+              {
+                "key": "w24",
+                "label": "14.09–20.09",
+                "sum": 1381753,
+                "count": 1,
+                "weekend": false
               }
             ]
           },
           "all": {
-            "sum": 76775601,
-            "count": 516,
+            "sum": 78791304,
+            "count": 522,
             "series": [
               {
                 "key": "w04",
@@ -4156,15 +3803,15 @@ window.ACTUAL_REPORT_DATA={
               {
                 "key": "w24",
                 "label": "14.09–20.09",
-                "sum": 2465220,
-                "count": 17,
+                "sum": 3846973,
+                "count": 18,
                 "weekend": false
               },
               {
                 "key": "w25",
                 "label": "21.09–27.09",
-                "sum": 359800,
-                "count": 4,
+                "sum": 993750,
+                "count": 9,
                 "weekend": false
               }
             ]
@@ -4172,60 +3819,31 @@ window.ACTUAL_REPORT_DATA={
         },
         "prepaid": {
           "B2C": {
-            "sum": 656766,
-            "count": 7,
+            "sum": 21300,
+            "count": 2,
             "series": [
-              {
-                "key": "w25",
-                "label": "21.09–27.09",
-                "sum": 638766,
-                "count": 5,
-                "weekend": false
-              },
               {
                 "key": "w26",
                 "label": "28.09–30.09",
-                "sum": 18000,
+                "sum": 21300,
                 "count": 2,
                 "weekend": false
               }
             ]
           },
           "B2B": {
-            "sum": 1381753,
-            "count": 1,
-            "series": [
-              {
-                "key": "w24",
-                "label": "14.09–20.09",
-                "sum": 1381753,
-                "count": 1,
-                "weekend": false
-              }
-            ]
+            "sum": 0,
+            "count": 0,
+            "series": []
           },
           "all": {
-            "sum": 2038519,
-            "count": 8,
+            "sum": 21300,
+            "count": 2,
             "series": [
-              {
-                "key": "w24",
-                "label": "14.09–20.09",
-                "sum": 1381753,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "w25",
-                "label": "21.09–27.09",
-                "sum": 638766,
-                "count": 5,
-                "weekend": false
-              },
               {
                 "key": "w26",
                 "label": "28.09–30.09",
-                "sum": 18000,
+                "sum": 21300,
                 "count": 2,
                 "weekend": false
               }
@@ -4234,42 +3852,14 @@ window.ACTUAL_REPORT_DATA={
         },
         "weighted": {
           "B2C": {
-            "sum": 404500,
-            "count": 15,
+            "sum": 50000,
+            "count": 1,
             "series": [
               {
                 "key": "w08",
                 "label": "25.05–31.05",
                 "sum": 50000,
                 "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "w23",
-                "label": "07.09–13.09",
-                "sum": 50000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "w24",
-                "label": "14.09–20.09",
-                "sum": 9000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "w25",
-                "label": "21.09–27.09",
-                "sum": 227000,
-                "count": 9,
-                "weekend": false
-              },
-              {
-                "key": "w26",
-                "label": "28.09–30.09",
-                "sum": 68500,
-                "count": 3,
                 "weekend": false
               }
             ]
@@ -4280,42 +3870,14 @@ window.ACTUAL_REPORT_DATA={
             "series": []
           },
           "all": {
-            "sum": 404500,
-            "count": 15,
+            "sum": 50000,
+            "count": 1,
             "series": [
               {
                 "key": "w08",
                 "label": "25.05–31.05",
                 "sum": 50000,
                 "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "w23",
-                "label": "07.09–13.09",
-                "sum": 50000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "w24",
-                "label": "14.09–20.09",
-                "sum": 9000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "w25",
-                "label": "21.09–27.09",
-                "sum": 227000,
-                "count": 9,
-                "weekend": false
-              },
-              {
-                "key": "w26",
-                "label": "28.09–30.09",
-                "sum": 68500,
-                "count": 3,
                 "weekend": false
               }
             ]
@@ -4323,42 +3885,14 @@ window.ACTUAL_REPORT_DATA={
         },
         "raw": {
           "B2C": {
-            "sum": 1004000,
-            "count": 15,
+            "sum": 100000,
+            "count": 1,
             "series": [
               {
                 "key": "w08",
                 "label": "25.05–31.05",
                 "sum": 100000,
                 "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "w23",
-                "label": "07.09–13.09",
-                "sum": 100000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "w24",
-                "label": "14.09–20.09",
-                "sum": 45000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "w25",
-                "label": "21.09–27.09",
-                "sum": 544000,
-                "count": 9,
-                "weekend": false
-              },
-              {
-                "key": "w26",
-                "label": "28.09–30.09",
-                "sum": 215000,
-                "count": 3,
                 "weekend": false
               }
             ]
@@ -4369,42 +3903,14 @@ window.ACTUAL_REPORT_DATA={
             "series": []
           },
           "all": {
-            "sum": 1004000,
-            "count": 15,
+            "sum": 100000,
+            "count": 1,
             "series": [
               {
                 "key": "w08",
                 "label": "25.05–31.05",
                 "sum": 100000,
                 "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "w23",
-                "label": "07.09–13.09",
-                "sum": 100000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "w24",
-                "label": "14.09–20.09",
-                "sum": 45000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "w25",
-                "label": "21.09–27.09",
-                "sum": 544000,
-                "count": 9,
-                "weekend": false
-              },
-              {
-                "key": "w26",
-                "label": "28.09–30.09",
-                "sum": 215000,
-                "count": 3,
                 "weekend": false
               }
             ]
@@ -4418,8 +3924,8 @@ window.ACTUAL_REPORT_DATA={
           "total": 52,
           "metrics": {
             "fact": {
-              "sum": 2428410,
-              "count": 15,
+              "sum": 2523630,
+              "count": 17,
               "series": [
                 {
                   "key": "w21",
@@ -4452,64 +3958,26 @@ window.ACTUAL_REPORT_DATA={
                 {
                   "key": "w25",
                   "label": "21.09–27.09",
-                  "sum": 327800,
-                  "count": 3,
+                  "sum": 423020,
+                  "count": 5,
                   "weekend": false
                 }
               ]
             },
             "prepaid": {
-              "sum": 97100,
-              "count": 2,
-              "series": [
-                {
-                  "key": "w25",
-                  "label": "21.09–27.09",
-                  "sum": 97100,
-                  "count": 2,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "weighted": {
-              "sum": 19500,
-              "count": 2,
-              "series": [
-                {
-                  "key": "w25",
-                  "label": "21.09–27.09",
-                  "sum": 4500,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w26",
-                  "label": "28.09–30.09",
-                  "sum": 15000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "raw": {
-              "sum": 84000,
-              "count": 2,
-              "series": [
-                {
-                  "key": "w25",
-                  "label": "21.09–27.09",
-                  "sum": 9000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w26",
-                  "label": "28.09–30.09",
-                  "sum": 75000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             }
           },
           "plan": 18423331
@@ -4517,11 +3985,11 @@ window.ACTUAL_REPORT_DATA={
         "Варвара Чугреева|B2C": {
           "name": "Варвара Чугреева",
           "direction": "B2C",
-          "total": 117,
+          "total": 115,
           "metrics": {
             "fact": {
-              "sum": 3064210,
-              "count": 27,
+              "sum": 3407310,
+              "count": 28,
               "series": [
                 {
                   "key": "w18",
@@ -4571,68 +4039,38 @@ window.ACTUAL_REPORT_DATA={
                   "sum": 602500,
                   "count": 3,
                   "weekend": false
+                },
+                {
+                  "key": "w25",
+                  "label": "21.09–27.09",
+                  "sum": 343100,
+                  "count": 1,
+                  "weekend": false
                 }
               ]
             },
             "prepaid": {
-              "sum": 384666,
-              "count": 3,
+              "sum": 21300,
+              "count": 2,
               "series": [
-                {
-                  "key": "w25",
-                  "label": "21.09–27.09",
-                  "sum": 366666,
-                  "count": 1,
-                  "weekend": false
-                },
                 {
                   "key": "w26",
                   "label": "28.09–30.09",
-                  "sum": 18000,
+                  "sum": 21300,
                   "count": 2,
                   "weekend": false
                 }
               ]
             },
             "weighted": {
-              "sum": 85000,
-              "count": 3,
-              "series": [
-                {
-                  "key": "w08",
-                  "label": "25.05–31.05",
-                  "sum": 50000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w25",
-                  "label": "21.09–27.09",
-                  "sum": 35000,
-                  "count": 2,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "raw": {
-              "sum": 200000,
-              "count": 3,
-              "series": [
-                {
-                  "key": "w08",
-                  "label": "25.05–31.05",
-                  "sum": 100000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w25",
-                  "label": "21.09–27.09",
-                  "sum": 100000,
-                  "count": 2,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             }
           },
           "plan": 24763156
@@ -4640,11 +4078,11 @@ window.ACTUAL_REPORT_DATA={
         "Лилия Рамазанова|B2C": {
           "name": "Лилия Рамазанова",
           "direction": "B2C",
-          "total": 121,
+          "total": 120,
           "metrics": {
             "fact": {
-              "sum": 3537390,
-              "count": 28,
+              "sum": 3706020,
+              "count": 29,
               "series": [
                 {
                   "key": "w19",
@@ -4687,75 +4125,30 @@ window.ACTUAL_REPORT_DATA={
                   "sum": 469940,
                   "count": 3,
                   "weekend": false
+                },
+                {
+                  "key": "w25",
+                  "label": "21.09–27.09",
+                  "sum": 168630,
+                  "count": 1,
+                  "weekend": false
                 }
               ]
             },
             "prepaid": {
-              "sum": 95000,
-              "count": 1,
-              "series": [
-                {
-                  "key": "w25",
-                  "label": "21.09–27.09",
-                  "sum": 95000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "weighted": {
-              "sum": 240000,
-              "count": 8,
-              "series": [
-                {
-                  "key": "w24",
-                  "label": "14.09–20.09",
-                  "sum": 9000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w25",
-                  "label": "21.09–27.09",
-                  "sum": 177500,
-                  "count": 5,
-                  "weekend": false
-                },
-                {
-                  "key": "w26",
-                  "label": "28.09–30.09",
-                  "sum": 53500,
-                  "count": 2,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "raw": {
-              "sum": 570000,
-              "count": 8,
-              "series": [
-                {
-                  "key": "w24",
-                  "label": "14.09–20.09",
-                  "sum": 45000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w25",
-                  "label": "21.09–27.09",
-                  "sum": 385000,
-                  "count": 5,
-                  "weekend": false
-                },
-                {
-                  "key": "w26",
-                  "label": "28.09–30.09",
-                  "sum": 140000,
-                  "count": 2,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             }
           },
           "plan": 24763156
@@ -4763,11 +4156,11 @@ window.ACTUAL_REPORT_DATA={
         "Людмила Запорожец|B2C": {
           "name": "Людмила Запорожец",
           "direction": "B2C",
-          "total": 561,
+          "total": 560,
           "metrics": {
             "fact": {
-              "sum": 23048695,
-              "count": 161,
+              "sum": 23075695,
+              "count": 162,
               "series": [
                 {
                   "key": "w05",
@@ -4912,64 +4305,26 @@ window.ACTUAL_REPORT_DATA={
                 {
                   "key": "w25",
                   "label": "21.09–27.09",
-                  "sum": 32000,
-                  "count": 1,
+                  "sum": 59000,
+                  "count": 2,
                   "weekend": false
                 }
               ]
             },
             "prepaid": {
-              "sum": 80000,
-              "count": 1,
-              "series": [
-                {
-                  "key": "w25",
-                  "label": "21.09–27.09",
-                  "sum": 80000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "weighted": {
-              "sum": 60000,
-              "count": 2,
-              "series": [
-                {
-                  "key": "w23",
-                  "label": "07.09–13.09",
-                  "sum": 50000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w25",
-                  "label": "21.09–27.09",
-                  "sum": 10000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "raw": {
-              "sum": 150000,
-              "count": 2,
-              "series": [
-                {
-                  "key": "w23",
-                  "label": "07.09–13.09",
-                  "sum": 100000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w25",
-                  "label": "21.09–27.09",
-                  "sum": 50000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             }
           },
           "plan": 60097372
@@ -4980,8 +4335,8 @@ window.ACTUAL_REPORT_DATA={
           "total": 95,
           "metrics": {
             "fact": {
-              "sum": 13380014,
-              "count": 14,
+              "sum": 14761767,
+              "count": 15,
               "series": [
                 {
                   "key": "w08",
@@ -5059,13 +4414,7 @@ window.ACTUAL_REPORT_DATA={
                   "sum": 1596600,
                   "count": 2,
                   "weekend": false
-                }
-              ]
-            },
-            "prepaid": {
-              "sum": 1381753,
-              "count": 1,
-              "series": [
+                },
                 {
                   "key": "w24",
                   "label": "14.09–20.09",
@@ -5074,6 +4423,11 @@ window.ACTUAL_REPORT_DATA={
                   "weekend": false
                 }
               ]
+            },
+            "prepaid": {
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "weighted": {
               "sum": 0,
@@ -6108,14 +5462,21 @@ window.ACTUAL_REPORT_DATA={
         },
         "prepaid": {
           "B2C": {
-            "sum": 715750,
-            "count": 7,
+            "sum": 1043460,
+            "count": 10,
             "series": [
               {
                 "key": "w00",
                 "label": "01.10–04.10",
-                "sum": 591750,
-                "count": 5,
+                "sum": 862940,
+                "count": 7,
+                "weekend": false
+              },
+              {
+                "key": "w01",
+                "label": "05.10–11.10",
+                "sum": 56520,
+                "count": 1,
                 "weekend": false
               },
               {
@@ -6140,14 +5501,21 @@ window.ACTUAL_REPORT_DATA={
             "series": []
           },
           "all": {
-            "sum": 715750,
-            "count": 7,
+            "sum": 1043460,
+            "count": 10,
             "series": [
               {
                 "key": "w00",
                 "label": "01.10–04.10",
-                "sum": 591750,
-                "count": 5,
+                "sum": 862940,
+                "count": 7,
+                "weekend": false
+              },
+              {
+                "key": "w01",
+                "label": "05.10–11.10",
+                "sum": 56520,
+                "count": 1,
                 "weekend": false
               },
               {
@@ -6169,42 +5537,49 @@ window.ACTUAL_REPORT_DATA={
         },
         "weighted": {
           "B2C": {
-            "sum": 976300,
-            "count": 35,
+            "sum": 1036300,
+            "count": 28,
             "series": [
               {
                 "key": "w00",
                 "label": "01.10–04.10",
-                "sum": 151000,
-                "count": 7,
+                "sum": 127500,
+                "count": 5,
                 "weekend": false
               },
               {
                 "key": "w01",
                 "label": "05.10–11.10",
-                "sum": 225500,
-                "count": 6,
+                "sum": 67500,
+                "count": 3,
                 "weekend": false
               },
               {
                 "key": "w02",
                 "label": "12.10–18.10",
-                "sum": 263000,
-                "count": 9,
+                "sum": 491000,
+                "count": 7,
                 "weekend": false
               },
               {
                 "key": "w03",
                 "label": "19.10–25.10",
-                "sum": 64500,
-                "count": 4,
+                "sum": 58500,
+                "count": 3,
                 "weekend": false
               },
               {
                 "key": "w04",
                 "label": "26.10–01.11",
-                "sum": 130300,
+                "sum": 119800,
                 "count": 4,
+                "weekend": false
+              },
+              {
+                "key": "w06",
+                "label": "09.11–15.11",
+                "sum": 10000,
+                "count": 1,
                 "weekend": false
               },
               {
@@ -6215,16 +5590,16 @@ window.ACTUAL_REPORT_DATA={
                 "weekend": false
               },
               {
-                "key": "w10",
-                "label": "07.12–13.12",
-                "sum": 15000,
+                "key": "w08",
+                "label": "23.11–29.11",
+                "sum": 20000,
                 "count": 1,
                 "weekend": false
               },
               {
-                "key": "w13",
-                "label": "28.12–03.01",
-                "sum": 0,
+                "key": "w10",
+                "label": "07.12–13.12",
+                "sum": 15000,
                 "count": 1,
                 "weekend": false
               },
@@ -6245,42 +5620,21 @@ window.ACTUAL_REPORT_DATA={
             ]
           },
           "B2B": {
-            "sum": 69795611,
-            "count": 36,
+            "sum": 74232958,
+            "count": 34,
             "series": [
-              {
-                "key": "w00",
-                "label": "01.10–04.10",
-                "sum": 12000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "w01",
-                "label": "05.10–11.10",
-                "sum": 100000,
-                "count": 1,
-                "weekend": false
-              },
               {
                 "key": "w02",
                 "label": "12.10–18.10",
-                "sum": 504058,
-                "count": 2,
+                "sum": 2268256,
+                "count": 1,
                 "weekend": false
               },
               {
                 "key": "w03",
                 "label": "19.10–25.10",
-                "sum": 2266254,
-                "count": 2,
-                "weekend": false
-              },
-              {
-                "key": "w06",
-                "label": "09.11–15.11",
-                "sum": 625000,
-                "count": 1,
+                "sum": 3479257,
+                "count": 3,
                 "weekend": false
               },
               {
@@ -6293,28 +5647,28 @@ window.ACTUAL_REPORT_DATA={
               {
                 "key": "w09",
                 "label": "30.11–06.12",
-                "sum": 893750,
+                "sum": 863750,
                 "count": 2,
                 "weekend": false
               },
               {
                 "key": "w10",
                 "label": "07.12–13.12",
-                "sum": 3575000,
+                "sum": 4067840,
                 "count": 3,
                 "weekend": false
               },
               {
                 "key": "w11",
                 "label": "14.12–20.12",
-                "sum": 51779556,
-                "count": 12,
+                "sum": 52682442,
+                "count": 13,
                 "weekend": false
               },
               {
                 "key": "w12",
                 "label": "21.12–27.12",
-                "sum": 3841638,
+                "sum": 4673056,
                 "count": 6,
                 "weekend": false
               },
@@ -6342,48 +5696,48 @@ window.ACTUAL_REPORT_DATA={
             ]
           },
           "all": {
-            "sum": 70771911,
-            "count": 71,
+            "sum": 75269258,
+            "count": 62,
             "series": [
               {
                 "key": "w00",
                 "label": "01.10–04.10",
-                "sum": 163000,
-                "count": 8,
+                "sum": 127500,
+                "count": 5,
                 "weekend": false
               },
               {
                 "key": "w01",
                 "label": "05.10–11.10",
-                "sum": 325500,
-                "count": 7,
+                "sum": 67500,
+                "count": 3,
                 "weekend": false
               },
               {
                 "key": "w02",
                 "label": "12.10–18.10",
-                "sum": 767058,
-                "count": 11,
+                "sum": 2759256,
+                "count": 8,
                 "weekend": false
               },
               {
                 "key": "w03",
                 "label": "19.10–25.10",
-                "sum": 2330754,
+                "sum": 3537757,
                 "count": 6,
                 "weekend": false
               },
               {
                 "key": "w04",
                 "label": "26.10–01.11",
-                "sum": 130300,
+                "sum": 119800,
                 "count": 4,
                 "weekend": false
               },
               {
                 "key": "w06",
                 "label": "09.11–15.11",
-                "sum": 625000,
+                "sum": 10000,
                 "count": 1,
                 "weekend": false
               },
@@ -6395,30 +5749,37 @@ window.ACTUAL_REPORT_DATA={
                 "weekend": false
               },
               {
+                "key": "w08",
+                "label": "23.11–29.11",
+                "sum": 20000,
+                "count": 1,
+                "weekend": false
+              },
+              {
                 "key": "w09",
                 "label": "30.11–06.12",
-                "sum": 893750,
+                "sum": 863750,
                 "count": 2,
                 "weekend": false
               },
               {
                 "key": "w10",
                 "label": "07.12–13.12",
-                "sum": 3590000,
+                "sum": 4082840,
                 "count": 4,
                 "weekend": false
               },
               {
                 "key": "w11",
                 "label": "14.12–20.12",
-                "sum": 51779556,
-                "count": 12,
+                "sum": 52682442,
+                "count": 13,
                 "weekend": false
               },
               {
                 "key": "w12",
                 "label": "21.12–27.12",
-                "sum": 3841638,
+                "sum": 4673056,
                 "count": 6,
                 "weekend": false
               },
@@ -6426,7 +5787,7 @@ window.ACTUAL_REPORT_DATA={
                 "key": "w13",
                 "label": "28.12–03.01",
                 "sum": 145799,
-                "count": 2,
+                "count": 1,
                 "weekend": false
               },
               {
@@ -6462,35 +5823,35 @@ window.ACTUAL_REPORT_DATA={
         },
         "raw": {
           "B2C": {
-            "sum": 2184000,
-            "count": 35,
+            "sum": 2058000,
+            "count": 28,
             "series": [
               {
                 "key": "w00",
                 "label": "01.10–04.10",
-                "sum": 380000,
-                "count": 7,
+                "sum": 225000,
+                "count": 5,
                 "weekend": false
               },
               {
                 "key": "w01",
                 "label": "05.10–11.10",
-                "sum": 535000,
-                "count": 6,
+                "sum": 135000,
+                "count": 3,
                 "weekend": false
               },
               {
                 "key": "w02",
                 "label": "12.10–18.10",
-                "sum": 580000,
-                "count": 9,
+                "sum": 949000,
+                "count": 7,
                 "weekend": false
               },
               {
                 "key": "w03",
                 "label": "19.10–25.10",
-                "sum": 130000,
-                "count": 4,
+                "sum": 100000,
+                "count": 3,
                 "weekend": false
               },
               {
@@ -6501,6 +5862,13 @@ window.ACTUAL_REPORT_DATA={
                 "weekend": false
               },
               {
+                "key": "w06",
+                "label": "09.11–15.11",
+                "sum": 50000,
+                "count": 1,
+                "weekend": false
+              },
+              {
                 "key": "w07",
                 "label": "16.11–22.11",
                 "sum": 10000,
@@ -6508,16 +5876,16 @@ window.ACTUAL_REPORT_DATA={
                 "weekend": false
               },
               {
-                "key": "w10",
-                "label": "07.12–13.12",
-                "sum": 30000,
+                "key": "w08",
+                "label": "23.11–29.11",
+                "sum": 40000,
                 "count": 1,
                 "weekend": false
               },
               {
-                "key": "w13",
-                "label": "28.12–03.01",
-                "sum": 0,
+                "key": "w10",
+                "label": "07.12–13.12",
+                "sum": 30000,
                 "count": 1,
                 "weekend": false
               },
@@ -6538,42 +5906,21 @@ window.ACTUAL_REPORT_DATA={
             ]
           },
           "B2B": {
-            "sum": 98839680,
-            "count": 36,
+            "sum": 99567133,
+            "count": 34,
             "series": [
-              {
-                "key": "w00",
-                "label": "01.10–04.10",
-                "sum": 60000,
-                "count": 1,
-                "weekend": false
-              },
-              {
-                "key": "w01",
-                "label": "05.10–11.10",
-                "sum": 500000,
-                "count": 1,
-                "weekend": false
-              },
               {
                 "key": "w02",
                 "label": "12.10–18.10",
-                "sum": 2520286,
-                "count": 2,
+                "sum": 2520285,
+                "count": 1,
                 "weekend": false
               },
               {
                 "key": "w03",
                 "label": "19.10–25.10",
-                "sum": 4532508,
-                "count": 2,
-                "weekend": false
-              },
-              {
-                "key": "w06",
-                "label": "09.11–15.11",
-                "sum": 1250000,
-                "count": 1,
+                "sum": 4532509,
+                "count": 3,
                 "weekend": false
               },
               {
@@ -6586,28 +5933,28 @@ window.ACTUAL_REPORT_DATA={
               {
                 "key": "w09",
                 "label": "30.11–06.12",
-                "sum": 1787500,
+                "sum": 1727500,
                 "count": 2,
                 "weekend": false
               },
               {
                 "key": "w10",
                 "label": "07.12–13.12",
-                "sum": 7150000,
+                "sum": 6297600,
                 "count": 3,
                 "weekend": false
               },
               {
                 "key": "w11",
                 "label": "14.12–20.12",
-                "sum": 61669411,
-                "count": 12,
+                "sum": 63633841,
+                "count": 13,
                 "weekend": false
               },
               {
                 "key": "w12",
                 "label": "21.12–27.12",
-                "sum": 7860690,
+                "sum": 9346113,
                 "count": 6,
                 "weekend": false
               },
@@ -6635,34 +5982,34 @@ window.ACTUAL_REPORT_DATA={
             ]
           },
           "all": {
-            "sum": 101023680,
-            "count": 71,
+            "sum": 101625133,
+            "count": 62,
             "series": [
               {
                 "key": "w00",
                 "label": "01.10–04.10",
-                "sum": 440000,
-                "count": 8,
+                "sum": 225000,
+                "count": 5,
                 "weekend": false
               },
               {
                 "key": "w01",
                 "label": "05.10–11.10",
-                "sum": 1035000,
-                "count": 7,
+                "sum": 135000,
+                "count": 3,
                 "weekend": false
               },
               {
                 "key": "w02",
                 "label": "12.10–18.10",
-                "sum": 3100286,
-                "count": 11,
+                "sum": 3469285,
+                "count": 8,
                 "weekend": false
               },
               {
                 "key": "w03",
                 "label": "19.10–25.10",
-                "sum": 4662508,
+                "sum": 4632509,
                 "count": 6,
                 "weekend": false
               },
@@ -6676,7 +6023,7 @@ window.ACTUAL_REPORT_DATA={
               {
                 "key": "w06",
                 "label": "09.11–15.11",
-                "sum": 1250000,
+                "sum": 50000,
                 "count": 1,
                 "weekend": false
               },
@@ -6688,30 +6035,37 @@ window.ACTUAL_REPORT_DATA={
                 "weekend": false
               },
               {
+                "key": "w08",
+                "label": "23.11–29.11",
+                "sum": 40000,
+                "count": 1,
+                "weekend": false
+              },
+              {
                 "key": "w09",
                 "label": "30.11–06.12",
-                "sum": 1787500,
+                "sum": 1727500,
                 "count": 2,
                 "weekend": false
               },
               {
                 "key": "w10",
                 "label": "07.12–13.12",
-                "sum": 7180000,
+                "sum": 6327600,
                 "count": 4,
                 "weekend": false
               },
               {
                 "key": "w11",
                 "label": "14.12–20.12",
-                "sum": 61669411,
-                "count": 12,
+                "sum": 63633841,
+                "count": 13,
                 "weekend": false
               },
               {
                 "key": "w12",
                 "label": "21.12–27.12",
-                "sum": 7860690,
+                "sum": 9346113,
                 "count": 6,
                 "weekend": false
               },
@@ -6719,7 +6073,7 @@ window.ACTUAL_REPORT_DATA={
                 "key": "w13",
                 "label": "28.12–03.01",
                 "sum": 161999,
-                "count": 2,
+                "count": 1,
                 "weekend": false
               },
               {
@@ -6758,7 +6112,7 @@ window.ACTUAL_REPORT_DATA={
         "Александр Воронин|B2C": {
           "name": "Александр Воронин",
           "direction": "B2C",
-          "total": 9,
+          "total": 4,
           "metrics": {
             "fact": {
               "sum": 0,
@@ -6766,14 +6120,14 @@ window.ACTUAL_REPORT_DATA={
               "series": []
             },
             "prepaid": {
-              "sum": 362750,
-              "count": 4,
+              "sum": 170000,
+              "count": 2,
               "series": [
                 {
                   "key": "w00",
                   "label": "01.10–04.10",
-                  "sum": 292750,
-                  "count": 3,
+                  "sum": 100000,
+                  "count": 1,
                   "weekend": false
                 },
                 {
@@ -6786,58 +6140,14 @@ window.ACTUAL_REPORT_DATA={
               ]
             },
             "weighted": {
-              "sum": 42800,
-              "count": 3,
-              "series": [
-                {
-                  "key": "w04",
-                  "label": "26.10–01.11",
-                  "sum": 2800,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w10",
-                  "label": "07.12–13.12",
-                  "sum": 15000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w14",
-                  "label": "04.01–10.01",
-                  "sum": 25000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "raw": {
-              "sum": 94000,
-              "count": 3,
-              "series": [
-                {
-                  "key": "w04",
-                  "label": "26.10–01.11",
-                  "sum": 14000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w10",
-                  "label": "07.12–13.12",
-                  "sum": 30000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w14",
-                  "label": "04.01–10.01",
-                  "sum": 50000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             }
           },
           "plan": 0
@@ -6845,7 +6155,7 @@ window.ACTUAL_REPORT_DATA={
         "Варвара Чугреева|B2C": {
           "name": "Варвара Чугреева",
           "direction": "B2C",
-          "total": 19,
+          "total": 8,
           "metrics": {
             "fact": {
               "sum": 0,
@@ -6853,85 +6163,19 @@ window.ACTUAL_REPORT_DATA={
               "series": []
             },
             "prepaid": {
-              "sum": 149000,
-              "count": 1,
-              "series": [
-                {
-                  "key": "w00",
-                  "label": "01.10–04.10",
-                  "sum": 149000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "weighted": {
-              "sum": 251000,
-              "count": 12,
-              "series": [
-                {
-                  "key": "w00",
-                  "label": "01.10–04.10",
-                  "sum": 57000,
-                  "count": 3,
-                  "weekend": false
-                },
-                {
-                  "key": "w01",
-                  "label": "05.10–11.10",
-                  "sum": 72500,
-                  "count": 3,
-                  "weekend": false
-                },
-                {
-                  "key": "w02",
-                  "label": "12.10–18.10",
-                  "sum": 57000,
-                  "count": 2,
-                  "weekend": false
-                },
-                {
-                  "key": "w03",
-                  "label": "19.10–25.10",
-                  "sum": 64500,
-                  "count": 4,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "raw": {
-              "sum": 530000,
-              "count": 12,
-              "series": [
-                {
-                  "key": "w00",
-                  "label": "01.10–04.10",
-                  "sum": 120000,
-                  "count": 3,
-                  "weekend": false
-                },
-                {
-                  "key": "w01",
-                  "label": "05.10–11.10",
-                  "sum": 145000,
-                  "count": 3,
-                  "weekend": false
-                },
-                {
-                  "key": "w02",
-                  "label": "12.10–18.10",
-                  "sum": 135000,
-                  "count": 2,
-                  "weekend": false
-                },
-                {
-                  "key": "w03",
-                  "label": "19.10–25.10",
-                  "sum": 130000,
-                  "count": 4,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             }
           },
           "plan": 0
@@ -6939,7 +6183,7 @@ window.ACTUAL_REPORT_DATA={
         "Лилия Рамазанова|B2C": {
           "name": "Лилия Рамазанова",
           "direction": "B2C",
-          "total": 17,
+          "total": 16,
           "metrics": {
             "fact": {
               "sum": 0,
@@ -6952,100 +6196,14 @@ window.ACTUAL_REPORT_DATA={
               "series": []
             },
             "weighted": {
-              "sum": 210500,
-              "count": 9,
-              "series": [
-                {
-                  "key": "w00",
-                  "label": "01.10–04.10",
-                  "sum": 17000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w01",
-                  "label": "05.10–11.10",
-                  "sum": 28000,
-                  "count": 2,
-                  "weekend": false
-                },
-                {
-                  "key": "w02",
-                  "label": "12.10–18.10",
-                  "sum": 48000,
-                  "count": 3,
-                  "weekend": false
-                },
-                {
-                  "key": "w04",
-                  "label": "26.10–01.11",
-                  "sum": 17500,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w13",
-                  "label": "28.12–03.01",
-                  "sum": 0,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w17",
-                  "label": "25.01–31.01",
-                  "sum": 100000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "raw": {
-              "sum": 640000,
-              "count": 9,
-              "series": [
-                {
-                  "key": "w00",
-                  "label": "01.10–04.10",
-                  "sum": 85000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w01",
-                  "label": "05.10–11.10",
-                  "sum": 140000,
-                  "count": 2,
-                  "weekend": false
-                },
-                {
-                  "key": "w02",
-                  "label": "12.10–18.10",
-                  "sum": 180000,
-                  "count": 3,
-                  "weekend": false
-                },
-                {
-                  "key": "w04",
-                  "label": "26.10–01.11",
-                  "sum": 35000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w13",
-                  "label": "28.12–03.01",
-                  "sum": 0,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w17",
-                  "label": "25.01–31.01",
-                  "sum": 200000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             }
           },
           "plan": 0
@@ -7053,7 +6211,7 @@ window.ACTUAL_REPORT_DATA={
         "Людмила Запорожец|B2C": {
           "name": "Людмила Запорожец",
           "direction": "B2C",
-          "total": 17,
+          "total": 7,
           "metrics": {
             "fact": {
               "sum": 0,
@@ -7061,16 +6219,9 @@ window.ACTUAL_REPORT_DATA={
               "series": []
             },
             "prepaid": {
-              "sum": 204000,
-              "count": 2,
+              "sum": 54000,
+              "count": 1,
               "series": [
-                {
-                  "key": "w00",
-                  "label": "01.10–04.10",
-                  "sum": 150000,
-                  "count": 1,
-                  "weekend": false
-                },
                 {
                   "key": "w12",
                   "label": "21.12–27.12",
@@ -7081,86 +6232,14 @@ window.ACTUAL_REPORT_DATA={
               ]
             },
             "weighted": {
-              "sum": 463000,
-              "count": 10,
-              "series": [
-                {
-                  "key": "w00",
-                  "label": "01.10–04.10",
-                  "sum": 77000,
-                  "count": 3,
-                  "weekend": false
-                },
-                {
-                  "key": "w01",
-                  "label": "05.10–11.10",
-                  "sum": 125000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w02",
-                  "label": "12.10–18.10",
-                  "sum": 149000,
-                  "count": 3,
-                  "weekend": false
-                },
-                {
-                  "key": "w04",
-                  "label": "26.10–01.11",
-                  "sum": 110000,
-                  "count": 2,
-                  "weekend": false
-                },
-                {
-                  "key": "w07",
-                  "label": "16.11–22.11",
-                  "sum": 2000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "raw": {
-              "sum": 875000,
-              "count": 10,
-              "series": [
-                {
-                  "key": "w00",
-                  "label": "01.10–04.10",
-                  "sum": 175000,
-                  "count": 3,
-                  "weekend": false
-                },
-                {
-                  "key": "w01",
-                  "label": "05.10–11.10",
-                  "sum": 250000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w02",
-                  "label": "12.10–18.10",
-                  "sum": 220000,
-                  "count": 3,
-                  "weekend": false
-                },
-                {
-                  "key": "w04",
-                  "label": "26.10–01.11",
-                  "sum": 220000,
-                  "count": 2,
-                  "weekend": false
-                },
-                {
-                  "key": "w07",
-                  "label": "16.11–22.11",
-                  "sum": 10000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             }
           },
           "plan": 0
@@ -7168,7 +6247,7 @@ window.ACTUAL_REPORT_DATA={
         "Кристина Могачева|B2B": {
           "name": "Кристина Могачева",
           "direction": "B2B",
-          "total": 15,
+          "total": 17,
           "metrics": {
             "fact": {
               "sum": 0,
@@ -7181,8 +6260,8 @@ window.ACTUAL_REPORT_DATA={
               "series": []
             },
             "weighted": {
-              "sum": 5757500,
-              "count": 9,
+              "sum": 7227500,
+              "count": 10,
               "series": [
                 {
                   "key": "w07",
@@ -7194,7 +6273,7 @@ window.ACTUAL_REPORT_DATA={
                 {
                   "key": "w09",
                   "label": "30.11–06.12",
-                  "sum": 150000,
+                  "sum": 120000,
                   "count": 1,
                   "weekend": false
                 },
@@ -7208,14 +6287,14 @@ window.ACTUAL_REPORT_DATA={
                 {
                   "key": "w11",
                   "label": "14.12–20.12",
-                  "sum": 2000000,
-                  "count": 2,
+                  "sum": 3000000,
+                  "count": 3,
                   "weekend": false
                 },
                 {
                   "key": "w12",
                   "label": "21.12–27.12",
-                  "sum": 2282500,
+                  "sum": 2782500,
                   "count": 3,
                   "weekend": false
                 },
@@ -7229,8 +6308,8 @@ window.ACTUAL_REPORT_DATA={
               ]
             },
             "raw": {
-              "sum": 11515001,
-              "count": 9,
+              "sum": 14455001,
+              "count": 10,
               "series": [
                 {
                   "key": "w07",
@@ -7242,7 +6321,7 @@ window.ACTUAL_REPORT_DATA={
                 {
                   "key": "w09",
                   "label": "30.11–06.12",
-                  "sum": 300000,
+                  "sum": 240000,
                   "count": 1,
                   "weekend": false
                 },
@@ -7256,14 +6335,14 @@ window.ACTUAL_REPORT_DATA={
                 {
                   "key": "w11",
                   "label": "14.12–20.12",
-                  "sum": 4000001,
-                  "count": 2,
+                  "sum": 6000001,
+                  "count": 3,
                   "weekend": false
                 },
                 {
                   "key": "w12",
                   "label": "21.12–27.12",
-                  "sum": 4565000,
+                  "sum": 5565000,
                   "count": 3,
                   "weekend": false
                 },
@@ -7282,7 +6361,7 @@ window.ACTUAL_REPORT_DATA={
         "Яна Кузнецова|B2B": {
           "name": "Яна Кузнецова",
           "direction": "B2B",
-          "total": 37,
+          "total": 40,
           "metrics": {
             "fact": {
               "sum": 0,
@@ -7295,42 +6374,21 @@ window.ACTUAL_REPORT_DATA={
               "series": []
             },
             "weighted": {
-              "sum": 19038111,
-              "count": 26,
+              "sum": 22005458,
+              "count": 23,
               "series": [
-                {
-                  "key": "w00",
-                  "label": "01.10–04.10",
-                  "sum": 12000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w01",
-                  "label": "05.10–11.10",
-                  "sum": 100000,
-                  "count": 1,
-                  "weekend": false
-                },
                 {
                   "key": "w02",
                   "label": "12.10–18.10",
-                  "sum": 504058,
-                  "count": 2,
+                  "sum": 2268256,
+                  "count": 1,
                   "weekend": false
                 },
                 {
                   "key": "w03",
                   "label": "19.10–25.10",
-                  "sum": 2266254,
-                  "count": 2,
-                  "weekend": false
-                },
-                {
-                  "key": "w06",
-                  "label": "09.11–15.11",
-                  "sum": 625000,
-                  "count": 1,
+                  "sum": 3479257,
+                  "count": 3,
                   "weekend": false
                 },
                 {
@@ -7343,21 +6401,21 @@ window.ACTUAL_REPORT_DATA={
                 {
                   "key": "w10",
                   "label": "07.12–13.12",
-                  "sum": 3075000,
+                  "sum": 3567840,
                   "count": 2,
                   "weekend": false
                 },
                 {
                   "key": "w11",
                   "label": "14.12–20.12",
-                  "sum": 4779556,
+                  "sum": 4682442,
                   "count": 9,
                   "weekend": false
                 },
                 {
                   "key": "w12",
                   "label": "21.12–27.12",
-                  "sum": 1559138,
+                  "sum": 1890556,
                   "count": 3,
                   "weekend": false
                 },
@@ -7385,42 +6443,21 @@ window.ACTUAL_REPORT_DATA={
               ]
             },
             "raw": {
-              "sum": 37324679,
-              "count": 26,
+              "sum": 35112132,
+              "count": 23,
               "series": [
-                {
-                  "key": "w00",
-                  "label": "01.10–04.10",
-                  "sum": 60000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w01",
-                  "label": "05.10–11.10",
-                  "sum": 500000,
-                  "count": 1,
-                  "weekend": false
-                },
                 {
                   "key": "w02",
                   "label": "12.10–18.10",
-                  "sum": 2520286,
-                  "count": 2,
+                  "sum": 2520285,
+                  "count": 1,
                   "weekend": false
                 },
                 {
                   "key": "w03",
                   "label": "19.10–25.10",
-                  "sum": 4532508,
-                  "count": 2,
-                  "weekend": false
-                },
-                {
-                  "key": "w06",
-                  "label": "09.11–15.11",
-                  "sum": 1250000,
-                  "count": 1,
+                  "sum": 4532509,
+                  "count": 3,
                   "weekend": false
                 },
                 {
@@ -7433,21 +6470,21 @@ window.ACTUAL_REPORT_DATA={
                 {
                   "key": "w10",
                   "label": "07.12–13.12",
-                  "sum": 6150000,
+                  "sum": 5297600,
                   "count": 2,
                   "weekend": false
                 },
                 {
                   "key": "w11",
                   "label": "14.12–20.12",
-                  "sum": 7669410,
+                  "sum": 7633840,
                   "count": 9,
                   "weekend": false
                 },
                 {
                   "key": "w12",
                   "label": "21.12–27.12",
-                  "sum": 3295690,
+                  "sum": 3781113,
                   "count": 3,
                   "weekend": false
                 },
@@ -8198,8 +7235,8 @@ window.ACTUAL_REPORT_DATA={
         },
         "weighted": {
           "B2C": {
-            "sum": 2747000,
-            "count": 28,
+            "sum": 3567630,
+            "count": 36,
             "series": [
               {
                 "key": "w03",
@@ -8211,22 +7248,22 @@ window.ACTUAL_REPORT_DATA={
               {
                 "key": "w06",
                 "label": "10.05–16.05",
-                "sum": 450000,
-                "count": 1,
+                "sum": 457000,
+                "count": 2,
                 "weekend": false
               },
               {
                 "key": "w07",
                 "label": "17.05–23.05",
-                "sum": 680000,
-                "count": 8,
+                "sum": 1145000,
+                "count": 13,
                 "weekend": false
               },
               {
                 "key": "w08",
                 "label": "24.05–30.05",
-                "sum": 930000,
-                "count": 8,
+                "sum": 1278630,
+                "count": 10,
                 "weekend": false
               },
               {
@@ -8267,7 +7304,7 @@ window.ACTUAL_REPORT_DATA={
             ]
           },
           "B2B": {
-            "sum": 25758690,
+            "sum": 10758690,
             "count": 4,
             "series": [
               {
@@ -8280,7 +7317,7 @@ window.ACTUAL_REPORT_DATA={
               {
                 "key": "w17",
                 "label": "26.07–01.08",
-                "sum": 25000000,
+                "sum": 10000000,
                 "count": 1,
                 "weekend": false
               },
@@ -8294,8 +7331,8 @@ window.ACTUAL_REPORT_DATA={
             ]
           },
           "all": {
-            "sum": 28505690,
-            "count": 32,
+            "sum": 14326320,
+            "count": 40,
             "series": [
               {
                 "key": "w03",
@@ -8307,22 +7344,22 @@ window.ACTUAL_REPORT_DATA={
               {
                 "key": "w06",
                 "label": "10.05–16.05",
-                "sum": 450000,
-                "count": 1,
+                "sum": 457000,
+                "count": 2,
                 "weekend": false
               },
               {
                 "key": "w07",
                 "label": "17.05–23.05",
-                "sum": 680000,
-                "count": 8,
+                "sum": 1145000,
+                "count": 13,
                 "weekend": false
               },
               {
                 "key": "w08",
                 "label": "24.05–30.05",
-                "sum": 930000,
-                "count": 8,
+                "sum": 1278630,
+                "count": 10,
                 "weekend": false
               },
               {
@@ -8370,7 +7407,7 @@ window.ACTUAL_REPORT_DATA={
               {
                 "key": "w17",
                 "label": "26.07–01.08",
-                "sum": 25000000,
+                "sum": 10000000,
                 "count": 1,
                 "weekend": false
               },
@@ -8386,8 +7423,8 @@ window.ACTUAL_REPORT_DATA={
         },
         "raw": {
           "B2C": {
-            "sum": 5635000,
-            "count": 28,
+            "sum": 7060700,
+            "count": 36,
             "series": [
               {
                 "key": "w03",
@@ -8399,22 +7436,22 @@ window.ACTUAL_REPORT_DATA={
               {
                 "key": "w06",
                 "label": "10.05–16.05",
-                "sum": 500000,
-                "count": 1,
+                "sum": 535000,
+                "count": 2,
                 "weekend": false
               },
               {
                 "key": "w07",
                 "label": "17.05–23.05",
-                "sum": 1600000,
-                "count": 8,
+                "sum": 2550000,
+                "count": 13,
                 "weekend": false
               },
               {
                 "key": "w08",
                 "label": "24.05–30.05",
-                "sum": 1950000,
-                "count": 8,
+                "sum": 2390700,
+                "count": 10,
                 "weekend": false
               },
               {
@@ -8482,8 +7519,8 @@ window.ACTUAL_REPORT_DATA={
             ]
           },
           "all": {
-            "sum": 56752380,
-            "count": 32,
+            "sum": 58178080,
+            "count": 40,
             "series": [
               {
                 "key": "w03",
@@ -8495,22 +7532,22 @@ window.ACTUAL_REPORT_DATA={
               {
                 "key": "w06",
                 "label": "10.05–16.05",
-                "sum": 500000,
-                "count": 1,
+                "sum": 535000,
+                "count": 2,
                 "weekend": false
               },
               {
                 "key": "w07",
                 "label": "17.05–23.05",
-                "sum": 1600000,
-                "count": 8,
+                "sum": 2550000,
+                "count": 13,
                 "weekend": false
               },
               {
                 "key": "w08",
                 "label": "24.05–30.05",
-                "sum": 1950000,
-                "count": 8,
+                "sum": 2390700,
+                "count": 10,
                 "weekend": false
               },
               {
@@ -8574,68 +7611,10 @@ window.ACTUAL_REPORT_DATA={
         }
       },
       "managers": {
-        "Александр Воронин|B2C": {
-          "name": "Александр Воронин",
-          "direction": "B2C",
-          "total": 4,
-          "metrics": {
-            "fact": {
-              "sum": 0,
-              "count": 0,
-              "series": []
-            },
-            "prepaid": {
-              "sum": 0,
-              "count": 0,
-              "series": []
-            },
-            "weighted": {
-              "sum": 480000,
-              "count": 4,
-              "series": [
-                {
-                  "key": "w07",
-                  "label": "17.05–23.05",
-                  "sum": 80000,
-                  "count": 2,
-                  "weekend": false
-                },
-                {
-                  "key": "w08",
-                  "label": "24.05–30.05",
-                  "sum": 400000,
-                  "count": 2,
-                  "weekend": false
-                }
-              ]
-            },
-            "raw": {
-              "sum": 1050000,
-              "count": 4,
-              "series": [
-                {
-                  "key": "w07",
-                  "label": "17.05–23.05",
-                  "sum": 250000,
-                  "count": 2,
-                  "weekend": false
-                },
-                {
-                  "key": "w08",
-                  "label": "24.05–30.05",
-                  "sum": 800000,
-                  "count": 2,
-                  "weekend": false
-                }
-              ]
-            }
-          },
-          "plan": 0
-        },
         "Варвара Чугреева|B2C": {
           "name": "Варвара Чугреева",
           "direction": "B2C",
-          "total": 10,
+          "total": 3,
           "metrics": {
             "fact": {
               "sum": 0,
@@ -8648,72 +7627,14 @@ window.ACTUAL_REPORT_DATA={
               "series": []
             },
             "weighted": {
-              "sum": 457000,
-              "count": 7,
-              "series": [
-                {
-                  "key": "w03",
-                  "label": "19.04–25.04",
-                  "sum": 7000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w08",
-                  "label": "24.05–30.05",
-                  "sum": 150000,
-                  "count": 2,
-                  "weekend": false
-                },
-                {
-                  "key": "w12",
-                  "label": "21.06–27.06",
-                  "sum": 50000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w13",
-                  "label": "28.06–04.07",
-                  "sum": 250000,
-                  "count": 3,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "raw": {
-              "sum": 935000,
-              "count": 7,
-              "series": [
-                {
-                  "key": "w03",
-                  "label": "19.04–25.04",
-                  "sum": 35000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w08",
-                  "label": "24.05–30.05",
-                  "sum": 300000,
-                  "count": 2,
-                  "weekend": false
-                },
-                {
-                  "key": "w12",
-                  "label": "21.06–27.06",
-                  "sum": 100000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w13",
-                  "label": "28.06–04.07",
-                  "sum": 500000,
-                  "count": 3,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             }
           },
           "plan": 0
@@ -8721,7 +7642,7 @@ window.ACTUAL_REPORT_DATA={
         "Лилия Рамазанова|B2C": {
           "name": "Лилия Рамазанова",
           "direction": "B2C",
-          "total": 10,
+          "total": 1,
           "metrics": {
             "fact": {
               "sum": 0,
@@ -8734,100 +7655,14 @@ window.ACTUAL_REPORT_DATA={
               "series": []
             },
             "weighted": {
-              "sum": 530000,
-              "count": 8,
-              "series": [
-                {
-                  "key": "w07",
-                  "label": "17.05–23.05",
-                  "sum": 275000,
-                  "count": 3,
-                  "weekend": false
-                },
-                {
-                  "key": "w08",
-                  "label": "24.05–30.05",
-                  "sum": 75000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w11",
-                  "label": "14.06–20.06",
-                  "sum": 30000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w12",
-                  "label": "21.06–27.06",
-                  "sum": 40000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w13",
-                  "label": "28.06–04.07",
-                  "sum": 90000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w15",
-                  "label": "12.07–18.07",
-                  "sum": 20000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "raw": {
-              "sum": 1250000,
-              "count": 8,
-              "series": [
-                {
-                  "key": "w07",
-                  "label": "17.05–23.05",
-                  "sum": 550000,
-                  "count": 3,
-                  "weekend": false
-                },
-                {
-                  "key": "w08",
-                  "label": "24.05–30.05",
-                  "sum": 150000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w11",
-                  "label": "14.06–20.06",
-                  "sum": 150000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w12",
-                  "label": "21.06–27.06",
-                  "sum": 200000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w13",
-                  "label": "28.06–04.07",
-                  "sum": 100000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w15",
-                  "label": "12.07–18.07",
-                  "sum": 100000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             }
           },
           "plan": 0
@@ -8835,7 +7670,7 @@ window.ACTUAL_REPORT_DATA={
         "Людмила Запорожец|B2C": {
           "name": "Людмила Запорожец",
           "direction": "B2C",
-          "total": 10,
+          "total": 2,
           "metrics": {
             "fact": {
               "sum": 0,
@@ -8848,86 +7683,14 @@ window.ACTUAL_REPORT_DATA={
               "series": []
             },
             "weighted": {
-              "sum": 1250000,
-              "count": 8,
-              "series": [
-                {
-                  "key": "w06",
-                  "label": "10.05–16.05",
-                  "sum": 450000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w07",
-                  "label": "17.05–23.05",
-                  "sum": 325000,
-                  "count": 3,
-                  "weekend": false
-                },
-                {
-                  "key": "w08",
-                  "label": "24.05–30.05",
-                  "sum": 275000,
-                  "count": 2,
-                  "weekend": false
-                },
-                {
-                  "key": "w10",
-                  "label": "07.06–13.06",
-                  "sum": 100000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w12",
-                  "label": "21.06–27.06",
-                  "sum": 100000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             },
             "raw": {
-              "sum": 2250000,
-              "count": 8,
-              "series": [
-                {
-                  "key": "w06",
-                  "label": "10.05–16.05",
-                  "sum": 500000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w07",
-                  "label": "17.05–23.05",
-                  "sum": 800000,
-                  "count": 3,
-                  "weekend": false
-                },
-                {
-                  "key": "w08",
-                  "label": "24.05–30.05",
-                  "sum": 550000,
-                  "count": 2,
-                  "weekend": false
-                },
-                {
-                  "key": "w10",
-                  "label": "07.06–13.06",
-                  "sum": 200000,
-                  "count": 1,
-                  "weekend": false
-                },
-                {
-                  "key": "w12",
-                  "label": "21.06–27.06",
-                  "sum": 200000,
-                  "count": 1,
-                  "weekend": false
-                }
-              ]
+              "sum": 0,
+              "count": 0,
+              "series": []
             }
           },
           "plan": 0
@@ -8976,7 +7739,7 @@ window.ACTUAL_REPORT_DATA={
               "series": []
             },
             "weighted": {
-              "sum": 25758690,
+              "sum": 10758690,
               "count": 4,
               "series": [
                 {
@@ -8989,7 +7752,7 @@ window.ACTUAL_REPORT_DATA={
                 {
                   "key": "w17",
                   "label": "26.07–01.08",
-                  "sum": 25000000,
+                  "sum": 10000000,
                   "count": 1,
                   "weekend": false
                 },
@@ -10022,10 +8785,18 @@ window.ACTUAL_REPORT_DATA={
         "other": 0
       },
       {
-        "label": "21–23.09",
-        "nql": 24,
-        "ql": 24,
-        "B2C": 20,
+        "label": "21–27.09",
+        "nql": 45,
+        "ql": 51,
+        "B2C": 43,
+        "B2B": 8,
+        "other": 0
+      },
+      {
+        "label": "28–30.09",
+        "nql": 22,
+        "ql": 20,
+        "B2C": 16,
         "B2B": 4,
         "other": 0,
         "partial": true
