@@ -9,7 +9,8 @@ const qlWeekly = [
   ["31.08–06.09", 82, 11, 27, false],
   ["07–13.09", 110, 15, 0, false],
   ["14–20.09", 87, 11, 0, false],
-  ["21–23.09", 20, 4, 0, true],
+  ["21–27.09", 43, 8, 0, false],
+  ["28–30.09", 16, 4, 0, true],
 ] as const;
 
 export default function Home() {
@@ -29,7 +30,7 @@ export default function Home() {
       </header>
       <section className="hero reveal" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">Отдел продаж · обновлено 24 сентября 2026</p>
+          <p className="eyebrow">Отдел продаж · обновлено 1 октября 2026</p>
           <h1>Продажи, pipeline и загрузка площадок.</h1>
           <p className="lead">
             Отчёт обновлён по новым B2C- и B2B-выгрузкам. В каждом ключевом
@@ -48,15 +49,15 @@ export default function Home() {
           <span>План сентября</span>
           <strong>38,03 млн ₽</strong>
           <div className="score-track">
-            <i style={{ width: "20.2%" }} />
+            <i style={{ width: "25.5%" }} />
           </div>
-          <small>Факт 7,68 млн ₽ · 20,2% плана</small>
+          <small>Факт 9,70 млн ₽ · 25,5% плана</small>
         </div>
       </section>
       <PipelineDashboard />
       <section className="section" id="leads">
         <div className="section-heading reveal">
-          <p className="eyebrow">Лиды · 21–23 сентября</p>
+          <p className="eyebrow">Лиды · 28–30 сентября</p>
           <h2>QL лиды по направлениям</h2>
           <p>
             Основной показатель — квалифицированные лиды. NQL показываем
@@ -66,23 +67,23 @@ export default function Home() {
         <div className="capacity-summary reveal">
           <article className="accent">
             <span>QL лиды</span>
-            <strong>24</strong>
-            <small>21–23.09 · 100% от NQL</small>
+            <strong>20</strong>
+            <small>28–30.09 · 90,9% от NQL</small>
           </article>
           <article>
             <span>QL · B2C</span>
-            <strong>20</strong>
-            <small>83,3% квалифицированных лидов</small>
+            <strong>16</strong>
+            <small>80% квалифицированных лидов</small>
           </article>
           <article>
             <span>QL · B2B</span>
             <strong>4</strong>
-            <small>16,7% квалифицированных лидов</small>
+            <small>20% квалифицированных лидов</small>
           </article>
           <article className="reference">
             <span>NQL · справочно</span>
-            <strong>24</strong>
-            <small>8,0 лидов в день</small>
+            <strong>22</strong>
+            <small>7,3 лида в день</small>
           </article>
         </div>
         <div className="chart-heading reveal">
@@ -138,7 +139,7 @@ export default function Home() {
             <i className="legend-dot b2b" />
             B2B
           </span>
-          <span>NQL: 121 · 120 · 135 · 104 · 24 (справочно)</span>
+          <span>NQL: 121 · 120 · 135 · 104 · 45 · 22 (справочно)</span>
         </div>
       </section>
       <ManagerDashboard />
@@ -146,7 +147,7 @@ export default function Home() {
       <footer>
         <div>
           <strong>Парк «Сказка» · отчёт продаж</strong>
-          <span>Bitrix · 24.09.2026 · сметы · 17.09.2026</span>
+          <span>Bitrix · 01.10.2026 · сметы · 24.09.2026</span>
         </div>
         <span>Публичная версия без исходных выгрузок</span>
       </footer>

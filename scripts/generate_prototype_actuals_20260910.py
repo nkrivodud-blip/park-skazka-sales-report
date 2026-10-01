@@ -5,8 +5,8 @@ from pathlib import Path
 import pandas as pd
 
 FILES = {
-    "B2C": Path(r"C:/Users/n.krivodud/Downloads/DEAL_20260924_fb264e51_6ab4ed8a87e61.xls"),
-    "B2B": Path(r"C:/Users/n.krivodud/Downloads/DEAL_20260924_fb264e51_6ab4f73b523de.xls"),
+    "B2C": Path(r"C:/Users/n.krivodud/Downloads/DEAL_20261001_0e1784b6_6abe3c1aab2b9.xls"),
+    "B2B": Path(r"C:/Users/n.krivodud/Downloads/DEAL_20261001_0e1784b6_6abe3c09c4ae1.xls"),
 }
 HISTORY_FILES = {
     "B2B": Path(r"C:/Users/n.krivodud/Downloads/DEAL_20260910_d766d98b_6aa2987aaef5f.xls"),
@@ -96,7 +96,8 @@ output = {"periods": {}, "leads": {"weeks": [
     {"label": "31.08–06.09", "nql": 120, "ql": 120, "B2C": 82, "B2B": 11, "other": 27},
     {"label": "07–13.09", "nql": 135, "ql": 125, "B2C": 110, "B2B": 15, "other": 0},
     {"label": "14–20.09", "nql": 104, "ql": 98, "B2C": 87, "B2B": 11, "other": 0},
-    {"label": "21–23.09", "nql": 24, "ql": 24, "B2C": 20, "B2B": 4, "other": 0, "partial": True},
+    {"label": "21–27.09", "nql": 45, "ql": 51, "B2C": 43, "B2B": 8, "other": 0},
+    {"label": "28–30.09", "nql": 22, "ql": 20, "B2C": 16, "B2B": 4, "other": 0, "partial": True},
 ]}}
 
 for period, (start, end, grain) in PERIODS.items():
